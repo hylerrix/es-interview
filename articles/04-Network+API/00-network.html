@@ -1,0 +1,105 @@
+<!doctype html><html class="" data-reactroot=""><head><link rel="icon" type="image/png" href="/favicon.png"/>
+<meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="收集汇总梳理全网资源，涵盖 JS/TS 前后端的全方位面试题库（含提示性解析），助力找个好工作！"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/>
+<title data-react-helmet="true">网络 · ECMAScript+ 面试宝典</title>
+<link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/><link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/>
+<script data-react-helmet="true" >
+    const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (shouldSetIsDark) {
+      document.documentElement.classList.add('is_dark');
+      document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
+    }
+  </script>
+</head><body><header><h1 class="hide_on_mobile"><a href="/">ECMAScript+ 面试宝典</a></h1><nav><ul><li class="show_on_mobile flex_center"><a class="czs-menu-l" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a></li><li class="show_on_mobile"><h1 class="mobile_title"><a href="/">ECMAScript+ 面试宝典</a></h1></li><li class="hide_on_mobile"><a href="/articles/">文章</a></li><li class="hide_on_mobile"><a href="http://qiniu.ningo.cloud/hylerrix/reward-alipay.png" target="_blank">打赏一下!!</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix/deno-tutorial" target="_blank">Deno 钻研之术</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">持续添加中...</a></li><li class="hide_on_mobile"><a href="https://github.com/ningowood" target="_blank">凝果屋</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">关于</a></li><li style="flex-grow:1"></li><li class="flex_center"><a class="czs-github-logo" href="https://github.com/hylerrix/es-interview" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul></nav></header><aside class="sidebar"><ol><li class=""><a href="/articles/index.html" class="nav_link">Hello</a></li><li class=""><a href="/articles/00-Profession/index.html" class="nav_link">职业 &amp; 成长</a></li><li class="unfold"><a href="/articles/01-Programming/index.html" class="nav_link">编程基础<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/01-Programming/00-language.html" class="nav_link">编程语言</a></li><li class=""><a href="/articles/01-Programming/01-operating-system.html" class="nav_link">操作系统</a></li><li class=""><a href="/articles/01-Programming/02-algorithms.html" class="nav_link">算法</a></li><li class=""><a href="/articles/01-Programming/03-design-patterns.html" class="nav_link">设计模式</a></li><li class=""><a href="/articles/01-Programming/04-software-engineering.html" class="nav_link">工程化</a></li><li class=""><a href="/articles/01-Programming/05-network-security.html" class="nav_link">安全</a></li><li class=""><a href="/articles/01-Programming/06-software-test.html" class="nav_link">测试</a></li></ol></li><li class="unfold"><a href="/articles/02-ECMAScript+/index.html" class="nav_link">ECMAScript+<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/02-ECMAScript+/00-ecmascript.html" class="nav_link">ECMAScript</a></li><li class=""><a href="/articles/02-ECMAScript+/01-javascript.html" class="nav_link">JavaScript 基础知识</a></li><li class=""><a href="/articles/02-ECMAScript+/02-typescript.html" class="nav_link">TypeScript</a></li></ol></li><li class="unfold"><a href="/articles/03-HTML+CSS/index.html" class="nav_link">HTML + CSS<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/03-HTML+CSS/00-html.html" class="nav_link">HTML</a></li><li class=""><a href="/articles/03-HTML+CSS/01-css.html" class="nav_link">CSS</a></li><li class=""><a href="/articles/03-HTML+CSS/02-html-css-practice.html" class="nav_link">HTML + CSS 实战</a></li></ol></li><li class="unfold"><a href="/articles/04-Network+API/index.html" class="nav_link">网络 + 前后端协作<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/04-Network+API/00-network.html" class="nav_link active">网络</a></li><li class=""><a href="/articles/04-Network+API/01-fe-be-api.html" class="nav_link">前后端协作</a></li><li class=""><a href="/articles/04-Network+API/02-login.html" class="nav_link">登录</a></li></ol></li><li class="unfold"><a href="/articles/05-V8+Runtime/index.html" class="nav_link">V8 + JavaScript 运行时<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/05-V8+Runtime/00-v8.html" class="nav_link">V8</a></li><li class=""><a href="/articles/05-V8+Runtime/01-node.html" class="nav_link">Node</a></li><li class=""><a href="/articles/05-V8+Runtime/02-deno.html" class="nav_link">Deno</a></li></ol></li><li class="unfold"><a href="/articles/06-FE+Browser/index.html" class="nav_link">前端应用开发 + 浏览器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/06-FE+Browser/00-browser.html" class="nav_link">浏览器</a></li><li class=""><a href="/articles/06-FE+Browser/01-fe.html" class="nav_link">前端</a></li></ol></li><li class="unfold"><a href="/articles/07-BE+Server/index.html" class="nav_link">后端应用开发 + 服务器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/07-BE+Server/00-linux-nginx-database.html" class="nav_link">Linux + Nginx + 数据库</a></li><li class=""><a href="/articles/07-BE+Server/01-node-framework.html" class="nav_link">Node 框架</a></li></ol></li></ol></aside><section class="main"><div class="main_article"><article><h1>网络</h1>
+<ul>
+<li>输入网站发生了什么？
+<ul>
+<li>TCP/IP 模型？HTTP 请求/响应体，响应码</li>
+<li>GET、POST、预检请求 OPTIONS、...</li>
+</ul>
+</li>
+<li>HTTP 缓存
+<ul>
+<li>强缓存、协商缓存</li>
+</ul>
+</li>
+<li>同源策略/跨域</li>
+<li>HTTP1.0、HTTP1.1 和 HTTP2.0</li>
+<li>HTTP 方法，302、304</li>
+<li>HTTPS</li>
+<li>CDN</li>
+<li>三次握手、四次挥手</li>
+</ul>
+<blockquote>
+<p>TCP 和 UDP</p>
+</blockquote>
+<ul>
+<li>
+<p>TCP</p>
+</li>
+<li>
+<ul>
+<li>面向连接</li>
+<li>每条连接一对一</li>
+<li>提供可靠的交付服务</li>
+<li>全双工通信</li>
+<li>面向字节流</li>
+</ul>
+</li>
+<li>
+<p>UDP</p>
+</li>
+<li>
+<ul>
+<li>无连接</li>
+<li>不保证可靠交付</li>
+<li>面向报文</li>
+<li>无拥塞控制</li>
+<li>支持一对一、一对多、多对一和多对多的交互通信</li>
+<li>首部开销小：只有四个字段，源端口、目的端口、长度、校验和</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>GET 和 POST 区别</p>
+</blockquote>
+<p>GET在浏览器回退时是无害的，而POST会再次提交请求。</p>
+<p>GET产生的URL地址可以被Bookmark，而POST不可以。</p>
+<p>GET请求会被浏览器主动cache，而POST不会，除非手动设置。</p>
+<p>GET请求只能进行url编码，而POST支持多种编码方式。</p>
+<p>GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留。</p>
+<p>GET请求在URL中传送的参数是有长度限制的，而POST么有。</p>
+<p>对参数的数据类型，GET只接受ASCII字符，而POST没有限制。</p>
+<p>GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息。</p>
+<p>GET参数通过URL传递，POST放在Request body中。</p>
+<blockquote>
+<p>HTTPS</p>
+</blockquote>
+<ul>
+<li>
+<p>HTTPS = HTTP + SSL(安全套接字, 传输层)</p>
+</li>
+<li>
+<ul>
+<li>443 端口</li>
+<li>加密：公钥（非对称加密算法）和秘钥（对称加密算法）</li>
+<li>HASH 算法用来确认信息没有被篡改，来生成签名</li>
+<li>数字证书：包含证书发布机构、有效期、公钥、证书所有者、签名使用的算法</li>
+<li>数字签名：只存在于验证阶段</li>
+<li>证书链：证书是分级的，拿到上级证书的公钥才能解密本级证书</li>
+<li>验证流程</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>客户端发 HTTP 请求，连接到服务器的 443 端口</li>
+<li>服务端把自己的信息以数字证书的形式返回给客户端（证书内容有密钥公钥，网站地址，证书颁发机构，失效日期等）。证书中有一个公钥来加密信息，私钥由服务器持有。</li>
+<li>验证证书的合法性：客户端收到服务器的响应后会先验证证书的合法性（证书中包含的地址与正在访问的地址是否一致，证书是否过期）。</li>
+<li>生成随机密码（RSA签名）：如果验证通过，或用户接受了不受信任的证书，浏览器就会生成一个随机的对称密钥（session key）并用公钥加密，让服务端用私钥解密，解密后就用这个对称密钥进行传输了，并且能够说明服务端确实是私钥的持有者。</li>
+<li>互相用这个对称加密算法来加密和解密通信内容</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></article><div class="prev_next"><a class="prev button" href="/articles/04-Network+API/index.html">«  <!-- -->网络 + 前后端协作</a><a class="next button" href="/articles/04-Network+API/01-fe-be-api.html">前后端协作<!-- -->  »</a></div></div></section><footer>Powered by<!-- --> <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><div class="tools flex_center hide_on_mobile"><a class="czs-pen button" href="https://github.com/hylerrix/es-interview/edit/master/articles/04-Network+API/00-network.md" target="_blank" style="background-image:url(&quot;/assets/czs-pen.svg&quot;)"></a><a class="czs-angle-up-l button" href="#" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></a></div><script crossorigin="anonymous" src="https://unpkg.com/react@16.13.1/umd/react.production.min.js"></script><script crossorigin="anonymous" src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>

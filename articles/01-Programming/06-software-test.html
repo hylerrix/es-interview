@@ -1,0 +1,60 @@
+<!doctype html><html class="" data-reactroot=""><head><link rel="icon" type="image/png" href="/favicon.png"/>
+<meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="收集汇总梳理全网资源，涵盖 JS/TS 前后端的全方位面试题库（含提示性解析），助力找个好工作！"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/>
+<title data-react-helmet="true">测试 · ECMAScript+ 面试宝典</title>
+<link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/><link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/>
+<script data-react-helmet="true" >
+    const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (shouldSetIsDark) {
+      document.documentElement.classList.add('is_dark');
+      document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
+    }
+  </script>
+</head><body><header><h1 class="hide_on_mobile"><a href="/">ECMAScript+ 面试宝典</a></h1><nav><ul><li class="show_on_mobile flex_center"><a class="czs-menu-l" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a></li><li class="show_on_mobile"><h1 class="mobile_title"><a href="/">ECMAScript+ 面试宝典</a></h1></li><li class="hide_on_mobile"><a href="/articles/">文章</a></li><li class="hide_on_mobile"><a href="http://qiniu.ningo.cloud/hylerrix/reward-alipay.png" target="_blank">打赏一下!!</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix/deno-tutorial" target="_blank">Deno 钻研之术</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">持续添加中...</a></li><li class="hide_on_mobile"><a href="https://github.com/ningowood" target="_blank">凝果屋</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">关于</a></li><li style="flex-grow:1"></li><li class="flex_center"><a class="czs-github-logo" href="https://github.com/hylerrix/es-interview" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul></nav></header><aside class="sidebar"><ol><li class=""><a href="/articles/index.html" class="nav_link">Hello</a></li><li class=""><a href="/articles/00-Profession/index.html" class="nav_link">职业 &amp; 成长</a></li><li class="unfold"><a href="/articles/01-Programming/index.html" class="nav_link">编程基础<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/01-Programming/00-language.html" class="nav_link">编程语言</a></li><li class=""><a href="/articles/01-Programming/01-operating-system.html" class="nav_link">操作系统</a></li><li class=""><a href="/articles/01-Programming/02-algorithms.html" class="nav_link">算法</a></li><li class=""><a href="/articles/01-Programming/03-design-patterns.html" class="nav_link">设计模式</a></li><li class=""><a href="/articles/01-Programming/04-software-engineering.html" class="nav_link">工程化</a></li><li class=""><a href="/articles/01-Programming/05-network-security.html" class="nav_link">安全</a></li><li class=""><a href="/articles/01-Programming/06-software-test.html" class="nav_link active">测试</a></li></ol></li><li class="unfold"><a href="/articles/02-ECMAScript+/index.html" class="nav_link">ECMAScript+<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/02-ECMAScript+/00-ecmascript.html" class="nav_link">ECMAScript</a></li><li class=""><a href="/articles/02-ECMAScript+/01-javascript.html" class="nav_link">JavaScript 基础知识</a></li><li class=""><a href="/articles/02-ECMAScript+/02-typescript.html" class="nav_link">TypeScript</a></li></ol></li><li class="unfold"><a href="/articles/03-HTML+CSS/index.html" class="nav_link">HTML + CSS<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/03-HTML+CSS/00-html.html" class="nav_link">HTML</a></li><li class=""><a href="/articles/03-HTML+CSS/01-css.html" class="nav_link">CSS</a></li><li class=""><a href="/articles/03-HTML+CSS/02-html-css-practice.html" class="nav_link">HTML + CSS 实战</a></li></ol></li><li class="unfold"><a href="/articles/04-Network+API/index.html" class="nav_link">网络 + 前后端协作<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/04-Network+API/00-network.html" class="nav_link">网络</a></li><li class=""><a href="/articles/04-Network+API/01-fe-be-api.html" class="nav_link">前后端协作</a></li><li class=""><a href="/articles/04-Network+API/02-login.html" class="nav_link">登录</a></li></ol></li><li class="unfold"><a href="/articles/05-V8+Runtime/index.html" class="nav_link">V8 + JavaScript 运行时<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/05-V8+Runtime/00-v8.html" class="nav_link">V8</a></li><li class=""><a href="/articles/05-V8+Runtime/01-node.html" class="nav_link">Node</a></li><li class=""><a href="/articles/05-V8+Runtime/02-deno.html" class="nav_link">Deno</a></li></ol></li><li class="unfold"><a href="/articles/06-FE+Browser/index.html" class="nav_link">前端应用开发 + 浏览器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/06-FE+Browser/00-browser.html" class="nav_link">浏览器</a></li><li class=""><a href="/articles/06-FE+Browser/01-fe.html" class="nav_link">前端</a></li></ol></li><li class="unfold"><a href="/articles/07-BE+Server/index.html" class="nav_link">后端应用开发 + 服务器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/07-BE+Server/00-linux-nginx-database.html" class="nav_link">Linux + Nginx + 数据库</a></li><li class=""><a href="/articles/07-BE+Server/01-node-framework.html" class="nav_link">Node 框架</a></li></ol></li></ol></aside><section class="main"><div class="main_article"><article><h1>测试</h1>
+<h2 id="app-%E6%B5%8B%E8%AF%95%E5%92%8C-web-%E6%B5%8B%E8%AF%95">App 测试和 Web 测试<a class="anchor" href="#app-%E6%B5%8B%E8%AF%95%E5%92%8C-web-%E6%B5%8B%E8%AF%95">§</a></h2>
+<ul>
+<li>
+<p>Web</p>
+</li>
+<li>
+<ul>
+<li>B/S 架构，根据不同浏览器内核测试</li>
+<li>客户端同步更新</li>
+<li>性能：响应时间为主</li>
+<li>交互：鼠标、键盘</li>
+<li>测试：常规 Web 测试</li>
+</ul>
+</li>
+<li>
+<p>App</p>
+</li>
+<li>
+<ul>
+<li>C/S 架构，根据各种终端设备测试</li>
+<li>客户端需要主动升级，因此需要对新功能各个版本上回归测试</li>
+<li>性能：需要关心流量、电量、CPU、GPU、内存</li>
+<li>交互：各种分辨率、屏幕尺寸；触摸屏</li>
+<li>测试：Web 测试、弱网络测试、中断、来电、短信、关机、重启</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E5%92%8C%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95">黑盒测试和白盒测试<a class="anchor" href="#%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E5%92%8C%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95">§</a></h2>
+<ul>
+<li>白盒测试：基于代码结构。语句覆盖、判定覆盖、条件覆盖、判定/条件覆盖、条件组合覆盖和路径覆盖</li>
+<li>黑河测试：基于用户需求。等价类划分方法、边界值分析方法、错误推测方法、因果图方法、判定表驱动分析方法、正交实验法、场景法。依据是用户需求规格说明书，详细设计说明书</li>
+</ul>
+<h2 id="%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B">软件测试流程<a class="anchor" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B">§</a></h2>
+<ul>
+<li>测试需求分析阶段</li>
+<li>测试计划阶段：编写测试计划，参考软件需求规格说明书等</li>
+<li>测试设计阶段：编写测试用例等</li>
+<li>测试执行阶段：冒烟测试、正式测试、BUG管理</li>
+<li>测试评估阶段：测试报告</li>
+<li>测试流程：了解用户需求--&gt;参考需求规格说明书--&gt;测试计划（人力物力时间进度的安排）--&gt;编写测试用例--&gt;评审用例--&gt;搭建环境--&gt;测试包安排预测（冒烟测试）-正式测试-bug-测试结束出报告--&gt;版本上线--&gt;面向用户</li>
+</ul>
+<h2 id="%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95">单元测试、集成测试、系统测试<a class="anchor" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95">§</a></h2>
+<ul>
+<li>粒度不同：单元测试粒度最小，集成测试粒度居中，系统测试粒度最大。</li>
+<li>测试方式不同：单元测试一般由开发小组采用白盒方式来测试，集成测试一般由开发小组采用白盒加黑盒的方式来测试，系统测试一般由独立测试小组采用黑盒方式来测试。</li>
+<li>测试内容不同：单元测试主要测试单元是否符合“设计”，集成测试既验证“设计”，又验证“需求”，系统测试主要测试系统是否符合“需求规格说明书”。</li>
+<li>使用阶段不同：单元测试为开发人员在开发阶段要做的事情，集成测试和系统测试为测试人员在测试周期内级层做的工作。</li>
+</ul></article><div class="prev_next"><a class="prev button" href="/articles/01-Programming/05-network-security.html">«  <!-- -->安全</a><a class="next button" href="/articles/02-ECMAScript+/index.html">ECMAScript+<!-- -->  »</a></div></div><div class="main_toc_container nav_link_container"><div class="main_toc"><aside><nav class="toc"><ol><li><a href="#app-%E6%B5%8B%E8%AF%95%E5%92%8C-web-%E6%B5%8B%E8%AF%95">App 测试和 Web 测试</a></li><li><a href="#%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E5%92%8C%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95">黑盒测试和白盒测试</a></li><li><a href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B">软件测试流程</a></li><li><a href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95">单元测试、集成测试、系统测试</a></li></ol></nav></aside></div></div></section><footer>Powered by<!-- --> <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><div class="tools flex_center hide_on_mobile"><a class="czs-pen button" href="https://github.com/hylerrix/es-interview/edit/master/articles/01-Programming/06-software-test.md" target="_blank" style="background-image:url(&quot;/assets/czs-pen.svg&quot;)"></a><a class="czs-angle-up-l button" href="#" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></a></div><script crossorigin="anonymous" src="https://unpkg.com/react@16.13.1/umd/react.production.min.js"></script><script crossorigin="anonymous" src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>

@@ -1,0 +1,253 @@
+<!doctype html><html class="" data-reactroot=""><head><link rel="icon" type="image/png" href="/favicon.png"/>
+<meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="收集汇总梳理全网资源，涵盖 JS/TS 前后端的全方位面试题库（含提示性解析），助力找个好工作！"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/>
+<title data-react-helmet="true">JavaScript 基础知识 · ECMAScript+ 面试宝典</title>
+<link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/><link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/>
+<script data-react-helmet="true" >
+    const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (shouldSetIsDark) {
+      document.documentElement.classList.add('is_dark');
+      document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
+    }
+  </script>
+</head><body><header><h1 class="hide_on_mobile"><a href="/">ECMAScript+ 面试宝典</a></h1><nav><ul><li class="show_on_mobile flex_center"><a class="czs-menu-l" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a></li><li class="show_on_mobile"><h1 class="mobile_title"><a href="/">ECMAScript+ 面试宝典</a></h1></li><li class="hide_on_mobile"><a href="/articles/">文章</a></li><li class="hide_on_mobile"><a href="http://qiniu.ningo.cloud/hylerrix/reward-alipay.png" target="_blank">打赏一下!!</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix/deno-tutorial" target="_blank">Deno 钻研之术</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">持续添加中...</a></li><li class="hide_on_mobile"><a href="https://github.com/ningowood" target="_blank">凝果屋</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">关于</a></li><li style="flex-grow:1"></li><li class="flex_center"><a class="czs-github-logo" href="https://github.com/hylerrix/es-interview" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul></nav></header><aside class="sidebar"><ol><li class=""><a href="/articles/index.html" class="nav_link">Hello</a></li><li class=""><a href="/articles/00-Profession/index.html" class="nav_link">职业 &amp; 成长</a></li><li class="unfold"><a href="/articles/01-Programming/index.html" class="nav_link">编程基础<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/01-Programming/00-language.html" class="nav_link">编程语言</a></li><li class=""><a href="/articles/01-Programming/01-operating-system.html" class="nav_link">操作系统</a></li><li class=""><a href="/articles/01-Programming/02-algorithms.html" class="nav_link">算法</a></li><li class=""><a href="/articles/01-Programming/03-design-patterns.html" class="nav_link">设计模式</a></li><li class=""><a href="/articles/01-Programming/04-software-engineering.html" class="nav_link">工程化</a></li><li class=""><a href="/articles/01-Programming/05-network-security.html" class="nav_link">安全</a></li><li class=""><a href="/articles/01-Programming/06-software-test.html" class="nav_link">测试</a></li></ol></li><li class="unfold"><a href="/articles/02-ECMAScript+/index.html" class="nav_link">ECMAScript+<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/02-ECMAScript+/00-ecmascript.html" class="nav_link">ECMAScript</a></li><li class=""><a href="/articles/02-ECMAScript+/01-javascript.html" class="nav_link active">JavaScript 基础知识</a></li><li class=""><a href="/articles/02-ECMAScript+/02-typescript.html" class="nav_link">TypeScript</a></li></ol></li><li class="unfold"><a href="/articles/03-HTML+CSS/index.html" class="nav_link">HTML + CSS<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/03-HTML+CSS/00-html.html" class="nav_link">HTML</a></li><li class=""><a href="/articles/03-HTML+CSS/01-css.html" class="nav_link">CSS</a></li><li class=""><a href="/articles/03-HTML+CSS/02-html-css-practice.html" class="nav_link">HTML + CSS 实战</a></li></ol></li><li class="unfold"><a href="/articles/04-Network+API/index.html" class="nav_link">网络 + 前后端协作<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/04-Network+API/00-network.html" class="nav_link">网络</a></li><li class=""><a href="/articles/04-Network+API/01-fe-be-api.html" class="nav_link">前后端协作</a></li><li class=""><a href="/articles/04-Network+API/02-login.html" class="nav_link">登录</a></li></ol></li><li class="unfold"><a href="/articles/05-V8+Runtime/index.html" class="nav_link">V8 + JavaScript 运行时<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/05-V8+Runtime/00-v8.html" class="nav_link">V8</a></li><li class=""><a href="/articles/05-V8+Runtime/01-node.html" class="nav_link">Node</a></li><li class=""><a href="/articles/05-V8+Runtime/02-deno.html" class="nav_link">Deno</a></li></ol></li><li class="unfold"><a href="/articles/06-FE+Browser/index.html" class="nav_link">前端应用开发 + 浏览器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/06-FE+Browser/00-browser.html" class="nav_link">浏览器</a></li><li class=""><a href="/articles/06-FE+Browser/01-fe.html" class="nav_link">前端</a></li></ol></li><li class="unfold"><a href="/articles/07-BE+Server/index.html" class="nav_link">后端应用开发 + 服务器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/07-BE+Server/00-linux-nginx-database.html" class="nav_link">Linux + Nginx + 数据库</a></li><li class=""><a href="/articles/07-BE+Server/01-node-framework.html" class="nav_link">Node 框架</a></li></ol></li></ol></aside><section class="main"><div class="main_article"><article><h1>JavaScript 基础知识</h1>
+<h2 id="dom-%E5%92%8C-bom-%E6%98%AF%E4%BB%80%E4%B9%88">DOM 和 BOM 是什么？<a class="anchor" href="#dom-%E5%92%8C-bom-%E6%98%AF%E4%BB%80%E4%B9%88">§</a></h2>
+<ul>
+<li><strong>BOM 浏览器对象模型</strong>：根节点是 <code>window</code>。
+<ul>
+<li>navigator 对象：<code>appCodeName; appName; appVersion; cookieEnabled; platform; userAgent;</code>。</li>
+<li>screen 对象：<code>availHeight; availWidth; height; width; colorDepth;</code>。</li>
+<li>history 对象：<code>back; forward; go;</code>。</li>
+<li>location 对象：
+<ul>
+<li>属性：<code>hash; host; hostName; href; pathname; port; portocol; </code>。</li>
+<li>方法：<code>assign; reload; replace</code>。</li>
+</ul>
+</li>
+<li>document 对象：
+<ul>
+<li>集合：<code>anchors; images; links; forms;</code>。</li>
+<li>属性：<code>cookie; domain; referrer; title; URL;</code>。</li>
+<li>方法：<code>open; close; write; writeIn;</code>。</li>
+</ul>
+</li>
+<li>窗口控制：<code>moveBy; moveTo; resizeBy; resizeTo; scrollBy; scrollTo;</code>。</li>
+<li>焦点控制：<code>focus; blur;</code>。</li>
+<li>打开关闭窗口：<code>open; close;</code></li>
+<li>定时器：<code>setTimeout; clearTimeout; setInterval; clearInterval</code>。</li>
+<li>对话框：<code>alert; confirm; prompt;</code>。</li>
+<li>属性：
+<ul>
+<li>状态栏：<code>defaultStatus; status</code>。</li>
+<li>窗口位置 - IE：<code>screenLeft; screenTop;</code>。</li>
+<li>窗口位置 - !IE：<code>screenX; screenY; pageXOffset; pageYOffset;</code>。</li>
+<li>窗口位置 - FF：<code>innerHeight; innerWidth; outerHeight; outerWidth;</code>。</li>
+<li>其它：<code>opener; close; name; self;</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>DOM 文档对象模型</strong>：W3C 标准。根节点是 <code>window.document</code>。
+<ul>
+<li>获取节点：
+<ul>
+<li>document：<code>getElementById; getElementsByName; getElementsByTagName; </code>。</li>
+<li>节点指针：<code>firstChild; lastChild; childNodes; previousSibling; nextSibling; parentNode;</code>。</li>
+</ul>
+</li>
+<li>节点操作：
+<ul>
+<li>创建节点：<code>createElement; createAttribute; createTextNode;</code>。</li>
+<li>插入节点：<code>appendChild; insertBefore;</code>。</li>
+<li>替换节点：<code>replaceChild;</code>。</li>
+<li>复制节点：<code>cloneNode;</code>。</li>
+<li>删除节点：<code>removeChild;</code>。</li>
+</ul>
+</li>
+<li>属性操作（获取/设置/删除）：<code>getAttribute; setAttribute; removeAttribute</code>。</li>
+<li>文本操作：<code>insertData; appendData, deleteData, replaceData; spliceData; substring;</code>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="new-%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E7%8E%B0">new 的原理与实现？<a class="anchor" href="#new-%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E7%8E%B0">§</a></h2>
+<ul>
+<li>创建一个新的空对象</li>
+<li>将构造函数的作用域赋给新对象（因此 this 就指向了这个新对象）</li>
+<li>执行构造函数中的代码（为这个新对象添加属性）</li>
+<li>如果这个函数有返回值，则返回；否则，就会默认返回新对象。</li>
+</ul>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Person</span></span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> age<span class="token punctuation">,</span> job</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">name</span> <span class="token operator">=</span> name<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">age</span> <span class="token operator">=</span> age<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">job</span> <span class="token operator">=</span> job<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">sayName</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">name</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">myNew</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 创建一个空对象</span>
+  <span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token comment">// 获取构造函数</span>
+  <span class="token keyword">let</span> <span class="token maybe-class-name">Con</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">shift</span><span class="token punctuation">.</span><span class="token method function property-access">call</span><span class="token punctuation">(</span>arguments<span class="token punctuation">)</span>
+  <span class="token comment">// 设置空对象的原型</span>
+  obj<span class="token punctuation">.</span><span class="token property-access">__proto__</span> <span class="token operator">=</span> <span class="token class-name">Con</span><span class="token punctuation">.</span><span class="token property-access">prototype</span>
+  <span class="token comment">// 绑定this</span>
+  <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token maybe-class-name">Con</span><span class="token punctuation">.</span><span class="token method function property-access">apply</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> arguments<span class="token punctuation">)</span>
+  <span class="token comment">// 返回新对象</span>
+  <span class="token keyword control-flow">return</span> res <span class="token keyword">instanceof</span> <span class="token class-name">Object</span> <span class="token operator">?</span> res <span class="token operator">:</span> obj
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> person <span class="token operator">=</span> <span class="token function">myNew</span><span class="token punctuation">(</span><span class="token maybe-class-name">Person</span><span class="token punctuation">,</span> <span class="token string">'Nicholas'</span><span class="token punctuation">,</span> <span class="token number">29</span><span class="token punctuation">,</span> <span class="token string">'Front-end developer'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// var person = new Person('Nicholas', 29, 'Front-end developer'); </span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token property-access">name</span><span class="token punctuation">)</span> <span class="token comment">// Nicholas</span>
+person<span class="token punctuation">.</span><span class="token method function property-access">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// Nicholas</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token property-access">__proto__</span> <span class="token operator">===</span> <span class="token class-name">Person</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// true</span>
+</code></pre>
+<h2 id="callapplybind-%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E7%8E%B0">call()、apply()、bind() 的原理与实现？<a class="anchor" href="#callapplybind-%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E7%8E%B0">§</a></h2>
+<ul>
+<li>call：传入多个参数，第一个参数是 this 的指向，之后的参数都是函数的参数</li>
+<li>apply：传入两个参数，第一个参数是 this 的指向，第二个参数是函数参数组成的数组</li>
+<li>bind：创建一个新的函数，在 bind() 被调用时，这个新函数的 this 被 bind 的第一个参数指定，其余的参数将作为新函数的参数供调用时使用。</li>
+<li>场景用途：
+<ul>
+<li>在 ES6 解构赋值之前，可以用 apply 给函数传入参数数组。</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E9%97%AD%E5%8C%85%E5%92%8C-iife-%E7%9A%84%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%AE%9E%E6%88%98">闭包和 IIFE 的概念与实战？<a class="anchor" href="#%E9%97%AD%E5%8C%85%E5%92%8C-iife-%E7%9A%84%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%AE%9E%E6%88%98">§</a></h2>
+<ul>
+<li>
+<p>IIFE 可以达到不暴露私有成员的目的</p>
+</li>
+<li>
+<p>DOM 冒泡机制</p>
+</li>
+</ul>
+<ul>
+<li>this 指针</li>
+<li>闭包、原型链</li>
+<li>let、const、var 区别及变量提升</li>
+<li>隐式类型转换、事件代理</li>
+<li>setTimeout、setInterval 与 requestAnimationFrame</li>
+<li>作用域链与执行上下文</li>
+<li>异步原理及其发展史</li>
+<li>typeof、instanceof</li>
+</ul>
+<blockquote>
+<p>宏任务、微任务</p>
+</blockquote>
+<p>• 宏任务
+• 分类：setTimeout、setInterval、requestAnimationFrame、DOM 事件回调、Ajax 回调
+• 宏任务队列：第一个宏任务队列中，只有一个任务：执行主线程 js 代码；可以有多个宏任务队列；每次准备取出第一个宏任务执行前，都要将所有的微任务一个一个取出来执行
+• 微任务
+• 分类new Promise().then(这个回调)、process.nextTick、mutation 回调
+• 微任务队列：只有一个微任务队列；在上一个宏任务队列执行完成后如果有微任务队列就会执行微任务队列所有任务</p>
+<blockquote>
+<p>闭包</p>
+</blockquote>
+<p>• 密闭的容器，主要存储数据
+• 闭包是一个对象，存放数据的格式：key：value
+• 形成条件：
+• 函数嵌套
+• 内部函数引用外部函数的局部变量
+• 出现和销毁？
+• 优点：延长外部函数局部变量的生命周期
+• 缺点：容易造成内存泄漏
+• 注意：合理使用，用完销毁</p>
+<blockquote>
+<p>错误处理</p>
+</blockquote>
+<p>常见的内置错误的类型：</p>
+<ul>
+<li>Error：所有错误的父类型</li>
+<li>Reference：引用的变量不存在</li>
+<li>TypeError：数据类型不正确</li>
+<li>RangeError：数据值不在其所允许的范围内</li>
+<li>SyntaxError：语法错误</li>
+<li>......</li>
+</ul>
+<p>错误处理：</p>
+<ul>
+<li>try catch</li>
+<li>throw error</li>
+</ul>
+<p>错误对象</p>
+<ul>
+<li>message 属性：错误相关信息</li>
+<li>stack 属性：函数调用栈记录信息</li>
+</ul>
+<h2 id="%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B">基础类型<a class="anchor" href="#%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B">§</a></h2>
+<ul>
+<li>
+<p>Array 静态方法：<code>Array.from(); Array.isArray(); Array.of();</code>。</p>
+</li>
+<li>
+<p>Array 原型方法：</p>
+<ul>
+<li><code>.concat(); .copyWithin(); .entries(); .every();</code>。</li>
+<li><code>.fill(); .filter(); .find(); .findIndex(); .flat(); .flatMap(); .forEach();</code>。</li>
+<li><code>.includes(); .indexOf(); .join(); .keys(); .lastIndexOf(); .map(); .pop(); .push(); </code>。</li>
+<li><code>.reduce(); .reduceRight(); .reverse(); .shift(); .slice(); .some(); .sort(); .splice(); </code>。</li>
+<li><code>.toLocaleString(); .toSource(); .toString(); .unshift(); .values();</code>。</li>
+<li><code>Array.prototype[@@iterator](); get Array[@@species]</code>。</li>
+</ul>
+</li>
+<li>
+<p>Array 常见考题：</p>
+<ul>
+<li>数组拷贝。</li>
+<li>数组展开。</li>
+<li>用 reduce 实现 map 的功能</li>
+<li>类数组转化成数组的方法</li>
+<li>实现数组 flatten</li>
+</ul>
+</li>
+<li>
+<p>Object 常见考题：</p>
+<ul>
+<li>深拷贝、浅拷贝</li>
+<li>如何判断一个对象是不是空对象？</li>
+</ul>
+</li>
+<li>
+<p>apply、bind、call</p>
+</li>
+<li>
+<p>Number &amp; BigInt 常见考题：</p>
+<ul>
+<li>大数操作</li>
+<li>0.1+0.2 == 0.3？原因？</li>
+</ul>
+</li>
+<li>
+<p>链式调用：add(2, 5)，add(2)(5)，add(1)(1)(5) 的结果都为 7</p>
+</li>
+</ul>
+<h2 id="%E7%89%B9%E6%AE%8A%E5%85%B3%E9%94%AE%E5%AD%97">特殊关键字<a class="anchor" href="#%E7%89%B9%E6%AE%8A%E5%85%B3%E9%94%AE%E5%AD%97">§</a></h2>
+<ul>
+<li>NaN == NaN，null == undefined</li>
+<li>arguments 的使用</li>
+<li>实现 stringify 序列化函数</li>
+</ul>
+<h2 id="%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1--%E5%87%BD%E6%95%B0%E5%BC%8F">面向对象 &amp; 函数式<a class="anchor" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1--%E5%87%BD%E6%95%B0%E5%BC%8F">§</a></h2>
+<ul>
+<li>JavaScript 继承方式的实现方案？</li>
+<li>实现柯里化</li>
+<li>function a () {} 和 var a = function () {} 区别、变量提升</li>
+</ul>
+<h2 id="%E5%BA%94%E7%94%A8%E7%B1%BB">应用类<a class="anchor" href="#%E5%BA%94%E7%94%A8%E7%B1%BB">§</a></h2>
+<ul>
+<li>
+<p>防抖、节流函数</p>
+</li>
+<li>
+<p>setTimeout、promise 的使用</p>
+</li>
+<li>
+<p>function request(urls, maxNumber, callback) 要求编写函数实现，根据urls数组内的url地址进行并发网络请求，最大并发数maxNumber,当所有请求完毕后调用callback函数(已知请求网络的方法可以使用fetch api)</p>
+</li>
+<li>
+<p>getUrlParams(url,key)</p>
+</li>
+</ul></article><div class="prev_next"><a class="prev button" href="/articles/02-ECMAScript+/00-ecmascript.html">«  <!-- -->ECMAScript</a><a class="next button" href="/articles/02-ECMAScript+/02-typescript.html">TypeScript<!-- -->  »</a></div></div><div class="main_toc_container nav_link_container"><div class="main_toc"><aside><nav class="toc"><ol><li><a href="#dom-%E5%92%8C-bom-%E6%98%AF%E4%BB%80%E4%B9%88">DOM 和 BOM 是什么？</a></li><li><a href="#new-%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E7%8E%B0">new 的原理与实现？</a></li><li><a href="#callapplybind-%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E7%8E%B0">call()、apply()、bind() 的原理与实现？</a></li><li><a href="#%E9%97%AD%E5%8C%85%E5%92%8C-iife-%E7%9A%84%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%AE%9E%E6%88%98">闭包和 IIFE 的概念与实战？</a></li><li><a href="#%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B">基础类型</a></li><li><a href="#%E7%89%B9%E6%AE%8A%E5%85%B3%E9%94%AE%E5%AD%97">特殊关键字</a></li><li><a href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1--%E5%87%BD%E6%95%B0%E5%BC%8F">面向对象 &amp; 函数式</a></li><li><a href="#%E5%BA%94%E7%94%A8%E7%B1%BB">应用类</a></li></ol></nav></aside></div></div></section><footer>Powered by<!-- --> <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><div class="tools flex_center hide_on_mobile"><a class="czs-pen button" href="https://github.com/hylerrix/es-interview/edit/master/articles/02-ECMAScript+/01-javascript.md" target="_blank" style="background-image:url(&quot;/assets/czs-pen.svg&quot;)"></a><a class="czs-angle-up-l button" href="#" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></a></div><script crossorigin="anonymous" src="https://unpkg.com/react@16.13.1/umd/react.production.min.js"></script><script crossorigin="anonymous" src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>

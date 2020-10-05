@@ -1,0 +1,222 @@
+<!doctype html><html class="" data-reactroot=""><head><link rel="icon" type="image/png" href="/favicon.png"/>
+<meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="收集汇总梳理全网资源，涵盖 JS/TS 前后端的全方位面试题库（含提示性解析），助力找个好工作！"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/>
+<title data-react-helmet="true">Node · ECMAScript+ 面试宝典</title>
+<link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/><link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/>
+<script data-react-helmet="true" >
+    const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (shouldSetIsDark) {
+      document.documentElement.classList.add('is_dark');
+      document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
+    }
+  </script>
+</head><body><header><h1 class="hide_on_mobile"><a href="/">ECMAScript+ 面试宝典</a></h1><nav><ul><li class="show_on_mobile flex_center"><a class="czs-menu-l" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a></li><li class="show_on_mobile"><h1 class="mobile_title"><a href="/">ECMAScript+ 面试宝典</a></h1></li><li class="hide_on_mobile"><a href="/articles/">文章</a></li><li class="hide_on_mobile"><a href="http://qiniu.ningo.cloud/hylerrix/reward-alipay.png" target="_blank">打赏一下!!</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix/deno-tutorial" target="_blank">Deno 钻研之术</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">持续添加中...</a></li><li class="hide_on_mobile"><a href="https://github.com/ningowood" target="_blank">凝果屋</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">关于</a></li><li style="flex-grow:1"></li><li class="flex_center"><a class="czs-github-logo" href="https://github.com/hylerrix/es-interview" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul></nav></header><aside class="sidebar"><ol><li class=""><a href="/articles/index.html" class="nav_link">Hello</a></li><li class=""><a href="/articles/00-Profession/index.html" class="nav_link">职业 &amp; 成长</a></li><li class="unfold"><a href="/articles/01-Programming/index.html" class="nav_link">编程基础<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/01-Programming/00-language.html" class="nav_link">编程语言</a></li><li class=""><a href="/articles/01-Programming/01-operating-system.html" class="nav_link">操作系统</a></li><li class=""><a href="/articles/01-Programming/02-algorithms.html" class="nav_link">算法</a></li><li class=""><a href="/articles/01-Programming/03-design-patterns.html" class="nav_link">设计模式</a></li><li class=""><a href="/articles/01-Programming/04-software-engineering.html" class="nav_link">工程化</a></li><li class=""><a href="/articles/01-Programming/05-network-security.html" class="nav_link">安全</a></li><li class=""><a href="/articles/01-Programming/06-software-test.html" class="nav_link">测试</a></li></ol></li><li class="unfold"><a href="/articles/02-ECMAScript+/index.html" class="nav_link">ECMAScript+<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/02-ECMAScript+/00-ecmascript.html" class="nav_link">ECMAScript</a></li><li class=""><a href="/articles/02-ECMAScript+/01-javascript.html" class="nav_link">JavaScript 基础知识</a></li><li class=""><a href="/articles/02-ECMAScript+/02-typescript.html" class="nav_link">TypeScript</a></li></ol></li><li class="unfold"><a href="/articles/03-HTML+CSS/index.html" class="nav_link">HTML + CSS<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/03-HTML+CSS/00-html.html" class="nav_link">HTML</a></li><li class=""><a href="/articles/03-HTML+CSS/01-css.html" class="nav_link">CSS</a></li><li class=""><a href="/articles/03-HTML+CSS/02-html-css-practice.html" class="nav_link">HTML + CSS 实战</a></li></ol></li><li class="unfold"><a href="/articles/04-Network+API/index.html" class="nav_link">网络 + 前后端协作<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/04-Network+API/00-network.html" class="nav_link">网络</a></li><li class=""><a href="/articles/04-Network+API/01-fe-be-api.html" class="nav_link">前后端协作</a></li><li class=""><a href="/articles/04-Network+API/02-login.html" class="nav_link">登录</a></li></ol></li><li class="unfold"><a href="/articles/05-V8+Runtime/index.html" class="nav_link">V8 + JavaScript 运行时<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/05-V8+Runtime/00-v8.html" class="nav_link">V8</a></li><li class=""><a href="/articles/05-V8+Runtime/01-node.html" class="nav_link active">Node</a></li><li class=""><a href="/articles/05-V8+Runtime/02-deno.html" class="nav_link">Deno</a></li></ol></li><li class="unfold"><a href="/articles/06-FE+Browser/index.html" class="nav_link">前端应用开发 + 浏览器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/06-FE+Browser/00-browser.html" class="nav_link">浏览器</a></li><li class=""><a href="/articles/06-FE+Browser/01-fe.html" class="nav_link">前端</a></li></ol></li><li class="unfold"><a href="/articles/07-BE+Server/index.html" class="nav_link">后端应用开发 + 服务器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/07-BE+Server/00-linux-nginx-database.html" class="nav_link">Linux + Nginx + 数据库</a></li><li class=""><a href="/articles/07-BE+Server/01-node-framework.html" class="nav_link">Node 框架</a></li></ol></li></ol></aside><section class="main"><div class="main_article"><article><h1>Node</h1>
+<ul>
+<li>nodejs I/O 模型、事件模型、高并发
+<ul>
+<li>Node 的 nexttick 以及事件循环每个 stage 做了啥。比如 poll 阶段， timer阶段， check阶段之间的差异</li>
+<li>轮询机制，六个阶段、libuv、process.nextTick</li>
+</ul>
+</li>
+<li>express 中间件</li>
+<li>child_process 模块，父子进程的通信机制</li>
+<li>写一个 http server，并且处理 POST 请求</li>
+<li>mongoose</li>
+<li>何判断一个IP是不是国内IP？</li>
+</ul>
+<h2 id="node-%E7%9A%84%E5%BC%82%E6%AD%A5%E6%80%A7%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9">Node 的异步性有什么特点？<a class="anchor" href="#node-%E7%9A%84%E5%BC%82%E6%AD%A5%E6%80%A7%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9">§</a></h2>
+<h2 id="node-%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B">Node 的事件模型<a class="anchor" href="#node-%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B">§</a></h2>
+<h2 id="node-%E6%A8%A1%E5%9D%97%E5%8C%96">Node 模块化<a class="anchor" href="#node-%E6%A8%A1%E5%9D%97%E5%8C%96">§</a></h2>
+<ul>
+<li>Node 中每个 js 文件模块会包含在隐藏的函数中运行
+<ul>
+<li>function (exports, require, module, __filename, __dirname) {}</li>
+<li>其中，module 代表模块本身，module.exports 可以统一导出</li>
+<li>exports 是形参，指向 module.exports 的值，但是不能统一导出</li>
+</ul>
+</li>
+</ul>
+<h2 id="eventemmiter-%E5%8E%9F%E7%90%86%E5%8F%8A%E5%8A%A8%E6%89%8B%E5%AE%9E%E8%B7%B5">EventEmmiter 原理及动手实践？<a class="anchor" href="#eventemmiter-%E5%8E%9F%E7%90%86%E5%8F%8A%E5%8A%A8%E6%89%8B%E5%AE%9E%E8%B7%B5">§</a></h2>
+<pre class="language-javascript"><code class="language-javascript"><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> root <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> self <span class="token operator">==</span> <span class="token string">'object'</span> <span class="token operator">&amp;&amp;</span> self<span class="token punctuation">.</span><span class="token property-access">self</span> <span class="token operator">==</span> self <span class="token operator">&amp;&amp;</span> self<span class="token punctuation">)</span> <span class="token operator">||</span>
+        <span class="token punctuation">(</span><span class="token keyword">typeof</span> global <span class="token operator">==</span> <span class="token string">'object'</span> <span class="token operator">&amp;&amp;</span> global<span class="token punctuation">.</span><span class="token property-access">global</span> <span class="token operator">==</span> global <span class="token operator">&amp;&amp;</span> global<span class="token punctuation">)</span> <span class="token operator">||</span>
+        <span class="token keyword">this</span> <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">isValidListener</span><span class="token punctuation">(</span><span class="token parameter">listener</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> listener <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow">return</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>listener <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> listener <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow">return</span> <span class="token function">isValidListener</span><span class="token punctuation">(</span>listener<span class="token punctuation">.</span><span class="token property-access">listener</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow">return</span> <span class="token boolean">false</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token parameter">array<span class="token punctuation">,</span> item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
+        item <span class="token operator">=</span> <span class="token keyword">typeof</span> item <span class="token operator">===</span> <span class="token string">'object'</span>
+            <span class="token operator">?</span> item<span class="token punctuation">.</span><span class="token property-access">listener</span>
+            <span class="token operator">:</span> item
+
+        <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len <span class="token operator">=</span> array<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">listener</span> <span class="token operator">===</span> item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                result <span class="token operator">=</span> i
+                <span class="token keyword control-flow">break</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword control-flow">return</span> result
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">EventEmitter</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">__events</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token maybe-class-name">EventEmitter</span><span class="token punctuation">.</span><span class="token constant">VERSION</span> <span class="token operator">=</span> <span class="token string">'1.0.0'</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">var</span> proto <span class="token operator">=</span> <span class="token class-name">EventEmitter</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">;</span>
+
+    <span class="token doc-comment comment">/**
+     * 添加事件
+     * <span class="token keyword">@param</span>  <span class="token class-name"><span class="token punctuation">{</span>String<span class="token punctuation">}</span></span> <span class="token parameter">eventName</span> 事件名称
+     * <span class="token keyword">@param</span>  <span class="token class-name"><span class="token punctuation">{</span>Function<span class="token punctuation">}</span></span> <span class="token parameter">listener</span> 监听器函数
+     * <span class="token keyword">@return</span> <span class="token class-name"><span class="token punctuation">{</span>Object<span class="token punctuation">}</span></span> 可链式调用
+     */</span>
+    proto<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">on</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">eventName<span class="token punctuation">,</span> listener</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>eventName <span class="token operator">||</span> <span class="token operator">!</span>listener<span class="token punctuation">)</span> <span class="token keyword control-flow">return</span><span class="token punctuation">;</span>
+
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isValidListener</span><span class="token punctuation">(</span>listener<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">'listener must be a function'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">var</span> events <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">__events</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> listeners <span class="token operator">=</span> events<span class="token punctuation">[</span>eventName<span class="token punctuation">]</span> <span class="token operator">=</span> events<span class="token punctuation">[</span>eventName<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> listenerIsWrapped <span class="token operator">=</span> <span class="token keyword">typeof</span> listener <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 不重复添加事件</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token function">indexOf</span><span class="token punctuation">(</span>listeners<span class="token punctuation">,</span> listener<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            listeners<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>listenerIsWrapped <span class="token operator">?</span> listener <span class="token operator">:</span> <span class="token punctuation">{</span>
+                listener<span class="token operator">:</span> listener<span class="token punctuation">,</span>
+                once<span class="token operator">:</span> <span class="token boolean">false</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token doc-comment comment">/**
+     * 添加事件，该事件只能被执行一次
+     * <span class="token keyword">@param</span>  <span class="token class-name"><span class="token punctuation">{</span>String<span class="token punctuation">}</span></span> <span class="token parameter">eventName</span> 事件名称
+     * <span class="token keyword">@param</span>  <span class="token class-name"><span class="token punctuation">{</span>Function<span class="token punctuation">}</span></span> <span class="token parameter">listener</span> 监听器函数
+     * <span class="token keyword">@return</span> <span class="token class-name"><span class="token punctuation">{</span>Object<span class="token punctuation">}</span></span> 可链式调用
+     */</span>
+    proto<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">once</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">eventName<span class="token punctuation">,</span> listener</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">on</span><span class="token punctuation">(</span>eventName<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            listener<span class="token operator">:</span> listener<span class="token punctuation">,</span>
+            once<span class="token operator">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token doc-comment comment">/**
+     * 删除事件
+     * <span class="token keyword">@param</span>  <span class="token class-name"><span class="token punctuation">{</span>String<span class="token punctuation">}</span></span> <span class="token parameter">eventName</span> 事件名称
+     * <span class="token keyword">@param</span>  <span class="token class-name"><span class="token punctuation">{</span>Function<span class="token punctuation">}</span></span> <span class="token parameter">listener</span> 监听器函数
+     * <span class="token keyword">@return</span> <span class="token class-name"><span class="token punctuation">{</span>Object<span class="token punctuation">}</span></span> 可链式调用
+     */</span>
+    proto<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">off</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">eventName<span class="token punctuation">,</span> listener</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> listeners <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">__events</span><span class="token punctuation">[</span>eventName<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>listeners<span class="token punctuation">)</span> <span class="token keyword control-flow">return</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">var</span> index<span class="token punctuation">;</span>
+        <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len <span class="token operator">=</span> listeners<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>listeners<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> listeners<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">listener</span> <span class="token operator">===</span> listener<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                index <span class="token operator">=</span> i<span class="token punctuation">;</span>
+                <span class="token keyword control-flow">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> index <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            listeners<span class="token punctuation">.</span><span class="token method function property-access">splice</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword null nil">null</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token doc-comment comment">/**
+     * 触发事件
+     * <span class="token keyword">@param</span>  <span class="token class-name"><span class="token punctuation">{</span>String<span class="token punctuation">}</span></span> <span class="token parameter">eventName</span> 事件名称
+     * <span class="token keyword">@param</span>  <span class="token class-name"><span class="token punctuation">{</span>Array<span class="token punctuation">}</span></span> <span class="token parameter">args</span> 传入监听器函数的参数，使用数组形式传入
+     * <span class="token keyword">@return</span> <span class="token class-name"><span class="token punctuation">{</span>Object<span class="token punctuation">}</span></span> 可链式调用
+     */</span>
+    proto<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">emit</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">eventName<span class="token punctuation">,</span> args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> listeners <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">__events</span><span class="token punctuation">[</span>eventName<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>listeners<span class="token punctuation">)</span> <span class="token keyword control-flow">return</span><span class="token punctuation">;</span>
+
+        <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> listeners<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">var</span> listener <span class="token operator">=</span> listeners<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>listener<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                listener<span class="token punctuation">.</span><span class="token method function property-access">listener</span><span class="token punctuation">.</span><span class="token method function property-access">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> args <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>listener<span class="token punctuation">.</span><span class="token property-access">once</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">off</span><span class="token punctuation">(</span>eventName<span class="token punctuation">,</span> listener<span class="token punctuation">.</span><span class="token property-access">listener</span><span class="token punctuation">)</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token doc-comment comment">/**
+     * 删除某一个类型的所有事件或者所有事件
+     * <span class="token keyword">@param</span>  <span class="token class-name"><span class="token punctuation">{</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span> <span class="token parameter">eventName</span> 事件名称
+     */</span>
+    proto<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">allOff</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">eventName</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>eventName <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">__events</span><span class="token punctuation">[</span>eventName<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">__events</span><span class="token punctuation">[</span>eventName<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">__events</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> exports <span class="token operator">!=</span> <span class="token string">'undefined'</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>exports<span class="token punctuation">.</span><span class="token property-access">nodeType</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> module <span class="token operator">!=</span> <span class="token string">'undefined'</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>module<span class="token punctuation">.</span><span class="token property-access">nodeType</span> <span class="token operator">&amp;&amp;</span> module<span class="token punctuation">.</span><span class="token property-access">exports</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            exports <span class="token operator">=</span> module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> <span class="token maybe-class-name">EventEmitter</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        exports<span class="token punctuation">.</span><span class="token property-access"><span class="token maybe-class-name">EventEmitter</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">EventEmitter</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+        root<span class="token punctuation">.</span><span class="token property-access"><span class="token maybe-class-name">EventEmitter</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">EventEmitter</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<pre class="language-autoit"><code class="language-autoit">var emitter <span class="token operator">=</span> new <span class="token function">EventEmitter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">;</span>
+
+function <span class="token function">handleOne</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span> {
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'第一个监听函数'</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span>
+}
+
+function <span class="token function">handleSecond</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span> {
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'第二个监听函数'</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span>
+}
+
+function <span class="token function">handleThird</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span> {
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'第三个监听函数'</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span>
+}
+
+emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"demo"</span><span class="token punctuation">,</span> handleOne<span class="token punctuation">)</span>
+       <span class="token punctuation">.</span><span class="token function">once</span><span class="token punctuation">(</span><span class="token string">"demo"</span><span class="token punctuation">,</span> handleSecond<span class="token punctuation">)</span>
+       <span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"demo"</span><span class="token punctuation">,</span> handleThird<span class="token punctuation">)</span><span class="token comment">;</span>
+
+emitter<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">'demo'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment">;</span>
+<span class="token operator">/</span><span class="token operator">/</span> <span class="token operator">=</span><span class="token operator">></span> 第一个监听函数 <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span>
+<span class="token operator">/</span><span class="token operator">/</span> <span class="token operator">=</span><span class="token operator">></span> 第二个监听函数 <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span>
+<span class="token operator">/</span><span class="token operator">/</span> <span class="token operator">=</span><span class="token operator">></span> 第三个监听函数 <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span>
+
+emitter<span class="token punctuation">.</span><span class="token function">off</span><span class="token punctuation">(</span><span class="token string">'demo'</span><span class="token punctuation">,</span> handleThird<span class="token punctuation">)</span><span class="token comment">;</span>
+emitter<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">'demo'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment">;</span>
+<span class="token operator">/</span><span class="token operator">/</span> <span class="token operator">=</span><span class="token operator">></span> 第一个监听函数 <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span>
+
+emitter<span class="token punctuation">.</span><span class="token function">allOff</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">;</span>
+emitter<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">'demo'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment">;</span>
+<span class="token operator">/</span><span class="token operator">/</span> nothing
+</code></pre></article><div class="prev_next"><a class="prev button" href="/articles/05-V8+Runtime/00-v8.html">«  <!-- -->V8</a><a class="next button" href="/articles/05-V8+Runtime/02-deno.html">Deno<!-- -->  »</a></div></div><div class="main_toc_container nav_link_container"><div class="main_toc"><aside><nav class="toc"><ol><li><a href="#node-%E7%9A%84%E5%BC%82%E6%AD%A5%E6%80%A7%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9">Node 的异步性有什么特点？</a></li><li><a href="#node-%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B">Node 的事件模型</a></li><li><a href="#node-%E6%A8%A1%E5%9D%97%E5%8C%96">Node 模块化</a></li><li><a href="#eventemmiter-%E5%8E%9F%E7%90%86%E5%8F%8A%E5%8A%A8%E6%89%8B%E5%AE%9E%E8%B7%B5">EventEmmiter 原理及动手实践？</a></li></ol></nav></aside></div></div></section><footer>Powered by<!-- --> <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><div class="tools flex_center hide_on_mobile"><a class="czs-pen button" href="https://github.com/hylerrix/es-interview/edit/master/articles/05-V8+Runtime/01-node.md" target="_blank" style="background-image:url(&quot;/assets/czs-pen.svg&quot;)"></a><a class="czs-angle-up-l button" href="#" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></a></div><script crossorigin="anonymous" src="https://unpkg.com/react@16.13.1/umd/react.production.min.js"></script><script crossorigin="anonymous" src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>

@@ -1,0 +1,56 @@
+<!doctype html><html class="" data-reactroot=""><head><link rel="icon" type="image/png" href="/favicon.png"/>
+<meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="收集汇总梳理全网资源，涵盖 JS/TS 前后端的全方位面试题库（含提示性解析），助力找个好工作！"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/>
+<title data-react-helmet="true">浏览器 · ECMAScript+ 面试宝典</title>
+<link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/><link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/>
+<script data-react-helmet="true" >
+    const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (shouldSetIsDark) {
+      document.documentElement.classList.add('is_dark');
+      document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
+    }
+  </script>
+</head><body><header><h1 class="hide_on_mobile"><a href="/">ECMAScript+ 面试宝典</a></h1><nav><ul><li class="show_on_mobile flex_center"><a class="czs-menu-l" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a></li><li class="show_on_mobile"><h1 class="mobile_title"><a href="/">ECMAScript+ 面试宝典</a></h1></li><li class="hide_on_mobile"><a href="/articles/">文章</a></li><li class="hide_on_mobile"><a href="http://qiniu.ningo.cloud/hylerrix/reward-alipay.png" target="_blank">打赏一下!!</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix/deno-tutorial" target="_blank">Deno 钻研之术</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">持续添加中...</a></li><li class="hide_on_mobile"><a href="https://github.com/ningowood" target="_blank">凝果屋</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">关于</a></li><li style="flex-grow:1"></li><li class="flex_center"><a class="czs-github-logo" href="https://github.com/hylerrix/es-interview" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul></nav></header><aside class="sidebar"><ol><li class=""><a href="/articles/index.html" class="nav_link">Hello</a></li><li class=""><a href="/articles/00-Profession/index.html" class="nav_link">职业 &amp; 成长</a></li><li class="unfold"><a href="/articles/01-Programming/index.html" class="nav_link">编程基础<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/01-Programming/00-language.html" class="nav_link">编程语言</a></li><li class=""><a href="/articles/01-Programming/01-operating-system.html" class="nav_link">操作系统</a></li><li class=""><a href="/articles/01-Programming/02-algorithms.html" class="nav_link">算法</a></li><li class=""><a href="/articles/01-Programming/03-design-patterns.html" class="nav_link">设计模式</a></li><li class=""><a href="/articles/01-Programming/04-software-engineering.html" class="nav_link">工程化</a></li><li class=""><a href="/articles/01-Programming/05-network-security.html" class="nav_link">安全</a></li><li class=""><a href="/articles/01-Programming/06-software-test.html" class="nav_link">测试</a></li></ol></li><li class="unfold"><a href="/articles/02-ECMAScript+/index.html" class="nav_link">ECMAScript+<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/02-ECMAScript+/00-ecmascript.html" class="nav_link">ECMAScript</a></li><li class=""><a href="/articles/02-ECMAScript+/01-javascript.html" class="nav_link">JavaScript 基础知识</a></li><li class=""><a href="/articles/02-ECMAScript+/02-typescript.html" class="nav_link">TypeScript</a></li></ol></li><li class="unfold"><a href="/articles/03-HTML+CSS/index.html" class="nav_link">HTML + CSS<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/03-HTML+CSS/00-html.html" class="nav_link">HTML</a></li><li class=""><a href="/articles/03-HTML+CSS/01-css.html" class="nav_link">CSS</a></li><li class=""><a href="/articles/03-HTML+CSS/02-html-css-practice.html" class="nav_link">HTML + CSS 实战</a></li></ol></li><li class="unfold"><a href="/articles/04-Network+API/index.html" class="nav_link">网络 + 前后端协作<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/04-Network+API/00-network.html" class="nav_link">网络</a></li><li class=""><a href="/articles/04-Network+API/01-fe-be-api.html" class="nav_link">前后端协作</a></li><li class=""><a href="/articles/04-Network+API/02-login.html" class="nav_link">登录</a></li></ol></li><li class="unfold"><a href="/articles/05-V8+Runtime/index.html" class="nav_link">V8 + JavaScript 运行时<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/05-V8+Runtime/00-v8.html" class="nav_link">V8</a></li><li class=""><a href="/articles/05-V8+Runtime/01-node.html" class="nav_link">Node</a></li><li class=""><a href="/articles/05-V8+Runtime/02-deno.html" class="nav_link">Deno</a></li></ol></li><li class="unfold"><a href="/articles/06-FE+Browser/index.html" class="nav_link">前端应用开发 + 浏览器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/06-FE+Browser/00-browser.html" class="nav_link active">浏览器</a></li><li class=""><a href="/articles/06-FE+Browser/01-fe.html" class="nav_link">前端</a></li></ol></li><li class="unfold"><a href="/articles/07-BE+Server/index.html" class="nav_link">后端应用开发 + 服务器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/07-BE+Server/00-linux-nginx-database.html" class="nav_link">Linux + Nginx + 数据库</a></li><li class=""><a href="/articles/07-BE+Server/01-node-framework.html" class="nav_link">Node 框架</a></li></ol></li></ol></aside><section class="main"><div class="main_article"><article><h1>浏览器</h1>
+<ul>
+<li>localStorage、sessionStorage、cookie、Session</li>
+<li>Web Worker，Web Storage</li>
+<li>跨域：jsonp、CORS、nginx 代理...</li>
+<li>http 长链接，浏览器缓存</li>
+<li>浏览器渲染流程</li>
+<li>浏览器多进程与 JavaScript 单线程</li>
+<li>浏览器抓包</li>
+<li>三次握手、四次挥手</li>
+<li>跨域、同源策略：jsonp、cors、服务器代理、document.domain、postMessage</li>
+<li>存储：cookie、sessionStorage、localStorage、indexDB、ServiceWorker</li>
+<li>渲染、重绘</li>
+</ul>
+<blockquote>
+<p>浏览器多线程</p>
+</blockquote>
+<p>GUI 渲染线程</p>
+<p>JS 引擎线程</p>
+<p>事件触发线程</p>
+<p>异步 HTTP 请求线程</p>
+<p>Web Worker</p>
+<blockquote>
+<p>浏览器多标签页之间的通信</p>
+</blockquote>
+<p>WebSocket</p>
+<p>LocalStorage：事件监听，无关跨域</p>
+<p>SharedWorker：但必须是同源的</p>
+<h2 id="%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E5%8F%8A%E5%85%B6%E7%BB%84%E6%88%90">常见浏览器内核及其组成？<a class="anchor" href="#%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E5%8F%8A%E5%85%B6%E7%BB%84%E6%88%90">§</a></h2>
+<ul>
+<li>常见的浏览器内核：
+<ul>
+<li>Trident 内核：IE、360、搜狗浏览器、MaxThon、TT、The World 等。[又称 MSHTML]。</li>
+<li>Gecko 内核：火狐、FF、MozillaSuite、SeaMonkey 等。</li>
+<li>Presto 内核：Opera7 及以上。[Opera 内核原为：Presto，现为：Blink]。</li>
+<li>Webkit 内核：Safari、Chrome 等。 [ Chrome 的：Blink（WebKit 的分支）]。</li>
+</ul>
+</li>
+<li>浏览器内核的组成：
+<ul>
+<li>渲染引擎。</li>
+<li>JavaScript 引擎。</li>
+</ul>
+</li>
+</ul></article><div class="prev_next"><a class="prev button" href="/articles/06-FE+Browser/index.html">«  <!-- -->前端应用开发 + 浏览器</a><a class="next button" href="/articles/06-FE+Browser/01-fe.html">前端<!-- -->  »</a></div></div><div class="main_toc_container nav_link_container"><div class="main_toc"><aside><nav class="toc"><ol><li><a href="#%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E5%8F%8A%E5%85%B6%E7%BB%84%E6%88%90">常见浏览器内核及其组成？</a></li></ol></nav></aside></div></div></section><footer>Powered by<!-- --> <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><div class="tools flex_center hide_on_mobile"><a class="czs-pen button" href="https://github.com/hylerrix/es-interview/edit/master/articles/06-FE+Browser/00-browser.md" target="_blank" style="background-image:url(&quot;/assets/czs-pen.svg&quot;)"></a><a class="czs-angle-up-l button" href="#" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></a></div><script crossorigin="anonymous" src="https://unpkg.com/react@16.13.1/umd/react.production.min.js"></script><script crossorigin="anonymous" src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
