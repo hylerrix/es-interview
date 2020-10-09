@@ -3,7 +3,7 @@ var _a, _b;
 export default {
     'prev': {
         "text": "CSS",
-        "link": "articles/03-HTML+CSS/01-css.html"
+        "link": "articles/03-HTML+CSS/01-css-design.html"
     },
     'next': {
         "link": "articles/04-Network+API/index.html",
@@ -12,9 +12,14 @@ export default {
     'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     'sidebar': [
         {
-            "text": "Hello",
+            "text": "ESMAScript+ 面试宝典",
             "link": "articles/index.html",
             "pagePath": "articles/README.md"
+        },
+        {
+            "text": "前端大事记",
+            "link": "articles/es-timeline.html",
+            "pagePath": "articles/es-timeline.md"
         },
         {
             "text": "职业 & 成长",
@@ -59,6 +64,11 @@ export default {
                     "text": "测试",
                     "link": "articles/01-Programming/06-software-test.html",
                     "pagePath": "articles/01-Programming/06-software-test.md"
+                },
+                {
+                    "text": "版本控制",
+                    "link": "articles/01-Programming/07-version-control.html",
+                    "pagePath": "articles/01-Programming/07-version-control.md"
                 }
             ],
             "text": "编程基础",
@@ -82,6 +92,11 @@ export default {
                     "text": "TypeScript",
                     "link": "articles/02-ECMAScript+/02-typescript.html",
                     "pagePath": "articles/02-ECMAScript+/02-typescript.md"
+                },
+                {
+                    "text": "JavaScript 常见实战题",
+                    "link": "articles/02-ECMAScript+/03-javascript-parctice.html",
+                    "pagePath": "articles/02-ECMAScript+/03-javascript-parctice.md"
                 }
             ],
             "text": "ECMAScript+",
@@ -98,8 +113,8 @@ export default {
                 },
                 {
                     "text": "CSS",
-                    "link": "articles/03-HTML+CSS/01-css.html",
-                    "pagePath": "articles/03-HTML+CSS/01-css.md"
+                    "link": "articles/03-HTML+CSS/01-css-design.html",
+                    "pagePath": "articles/03-HTML+CSS/01-css-design.md"
                 },
                 {
                     "text": "HTML + CSS 实战",
@@ -167,8 +182,23 @@ export default {
                 },
                 {
                     "text": "前端",
-                    "link": "articles/06-FE+Browser/01-fe.html",
-                    "pagePath": "articles/06-FE+Browser/01-fe.md"
+                    "link": "articles/06-FE+Browser/01-fe-framework.html",
+                    "pagePath": "articles/06-FE+Browser/01-fe-framework.md"
+                },
+                {
+                    "text": "前端工具链",
+                    "link": "articles/06-FE+Browser/02-fe-tooltain.html",
+                    "pagePath": "articles/06-FE+Browser/02-fe-tooltain.md"
+                },
+                {
+                    "text": "前端打包工具",
+                    "link": "articles/06-FE+Browser/03-pack-tool.html",
+                    "pagePath": "articles/06-FE+Browser/03-pack-tool.md"
+                },
+                {
+                    "text": "移动端 Web 开发",
+                    "link": "articles/06-FE+Browser/04-fe-mobile.html",
+                    "pagePath": "articles/06-FE+Browser/04-fe-mobile.md"
                 }
             ],
             "text": "前端应用开发 + 浏览器",
@@ -199,11 +229,13 @@ export default {
     'outputPath': "articles/03-HTML+CSS/02-html-css-practice.html",
     'title': "HTML + CSS 实战",
     'content': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<h1>HTML + CSS 实战</h1>\n<blockquote>\n<p>实现垂直居中，水平居中</p>\n</blockquote>'
+            __html: '<h1>HTML + CSS 实战</h1>\n<h2 id="%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD">水平垂直居中<a class="anchor" href="#%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD">§</a></h2>\n<ul>\n<li>第一种，绝对定位</li>\n</ul>\n<pre class="language-autoit"><code class="language-autoit">div {\n    position<span class="token punctuation">:</span> absolute<span class="token comment">;</span>\n    width<span class="token punctuation">:</span> 300px<span class="token comment">;</span>\n    height<span class="token punctuation">:</span> 300px<span class="token comment">;</span>\n    margin<span class="token punctuation">:</span> auto<span class="token comment">;</span>\n    top<span class="token punctuation">:</span> <span class="token number">0</span><span class="token comment">;</span>\n    right<span class="token punctuation">:</span> <span class="token number">0</span><span class="token comment">;</span>\n    bottom<span class="token punctuation">:</span> <span class="token number">0</span><span class="token comment">;</span>\n    left<span class="token punctuation">:</span> <span class="token number">0</span><span class="token comment">;</span>\n    background<span class="token operator">-</span>color<span class="token punctuation">:</span> pink<span class="token comment">;</span>\n}\n</code></pre>\n<ul>\n<li>第二种，已知容器宽高</li>\n</ul>\n<pre class="language-autoit"><code class="language-autoit">div {\n    position<span class="token punctuation">:</span> relative<span class="token comment">; /* 或 absolute */</span>\n    width<span class="token punctuation">:</span> 500px<span class="token comment">;</span>\n    height<span class="token punctuation">:</span> 300px<span class="token comment">;</span>\n    top<span class="token punctuation">:</span> <span class="token number">50</span>%<span class="token comment">;</span>\n    left<span class="token punctuation">:</span> <span class="token number">50</span>%<span class="token comment">;</span>\n    margin<span class="token punctuation">:</span> <span class="token operator">-</span>150px <span class="token number">0</span> <span class="token number">0</span> <span class="token operator">-</span>250px<span class="token comment">;</span>\n    background<span class="token operator">-</span>color<span class="token punctuation">:</span> pink<span class="token comment">;</span>\n}\n</code></pre>\n<ul>\n<li>第三种，不知容器宽高，利用 <code>transform</code> 属性</li>\n</ul>\n<pre class="language-autoit"><code class="language-autoit">div {\n    position<span class="token punctuation">:</span> relative<span class="token comment">; /* 或 absolute */</span>\n    width<span class="token punctuation">:</span> 500px<span class="token comment">;</span>\n    height<span class="token punctuation">:</span> 300px<span class="token comment">;</span>\n    top<span class="token punctuation">:</span> <span class="token number">50</span>%<span class="token comment">;</span>\n    left<span class="token punctuation">:</span> <span class="token number">50</span>%<span class="token comment">;</span>\n    transform<span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">50</span>%<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">50</span>%<span class="token punctuation">)</span><span class="token comment">;</span>\n    margin<span class="token punctuation">:</span> <span class="token operator">-</span>150px <span class="token number">0</span> <span class="token number">0</span> <span class="token operator">-</span>250px<span class="token comment">;</span>\n    background<span class="token operator">-</span>color<span class="token punctuation">:</span> pink<span class="token comment">;</span>\n}\n</code></pre>\n<ul>\n<li>第四种，flex 布局，需考虑兼容性</li>\n</ul>\n<pre class="language-autoit"><code class="language-autoit"><span class="token punctuation">.</span>container {\n    display<span class="token punctuation">:</span> flex<span class="token comment">;</span>\n    align<span class="token operator">-</span>items<span class="token punctuation">:</span> center<span class="token comment">;</span>\n    justify<span class="token operator">-</span>content<span class="token punctuation">:</span> center<span class="token comment">;</span>\n    height<span class="token punctuation">:</span> 200px<span class="token comment">;</span>\n    width<span class="token punctuation">:</span> 200px<span class="token comment">;</span>\n    background<span class="token operator">-</span>color<span class="token punctuation">:</span> yellow<span class="token comment">;</span>\n}\n\n<span class="token punctuation">.</span>container div {\n    width<span class="token punctuation">:</span> 100px<span class="token comment">;</span>\n    height<span class="token punctuation">:</span> 100px<span class="token comment">;</span>\n    background<span class="token operator">-</span>color<span class="token punctuation">:</span> pink<span class="token comment">;</span>\n}\n</code></pre>'
         } }),
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { crossOrigin: "anonymous", src: "https://unpkg.com/react@16.13.1/umd/react.production.min.js" }),
         React.createElement("script", { crossOrigin: "anonymous", src: "https://unpkg.com/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
-    'toc': null
+    'toc': React.createElement("aside", { dangerouslySetInnerHTML: {
+            __html: '<nav class="toc"><ol><li><a href="#%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD">水平垂直居中</a></li></ol></nav>'
+        } })
 };

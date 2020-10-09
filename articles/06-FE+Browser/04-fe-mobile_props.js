@@ -2,19 +2,24 @@ import projectConfig from '/pagic.config.js';
 var _a, _b;
 export default {
     'prev': {
-        "text": "HTML",
-        "link": "articles/03-HTML+CSS/00-html.html"
+        "text": "前端打包工具",
+        "link": "articles/06-FE+Browser/03-pack-tool.html"
     },
     'next': {
-        "text": "HTML + CSS 实战",
-        "link": "articles/03-HTML+CSS/02-html-css-practice.html"
+        "link": "articles/07-BE+Server/index.html",
+        "text": "后端应用开发 + 服务器"
     },
     'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     'sidebar': [
         {
-            "text": "Hello",
+            "text": "ESMAScript+ 面试宝典",
             "link": "articles/index.html",
             "pagePath": "articles/README.md"
+        },
+        {
+            "text": "前端大事记",
+            "link": "articles/es-timeline.html",
+            "pagePath": "articles/es-timeline.md"
         },
         {
             "text": "职业 & 成长",
@@ -59,6 +64,11 @@ export default {
                     "text": "测试",
                     "link": "articles/01-Programming/06-software-test.html",
                     "pagePath": "articles/01-Programming/06-software-test.md"
+                },
+                {
+                    "text": "版本控制",
+                    "link": "articles/01-Programming/07-version-control.html",
+                    "pagePath": "articles/01-Programming/07-version-control.md"
                 }
             ],
             "text": "编程基础",
@@ -82,6 +92,11 @@ export default {
                     "text": "TypeScript",
                     "link": "articles/02-ECMAScript+/02-typescript.html",
                     "pagePath": "articles/02-ECMAScript+/02-typescript.md"
+                },
+                {
+                    "text": "JavaScript 常见实战题",
+                    "link": "articles/02-ECMAScript+/03-javascript-parctice.html",
+                    "pagePath": "articles/02-ECMAScript+/03-javascript-parctice.md"
                 }
             ],
             "text": "ECMAScript+",
@@ -98,8 +113,8 @@ export default {
                 },
                 {
                     "text": "CSS",
-                    "link": "articles/03-HTML+CSS/01-css.html",
-                    "pagePath": "articles/03-HTML+CSS/01-css.md"
+                    "link": "articles/03-HTML+CSS/01-css-design.html",
+                    "pagePath": "articles/03-HTML+CSS/01-css-design.md"
                 },
                 {
                     "text": "HTML + CSS 实战",
@@ -167,8 +182,23 @@ export default {
                 },
                 {
                     "text": "前端",
-                    "link": "articles/06-FE+Browser/01-fe.html",
-                    "pagePath": "articles/06-FE+Browser/01-fe.md"
+                    "link": "articles/06-FE+Browser/01-fe-framework.html",
+                    "pagePath": "articles/06-FE+Browser/01-fe-framework.md"
+                },
+                {
+                    "text": "前端工具链",
+                    "link": "articles/06-FE+Browser/02-fe-tooltain.html",
+                    "pagePath": "articles/06-FE+Browser/02-fe-tooltain.md"
+                },
+                {
+                    "text": "前端打包工具",
+                    "link": "articles/06-FE+Browser/03-pack-tool.html",
+                    "pagePath": "articles/06-FE+Browser/03-pack-tool.md"
+                },
+                {
+                    "text": "移动端 Web 开发",
+                    "link": "articles/06-FE+Browser/04-fe-mobile.html",
+                    "pagePath": "articles/06-FE+Browser/04-fe-mobile.md"
                 }
             ],
             "text": "前端应用开发 + 浏览器",
@@ -194,16 +224,18 @@ export default {
         }
     ],
     config: { "root": "/", ...projectConfig, ...(_b = (_a = projectConfig.i18n) === null || _a === void 0 ? void 0 : _a.overrides) === null || _b === void 0 ? void 0 : _b['undefined'] },
-    'pagePath': "articles/03-HTML+CSS/01-css.md",
+    'pagePath': "articles/06-FE+Browser/04-fe-mobile.md",
     'layoutPath': "_layout.tsx",
-    'outputPath': "articles/03-HTML+CSS/01-css.html",
-    'title': "CSS",
+    'outputPath': "articles/06-FE+Browser/04-fe-mobile.html",
+    'title': "移动端 Web 开发",
     'content': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<h1>CSS</h1>\n<blockquote>\n<p>块级元素/行内元素</p>\n</blockquote>\n<p>CSS 像素、物理像素、逻辑像素、设备像素比、PPI、Viewport 区别及实现，<a href="https://github.com/jawil/blog/issues/21">https://github.com/jawil/blog/issues/21</a></p>\n<p>BootStrap 栅格系统原理</p>\n<p>CSS FlexBox 和 Grid 布局的原理和应用</p>\n<p>画出各种基础图形</p>\n<p>移动端 CSS：rem、em、rpx(微信小程序 1rpx=1 物理像素) 等</p>\n<p>盒子模型</p>\n<blockquote>\n<p>CSS 3 新特性</p>\n</blockquote>\n<blockquote>\n<p>前端布局？响应式？flexbox、grid、float</p>\n</blockquote>\n<blockquote>\n<p>position 属性值 display 属性值</p>\n</blockquote>\n<blockquote>\n<p>CSS 优先级？</p>\n</blockquote>\n<blockquote>\n<p>预处理器？后处理器？</p>\n</blockquote>\n<blockquote>\n<p>图？Canvas、SVG、PNG、JPG</p>\n</blockquote>\n<blockquote>\n<p>CSS 绘制基础图形：三角形、原型</p>\n</blockquote>\n<blockquote>\n<p>盒模型？IE、W3C、BFC、box-sizing</p>\n</blockquote>\n<blockquote>\n<p>CSS 3 动画</p>\n</blockquote>\n<blockquote>\n<p>em和rem如何适配？</p>\n</blockquote>\n<blockquote>\n<p>清除浮动</p>\n</blockquote>'
+            __html: '<h1>移动端 Web 开发</h1>\n<h2 id="%E7%A7%BB%E5%8A%A8%E7%AB%AF-web-%E7%9A%84%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6">移动端 Web 的触摸事件<a class="anchor" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF-web-%E7%9A%84%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6">§</a></h2>\n<p>移动端的触摸事件</p>\n<p>触摸事件指的是指的是用户将手指放在屏幕上，在屏幕上滑动到将手指从屏幕移开触发的事件，具体来说，有以下触摸事件的产生：</p>\n<ul>\n<li>touchstart: 当手指触摸屏幕时候触发；</li>\n<li>touchmove: 当手指在屏幕上滑动的时候连续触发；可以调用阻止默认事件</li>\n<li>preventDefault(): 阻止屏幕滚动；</li>\n<li>touchend: 手指离开屏幕时触发；</li>\n<li>touchcancel: 系统停止跟踪触摸时触发；</li>\n</ul>\n<p>以上的这些事件都会冒泡，而且都可以取消冒泡。对于以上事件也提供了和鼠标事件中常用的属性：bubble, cancelable, view, clientX, clientY, screenX, screenY, detail, altKey, shiftKey, ctrKey 和 metaKey。</p>\n<p>除了上面这些属性外，触摸事件还提供了下面这些属性：</p>\n<ul>\n<li>touches: 跟踪返回 Touch 对象的数组；</li>\n<li>targetTouchs: 特定事件目标的 Touch 对象的数组；</li>\n<li>changeTouchs: 上次触摸以来改变了的 Touch 对象的数组；</li>\n</ul>\n<p>每个Touch对象包含一下的属性：</p>\n<ul>\n<li>clientX: 触摸目标在浏览器中的 x 坐标</li>\n<li>clientY: 触摸目标在浏览器中的 y 坐标</li>\n<li>identifier: 标识触摸的唯一 ID。</li>\n<li>pageX: 触摸目标在当前 DOM 中的 x 坐标</li>\n<li>pageY: 触摸目标在当前 DOM 中的 y 坐标</li>\n<li>screenX: 触摸目标在屏幕中的 x 坐标</li>\n<li>screenY: 触摸目标在屏幕中的 y 坐标</li>\n<li>target: 触摸的 DOM 节点目标。</li>\n</ul>'
         } }),
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { crossOrigin: "anonymous", src: "https://unpkg.com/react@16.13.1/umd/react.production.min.js" }),
         React.createElement("script", { crossOrigin: "anonymous", src: "https://unpkg.com/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
-    'toc': null
+    'toc': React.createElement("aside", { dangerouslySetInnerHTML: {
+            __html: '<nav class="toc"><ol><li><a href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF-web-%E7%9A%84%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6">移动端 Web 的触摸事件</a></li></ol></nav>'
+        } })
 };

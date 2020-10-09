@@ -12,9 +12,14 @@ export default {
     'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     'sidebar': [
         {
-            "text": "Hello",
+            "text": "ESMAScript+ 面试宝典",
             "link": "articles/index.html",
             "pagePath": "articles/README.md"
+        },
+        {
+            "text": "前端大事记",
+            "link": "articles/es-timeline.html",
+            "pagePath": "articles/es-timeline.md"
         },
         {
             "text": "职业 & 成长",
@@ -59,6 +64,11 @@ export default {
                     "text": "测试",
                     "link": "articles/01-Programming/06-software-test.html",
                     "pagePath": "articles/01-Programming/06-software-test.md"
+                },
+                {
+                    "text": "版本控制",
+                    "link": "articles/01-Programming/07-version-control.html",
+                    "pagePath": "articles/01-Programming/07-version-control.md"
                 }
             ],
             "text": "编程基础",
@@ -82,6 +92,11 @@ export default {
                     "text": "TypeScript",
                     "link": "articles/02-ECMAScript+/02-typescript.html",
                     "pagePath": "articles/02-ECMAScript+/02-typescript.md"
+                },
+                {
+                    "text": "JavaScript 常见实战题",
+                    "link": "articles/02-ECMAScript+/03-javascript-parctice.html",
+                    "pagePath": "articles/02-ECMAScript+/03-javascript-parctice.md"
                 }
             ],
             "text": "ECMAScript+",
@@ -98,8 +113,8 @@ export default {
                 },
                 {
                     "text": "CSS",
-                    "link": "articles/03-HTML+CSS/01-css.html",
-                    "pagePath": "articles/03-HTML+CSS/01-css.md"
+                    "link": "articles/03-HTML+CSS/01-css-design.html",
+                    "pagePath": "articles/03-HTML+CSS/01-css-design.md"
                 },
                 {
                     "text": "HTML + CSS 实战",
@@ -167,8 +182,23 @@ export default {
                 },
                 {
                     "text": "前端",
-                    "link": "articles/06-FE+Browser/01-fe.html",
-                    "pagePath": "articles/06-FE+Browser/01-fe.md"
+                    "link": "articles/06-FE+Browser/01-fe-framework.html",
+                    "pagePath": "articles/06-FE+Browser/01-fe-framework.md"
+                },
+                {
+                    "text": "前端工具链",
+                    "link": "articles/06-FE+Browser/02-fe-tooltain.html",
+                    "pagePath": "articles/06-FE+Browser/02-fe-tooltain.md"
+                },
+                {
+                    "text": "前端打包工具",
+                    "link": "articles/06-FE+Browser/03-pack-tool.html",
+                    "pagePath": "articles/06-FE+Browser/03-pack-tool.md"
+                },
+                {
+                    "text": "移动端 Web 开发",
+                    "link": "articles/06-FE+Browser/04-fe-mobile.html",
+                    "pagePath": "articles/06-FE+Browser/04-fe-mobile.md"
                 }
             ],
             "text": "前端应用开发 + 浏览器",

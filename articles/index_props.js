@@ -3,15 +3,20 @@ var _a, _b;
 export default {
     'prev': null,
     'next': {
-        "text": "职业 & 成长",
-        "link": "articles/00-Profession/index.html"
+        "text": "前端大事记",
+        "link": "articles/es-timeline.html"
     },
     'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     'sidebar': [
         {
-            "text": "Hello",
+            "text": "ESMAScript+ 面试宝典",
             "link": "articles/index.html",
             "pagePath": "articles/README.md"
+        },
+        {
+            "text": "前端大事记",
+            "link": "articles/es-timeline.html",
+            "pagePath": "articles/es-timeline.md"
         },
         {
             "text": "职业 & 成长",
@@ -56,6 +61,11 @@ export default {
                     "text": "测试",
                     "link": "articles/01-Programming/06-software-test.html",
                     "pagePath": "articles/01-Programming/06-software-test.md"
+                },
+                {
+                    "text": "版本控制",
+                    "link": "articles/01-Programming/07-version-control.html",
+                    "pagePath": "articles/01-Programming/07-version-control.md"
                 }
             ],
             "text": "编程基础",
@@ -79,6 +89,11 @@ export default {
                     "text": "TypeScript",
                     "link": "articles/02-ECMAScript+/02-typescript.html",
                     "pagePath": "articles/02-ECMAScript+/02-typescript.md"
+                },
+                {
+                    "text": "JavaScript 常见实战题",
+                    "link": "articles/02-ECMAScript+/03-javascript-parctice.html",
+                    "pagePath": "articles/02-ECMAScript+/03-javascript-parctice.md"
                 }
             ],
             "text": "ECMAScript+",
@@ -95,8 +110,8 @@ export default {
                 },
                 {
                     "text": "CSS",
-                    "link": "articles/03-HTML+CSS/01-css.html",
-                    "pagePath": "articles/03-HTML+CSS/01-css.md"
+                    "link": "articles/03-HTML+CSS/01-css-design.html",
+                    "pagePath": "articles/03-HTML+CSS/01-css-design.md"
                 },
                 {
                     "text": "HTML + CSS 实战",
@@ -164,8 +179,23 @@ export default {
                 },
                 {
                     "text": "前端",
-                    "link": "articles/06-FE+Browser/01-fe.html",
-                    "pagePath": "articles/06-FE+Browser/01-fe.md"
+                    "link": "articles/06-FE+Browser/01-fe-framework.html",
+                    "pagePath": "articles/06-FE+Browser/01-fe-framework.md"
+                },
+                {
+                    "text": "前端工具链",
+                    "link": "articles/06-FE+Browser/02-fe-tooltain.html",
+                    "pagePath": "articles/06-FE+Browser/02-fe-tooltain.md"
+                },
+                {
+                    "text": "前端打包工具",
+                    "link": "articles/06-FE+Browser/03-pack-tool.html",
+                    "pagePath": "articles/06-FE+Browser/03-pack-tool.md"
+                },
+                {
+                    "text": "移动端 Web 开发",
+                    "link": "articles/06-FE+Browser/04-fe-mobile.html",
+                    "pagePath": "articles/06-FE+Browser/04-fe-mobile.md"
                 }
             ],
             "text": "前端应用开发 + 浏览器",
@@ -194,13 +224,15 @@ export default {
     'pagePath': "articles/README.md",
     'layoutPath': "_layout.tsx",
     'outputPath': "articles/index.html",
-    'title': "Hello",
+    'title': "ESMAScript+ 面试宝典",
     'content': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<h1>Hello</h1>'
+            __html: '<h1>ESMAScript+ 面试宝典</h1>\n<ul>\n<li>官网地址：<a href="http://es-interview.js.org">http://es-interview.js.org</a></li>\n<li>生产力：Github Pages + Github Action + Pagic + Typora</li>\n</ul>\n<p>注：先小范围开源，建设中...预计 2021 年年初会有一个更加完整的第一个大版本。</p>\n<ul>\n<li>目标：同时结合面试题以及知识库的特点 -&gt; 既能当题库又能当手册。\n<ul>\n<li>暂时不放图，专注纯文本。</li>\n<li>目前可能会粘贴大量文本，前后阅读不连贯，持续构造、优化中。</li>\n<li>未来全站导出 PDF，可以让更多设备方便离线观看。</li>\n</ul>\n</li>\n<li>待做：\n<ul>\n<li>更多的文本量</li>\n<li>更好的目录结构</li>\n<li>编排文案，更好的阅读体验</li>\n</ul>\n</li>\n</ul>\n<p>还有大量文本正在填充中...也需要更多的拆分目录和调整目录顺序、调整语句...欢迎贡献任何想法和改动！</p>\n<p>友情链接：</p>\n<ul>\n<li><a href="http://deno-tutorial.js.org/">deno-tutorial.js.org</a></li>\n</ul>\n<h2 id="%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE">开源协议<a class="anchor" href="#%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE">§</a></h2>\n<p>MIT &amp;&amp; CC-BY-SA-4.0</p>'
         } }),
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { crossOrigin: "anonymous", src: "https://unpkg.com/react@16.13.1/umd/react.production.min.js" }),
         React.createElement("script", { crossOrigin: "anonymous", src: "https://unpkg.com/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
-    'toc': null
+    'toc': React.createElement("aside", { dangerouslySetInnerHTML: {
+            __html: '<nav class="toc"><ol><li><a href="#%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE">开源协议</a></li></ol></nav>'
+        } })
 };

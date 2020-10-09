@@ -95,6 +95,7 @@ export default {
             sidebar: {
                 '/articles/': [
                     'articles/README.md',
+                    'articles/es-timeline.md',
                     'articles/00-Profession/README.md',
                     {
                         children: [
@@ -104,7 +105,8 @@ export default {
                             'articles/01-Programming/03-design-patterns.md',
                             'articles/01-Programming/04-software-engineering.md',
                             'articles/01-Programming/05-network-security.md',
-                            'articles/01-Programming/06-software-test.md'
+                            'articles/01-Programming/06-software-test.md',
+                            'articles/01-Programming/07-version-control.md'
                         ],
                         link: 'articles/01-Programming/README.md',
                         title: '编程基础'
@@ -113,7 +115,8 @@ export default {
                         children: [
                             'articles/02-ECMAScript+/00-ecmascript.md',
                             'articles/02-ECMAScript+/01-javascript.md',
-                            'articles/02-ECMAScript+/02-typescript.md'
+                            'articles/02-ECMAScript+/02-typescript.md',
+                            'articles/02-ECMAScript+/03-javascript-parctice.md'
                         ],
                         link: 'articles/02-ECMAScript+/README.md',
                         title: 'ECMAScript+'
@@ -121,7 +124,7 @@ export default {
                     {
                         children: [
                             'articles/03-HTML+CSS/00-html.md',
-                            'articles/03-HTML+CSS/01-css.md',
+                            'articles/03-HTML+CSS/01-css-design.md',
                             'articles/03-HTML+CSS/02-html-css-practice.md'
                         ],
                         link: 'articles/03-HTML+CSS/README.md',
@@ -148,7 +151,10 @@ export default {
                     {
                         children: [
                             'articles/06-FE+Browser/00-browser.md',
-                            'articles/06-FE+Browser/01-fe.md'
+                            'articles/06-FE+Browser/01-fe-framework.md',
+                            'articles/06-FE+Browser/02-fe-tooltain.md',
+                            'articles/06-FE+Browser/03-pack-tool.md',
+                            'articles/06-FE+Browser/04-fe-mobile.md'
                         ],
                         link: 'articles/06-FE+Browser/README.md',
                         title: '前端应用开发 + 浏览器'

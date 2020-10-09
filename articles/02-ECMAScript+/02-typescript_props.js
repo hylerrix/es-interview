@@ -6,15 +6,20 @@ export default {
         "link": "articles/02-ECMAScript+/01-javascript.html"
     },
     'next': {
-        "link": "articles/03-HTML+CSS/index.html",
-        "text": "HTML + CSS"
+        "text": "JavaScript 常见实战题",
+        "link": "articles/02-ECMAScript+/03-javascript-parctice.html"
     },
     'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     'sidebar': [
         {
-            "text": "Hello",
+            "text": "ESMAScript+ 面试宝典",
             "link": "articles/index.html",
             "pagePath": "articles/README.md"
+        },
+        {
+            "text": "前端大事记",
+            "link": "articles/es-timeline.html",
+            "pagePath": "articles/es-timeline.md"
         },
         {
             "text": "职业 & 成长",
@@ -59,6 +64,11 @@ export default {
                     "text": "测试",
                     "link": "articles/01-Programming/06-software-test.html",
                     "pagePath": "articles/01-Programming/06-software-test.md"
+                },
+                {
+                    "text": "版本控制",
+                    "link": "articles/01-Programming/07-version-control.html",
+                    "pagePath": "articles/01-Programming/07-version-control.md"
                 }
             ],
             "text": "编程基础",
@@ -82,6 +92,11 @@ export default {
                     "text": "TypeScript",
                     "link": "articles/02-ECMAScript+/02-typescript.html",
                     "pagePath": "articles/02-ECMAScript+/02-typescript.md"
+                },
+                {
+                    "text": "JavaScript 常见实战题",
+                    "link": "articles/02-ECMAScript+/03-javascript-parctice.html",
+                    "pagePath": "articles/02-ECMAScript+/03-javascript-parctice.md"
                 }
             ],
             "text": "ECMAScript+",
@@ -98,8 +113,8 @@ export default {
                 },
                 {
                     "text": "CSS",
-                    "link": "articles/03-HTML+CSS/01-css.html",
-                    "pagePath": "articles/03-HTML+CSS/01-css.md"
+                    "link": "articles/03-HTML+CSS/01-css-design.html",
+                    "pagePath": "articles/03-HTML+CSS/01-css-design.md"
                 },
                 {
                     "text": "HTML + CSS 实战",
@@ -167,8 +182,23 @@ export default {
                 },
                 {
                     "text": "前端",
-                    "link": "articles/06-FE+Browser/01-fe.html",
-                    "pagePath": "articles/06-FE+Browser/01-fe.md"
+                    "link": "articles/06-FE+Browser/01-fe-framework.html",
+                    "pagePath": "articles/06-FE+Browser/01-fe-framework.md"
+                },
+                {
+                    "text": "前端工具链",
+                    "link": "articles/06-FE+Browser/02-fe-tooltain.html",
+                    "pagePath": "articles/06-FE+Browser/02-fe-tooltain.md"
+                },
+                {
+                    "text": "前端打包工具",
+                    "link": "articles/06-FE+Browser/03-pack-tool.html",
+                    "pagePath": "articles/06-FE+Browser/03-pack-tool.md"
+                },
+                {
+                    "text": "移动端 Web 开发",
+                    "link": "articles/06-FE+Browser/04-fe-mobile.html",
+                    "pagePath": "articles/06-FE+Browser/04-fe-mobile.md"
                 }
             ],
             "text": "前端应用开发 + 浏览器",
@@ -199,11 +229,13 @@ export default {
     'outputPath': "articles/02-ECMAScript+/02-typescript.html",
     'title': "TypeScript",
     'content': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<h1>TypeScript</h1>\n<ul>\n<li>type 和 interface</li>\n<li>装饰器</li>\n<li>静态类型</li>\n<li>类型注解</li>\n<li>类型推断</li>\n<li>泛型</li>\n<li>类型定义文件</li>\n<li>模块化</li>\n<li>打包编译</li>\n<li>装饰器</li>\n<li>Metadata</li>\n<li>设计模式</li>\n<li>TypeScript 版本特性发展</li>\n</ul>'
+            __html: '<h1>TypeScript</h1>\n<h2 id="%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E7%BC%96%E8%AF%91%E4%B8%BA-javascript-%E7%9A%84%E6%9B%B4%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80">为什么需要编译为 JavaScript 的更高级语言<a class="anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E7%BC%96%E8%AF%91%E4%B8%BA-javascript-%E7%9A%84%E6%9B%B4%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80">§</a></h2>\n<p>优点：</p>\n<ul>\n<li>修复了 JavaScript 中一些长期问题，并摒弃了 JavaScript 不好的做法。</li>\n<li>在 JavaScript 的基础上提供一些语法糖，使我们能够编写更短的代码。ES2015 对语法糖支持的更好。</li>\n<li>对于需要长时间维护的大型项目，静态类型非常好用。</li>\n</ul>\n<p>缺点：</p>\n<ul>\n<li>\n<p>由于浏览器只运行 JavaScript、所以需要构建、编译过程，在将代码提供给浏览器之前，需要将代码转移为 JavaScript。</p>\n</li>\n<li>\n<p>如果 source map 不能很好地映射到预编译的源代码，调试会很痛苦。</p>\n</li>\n<li>\n<p>大多数开发人员不熟悉这些语言，需要增加团队成本来学习。</p>\n</li>\n<li>\n<p>type 和 interface</p>\n</li>\n<li>\n<p>装饰器</p>\n</li>\n<li>\n<p>静态类型</p>\n</li>\n<li>\n<p>类型注解</p>\n</li>\n<li>\n<p>类型推断</p>\n</li>\n<li>\n<p>泛型</p>\n</li>\n<li>\n<p>类型定义文件</p>\n</li>\n<li>\n<p>模块化</p>\n</li>\n<li>\n<p>打包编译</p>\n</li>\n<li>\n<p>装饰器</p>\n</li>\n<li>\n<p>Metadata</p>\n</li>\n<li>\n<p>设计模式</p>\n</li>\n<li>\n<p>TypeScript 版本特性发展</p>\n</li>\n</ul>'
         } }),
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { crossOrigin: "anonymous", src: "https://unpkg.com/react@16.13.1/umd/react.production.min.js" }),
         React.createElement("script", { crossOrigin: "anonymous", src: "https://unpkg.com/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
-    'toc': null
+    'toc': React.createElement("aside", { dangerouslySetInnerHTML: {
+            __html: '<nav class="toc"><ol><li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E7%BC%96%E8%AF%91%E4%B8%BA-javascript-%E7%9A%84%E6%9B%B4%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80">为什么需要编译为 JavaScript 的更高级语言</a></li></ol></nav>'
+        } })
 };

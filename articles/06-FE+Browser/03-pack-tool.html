@@ -1,0 +1,308 @@
+<!doctype html><html class="" data-reactroot=""><head><link rel="icon" type="image/png" href="/favicon.png"/>
+<meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="收集汇总梳理全网资源，涵盖 JS/TS 前后端的全方位面试题库（含提示性解析），助力找个好工作！"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/>
+<title data-react-helmet="true">前端打包工具 · ECMAScript+ 面试宝典</title>
+<link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/><link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/>
+<script data-react-helmet="true" >
+    const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (shouldSetIsDark) {
+      document.documentElement.classList.add('is_dark');
+      document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
+    }
+  </script>
+</head><body><header><h1 class="hide_on_mobile"><a href="/">ECMAScript+ 面试宝典</a></h1><nav><ul><li class="show_on_mobile flex_center"><a class="czs-menu-l" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a></li><li class="show_on_mobile"><h1 class="mobile_title"><a href="/">ECMAScript+ 面试宝典</a></h1></li><li class="hide_on_mobile"><a href="/articles/">文章</a></li><li class="hide_on_mobile"><a href="http://qiniu.ningo.cloud/hylerrix/reward-alipay.png" target="_blank">打赏一下!!</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix/deno-tutorial" target="_blank">Deno 钻研之术</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">持续添加中...</a></li><li class="hide_on_mobile"><a href="https://github.com/ningowood" target="_blank">凝果屋</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">关于</a></li><li style="flex-grow:1"></li><li class="flex_center"><a class="czs-github-logo" href="https://github.com/hylerrix/es-interview" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul></nav></header><aside class="sidebar"><ol><li class=""><a href="/articles/index.html" class="nav_link">ESMAScript+ 面试宝典</a></li><li class=""><a href="/articles/es-timeline.html" class="nav_link">前端大事记</a></li><li class=""><a href="/articles/00-Profession/index.html" class="nav_link">职业 &amp; 成长</a></li><li class="unfold"><a href="/articles/01-Programming/index.html" class="nav_link">编程基础<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/01-Programming/00-language.html" class="nav_link">编程语言</a></li><li class=""><a href="/articles/01-Programming/01-operating-system.html" class="nav_link">操作系统</a></li><li class=""><a href="/articles/01-Programming/02-algorithms.html" class="nav_link">算法</a></li><li class=""><a href="/articles/01-Programming/03-design-patterns.html" class="nav_link">设计模式</a></li><li class=""><a href="/articles/01-Programming/04-software-engineering.html" class="nav_link">工程化</a></li><li class=""><a href="/articles/01-Programming/05-network-security.html" class="nav_link">安全</a></li><li class=""><a href="/articles/01-Programming/06-software-test.html" class="nav_link">测试</a></li><li class=""><a href="/articles/01-Programming/07-version-control.html" class="nav_link">版本控制</a></li></ol></li><li class="unfold"><a href="/articles/02-ECMAScript+/index.html" class="nav_link">ECMAScript+<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/02-ECMAScript+/00-ecmascript.html" class="nav_link">ECMAScript</a></li><li class=""><a href="/articles/02-ECMAScript+/01-javascript.html" class="nav_link">JavaScript 基础知识</a></li><li class=""><a href="/articles/02-ECMAScript+/02-typescript.html" class="nav_link">TypeScript</a></li><li class=""><a href="/articles/02-ECMAScript+/03-javascript-parctice.html" class="nav_link">JavaScript 常见实战题</a></li></ol></li><li class="unfold"><a href="/articles/03-HTML+CSS/index.html" class="nav_link">HTML + CSS<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/03-HTML+CSS/00-html.html" class="nav_link">HTML</a></li><li class=""><a href="/articles/03-HTML+CSS/01-css-design.html" class="nav_link">CSS</a></li><li class=""><a href="/articles/03-HTML+CSS/02-html-css-practice.html" class="nav_link">HTML + CSS 实战</a></li></ol></li><li class="unfold"><a href="/articles/04-Network+API/index.html" class="nav_link">网络 + 前后端协作<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/04-Network+API/00-network.html" class="nav_link">网络</a></li><li class=""><a href="/articles/04-Network+API/01-fe-be-api.html" class="nav_link">前后端协作</a></li><li class=""><a href="/articles/04-Network+API/02-login.html" class="nav_link">登录</a></li></ol></li><li class="unfold"><a href="/articles/05-V8+Runtime/index.html" class="nav_link">V8 + JavaScript 运行时<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/05-V8+Runtime/00-v8.html" class="nav_link">V8</a></li><li class=""><a href="/articles/05-V8+Runtime/01-node.html" class="nav_link">Node</a></li><li class=""><a href="/articles/05-V8+Runtime/02-deno.html" class="nav_link">Deno</a></li></ol></li><li class="unfold"><a href="/articles/06-FE+Browser/index.html" class="nav_link">前端应用开发 + 浏览器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/06-FE+Browser/00-browser.html" class="nav_link">浏览器</a></li><li class=""><a href="/articles/06-FE+Browser/01-fe-framework.html" class="nav_link">前端</a></li><li class=""><a href="/articles/06-FE+Browser/02-fe-tooltain.html" class="nav_link">前端工具链</a></li><li class=""><a href="/articles/06-FE+Browser/03-pack-tool.html" class="nav_link active">前端打包工具</a></li><li class=""><a href="/articles/06-FE+Browser/04-fe-mobile.html" class="nav_link">移动端 Web 开发</a></li></ol></li><li class="unfold"><a href="/articles/07-BE+Server/index.html" class="nav_link">后端应用开发 + 服务器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/07-BE+Server/00-linux-nginx-database.html" class="nav_link">Linux + Nginx + 数据库</a></li><li class=""><a href="/articles/07-BE+Server/01-node-framework.html" class="nav_link">Node 框架</a></li></ol></li></ol></aside><section class="main"><div class="main_article"><article><h1>前端打包工具</h1>
+<p>Webpack、Babel、Parcel、Rollup...</p>
+<h2 id="%E4%BB%80%E4%B9%88%E6%98%AF-dce-%E5%92%8C-tree-shaking">什么是 DCE 和 Tree Shaking？<a class="anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-dce-%E5%92%8C-tree-shaking">§</a></h2>
+<ul>
+<li>DCE 是这样做的：直接把整个鸡蛋放到碗里搅拌做蛋糕，蛋糕做完后再慢慢的从里面挑出蛋壳；相反tree-shaking在开始阶段，就不会把蛋壳放进碗里，而是拿出蛋清和蛋黄放进碗里搅拌，蛋壳呢？蛋壳在一开始就已经丢进垃圾桶里了。</li>
+<li>tree-shaking 作为 rollup 的一个杀手级特性，能够利用 ES6 的静态引入规范，减少包的体积，避免不必要的代码引入。</li>
+<li>tree shaking 是一个术语，通常用于描述移除 JavaScript 上下文中的未引用代码(dead-code)。它依赖于 ES2015 模块语法的 静态结构 特性，例如 import 和 export。这个术语和概念实际上是由 ES2015 模块打包工具 rollup 普及起来的。</li>
+<li>必须遵从的是 ES6 Module 规范</li>
+<li>Tree Shaking 的局限性：
+<ul>
+<li>对于未执行到的代码，单独使用 rollup 并不能移除，依然需要依赖 uglifyJs。</li>
+<li>对于依赖运行时才能确定是否会使用代码，tree-shaking 无法删除。</li>
+</ul>
+</li>
+</ul>
+<h2 id="webpack-%E6%98%AF%E4%BB%80%E4%B9%88">WebPack 是什么？<a class="anchor" href="#webpack-%E6%98%AF%E4%BB%80%E4%B9%88">§</a></h2>
+<ul>
+<li>优化的两大方向：速度、体积</li>
+</ul>
+<h2 id="%E6%9C%89%E5%93%AA%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84-webpack-loader">有哪些常见的 Webpack Loader？<a class="anchor" href="#%E6%9C%89%E5%93%AA%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84-webpack-loader">§</a></h2>
+<ul>
+<li><code>raw-loader</code>：加载文件原始内容（utf-8）。</li>
+<li><code>file-loader</code>：把文件输出到一个文件夹中，在代码中通过相对 URL 去引用输出的文件 (处理图片和字体)。</li>
+<li><code>url-loader</code>：与 file-loader 类似，区别是用户可以设置一个阈值，大于阈值会交给 file-loader 处理，小于阈值时返回文件 base64 形式编码 (处理图片和字体)。</li>
+<li><code>source-map-loader</code>：加载额外的 Source Map 文件，以方便断点调试。</li>
+<li><code>svg-inline-loader</code>：将压缩后的 SVG 内容注入代码中。</li>
+<li><code>image-loader</code>：加载并且压缩图片文件。</li>
+<li><code>json-loader</code> 加载 JSON 文件（默认包含）。</li>
+<li><code>handlebars-loader</code>: 将 Handlebars 模版编译成函数并返回。</li>
+<li><code>babel-loader</code>：把 ES6 转换成 ES5。</li>
+<li><code>ts-loader</code>: 将 TypeScript 转换成 JavaScript。</li>
+<li><code>awesome-typescript-loader</code>：将 TypeScript 转换成 JavaScript，性能优于 ts-loader。</li>
+<li><code>sass-loader</code>：将SCSS/SASS代码转换成CSS。</li>
+<li><code>css-loader</code>：加载 CSS，支持模块化、压缩、文件导入等特性。</li>
+<li><code>style-loader</code>：把 CSS 代码注入到 JavaScript 中，通过 DOM 操作去加载 CSS。</li>
+<li><code>postcss-loader</code>：扩展 CSS 语法，使用下一代 CSS，可以配合 autoprefixer 插件自动补齐 CSS3 前缀。</li>
+<li><code>eslint-loader</code>：通过 ESLint 检查 JavaScript 代码。</li>
+<li><code>tslint-loader</code>：通过 TSLint 检查 TypeScript 代码。</li>
+<li><code>mocha-loader</code>：加载 Mocha 测试用例的代码。</li>
+<li><code>coverjs-loader</code>：计算测试的覆盖率。</li>
+<li><code>vue-loader</code>：加载 Vue.js 单文件组件。</li>
+<li><code>i18n-loader</code>: 国际化。</li>
+<li><code>cache-loader</code>: 可以在一些性能开销较大的 Loader 之前添加，目的是将结果缓存到磁盘里。</li>
+</ul>
+<h2 id="%E6%9C%89%E5%93%AA%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84-webpack-plugin">有哪些常见的 Webpack Plugin<a class="anchor" href="#%E6%9C%89%E5%93%AA%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84-webpack-plugin">§</a></h2>
+<ul>
+<li><code>define-plugin</code>：定义环境变量 (Webpack4 之后指定 mode 会自动配置)</li>
+<li><code>ignore-plugin</code>：忽略部分文件</li>
+<li><code>html-webpack-plugin</code>：简化 HTML 文件创建 (依赖于 html-loader)</li>
+<li><code>web-webpack-plugin</code>：可方便地为单页应用输出 HTML，比 html-webpack-plugin 好用</li>
+<li><code>uglifyjs-webpack-plugin</code>：不支持 ES6 压缩 (Webpack4 以前)</li>
+<li><code>terser-webpack-plugin</code>: 支持压缩 ES6 (Webpack4)</li>
+<li><code>webpack-parallel-uglify-plugin</code>: 多进程执行代码压缩，提升构建速度</li>
+<li><code>mini-css-extract-plugin</code>: 分离样式文件，CSS 提取为独立文件，支持按需加载 (替代extract-text-webpack-plugin)</li>
+<li><code>serviceworker-webpack-plugin</code>：为网页应用增加离线缓存功能</li>
+<li><code>clean-webpack-plugin</code>: 目录清理</li>
+<li><code>ModuleConcatenationPlugin</code>: 开启 Scope Hoisting</li>
+<li><code>speed-measure-webpack-plugin</code>: 可以看到每个 Loader 和 Plugin 执行耗时 (整个打包耗时、每个 Plugin 和 Loader 耗时)</li>
+<li><code>webpack-bundle-analyzer</code>: 可视化 Webpack 输出文件的体积 (业务组件、依赖第三方模块)</li>
+</ul>
+<h2 id="loader-%E5%92%8C-plugin-%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E5%AE%9E%E7%8E%B0">Loader 和 Plugin 的区别与实现？<a class="anchor" href="#loader-%E5%92%8C-plugin-%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E5%AE%9E%E7%8E%B0">§</a></h2>
+<p>Loader：</p>
+<ul>
+<li><code>Loader</code> 本质就是一个函数，在该函数中对接收到的内容进行转换，返回转换后的结果。 因为 Webpack 只认识 JavaScript，所以 Loader 就成了翻译官，对其他类型的资源进行转译的预处理工作。</li>
+<li><code>Loader</code> 在 module.rules 中配置，作为模块的解析规则，类型为数组。每一项都是一个 Object，内部包含了 test(类型文件)、loader、options (参数)等属性。</li>
+<li>编写 Loader 的思路：
+<ul>
+<li>Loader 支持链式调用，所以开发上需要严格遵循“单一职责”，每个 Loader 只负责自己需要负责的事情。</li>
+<li>Loader 运行在 Node.js 中，我们可以调用任意 Node.js 自带的 API 或者安装第三方模块进行调用</li>
+<li>Webpack 传给 Loader 的原内容都是 UTF-8 格式编码的字符串，当某些场景下 Loader 处理二进制文件时，需要通过 exports.raw = true 告诉 Webpack 该 Loader 是否需要二进制数据</li>
+<li>尽可能的异步化 Loader，如果计算量很小，同步也可以</li>
+<li>Loader 是无状态的，我们不应该在 Loader 中保留状态</li>
+<li>使用 loader-utils 和 schema-utils 为我们提供的实用工具</li>
+<li>加载本地 Loader 方法
+<ul>
+<li>Npm link</li>
+<li>ResolveLoader</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Plugin：</p>
+<ul>
+<li><code>Plugin</code> 就是插件，基于事件流框架 <code>Tapable</code>，插件可以扩展 Webpack 的功能，在 Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过 Webpack 提供的 API 改变输出结果。</li>
+<li><code>Plugin</code> 在 plugins 中单独配置，类型为数组，每一项是一个 Plugin 的实例，参数都通过构造函数传入。</li>
+<li>编写 Plugin 的思路：
+<ul>
+<li>Webpack 在运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在特定的阶段钩入想要添加的自定义功能。Webpack 的 Tapable 事件流机制保证了插件的有序性，使得整个系统扩展性良好。</li>
+<li>compiler 暴露了和 Webpack 整个生命周期相关的钩子</li>
+<li>compilation 暴露了与模块和依赖有关的粒度更小的事件钩子</li>
+<li>插件需要在其原型上绑定apply方法，才能访问 compiler 实例</li>
+<li>传给每个插件的 compiler 和 compilation对象都是同一个引用，若在一个插件中修改了它们身上的属性，会影响后面的插件</li>
+<li>找出合适的事件点去完成想要的功能
+<ul>
+<li>emit 事件发生时，可以读取到最终输出的资源、代码块、模块及其依赖，并进行修改(emit 事件是修改 Webpack 输出资源的最后时机)</li>
+<li>watch-run 当依赖的文件发生变化时会触发</li>
+</ul>
+</li>
+<li>异步的事件需要在插件处理完任务时调用回调函数通知 Webpack 进入下一个流程，不然会卡住</li>
+</ul>
+</li>
+</ul>
+<h2 id="webpack-%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B">Webpack 构建流程？<a class="anchor" href="#webpack-%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B">§</a></h2>
+<p>Webpack 的运行流程是一个串行的过程，从启动到结束会依次执行以下流程：</p>
+<ul>
+<li>初始化参数：从配置文件和 Shell 语句中读取与合并参数，得出最终的参数。</li>
+<li>开始编译：用上一步得到的参数初始化 Compiler 对象，加载所有配置的插件，执行对象的 run 方法开始执行编译。</li>
+<li>确定入口：根据配置中的 entry 找出所有的入口文件。</li>
+<li>编译模块：从入口文件出发，调用所有配置的 Loader 对模块进行翻译，再找出该模块依赖的模块，再递归本步骤直到所有入口依赖的文件都经过了本步骤的处理。</li>
+<li>完成模块编译：在经过第4步使用 Loader 翻译完所有模块后，得到了每个模块被翻译后的最终内容以及它们之间的依赖关系。</li>
+<li>输出资源：根据入口和模块之间的依赖关系，组装成一个个包含多个模块的 Chunk，再把每个 Chunk 转换成一个单独的文件加入到输出列表，这步是可以修改输出内容的最后机会。</li>
+<li>输出完成：在确定好输出内容后，根据配置确定输出的路径和文件名，把文件内容写入到文件系统。</li>
+</ul>
+<p>在以上过程中，Webpack 会在特定的时间点广播出特定的事件，插件在监听到感兴趣的事件后会执行特定的逻辑，并且插件可以调用 Webpack 提供的 API 改变 Webpack 的运行结果。</p>
+<h2 id="webpack-%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%B5%81%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F%E5%92%8C-tapabel">Webpack 的事件流、声明周期和 Tapabel？<a class="anchor" href="#webpack-%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%B5%81%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F%E5%92%8C-tapabel">§</a></h2>
+<ul>
+<li>Webpack 本质上一种基于事件流的编程范例，其实就是一系列的插件运行。</li>
+<li>Webpack 主要使用 Compiler 和 Compilation 两个类来控制 Webpack 的整个生命周期。他们都继承了 Tapabel 并且通过 Tapabel 来注册了生命周期中的每一个流程需要触发的事件。</li>
+<li>Tapabel 是一个类似于 Node.js 的 EventEmitter 的库，主要是控制钩子函数的发布与订阅，是 Webpack 插件系统的大管家。</li>
+</ul>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token punctuation">{</span>
+    <span class="token maybe-class-name">SyncHook</span><span class="token punctuation">,</span>                   <span class="token comment">// 同步钩子</span>
+    <span class="token maybe-class-name">SyncBailHook</span><span class="token punctuation">,</span>               <span class="token comment">// 同步熔断钩子</span>
+    <span class="token maybe-class-name">SyncWaterfallHook</span><span class="token punctuation">,</span>          <span class="token comment">// 同步流水钩子</span>
+    <span class="token maybe-class-name">SyncLoopHook</span><span class="token punctuation">,</span>               <span class="token comment">// 同步循环钩子</span>
+    <span class="token maybe-class-name">AsyncParalleHook</span><span class="token punctuation">,</span>           <span class="token comment">// 异步并发钩子</span>
+    <span class="token maybe-class-name">AsyncParallelBailHook</span><span class="token punctuation">,</span>      <span class="token comment">// 异步并发熔断钩子</span>
+    <span class="token maybe-class-name">AsyncSeriesHook</span><span class="token punctuation">,</span>            <span class="token comment">// 异步串行钩子</span>
+    <span class="token maybe-class-name">AsyncSeriesBailHook</span><span class="token punctuation">,</span>        <span class="token comment">// 异步串行熔断钩子</span>
+    <span class="token maybe-class-name">AsyncSeriesWaterfallHook</span>     <span class="token comment">// 异步串行流水钩子</span>
+<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"tapable"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="webpack-%E7%9A%84-hmr-%E7%83%AD%E6%9B%B4%E6%96%B0%E5%8E%9F%E7%90%86">Webpack 的 HMR 热更新原理<a class="anchor" href="#webpack-%E7%9A%84-hmr-%E7%83%AD%E6%9B%B4%E6%96%B0%E5%8E%9F%E7%90%86">§</a></h2>
+<ul>
+<li><code>Webpack</code> 的热更新又称热替换（<code>Hot Module Replacement</code>），缩写为 <code>HMR</code>。</li>
+<li>为什么需要 HMR：
+<ul>
+<li>Webapck HMR 不会刷新浏览器，而是运行时对模块进行热替换，保证了应用状态不会丢失，提升了开发效率。</li>
+<li>自动监听、自动打包、自动刷新页面。</li>
+<li>HMR 兼容市面上大多前端框架或库。</li>
+</ul>
+</li>
+<li>HMR 的流程：
+<ul>
+<li>HMR的核心就是客户端从服务端拉去更新后的文件，准确的说是 chunk diff (chunk 需要更新的部分)。</li>
+<li>实际上 WDS 与浏览器之间维护了一个 <code>Websocket</code>，当本地资源发生变化时，WDS 会向浏览器推送更新，并带上构建时的 hash，让客户端与上一次资源进行对比。</li>
+<li>客户端对比出差异后会向 WDS 发起 <code>Ajax</code> 请求来获取更改内容(文件列表、hash)，这样客户端就可以再借助这些信息继续向 WDS 发起 <code>jsonp</code> 请求获取该chunk的增量更新。</li>
+<li>后续的部分(拿到增量更新之后如何处理？哪些状态该保留？哪些又需要更新？)由 <code>HotModulePlugin</code> 来完成，提供了相关 API 以供开发者针对自身场景进行处理，像<code>react-hot-loader</code> 和 <code>vue-loader</code> 都是借助这些 API 实现 HMR。</li>
+</ul>
+</li>
+</ul>
+<h2 id="webpack-%E6%9E%84%E5%BB%BA%E9%80%9F%E5%BA%A6%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96">Webpack 构建速度如何优化？<a class="anchor" href="#webpack-%E6%9E%84%E5%BB%BA%E9%80%9F%E5%BA%A6%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96">§</a></h2>
+<ul>
+<li>使用 <code>高版本</code> 的 Webpack 和 Node.js</li>
+<li><code>多进程/多实例构建</code>：HappyPack(不维护了)、thread-loader</li>
+<li><code>压缩代码</code>
+<ul>
+<li>多进程并行压缩
+<ul>
+<li>webpack-paralle-uglify-plugin</li>
+<li>uglifyjs-webpack-plugin 开启 parallel 参数 (不支持ES6)</li>
+<li>terser-webpack-plugin 开启 parallel 参数</li>
+</ul>
+</li>
+<li>通过 mini-css-extract-plugin 提取 Chunk 中的 CSS 代码到单独文件，通过 css-loader 的 minimize 选项开启 cssnano 压缩 CSS。</li>
+</ul>
+</li>
+<li><code>图片压缩</code>
+<ul>
+<li>使用基于 Node 库的 imagemin (很多定制选项、可以处理多种图片格式)</li>
+<li>配置 image-webpack-loader</li>
+</ul>
+</li>
+<li><code>缩小打包作用域</code>：
+<ul>
+<li>exclude/include (确定 loader 规则范围)</li>
+<li>resolve.modules 指明第三方模块的绝对路径 (减少不必要的查找)</li>
+<li>resolve.mainFields 只采用 main 字段作为入口文件描述字段 (减少搜索步骤，需要考虑到所有运行时依赖的第三方模块的入口文件描述字段)</li>
+<li>resolve.extensions 尽可能减少后缀尝试的可能性</li>
+<li>noParse 对完全不需要解析的库进行忽略 (不去解析但仍会打包到 bundle 中，注意被忽略掉的文件里不应该包含 import、require、define 等模块化语句)</li>
+<li>IgnorePlugin (完全排除模块)</li>
+<li>合理使用alias</li>
+</ul>
+</li>
+<li><code>提取页面公共资源</code>：
+<ul>
+<li>基础包分离：
+<ul>
+<li>使用 html-webpack-externals-plugin，将基础包通过 CDN 引入，不打入 bundle 中</li>
+<li>使用 SplitChunksPlugin 进行(公共脚本、基础包、页面公共文件)分离(Webpack4内置) ，替代了 CommonsChunkPlugin 插件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>DLL</code>：
+<ul>
+<li>使用 DllPlugin 进行分包，使用 DllReferencePlugin(索引链接) 对 manifest.json 引用，让一些基本不会改动的代码先打包成静态资源，避免反复编译浪费时间。</li>
+<li>HashedModuleIdsPlugin 可以解决模块数字id问题</li>
+</ul>
+</li>
+<li><code>充分利用缓存提升二次构建速度</code>：
+<ul>
+<li>babel-loader 开启缓存</li>
+<li>terser-webpack-plugin 开启缓存</li>
+<li>使用 cache-loader 或者 hard-source-webpack-plugin</li>
+</ul>
+</li>
+<li><code>Tree shaking</code>
+<ul>
+<li>打包过程中检测工程中没有引用过的模块并进行标记，在资源压缩时将它们从最终的bundle中去掉(只能对ES6 Modlue生效) 开发中尽可能使用ES6 Module的模块，提高tree shaking效率</li>
+<li>禁用 babel-loader 的模块依赖解析，否则 Webpack 接收到的就都是转换过的 CommonJS 形式的模块，无法进行 tree-shaking</li>
+<li>使用 PurifyCSS(不在维护) 或者 uncss 去除无用 CSS 代码
+<ul>
+<li>purgecss-webpack-plugin 和 mini-css-extract-plugin配合使用(建议)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>Scope hoisting</code>
+<ul>
+<li>构建后的代码会存在大量闭包，造成体积增大，运行代码时创建的函数作用域变多，内存开销变大。Scope hoisting 将所有模块的代码按照引用顺序放在一个函数作用域里，然后适当的重命名一些变量以防止变量名冲突</li>
+<li>必须是ES6的语法，因为有很多第三方库仍采用 CommonJS 语法，为了充分发挥 Scope hoisting 的作用，需要配置 mainFields 对第三方模块优先采用 jsnext:main 中指向的ES6模块化语法</li>
+</ul>
+</li>
+<li><code>动态Polyfill</code>
+<ul>
+<li>建议采用 polyfill-service 只给用户返回需要的polyfill，社区维护。 (部分国内奇葩浏览器UA可能无法识别，但可以降级返回所需全部polyfill)</li>
+</ul>
+</li>
+</ul>
+<h2 id="webpack-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%8F%AF%E8%A7%86%E5%8C%96%E5%88%86%E6%9E%90">Webpack 如何进行可视化分析？<a class="anchor" href="#webpack-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%8F%AF%E8%A7%86%E5%8C%96%E5%88%86%E6%9E%90">§</a></h2>
+<ul>
+<li>VSCode 插件 <code>Import Cost</code></li>
+<li><code>bundlesize</code> 工具包</li>
+<li>使用 <code>webpack-bundle-analyzer</code> 生成 <code>bundle</code> 的模块组成图</li>
+<li><code>speed-measure-webpack-plugin</code></li>
+<li><code>webpack-bundle-analyzer</code></li>
+</ul>
+<h2 id="webpack-%E7%9A%84%E6%89%93%E5%8C%85%E9%80%9F%E5%BA%A6%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96">Webpack 的打包速度如何优化？<a class="anchor" href="#webpack-%E7%9A%84%E6%89%93%E5%8C%85%E9%80%9F%E5%BA%A6%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96">§</a></h2>
+<ul>
+<li>HappyPack、Cache-loader、排除 node_modules、多线程压缩甚至可以采用分布式编译</li>
+</ul>
+<h2 id="webpack-5-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B0%E7%89%B9%E6%80%A7">Webpack 5 有哪些新特性？<a class="anchor" href="#webpack-5-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B0%E7%89%B9%E6%80%A7">§</a></h2>
+<ul>
+<li>模块联邦：让代码直接在项目间利用 CDN 直接共享
+<ul>
+<li>早期共享模块的三种方式：
+<ul>
+<li>NPM 方式共享模块：抽离需要复用的模块为一个单独的 NPM 包。即使使用 Monorepo 可以一定程度解决重复安装和修改困难的问题，但依然需要走本地编译。</li>
+<li>UMD 方式共享模块：模块用 Webpack UMD 模式打包，并输出到其他项目中。最常见。缺点：包体积无法达到本地编译时的优化效果，且库之间容易冲突。</li>
+<li>微前端方式共享模块：分为子应用独立打包和整体应用一起打包。模块复用外，需额外关注样式冲突、生命周期管理。</li>
+</ul>
+</li>
+<li>模块联邦直接将一个应用的包应用于另一个应用，同时具备整体应用一起打包的公共依赖抽取能力。</li>
+<li>使用“中心应用”在线动态分发 Runtime 子模块，并不直接提供给用户使用。</li>
+</ul>
+</li>
+<li>使用持久化缓存提高构建性能。</li>
+<li>使用更好的算法和默认值改进长期缓存。</li>
+</ul>
+<h2 id="babel-%E7%9A%84%E5%8E%9F%E7%90%86">Babel 的原理？<a class="anchor" href="#babel-%E7%9A%84%E5%8E%9F%E7%90%86">§</a></h2>
+<p>使用 Babel：</p>
+<ul>
+<li>Babel 是一个通用的多用途 JavaScript 编译器。通过 Babel 你可以使用（并创建）下一代的 JavaScript，以及下一代的 JavaScript 工具。在得到 JavaScript 新特性广泛普及之前，Babel 能够让你提前（甚至数年）使用它们。</li>
+<li>ES6 代码输入 -&gt; babylon 进行解析 -&gt; 得到 AST -&gt; plugin 用 babel-traverse 包对 AST 树进行遍历转译 -&gt; 得到新的 AST 树 -&gt; 用 babel-generator 通过 AST 树生成 ES5 代码。</li>
+<li>babel 只是转译新标准引入的新语法（箭头函数），而新标准引入的新原生对象以及部分对象新增的原型方法（Proxy、Set），需要 polyfill</li>
+<li>转义：“源码到源码”编译</li>
+</ul>
+<p>为 Babel 编写插件：</p>
+<ul>
+<li>Babel 解析源码为成 AST，然后插件更改 AST，最后由 Babel 输出代码。</li>
+</ul>
+<h2 id="babel-%E5%92%8C-typescript-%E7%9A%84%E5%BC%82%E5%90%8C">Babel 和 TypeScript 的异同？<a class="anchor" href="#babel-%E5%92%8C-typescript-%E7%9A%84%E5%BC%82%E5%90%8C">§</a></h2>
+<ul>
+<li>相同：
+<ul>
+<li>都可以将更高前沿的 JavaScript 新特性编译为普通版本的 JavaScript 代码从而兼容各大浏览器。</li>
+</ul>
+</li>
+<li>不同：
+<ul>
+<li>TypeScript 只专注 TS 语言本身的新特性，Babel 可以通过各种自定义的插件编译各种主流标准下的 JavaScript 代码。</li>
+<li></li>
+</ul>
+</li>
+<li>联姻：
+<ul>
+<li>Babel 推出了编译 TypeScript 的插件：@babel/preset-typescript</li>
+</ul>
+</li>
+</ul>
+<h2 id="babel-7-%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7">Babel 7 的新特性？<a class="anchor" href="#babel-7-%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7">§</a></h2>
+<h2 id="%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料<a class="anchor" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">§</a></h2>
+<ul>
+<li><a href="https://juejin.im/post/6844904094281236487">https://juejin.im/post/6844904094281236487</a></li>
+</ul></article><div class="prev_next"><a class="prev button" href="/articles/06-FE+Browser/02-fe-tooltain.html">«  <!-- -->前端工具链</a><a class="next button" href="/articles/06-FE+Browser/04-fe-mobile.html">移动端 Web 开发<!-- -->  »</a></div></div><div class="main_toc_container nav_link_container"><div class="main_toc"><aside><nav class="toc"><ol><li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-dce-%E5%92%8C-tree-shaking">什么是 DCE 和 Tree Shaking？</a></li><li><a href="#webpack-%E6%98%AF%E4%BB%80%E4%B9%88">WebPack 是什么？</a></li><li><a href="#%E6%9C%89%E5%93%AA%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84-webpack-loader">有哪些常见的 Webpack Loader？</a></li><li><a href="#%E6%9C%89%E5%93%AA%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84-webpack-plugin">有哪些常见的 Webpack Plugin</a></li><li><a href="#loader-%E5%92%8C-plugin-%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E5%AE%9E%E7%8E%B0">Loader 和 Plugin 的区别与实现？</a></li><li><a href="#webpack-%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B">Webpack 构建流程？</a></li><li><a href="#webpack-%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%B5%81%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F%E5%92%8C-tapabel">Webpack 的事件流、声明周期和 Tapabel？</a></li><li><a href="#webpack-%E7%9A%84-hmr-%E7%83%AD%E6%9B%B4%E6%96%B0%E5%8E%9F%E7%90%86">Webpack 的 HMR 热更新原理</a></li><li><a href="#webpack-%E6%9E%84%E5%BB%BA%E9%80%9F%E5%BA%A6%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96">Webpack 构建速度如何优化？</a></li><li><a href="#webpack-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%8F%AF%E8%A7%86%E5%8C%96%E5%88%86%E6%9E%90">Webpack 如何进行可视化分析？</a></li><li><a href="#webpack-%E7%9A%84%E6%89%93%E5%8C%85%E9%80%9F%E5%BA%A6%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96">Webpack 的打包速度如何优化？</a></li><li><a href="#webpack-5-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B0%E7%89%B9%E6%80%A7">Webpack 5 有哪些新特性？</a></li><li><a href="#babel-%E7%9A%84%E5%8E%9F%E7%90%86">Babel 的原理？</a></li><li><a href="#babel-%E5%92%8C-typescript-%E7%9A%84%E5%BC%82%E5%90%8C">Babel 和 TypeScript 的异同？</a></li><li><a href="#babel-7-%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7">Babel 7 的新特性？</a></li><li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li></ol></nav></aside></div></div></section><footer>Powered by<!-- --> <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><div class="tools flex_center hide_on_mobile"><a class="czs-pen button" href="https://github.com/hylerrix/es-interview/edit/master/articles/06-FE+Browser/03-pack-tool.md" target="_blank" style="background-image:url(&quot;/assets/czs-pen.svg&quot;)"></a><a class="czs-angle-up-l button" href="#" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></a></div><script crossorigin="anonymous" src="https://unpkg.com/react@16.13.1/umd/react.production.min.js"></script><script crossorigin="anonymous" src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
