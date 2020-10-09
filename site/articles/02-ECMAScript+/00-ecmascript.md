@@ -17,7 +17,107 @@
   * Stage 3: candidate（候选）——提案规范通过审查并从厂商那里收集反馈。
   * Stage 4: finished（完成）——提案准备加入ECMAScript，但是到浏览器或者Nodejs中可能需要更长的时间。
 
-## 关键字与保留字？
+## 关键字与保留字都有哪些？
+
+* null：表示尚未存在的对象，是一种特殊的 object
+  * 作为函数的参数，表示该函数的参数不是对象。
+  * 作为对象原型链的终点。
+
+ECMA-262 定义了 ECMAScript 支持的一套关键字和一套保留字。如果把关键字用作变量名或函数名，可能得到诸如 "Identifier Expected"（应该有标识符、期望标识符）这样的错误消息。其中，关键字标识了 ECMAScript 语句的开头和/或结尾，保留字在某种意思上是为将来的关键字而保留的单词，因此关键字与保留字军不能被用作变量名或函数名。
+
+| JavaScript 关键字 | (待做待加入 ES6+) |             |             |            |
+| ----------------- | ----------------- | ----------- | ----------- | ---------- |
+| break             | case              | catch       | continue    | default    |
+| delete            | do                | else        | finally     | for        |
+| function          | if                | in          | instanceof  | new        |
+| return            | switch            | this        | throw       | try        |
+| typeof            | var               | void        | while       | with       |
+| class(ES5)        | enum(ES5)         | export(ES5) | import(ES5) | super(ES5) |
+| extends(ES5)      |                   |             |             |            |
+
+| JavaScript 保留字 | (待做待加入 ES6+) |           |           |          |
+| ----------------- | ----------------- | --------- | --------- | -------- |
+| abstract          | boolean           | byte      | char      | const    |
+| debugger          | double            | final     | float     | goto     |
+| implements        | int               | interface | long      | native   |
+| package           | private           | protected | public    | short    |
+| static            | synchronized      | throws    | transient | volatile |
+
+## 标识符命名的避免原则？
+
+- 避免使用一些 Java 对象和属性作为 JavaScript 标识符。
+
+| Java 关键字示例 |            |             |
+| --------------- | ---------- | ----------- |
+| getClass        | java       | JavaArray   |
+| javaClass       | JavaObject | JavaPackage |
+
+- 避免使用 HTML 和 Windows 对象属性和名称作为 JavaScript 标识符。
+
+| HTML、Windows 对象属性和名称 |                    |             |                    |                    |
+| ---------------------------- | ------------------ | ----------- | ------------------ | ------------------ |
+| alert                        | all                | anchor      | anchors            | area               |
+| assign                       | blur               | button      | checkbox           | clearInterval      |
+| clearTimeout                 | clientInformation  | close       | closed             | confirm            |
+| constructor                  | crypto             | decodeURI   | decodeURIComponent | defaultStatus      |
+| document                     | element            | elements    | embed              | embeds             |
+| encodeURI                    | encodeURIComponent | escape      | event              | fileUpload         |
+| focus                        | form               | forms       | frame              | innerHeight        |
+| innerWidth                   | layer              | layers      | link               | location           |
+| mimeTypes                    | navigate           | navigator   | frames             | frameRate          |
+| hidden                       | history            | image       | images             | offscreenBuffering |
+| open                         | opener             | option      | outerHeight        | outerWidth         |
+| packages                     | pageXOffset        | pageYOffset | parent             | parseFloat         |
+| parseInt                     | password           | pkcs11      | plugin             | prompt             |
+| propertyIsEnum               | radio              | reset       | screenX            | screenY            |
+| scroll                       | secure             | select      | self               | setInterval        |
+| setTimeout                   | status             | submit      | taint              | text               |
+| textarea                     | top                | unescape    | untaint            | window             |
+
+- 避免使用 HTML 事件句柄作为 JavaScript 标识符。
+
+|           |            |             |             |
+| --------- | ---------- | ----------- | ----------- |
+| onblur    | onclick    | onerror     | onfocus     |
+| onkeydown | onkeypress | onkeyup     | onmouseover |
+| onload    | onmouseup  | onmousedown | onsubmit    |
+
+- 避免使用非标准 JavaScript 的关键字
+
+一个实例是 const 关键字，用于定义变量。一些 JavaScript 引擎把 const 当作 var 的同义词。另一些引擎则把 const 当作只读变量的定义。Const 是 JavaScript 的扩展。JavaScript 引擎支持它用在 Firefox 和 Chrome 中。但是它并不是 JavaScript 标准 ES3 或 ES5 的组成部分。建议：不要使用它。
+
+## 基础数据类型都有哪些？
+
+* undefiend 没有定义数据类型
+* number 数值数据类型，例如 10 或者 1 或者 5.5
+  * NaN 是一种特殊的 number
+* string 字符串数据类型用来描述文本，例如 "你的姓名"
+  * string 的内置属性和方法：
+  * 构造函数 String()
+* boolean 布尔类型 true | false ，不是正就是反
+  * boolean 的内置属性和方法：
+  * 构造函数
+* object 对象类型，复杂的一组描述信息的集合
+  * null 是一种特殊的 object
+  * object 的内置属性和方法：
+  * 构造函数
+  * Object.prototype
+* function 函数类型
+  * 函数的内置属性和方法：
+  * 构造函数
+  * Function.prototype
+
+## window 全局内置的属性和方法？
+
+
+
+## JavaScript 的内置对象？
+
+原生对象是由 ECMAScript 规范定义的 JavaScript 内置对象，比如 String、Math、RegExp、Object、Function 等等。
+
+宿主对象是由运行时环境(浏览器或 Node 提供，比如 Window、XMLHttpRequest 等等)。
+
+
 
 ## ES ~5 特性发展史？
 
@@ -81,8 +181,6 @@
 
 ## ECMAScript 模块化发展史
 
-
-
 * 社区解决方案 - 同步服务端 CommonJS & Node.js：
   * 暴露模块 - `module.exports`。
   * 暴露模块 - `exports`。
@@ -99,24 +197,261 @@
   * 导出 - 默认导出：`export default {};`。
   * 导入：对应导出的命名式导出和默认导出。`import $, {each, map} from 'jquery';`。
 
-## ES 模块化的具体区别
+## ES 模块化的具体特性？
 
-import, require 有什么不同的表现形式？
+* import, require 有什么不同的表现形式？
+* 为什么说 ES6 的模块化是静态可分析的？-> Tree Shaking
 
-## this 与箭头函数的特点？
+```undefined
+Module Syntax
+Module :
+     ModuleBody
+ModuleBody :
+     ModuleItemList
+ModuleItemList :
+     ModuleItem
+     ModuleItemList ModuleItem
+ModuleItem :
+     ImportDeclaration
+     ExportDeclaration
+     StatementListItem
+```
+
+* 模块化概念
+  - 命名空间：命名空间当前并非 JavaScript 一部分
+  - 匿名函数表达式
+  - 对象字面量
+  - 闭包：从技术角度来讲，所有函数都是闭包
+* 模块化意义
+  - 避免命名冲突
+  - 保护代码完整性
+  - 隐藏复杂性
+  - 降低代码改变带来的冲击
+  - 代码组织
+* 模块化缺点：不能测试私有部分、拓展对象
+* 模块化编程
+  - 重要思想：通过模块模式来内化逻辑复杂性，并提供公有 API，这是 JavaScript 的封装实现方式
+  - 模块对于 JavaScript 而言是特殊的构造函数，该类型函数通常被称为 IIFE 立即调用函数表达式
+  - 模块内部返回带有公有函数的对象字面量，该对象字面量作为模块的公有 API
+  - 典型模块模式：使用全局变量作为模块模式
+  - 揭示模式：简化了返回的对象（API）
+  - 对于 AMD/CommonJS 模块，不需要赋值给全局变量
+  - 广义上，作用域指应用的某部分到相同应用另一部分的可达性
+  - 坚持使用 SRP 单一职责原则设计模块
+* 模块间交互方式
+  - 直接通过模块 API 交互
+    - A 直接调用 B 的 API 与 B 交互，B 被称为 A 的依赖
+    - 传统模块模式：在模块尾部括号内声明依赖，并通过参数访问列表来访问这些依赖
+  - 通过发布/订阅模式的事件聚合模式的方式
+    - 基于经典的观察者模式：observable 广播给 observer
+    - 发布/订阅模式通常由一个中间服务代表另一个对象发布
+    - 分为基本通知类型、带有数据的通知类型
+* 模块加载及依赖管理
+  - 将模块合并到尽可能少的文件中去
+  - 异步模块 AMD
+    - define 声明模块
+    - require 导入模块
+  - RequireJS 基础知识
+    - data-main 入口
+    - requirejs.config()
+    - baseURL
+    - path
+
+## 什么是模块模式
+
+- 在模块内部功能与公开功能之间划定了清晰界限
+- 可访问性控制
+- 创建公有 API
+  - 返回对象字面量
+  - 让函数立即返回
+  - 闭包构造
+- 允许全局导入
+  - 使得代码易读
+  - 加速解释器的变量解释过程
+- 优良特性
+  - 用模块封装内部代码，避免变量及函数污染全局命名空间
+  - 创建应用编程接口，提供对内部功能的访问控制
+- 创建模块的命名空间
+
+```
+// 创建模块的命名空间
+var moduleName = (function () {
+    var someVar;
+    // 整体闭包构造
+    function someFunction () {
+    }
+    return {
+        // 返回 对象字面量
+        someFunction: someFunction
+    }
+})(); // IIFE
+```
+
+## this 与箭头函数的规则和特点？
 
 * this 有四种绑定：和调用位置有关，和定义位置无关
   * 默认绑定：在非严格模式下，this 就是全局对象，否则是 undefined。`foo()`。
   * 隐式绑定：`o.foo()`。
   * 显示绑定：如果 foo 是通过 call、apply 或者 bind 调用的，那么这种调用就是显式绑定。`foo.call(obj)`。
-  * new 关键字绑定。
+  * new 关键字绑定：构造函数中。
 * 箭头函数的特点：和定义位置有关，和调用位置无关
   * 无视 this 的四种绑定规则。
   * this 的值就是函数创建时候所在的 lexical scope 中的 this，而和调用方式无关。
 * 绑定规则优先级：箭头函数 > 关键字 new 调用 > 显式绑定 > 隐式绑定 > 默认绑定
 
-## 变量提升？
+this 是 JavaScript 语言的一个关键字，函数调用的方式决定了 this 的值，this 取值符合以下标准：
+
+* 在调用函数时使用 new 关键字，函数内的 this 是一个全新的对象。
+* 如果 apply、call 或 bind 方法用于调用、创建一个函数，函数内的 this 就是作为参数传入这些方法的对象。
+* 当函数作为对象里的方法被调用时，函数内的 this 时调用该函数的对象。比如当 obj.method() 被调用时，函数内的 this 将绑定到 obj 对象。
+* 如果调用函数不符合上述规则，那么 this 的值指向全局对象。浏览器环境下 this 的值指向 window 对象，但是在严格模式下('use strict')，this 的值为 undefined。
+* 如果符合上述多个规则，则较高的规则(1 号最高，4 号最低)将决定 this 的值。
+* 如果该函数是 ES2015 中的箭头函数，将忽略上面的所有规则，this 被设置为它被创建时的上下文。
+
+## var/let/const 的变量提升和块级作用域？
+
+* 编译器预编译的时候，第一步只会记录变量和函数的定义，第二步才会执行程序。
+  * 所有这些函数和变量声明都被添加到名为词法环境的 JavaScript 数据结构内的内存中。
+* var 会变量提升，初始值为 undefined
+* let 和 const 相比 var
+  * 都会被提升，但是不会被初始化，不能被引用
+  * 只在块级作用域中有效
+  * 不允许重复声明
+  * 不会绑定全局作用域
+* let 和 const 区别
+  * const 定义的指针不能修改，但是指向的对象属性可以修改
+
+## Fetch API 的原理
 
 
+
+## 闭包
+
+* 特点：
+  * 用来包装私有变量
+  * 形成一个不销毁的栈环境
+  * 匿名函数可以访问父级作用域的变量
+* 缺点：
+  * 容易内存泄漏
+* 场景
+  * 内部计数器
+
+## JavaScript 内存泄漏
+
+* 内存泄漏是反应迟缓、崩溃、高延迟等诸多问题的渊源
+* JavaScript 的垃圾回收机制通过周期性地检查先前分配的内存是否可达，帮助开发者管理内存。
+* 常见的 JavaScript 内存泄漏：
+  * 意外的全局变量
+  * 被遗忘的计时器或回调函数
+  * 脱离 DOM 的引用
+  * 闭包
+* 两种内存泄漏：周期性的内存增长导致的泄漏，以及偶现的内存泄漏
+
+## 作用域链是什么？
 
 ## setTimeOut 和 setInterval 原理？
+
+
+
+## [ES5] 'use strict' 有什么用？
+
+'use strict' 是用于对整个脚本或单个函数启用严格模式的语句。严格模式是可选择的一个限制 JavaScript 的变体的一种方式。
+
+优点：
+
+- 无法再意外创建全局变量。
+- 会引起静默失效(即不报错也没有任何效果)的赋值抛出异常。
+- 试图删除不可删除的属性时会抛出异常(之前的操作不会产生任何效果)。
+- 要求函数的参数名唯一。
+- 全局作用域下，this 的值为 undefined。
+- 捕获了一些常见的编码错误，并抛出异常。
+- 禁用令人困惑或欠佳的功能。
+
+缺点：
+
+- 缺失许多开发人员已经习惯的功能。
+- 无法访问 function.caller 和 function.arguments。
+- 以不同严格模式编写的脚本合并后可能导致问题。
+
+## constructor 与 instanceof 的区别？
+
+只要一个对象 a 的内部 prototype 属性或者它的原型链上的任意对象与 b.prototype 是同一个对象,那么 a instanceof b 就返回true。
+
+```javascript
+Array instanceof Object // true
+Object instanceof Object // true
+Array instanceof Array // false
+null instanceof Object // false
+NaN instanceof Number // false
+'str' instanceof String // false
+new String('str') instanceof String // true
+```
+
+## 对象字面量 vs 构造函数创建对象的对比？
+
+> 在 JavaScript 中，我们可以通过 new 关键字、Object.create() 函数创建一个对象，或者使用字面量记法(也称对象初始化器材——object initializer)。字面量记法使用花括号定义对象，对象的 Property 与值以名称 - 值对的方式组织，用冒号分隔。我们还需要在每个名称 - 值对的最后加上逗号(除了最后一个名称 - 值对)。值可以包含变量、函数，或者其他对象。
+>
+> —— 《 SPA 设计与架构 》
+
+字面量的优势：
+
+- 它的代码量更少，更易读；
+- 它可以强调对象就是一个简单的可变的散列表，而不必一定派生自某个类；
+- 对象字面量运行速度更快，因为它们可以在解析的时候被优化：它们不需要"作用域解析(scope resolution)"；因为存在我们创建了一个同名的构造函数 Object() 的可能，当我们调用 Object() 的时候，解析器需要顺着作用域链从当前作用域开始查找，如果在当前作用域找到了名为Object()的函数就执行，如果没找到，就继续顺着作用域链往上照，直到找到全局 Object() 构造函数为止
+- Object() 构造函数可以接收参数，通过这个参数可以把对象实例的创建过程委托给另一个内置构造函数，并返回另外一个对象实例，而这往往不是你想要的。
+
+## 什么是 JavaScript 高阶函数？
+
+高阶函数是将一个或多个函数作为参数的函数，它用于数据处理，也可能将函数作为返回结果。高阶函数是为了抽象一些重复执行的操作。如 map、forEach、filter、reduce 等。
+
+`.apply()、.bind()、.call()`
+
+.apply() 和 .call() 都用于调用函数，第一个参数将用作函数内 this 的值。然而 .call 接受逗号分隔的参数作为后面的参数，而 .apply 接受一个参数数组作为后面的参数。
+
+```
+function add (a, b) {
+    return a + b;
+}
+
+console.log(add.call(null, 1, 2)) // 3
+console.log(add.apply(null, [1, 2])) // 3
+```
+
+.bind() 方法创建一个新的函数，当被调用时，将其 this 关键字设置为提供的值，在调用新函数时，在任何提供之前提供一个给定的参数序列。这种将 this 的值绑定到想要传递给其他函数的类的方法中是非常有用的。
+
+## 细说 JavaScript 原型链？
+
+所有 JavaScript 对象都有一个 prototype 属性，指向它的原型对象。当试图访问一个对象的属性时，如果没有在该对象上找到，它还会搜寻该对象的原型，以及该对象的原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。这种行为是在模拟经典的继承，与其说是继承，不如说是委托。
+
+- 每个对象都有 `__proto__` 属性。
+- 函数有 `prototype`，定义在 ES 规范里。
+- 实例继承构造函数 prototype 的所有属性和方法
+  - 实例的 `__proto__` 指向构造函数的 prototype
+  - 对象具有属性 `__proto__`，可称为隐式原型，一个对象的隐式原型指向构造该对象的构造函数的原型，这也保证了实例能够访问在构造函数原型中定义的属性和方法。
+- 几乎所有的 JavaScript 对象都是 Object 的实例。
+  - 一个典型的对象继承了 Object.prototype 的属性（包括方法），尽管这些属性可能被遮蔽（也被称为覆盖）。
+  - 但是有时候可能故意创建不具有典型原型链继承的对象，比如通过 Object.create(null) 创建的对象，或者通过 Object.setPrototypeOf 方法改变原型链。
+  - 改变 Object 原型，会通过原型链，而改变所有对象；除非这些属性和方法被其他对原型链更里层的改动所覆盖。这提供了一个非常强大的、但有潜在危险的机制，来覆盖或扩展对象行为。
+- 所有的构造器的 constructor 都指向 Function
+- Function 的 prototype 指向一个特殊匿名函数，而这个特殊匿名函数的 `__proto__` 指向Object.prototype
+
+```javascript
+Function instanceof Object; // true
+Object instanceof Function; // true
+
+//①构造器Function的构造器是它自身
+Function.constructor=== Function;//true
+//②构造器Object的构造器是Function（由此可知所有构造器的constructor都指向Function）
+Object.constructor === Function;//true
+//③构造器Function的__proto__是一个特殊的匿名函数function() {}
+console.log(Function.__proto__);//function() {}
+//④这个特殊的匿名函数的__proto__指向Object的prototype原型。
+Function.__proto__.__proto__ === Object.prototype//true
+//⑤Object的__proto__指向Function的prototype，也就是上面③中所述的特殊匿名函数
+Object.__proto__ === Function.prototype;//true
+Function.prototype === Function.__proto__;//true
+```
+
+## JavaScript 柯里化是什么？
+
+柯里化，currying，是一种模式，其中具有多个参数的函数被分解为多个函数，当被串联调用时，将一次一个地累积所有需要的参数。这种技术帮助编写函数式风格的代码，使代码更易读、紧凑。值得注意的是，对于需要被 curry 的函数，它需要从一个函数开始，然后分解成一系列函数，每个函数都需要一个参数。

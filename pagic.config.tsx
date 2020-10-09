@@ -37,6 +37,7 @@ export default {
   sidebar: {
     '/articles/': [
       'articles/README.md',
+      'articles/es-timeline.md',
       'articles/00-Profession/README.md',
       // {
       //   link: 'articles/00-Profession/README.md',
@@ -55,6 +56,7 @@ export default {
           'articles/01-Programming/04-software-engineering.md',
           'articles/01-Programming/05-network-security.md',
           'articles/01-Programming/06-software-test.md',
+          'articles/01-Programming/07-version-control.md',
         ],
       },
       {
@@ -64,6 +66,7 @@ export default {
           'articles/02-ECMAScript+/00-ecmascript.md',
           'articles/02-ECMAScript+/01-javascript.md',
           'articles/02-ECMAScript+/02-typescript.md',
+          'articles/02-ECMAScript+/03-javascript-parctice.md',
         ],
       },
       {
@@ -71,7 +74,7 @@ export default {
         title: 'HTML + CSS',
         children: [
           'articles/03-HTML+CSS/00-html.md',
-          'articles/03-HTML+CSS/01-css.md',
+          'articles/03-HTML+CSS/01-css-design.md',
           'articles/03-HTML+CSS/02-html-css-practice.md',
         ],
       },
@@ -98,7 +101,10 @@ export default {
         title: '前端应用开发 + 浏览器',
         children: [
           'articles/06-FE+Browser/00-browser.md',
-          'articles/06-FE+Browser/01-fe.md',
+          'articles/06-FE+Browser/01-fe-framework.md',
+          'articles/06-FE+Browser/02-fe-tooltain.md',
+          'articles/06-FE+Browser/03-pack-tool.md',
+          'articles/06-FE+Browser/04-fe-mobile.md',
         ],
       },
       {
