@@ -2,31 +2,7 @@
 
 ## 前端架构
 
-- 权限组件的设计
-- SSR
-- SPA
-- 双向绑定
-- 懒加载
-- MVVM：Proxy 与 object.defineProperty
-
-## React
-
-- React v15, v16, v17
-- 生命周期（v15 到 v16）、组件化
-- React -> Hooks、useEffect、setState
-- 懒加载
-- Redux
-- Fiber
-- Concurrent
-- 性能优化：function component + redux、immutable、pure component , shouldComponentUpdate ...
-
-## setState背后的原理
-
-## 什么是 Fiber
-
-## 怎么用 transaction 做批更新
-
-## 虚拟 DOM 原理
+- SSR、SPA、双向绑定、懒加载、MVVM：Proxy 与 object.defineProperty
 
 ## Vue
 
@@ -60,6 +36,58 @@
   - 消息订阅与发布：常见订阅库 pubsub-js，适用于任意关系组件
   - vuex：相比 pubsub 管理起来更集中方便
   - slot：专门用来实现父向子传递带数据的标签
+
+## 实现 Vue 的双向绑定
+
+Vue 2.x 的 Object.defineProperty 版本
+
+```javascript
+// 数据
+const data = {
+  text: 'default'
+};
+const input = document.getElementById('input');
+const span = document.getElementById('span');
+// 数据劫持
+Object.defineProperty(data, 'text', {
+  // 数据变化 —> 修改视图
+  set(newVal) {
+    input.value = newVal;
+    span.innerHTML = newVal;
+  }
+});
+// 视图更改 --> 数据变化
+input.addEventListener('keyup', function(e) {
+  data.text = e.target.value;
+});
+```
+
+Vue 3.x 的 proxy 版本
+
+```javascript
+// 数据
+const data = {
+  text: 'default'
+};
+const input = document.getElementById('input');
+const span = document.getElementById('span');
+// 数据劫持
+const handler = {
+  set(target, key, value) {
+    target[key] = value;
+    // 数据变化 —> 修改视图
+    input.value = value;
+    span.innerHTML = value;
+    return value;
+  }
+};
+const proxy = new Proxy(data, handler);
+
+// 视图更改 --> 数据变化
+input.addEventListener('keyup', function(e) {
+  proxy.text = e.target.value;
+});
+```
 
 ## 如何解决 getter/setter 不能监听数组变异方法
 
@@ -204,6 +232,8 @@
 * DOM diff
 
 ## 前端性能优化需要注意什么？
+
+> 火焰图？
 
 * 最大限度地减少 HTTP 请求：
 * 使用内容分发网络

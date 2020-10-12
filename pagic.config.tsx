@@ -105,6 +105,7 @@ export default {
           'articles/06-FE+Browser/02-fe-tooltain.md',
           'articles/06-FE+Browser/03-pack-tool.md',
           'articles/06-FE+Browser/04-fe-mobile.md',
+          'articles/06-FE+Browser/05-react.md',
         ],
       },
       {

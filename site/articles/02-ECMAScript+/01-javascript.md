@@ -15,7 +15,7 @@
     * 方法：`open; close; write; writeIn;`。
   * 窗口控制：`moveBy; moveTo; resizeBy; resizeTo; scrollBy; scrollTo;`。
   * 焦点控制：`focus; blur;`。
-  * 打开关闭窗口：`open; close;`
+  * 打开关闭窗口：`open; close;`。
   * 定时器：`setTimeout; clearTimeout; setInterval; clearInterval`。
   * 对话框：`alert; confirm; prompt;`。
   * 属性：
@@ -37,45 +37,14 @@
   * 属性操作（获取/设置/删除）：`getAttribute; setAttribute; removeAttribute`。
   * 文本操作：`insertData; appendData, deleteData, replaceData; spliceData; substring;`。
 
-## new 的原理与实现？
+## new 的原理？
 
 * 创建一个新的空对象
 * 将构造函数的作用域赋给新对象（因此 this 就指向了这个新对象）
 * 执行构造函数中的代码（为这个新对象添加属性）
 * 如果这个函数有返回值，则返回；否则，就会默认返回新对象。
 
-```javascript
-function Person(name, age, job) {
-  this.name = name;
-  this.age = age;
-  this.job = job;
-  this.sayName = function() {
-    console.log(this.name)
-  }
-}
-
-function myNew() {
-  // 创建一个空对象
-  let obj = {}
-  // 获取构造函数
-  let Con = [].shift.call(arguments)
-  // 设置空对象的原型
-  obj.__proto__ = Con.prototype
-  // 绑定 this
-  let res = Con.apply(obj, arguments)
-  // 返回新对象
-  return res instanceof Object ? res : obj
-}
-
-var person = myNew(Person, 'Nicholas', 29, 'Front-end developer');
-// var person = new Person('Nicholas', 29, 'Front-end developer'); 
-
-console.log(person.name) // Nicholas
-person.sayName();        // Nicholas
-console.log(person.__proto__ === Person.prototype);   // true
-```
-
-## call()、apply()、bind() 的原理与实现？
+## call()、apply()、bind() 的原理？
 
 > 参考：[进击的前端面试 - 知乎专栏](https://www.zhihu.com/column/c_1155423857010659328)
 
@@ -88,67 +57,8 @@ console.log(person.__proto__ === Person.prototype);   // true
 * call 的使用场景：
   * 让类数组使用数组的方法：`Array.prototype.slice.call(arguments)`
 
-```javascript
-Function.prototype.myOwnCall = function(context) {
-  context = context || window;
-  // 给想让 this 指向的对象临时添加一个 fn，while 来确保此 fn 是独特的。
-  var uniqueID = "00" + Math.random();
-  while (context.hasOwnProperty(uniqueID)) {
-    uniqueID = "00" + Math.random();
-  }
-  context[uniqueID] = this;
-  // 使用 eval 而不使用新特性 …Array.from(arguments).slice(1) 时。
-  var args = [];
-  for (var i = 1; i < arguments.length; i++) {  
-    args.push("arguments[" + i + "]");
-  }
-  var result = eval("context[uniqueID](" + args + ")");
-  // 由于不能改变想让 this 指向的对象，再次删掉临时建立的属性。
-  delete context[uniqueID];
-  return result;
-}
-
-var person = {
-  fullName: function(txt) {
-    console.log(txt + this.firstName + " " + this.lastName);
-  }
-}
-var person1 = {
-  firstName:"John",
-  lastName: "Doe"
-}
-person.fullName.call(person1, "Hello, ");  // 输出 "Hello, John Doe"
-person.fullName.myOwnCall(person1, "Hello, ");  // 输出 "Hello, John Doe"
-```
-
 * apply：【显示调用】传入两个参数，第一个参数是 this 的指向，第二个参数是函数参数组成的数组。
   * 在 ES6 解构赋值之前，可以用 apply 给函数传入参数数组。
-
-```javascript
-// myOwnApply，相比 myOwnCall，只需要注意一下，第二个参数是否存在就可以。
-Function.prototype.myOwnApply = function(context, arr) {
-  context = context || window
-  var uniqueID = "00" + Math.random();
-  while (context.hasOwnProperty(uniqueID)) {
-    uniqueID = "00" + Math.random();
-  }
-  context[uniqueID] = this;
-
-  var args = [];
-  var result = null;
- 
-  if (!arr) {
-    result = context[uniqueID]();
-  } else {
-    for (var i = 0; i < arr.length; i++) { 
-      args.push("arr[" + i + "]");
-    }
-    result = eval("context[uniqueID](" + args + ")");
-  }
-  delete context[uniqueID];
-  return result;
-}
-```
 
 * bind：【隐式调用】创建一个新的函数，在 bind() 被调用时，这个新函数的 this 被 bind 的第一个参数指定，其余的参数将作为新函数的参数供调用时使用。
 * bind 做了四件事：`greeting.bind(obj, 'the world')('JS')`。
@@ -156,51 +66,6 @@ Function.prototype.myOwnApply = function(context, arr) {
   * 调用 bind 时，除了第一个代表 this 的指向，还能传递参数给调用者。
   * 调用生成的“绑定函数”时，再传入剩余参数。
   * 生成的“绑定函数”也可以使用 new 运算符构造，提供的 this 值会被忽略，但前置参数仍会提供给模拟函数。
-
-```javascript
-Function.prototype.myBind = function() {
-  // this 保存在 thatFunc，否则 this 的指向会根据场景的不同而改变。
-  // 取出 thatArg。
-  var thatFunc = this,
-      thatArg = arguments[0];
-  // 获取除第一个外的参数列表，继续传入到返回的参数中。
-  var args = Array.prototype.slice.call(arguments, 1);
-  // 确保 thatFunc 是个函数，否则报错。
-  if (typeof thatFunc !== 'function') {
-    throw new TypeError('Function.prototype.bind - ' +
-      'what is trying to be bound is not callable');
-  }
-  // 由于 bind 不是立即执行的，所以要返回一个函数。
-  var fBound  = function() {
-    // 使用了 apply 改变指向
-    // 如果是在 new 关键字调用情况下，会指向 newObj，而 newObj 就是 fBound 的实例，this instanceof fBound 就是true，我们不再使用 thatArg 作为 greeting 的 this，而是直接使用 newObj 作为 greeting 的 this。
-    // 而当做普通函数调用的时候，this instanceof fBound 就是 false，greeting 中的 this 依然指向 thatArg。
-    return thatFunc.apply(this instanceof fBound
-      ? this·
-      : thatArg,
-      // 拼凑
-      args.concat(Array.prototype.slice.call(arguments)));
-  };
-  // 中间变量 fNOP 空函数，来维护原型关系，并让 fBound.prototype 与 thatFunc.prototype 不再指向同一个原型函数。
-  // 确保 fBound 的 prototype 修改时，greeting 的 prototype 不会被修改。
-  var fNOP = function() {};
-  if (thatFunc.prototype) {
-    // 把 fBound 的 prototype 修改为绑定函数的 prototype，这样 newObj 就可以“继承”自 greeting 了。
-    fNOP.prototype = thatFunc.prototype; 
-  }
-  fBound.prototype = new fNOP();
-  return fBound;
-}
-
-var obj = { name:"Smiley" };
-var greeting = function(str, lang){
-    this.value = 'greetingValue';
-    console.log("Welcome "+this.name+" to "+str+" in "+lang);
-};
-// var objGreeting = greeting.bind(obj, 'the world');
-var objGreeting = greeting.myBind(obj, 'the world'); 
-objGreeting('JS'); // Welcome Smiley to the world in JS
-```
 
 ## Promise 的原理与实现？
 
@@ -238,50 +103,6 @@ Javascript语言的特殊之处，就在于函数内部可以直接读取全局�
 - 作用域链与执行上下文
 - 异步原理及其发展史
 - typeof、instanceof
-
-> 宏任务、微任务
-
-• 宏任务
-• 分类：setTimeout、setInterval、requestAnimationFrame、DOM 事件回调、Ajax 回调
-• 宏任务队列：第一个宏任务队列中，只有一个任务：执行主线程 js 代码；可以有多个宏任务队列；每次准备取出第一个宏任务执行前，都要将所有的微任务一个一个取出来执行
-• 微任务
-• 分类new Promise().then(这个回调)、process.nextTick、mutation 回调
-• 微任务队列：只有一个微任务队列；在上一个宏任务队列执行完成后如果有微任务队列就会执行微任务队列所有任务
-
-> 闭包
-
-• 密闭的容器，主要存储数据
-• 闭包是一个对象，存放数据的格式：key：value
-• 形成条件：
-• 函数嵌套
-• 内部函数引用外部函数的局部变量
-• 出现和销毁？ 
-• 优点：延长外部函数局部变量的生命周期
-• 缺点：容易造成内存泄漏
-• 注意：合理使用，用完销毁
-
-> 错误处理
-
-常见的内置错误的类型：
-
-- Error：所有错误的父类型
-- Reference：引用的变量不存在
-- TypeError：数据类型不正确
-- RangeError：数据值不在其所允许的范围内
-- SyntaxError：语法错误
-- ......
-
-错误处理：
-
-- try catch
-- throw error
-
-错误对象
-
-- message 属性：错误相关信息
-- stack 属性：函数调用栈记录信息
-
-
 
 ## 基础类型 - Object
 
@@ -323,8 +144,6 @@ Javascript语言的特殊之处，就在于函数内部可以直接读取全局�
 * 实现柯里化
 * function a () {} 和 var a = function () {} 区别、变量提升
 
-
-
 ## 应用类
 
 * 防抖、节流函数
@@ -333,190 +152,12 @@ Javascript语言的特殊之处，就在于函数内部可以直接读取全局�
 * getUrlParams(url,key)
 
 
-
-## 高阶函数的原理及 map/filter/reduce 实现？
-
-高阶函数是至少满足下列一个条件的函数：
-
-* 接受一个或多个函数作为输入
-* 输出一个函数
-
-```javascript
-Array.prototype.myMap = function(func) {
-  let results = [];
-  for (let i=0;i<this.length;i++) {
-    results.push(func(this[i], i, this));
-  }
-  return results;
-}
-const array = [1, 4, 9, 16];
-const map1 = array.myMap(x => x * 2);
-console.log(map1);
-const map2 = array.map(x => x * 2);
-console.log(map2);
-```
-
-```javascript
-Array.prototype.myFilter = function(func) {
-  let results = [];
-  for (let i = 0; i < this.length; i++) {
-    if (func(this[i], i, this)) {
-      results.push(this[i]);
-    }
-  }
-  return results;
-}
-const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-const result1 = words.myFilter(word => word.length > 6);
-console.log(result1);
-const result2 = words.filter(word => word.length > 6);
-console.log(result2);
-```
-
-```javascript
-Array.prototype.myReduce = function(func, init) {
-  let accum = init;
-  for (let i=0;i<this.length;i++) {
-    accum = func(accum, this[i], i, this);
-  }
-  return accum;
-}
-const array1 = [1, 2, 3, 4];
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
-// 5 + 1 + 2 + 3 + 4
-console.log(array1.reduce(reducer, 5));
-// 5 + 1 + 2 + 3 + 4
-console.log(array1.myReduce(reducer, 5));
-```
-
-## 函数柯里化及其实现？
-
-柯里化是把接受多个参数的函数变换成接受一个单一参数的函数，并且返回接受余下参数的新函数的技术。`sum(2, 3); sum(2)(3);`。
-
-```javascript
-function curry(fn) {
-  var args = Array.prototype.slice.call(arguments, 1);
-  return function() {
-    var innerArgs = Array.prototype.slice.call(arguments);
-    var finalArgs = args.concat(innerArgs);
-    return fn.apply(null, finalArgs);
-  }
-}
-
-// 自动检测参数是否传递完毕
-function curry(fn) {
-  return function currify() {
-    const args = Array.prototype.slice.call(arguments);
-    return args.length >= fn.length ?
-      fn.apply(null, args) :
-    currify.bind(null, ...args);
-  }
-}
-```
-
-## 数组扁平化操作？
-
-```javascript
-// 递归
-function flatten(arr) {
-    if (!Array.isArray(arr)) {
-        return [arr];
-    }
-    let res = [];
-    for (let i=0;i<arr.length;i++) {
-        res.push(...flatten(arr[i]));
-   }
-   return res;
-}
-
-const arr = [1, [2, [3, 4, [5]]]];
-console.log(flatten(arr));
-```
-
-```javascript
-// 迭代
-function flatten2(arr) {
-  const stack = [...arr];
-  const res = [];
-  while (stack.length) {
-    // 从栈里取出
-    const next = stack.pop();
-    if (Array.isArray(next)) {
-      // 把next扁平化，然后放入stack中
-      stack.push(...next);
-    } else {
-      res.push(next);
-    }
-  }
-  // reverse to restore input order
-  return res.reverse();
-}
-
-console.log(flatten2(arr));
-```
-
-```javascript
-// generator 异步迭代
-function* flatten3(arr) {
-    let length = arr.length;
-    for (let i=0; i<length; i++) {
-        let item = arr[i];
-        if (Array.isArray(item)) {
-    	    yield* flatten3(item);
-        } else {
-    	    yield item;
-        }
-    }
-} 
-
-let res = [];
-for (let f of flatten3 (arr)) {
-    res.push(f);
-}
-console.log(res);
-```
-
-
-
 ## 单线程模型是怎么样的？
 
 
 
 ## 消息队列与事件机制是什么？
 
-
-
-## XMLHttpRequest 实现 Ajax
-
-```javascript
-function ajax(url, fnSucc, fnFaild) {
-  var xhttp;
-  // 第一步：创建 XMLHttpRequest 对象
-  if (window.XMLHttpRequest) {
-      // 现代浏览器
-      xhttp = new XMLHttpRequest();
-   } else {
-      // IE6 等老版本浏览器
-      xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  // 第四步：处理响应
-  xhttp.onreadystatechange = function() {
-    if (xhttp.readyState === 4) {
-      if (xhttp.status === 200) {
-        fnSucc(xhttp.responseText)
-      } else {
-      	if (fnFaild) fnFaild(xhttp.responseText)
-      }
-    } 
-  };
-  // 第二步：初始化 XMLHttpRequest 方法
-  xhttp.open('GET', url);
-  // 第三步：XMLHttpRequest 向服务器发送请求
-  xhttp.send();
-}
-
-ajax('/smileyFace', mySuccessFunc, myFailFunc);
-```
 
 ## 怎么理解原型链？
 
@@ -527,91 +168,24 @@ console.log(person.__proto__ === Person.prototype);
 
 ## 怎么理解作用域链？
 
-## 节流和防抖怎么实现？
-
-```javascript
-// https://zhuanlan.zhihu.com/p/87591677
-function throttle(func, wait, options) {
-  var timeout, context, args, result;
-  var previous = 0;
-  if (!options) options = {};
- 
-  var later = function() {
-    previous = options.leading === false? 0: Date.now(); 
-    timeout = null;
-    result = func.apply(context, args);
-  };
- 
-  var throttled = function() {
-    var now = Date.now();
-    if (!previous && options.leading === false) previous = now;
-    var remaining = wait - (now - previous);
-  	context = this;
-    args = arguments;
-    if (remaining <= 0 || remaining > wait) {
-      if (timeout) {
-        clearTimeout(timeout);
-        timeout = null;
-      }
-      previous = now;
-      result = func.apply(context, args);
-    } else if (!timeout && options.trailing !== false) {
-      timeout = setTimeout(later, remaining);
-    }
-    return result;
-  }
-  throttled.cancel = function() {
-    clearTimeout(timeout);
-    previous = 0;
-    timeout = context = args = null;
-  };
-  return throttled;
-}
-```
-
-```javascript
-// https://zhuanlan.zhihu.com/p/86426949
-function debounce(func, wait, immediate) {
-  var timeout, result;
-  var debounced = function() {
-  var context = this;
-  var args = arguments;
-  if (timeout) clearTimeout(timeout);
-    var later = function() {
-      timeout = null;
-      if (!immediate) result = func.apply(context, args);
-    };
-    var callNow = immediate && !timeout;
-    timeout = setTimeout(later, wait);
-    if (callNow) result = func.apply(this, args);
-    return result;
-  }
-  debounced.cancel = function() {
-    clearTimeout(timeout);
-    timeout = null;
-  };
-  return debounced;
-}
-```
-
 ## JavaScript 内置全局对象有哪些？
 
 没有 Web 浏览器宿主环境的条件下，对于任何 JavaScript 程序，在程序开始之前，JavaScript 解释器都会初始化一个全局对象供程序使用，通过使用该 JavaScript 全局对象，可以访问所有预定义的全局属性、全局普通函数、全局构造函数和全局对象。这些预定义的全局 XX 都是“JS全局对象”的属性。此“JS全局对象”没有名称，可以在全局作用域内使用 this 关键字或引用“JavaScript 全局对象”。
 
 - 基本对象
-  - 内置异常：EvalError、RangeError、ReferenceError、SyntaxError、TypeError、URIErro
-  - Object、Function、Boolean
-- 反射：Proxy、Reflect
-- 控制对象：Generator、GeneratorFunction、Iterable、Promise
-- 数值和时间：Date、Math、Number
-- 文本处理：RegExp、String
-- 结构化数据：ArrayBuffer、DataView、JSON
-- 键值对集合：Map、Set、WeakMap、WeakSet
-- 索引集合：Array、TypedArray：Float32Array、Float64Array、Int16Array、Int32Array、Int8Array、Uint16Array、Uint32Array、Uint8Array、Uint8ClampedArray
+  - 内置异常：`EvalError`、`RangeError`、`ReferenceError`、`SyntaxError`、`TypeError`、`URIError`。
+  - `Object`、`Function`、`Boolean`。
+- 反射：`Proxy`、`Reflect`。
+- 控制对象：`Generator`、`GeneratorFunction`、`Iterable`、`Promise`。
+- 数值和时间：`Date`、`Math`、`Number`。
+- 文本处理：`RegExp`、`String`。
+- 结构化数据：`ArrayBuffer`、`DataView`、`JSON`。
+- 键值对集合：`Map`、`Set`、`WeakMap`、`WeakSet`。
+- 索引集合：`Array`、`TypedArray`、`Float32Array`、`Float64Array`、`Int16Array`、`Int32Array`、`Int8Array`、`Uint16Array`、`Uint32Array`、`Uint8Array`、`Uint8ClampedArray`。
 - 全局对象
-  - 全局对象的值属性：Infinity、NaN、undefined
-  - 全局对象的其它属性：JSON、Math、Reflect
-  - 全局对象的构造器属性：Array、ArrayBuffer、Boolean、DataView、Date、Error、EvalError、Float32Array、Float64Array、Function、Int16Array、Int32Array、Int8Array、Map、Number、Object、Promise、Proxy、RangeError、ReferenceError、RegExp、Set、String、Symbol、SyntaxError、TypeError、Uint16Array、Uint32Array、Uint8Array、Uint8ClampedArray、URIError、WeakMap、WeakSet
+  - 全局对象的值属性：`Infinity`、`NaN`、`undefined`
+  - 全局对象的其它属性：`JSON`、`Math`、`Reflect`
+  - 全局对象的构造器属性：`Array`、`ArrayBuffer`、`Boolean`、`DataView`、`Date`、`Error`、`EvalError`、`Float32Array`、`Float64Array`、`Function`、`Int16Array`、`Int32Array`、`Int8Array`、`Map`、`Number`、`Object`、`Promise`、`Proxy`、`RangeError`、`ReferenceError`、`RegExp`、`Set`、`String`、`Symbol`、`SyntaxError`、`TypeError`、`Uint16Array`、`Uint32Array`、`Uint8Array`、`Uint8ClampedArray`、`URIError`、`WeakMap`、`WeakSet`。
 
 Web 浏览器这个宿主环境中特有的 JavaScript 全局对象为“window 全局对象”，“window 全局对象” 提供了与当前窗口、页面有关的诸多属性与方法。除了这些与浏览器有关的全局属性和方法，window 对象还封装了“JavaScript 内置全局对象”，并向外暴露“JavaScript 内置全局对象的属性与接口”。因此，当进行浏览器端 JavaScript 编程时，只需关心“window 全局对象”即可。
 
@@ -748,9 +322,9 @@ var arr2 = {};
 ```javascript
 function isArrayOne (arr) {  
     return Object.prototype.toString.call(arr) === "[object Array]"
-}  
+}
 var obj = {"k1":"v1"};  
-var arr = [1,2];  
+var arr = [1,2];
 console.log("对象的结果："+isArrayOne(obj));  // false
 console.log("数组的结果："+isArrayOne(arr));  // true
 ```
@@ -767,13 +341,13 @@ function isArray(obj) {  //obj 是待检测的对象，如果返回 true 则为�
 }
 ```
 
-- 通过 instanceof 运算符来判断(instanceof运算符左边是子对象，即待测对象，右边是父构造函数，这里是 Array)。instance 实例：凡是用 new 构造函数创建出的对象，都称为是构造函数的实例。
+- 通过 instanceof 运算符来判断(instanceof 运算符左边是子对象，即待测对象，右边是父构造函数，这里是 Array)。instance 实例：凡是用 new 构造函数创建出的对象，都称为是构造函数的实例。
 
 ```javascript
 var obj = {"k1":"v1"};  
 var arr = [1,2];
-console.log("Instanceof处理对象的结果："+(obj instanceof Array));  
-console.log("Instanceof处理数组的结果："+(arr instanceof Array));
+console.log("Instanceof 处理对象的结果："+(obj instanceof Array));  
+console.log("Instanceof 处理数组的结果："+(arr instanceof Array));
 ```
 
 - 使用 isPrototypeOf() 函数检测一个对象是否是 Array 的原型，或处于原型链中。不但可检测直接父对象，还可检测整个原型链上的所有父对象。
@@ -823,47 +397,6 @@ console.log(isArrayFour(obj));
   - for loop：`for (var i = 0; i < arr.length; i++)`。这里的常见错误是 var 是函数作用域而不是块级作用域。ES2015 引入了块级作用域 let，建议使用。
   - forEach：`arr.forEach(function (el, index) { ... })`。这个语句结构有时会更精简，不必使用 index。还有 every 和 some 方法可以提前终止遍历。
 
-## 浅拷贝与深拷贝
-
-- 数组浅拷贝
-
-```javascript
-var a = [1, 1],
-    b = a;
-console.log(a === b) // true
-```
-
-- 数组深拷贝
-
-```javascript
-function cloneObj(obj) {
-    var tempObj = {};
-    
-    if (obj instanceof Array) {
-        tempObj = [];
-    }
-    
-    for (var prop in obj) {
-        if (typeof prop === 'Object') {
-            cloneObj(prop);
-        }
-        
-        tempObj[prop] = obj[prop];
-    }
-    
-    return tempObj;
-}
-
-var myCountry = {
-    name: 'China',
-    birth: 1949
-}
-
-var country = cloneObj(myCountry);
-
-console.log(country === myCountry); // false
-```
-
 ## JavaScript 事件机制
 
 > 事件冒泡、事件捕获和事件委托
@@ -883,7 +416,7 @@ console.log(country === myCountry); // false
 
 * 当触发子元素时，事件会沿着 DOM 向上冒泡。事件冒泡是实现事件委托的原理。阻止冒泡示例：
 
-```
+```javascript
 var btn = document.getElementById('btn')
 btn.addEventListener('click', function (event) {
     // event.preventDefault() // 阻止默认行为
@@ -901,7 +434,7 @@ btn.addEventListener('click', function (event) {
 
 示例目标：为 div 下的每个 a 标签绑定点击事件：
 
-```javascript
+```html
 <div id="div1">
     <a href="#" id="a1">a1</a>
     <a href="#">a2</a>
@@ -920,7 +453,6 @@ function bindEvent(elem, type, selector, fn) {
         fn = selector
         selector = null
     }
-    
     // 绑定事件
     elem.addEventListener(type, function (e) {
         var target
@@ -1130,3 +662,7 @@ Cookie、LocalStorage、SessionStorage 都是客户端以键值对存储的存�
 | 每个域名容量                       | 4kb                                 | 5mb          | 5mb            |
 | 访问权限                           | 任一窗口                            | 任一窗口     | 当前页面窗口   |
 
+## 什么是 AOP 面向切面编程？
+
+* AOP 即面向切面编程，简单来说就是可以通过编译期或者运行时在不修改源代码的情况下给程序动态增加功能的一种技术。
+* AOP 应用场景：日志记录、性能监控、埋点上报、异常处理等等。对于业务无关的附加功能，直接写到业务代码中也可以实现，但这显然不是一个有"洁癖"程序员的作风；而且这些功能往往需求多变，或者会污染业务代码的实现，掺杂在一起难以维护。无侵入的 AOP 才是"附加功能"的最佳选择。

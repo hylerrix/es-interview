@@ -297,16 +297,16 @@ var moduleName = (function () {
 * 箭头函数的特点：和定义位置有关，和调用位置无关
   * 无视 this 的四种绑定规则。
   * this 的值就是函数创建时候所在的 lexical scope 中的 this，而和调用方式无关。
+  * 箭头函数中无法使用 `function.arguments` 对象。
 * 绑定规则优先级：箭头函数 > 关键字 new 调用 > 显式绑定 > 隐式绑定 > 默认绑定
 
-this 是 JavaScript 语言的一个关键字，函数调用的方式决定了 this 的值，this 取值符合以下标准：
-
-* 在调用函数时使用 new 关键字，函数内的 this 是一个全新的对象。
-* 如果 apply、call 或 bind 方法用于调用、创建一个函数，函数内的 this 就是作为参数传入这些方法的对象。
-* 当函数作为对象里的方法被调用时，函数内的 this 时调用该函数的对象。比如当 obj.method() 被调用时，函数内的 this 将绑定到 obj 对象。
-* 如果调用函数不符合上述规则，那么 this 的值指向全局对象。浏览器环境下 this 的值指向 window 对象，但是在严格模式下('use strict')，this 的值为 undefined。
-* 如果符合上述多个规则，则较高的规则(1 号最高，4 号最低)将决定 this 的值。
-* 如果该函数是 ES2015 中的箭头函数，将忽略上面的所有规则，this 被设置为它被创建时的上下文。
+* this 是 JavaScript 语言的一个关键字，函数调用的方式决定了 this 的值，this 取值符合以下标准：
+  * 在调用函数时使用 new 关键字，函数内的 this 是一个全新的对象。
+  * 如果 apply、call 或 bind 方法用于调用、创建一个函数，函数内的 this 就是作为参数传入这些方法的对象。
+  * 当函数作为对象里的方法被调用时，函数内的 this 时调用该函数的对象。比如当 obj.method() 被调用时，函数内的 this 将绑定到 obj 对象。
+  * 如果调用函数不符合上述规则，那么 this 的值指向全局对象。浏览器环境下 this 的值指向 window 对象，但是在严格模式下('use strict')，this 的值为 undefined。
+  * 如果符合上述多个规则，则较高的规则(1 号最高，4 号最低)将决定 this 的值。
+  * 如果该函数是 ES2015 中的箭头函数，将忽略上面的所有规则，this 被设置为它被创建时的上下文。
 
 ## var/let/const 的变量提升和块级作用域？
 
@@ -353,25 +353,41 @@ this 是 JavaScript 语言的一个关键字，函数调用的方式决定了 th
 
 
 
-## [ES5] 'use strict' 有什么用？
+## [ES5] 什么是严格模式？
 
-'use strict' 是用于对整个脚本或单个函数启用严格模式的语句。严格模式是可选择的一个限制 JavaScript 的变体的一种方式。
+* 'use strict' 是用于对整个脚本或单个函数启用严格模式的语句。严格模式是可选择的一个限制 JavaScript 的变体的一种方式。
 
-优点：
+* 正常模式下，Javascript语言有两种变量作用域（scope）：全局作用域和函数作用域。严格模式创设了第三种作用域：eval作用域。
+  * 严格模式下，eval 语句本身就是一个作用域，不再能够生成全局变量了，它所生成的变量只能用于 eval 内部。
+* 诞生目的：
+  * 消除 Javascript 语法的一些不合理、不严谨之处，减少一些怪异行为;
+  * 消除代码运行的一些不安全之处，保证代码运行的安全；
+  * 提高编译器效率，增加运行速度；
+  * 为未来新版本的 Javascript 做好铺垫。
+* 语法和行为的改变：
+  * 全局变量必须显式声明。
+  * 某些情况只允许静态绑定，以在编译阶段确定属性和方法的归属：禁止使用 with 语句、创设eval作用域。
+  * 增强的安全措施：禁止 this 关键字指向全局对象、禁止在函数内部遍历调用栈。
+  * 禁止删除变量。只能删除 configurable 为 true 的对象属性。
+  * 显式报错：
+    * 会引起静默失效（即不报错也没有任何效果）的赋值抛出异常。
+    * 对只读属性进行赋值会显式的报错。
+    * 对一个使用 getter 方法读取的属性进行赋值会报错。
+    * 对禁止扩展的对象添加新属性会报错。
+    * 删除一个不可删除的属性，会报错。只有 configurable 设置为 true 的对象属性，才能被删除。`Object.create(null, { 'x': { configurable: true }});`
+  * 重名错误：对象不能有重名的属性、函数不能有重名的参数
+  * 禁止八进制表示
+  * arguments 对象的限制：
+    * 不允许对 arguments 赋值
+    * arguments不再追踪参数的变化
+    * 禁止使用 arguments.callee
+  * 函数必须声明在顶层：不允许在非函数的代码块内声明函数。如 `if` 中。
+  * 新增了一些保留字（向后兼容）：implements, interface, let, package, private, protected, public, static, yield。
 
-- 无法再意外创建全局变量。
-- 会引起静默失效(即不报错也没有任何效果)的赋值抛出异常。
-- 试图删除不可删除的属性时会抛出异常(之前的操作不会产生任何效果)。
-- 要求函数的参数名唯一。
-- 全局作用域下，this 的值为 undefined。
-- 捕获了一些常见的编码错误，并抛出异常。
-- 禁用令人困惑或欠佳的功能。
-
-缺点：
-
-- 缺失许多开发人员已经习惯的功能。
-- 无法访问 function.caller 和 function.arguments。
-- 以不同严格模式编写的脚本合并后可能导致问题。
+* 注意：
+  * 无法访问 function.caller 和 function.arguments。
+  * 以不同严格模式编写的脚本合并后可能导致问题。
+    * 解决办法：将整个脚本文件包含在 IIFE 中， 并声明 `"use strict"`。
 
 ## constructor 与 instanceof 的区别？
 
@@ -454,4 +470,45 @@ Function.prototype === Function.__proto__;//true
 
 ## JavaScript 柯里化是什么？
 
-柯里化，currying，是一种模式，其中具有多个参数的函数被分解为多个函数，当被串联调用时，将一次一个地累积所有需要的参数。这种技术帮助编写函数式风格的代码，使代码更易读、紧凑。值得注意的是，对于需要被 curry 的函数，它需要从一个函数开始，然后分解成一系列函数，每个函数都需要一个参数。
+* 柯里化，currying，是一种模式，其中具有多个参数的函数被分解为多个函数，当被串联调用时，将一次一个地累积所有需要的参数。这种技术帮助编写函数式风格的代码，使代码更易读、紧凑。值得注意的是，对于需要被 curry 的函数，它需要从一个函数开始，然后分解成一系列函数，每个函数都需要一个参数。
+
+* Currying 为实现多参函数提供了一个递归降解的实现思路——把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数，在某些编程语言中（如 Haskell），是通过 Currying 技术支持多参函数这一语言特性的。所以 **Currying 原本是一门编译原理层面的技术，用途是实现多参函数。**
+* Curry 的使用场景：
+  * 参数复用
+  * 延迟执行（bind 和箭头函数也能实现同样的功能）
+
+## Proxy 怎么用？
+
+* Proxy 用于修改某些操作的默认行为，等同于在语言层面做出修改，所以属于一种“元编程”（meta programming），即对编程语言进行编程。
+* Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。Proxy 这个词的原意是代理，用在这里表示由它来“代理”某些操作，可以译为“代理器”。
+* `var proxy = new Proxy(target, handler);`。
+* Proxy 实例也可以作为其他对象的原型对象。
+* 13 种 Proxy 支持的拦截操作：
+  * `get(target, propKey, receiver)`：拦截对象属性的读取，比如 `proxy.foo` 和 `proxy['foo']`。
+  * `set(target, propKey, value, receiver)`：拦截对象属性的设置，比如 `proxy.foo = v` 或 `proxy['foo'] = v`，返回一个布尔值。
+  * `has(target, propKey)`：拦截 `propKey in proxy` 的操作，返回一个布尔值。
+  * `deleteProperty(target, propKey)`：拦截 `delete proxy[propKey]` 的操作，返回一个布尔值。
+  * `ownKeys(target)`：拦截 `Object.getOwnPropertyNames(proxy)`、`Object.getOwnPropertySymbols(proxy)`、`Object.keys(proxy)`、`for...in` 循环，返回一个数组。该方法返回目标对象所有自身的属性的属性名，而 `Object.keys()` 的返回结果仅包括目标对象自身的可遍历属性。
+  * `getOwnPropertyDescriptor(target, propKey)`：拦截 `Object.getOwnPropertyDescriptor(proxy, propKey)`，返回属性的描述对象。
+  * `defineProperty(target, propKey, propDesc)`：拦截 `Object.defineProperty(proxy, propKey, propDesc)`。
+  * `Object.defineProperties(proxy, propDescs)`，返回一个布尔值。
+  * `preventExtensions(target)`：拦截 `Object.preventExtensions(proxy)`，返回一个布尔值。
+  * `getPrototypeOf(target)`：拦截 `Object.getPrototypeOf(proxy)`，返回一个对象。
+  * `isExtensible(target)`：拦截 `Object.isExtensible(proxy)`，返回一个布尔值。
+  * `setPrototypeOf(target, proto)`：拦截 `Object.setPrototypeOf(proxy, proto)`，返回一个布尔值。如果目标对象是函数，那么还有两种额外操作可以拦截。
+  * `apply(target, object, args)`：拦截 Proxy 实例作为函数调用的操作，比如 `proxy(...args); proxy.call(object, ...args)、proxy.apply(...)`。
+  * `construct(target, args)`：拦截 Proxy 实例作为构造函数调用的操作，比如 `new proxy(...args)`。
+
+```
+var obj = new Proxy({}, {
+  get: function (target, propKey, receiver) {
+    console.log(`getting ${propKey}!`);
+    return Reflect.get(target, propKey, receiver);
+  },
+  set: function (target, propKey, value, receiver) {
+    console.log(`setting ${propKey}!`);
+    return Reflect.set(target, propKey, value, receiver);
+  }
+});
+```
+
