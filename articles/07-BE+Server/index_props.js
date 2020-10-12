@@ -2,8 +2,8 @@ import projectConfig from '/pagic.config.js';
 var _a, _b;
 export default {
     'prev': {
-        "text": "移动端 Web 开发",
-        "link": "articles/06-FE+Browser/04-fe-mobile.html"
+        "text": "React",
+        "link": "articles/06-FE+Browser/05-react.html"
     },
     'next': {
         "text": "Linux + Nginx + 数据库",
@@ -199,6 +199,11 @@ export default {
                     "text": "移动端 Web 开发",
                     "link": "articles/06-FE+Browser/04-fe-mobile.html",
                     "pagePath": "articles/06-FE+Browser/04-fe-mobile.md"
+                },
+                {
+                    "text": "React",
+                    "link": "articles/06-FE+Browser/05-react.html",
+                    "pagePath": "articles/06-FE+Browser/05-react.md"
                 }
             ],
             "text": "前端应用开发 + 浏览器",

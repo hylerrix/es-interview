@@ -6,8 +6,8 @@ export default {
         "link": "articles/06-FE+Browser/03-pack-tool.html"
     },
     'next': {
-        "link": "articles/07-BE+Server/index.html",
-        "text": "后端应用开发 + 服务器"
+        "text": "React",
+        "link": "articles/06-FE+Browser/05-react.html"
     },
     'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     'sidebar': [
@@ -199,6 +199,11 @@ export default {
                     "text": "移动端 Web 开发",
                     "link": "articles/06-FE+Browser/04-fe-mobile.html",
                     "pagePath": "articles/06-FE+Browser/04-fe-mobile.md"
+                },
+                {
+                    "text": "React",
+                    "link": "articles/06-FE+Browser/05-react.html",
+                    "pagePath": "articles/06-FE+Browser/05-react.md"
                 }
             ],
             "text": "前端应用开发 + 浏览器",
