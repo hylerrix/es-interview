@@ -9,6 +9,10 @@
 
 - Nginx 平滑重启，反向代理、正向代理
 
+## Nginx 有哪些配置项？
+
+* listen、server_name、location、root...
+
 ## Nginx 的反向代理？
 
 

@@ -9,13 +9,18 @@
 - mongoose
 - 何判断一个IP是不是国内IP？
 
-
-
 ## Node 的异步性有什么特点？
 
 
 
-## Node 的事件模型
+## Node 进程通信的方式都有哪些？
+
+- 通过 stdin/stdout 传递
+- Node 原生 IPC 支持
+- 通过 Sockets
+- 借助 Message Queue
+
+## Node 的事件模型？
 
 
 
@@ -25,6 +30,10 @@
   - function (exports, require, module, __filename, __dirname) {}
   - 其中，module 代表模块本身，module.exports 可以统一导出
   - exports 是形参，指向 module.exports 的值，但是不能统一导出
+
+## 如何理解 BFF 层？
+
+
 
 ## 动手实现中间件
 
@@ -309,4 +318,14 @@ emitter.emit('demo', [1, 2, 3]);
 ```
 
 
+
+## NPM 的常见操作？
+
+
+
+## 编写 NPM 包都需要注意什么？
+
+
+
+## 如何发布私有 NPM 包？
 
