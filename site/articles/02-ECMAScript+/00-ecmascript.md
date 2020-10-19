@@ -15,7 +15,7 @@
   * Stage 1: proposal（提案）——由 TC39 至少一名成员倡导的正式提案文件，该文件包括 API 示例。
   * Stage 2: draft（草案）——功能规范的初始版本，该版本包含功能规范的两个实验实现。
   * Stage 3: candidate（候选）——提案规范通过审查并从厂商那里收集反馈。
-  * Stage 4: finished（完成）——提案准备加入ECMAScript，但是到浏览器或者Nodejs中可能需要更长的时间。
+  * Stage 4: finished（完成）——提案准备加入 ECMAScript，但是到浏览器或者 Nodejs 中可能需要更长的时间。
 
 ## 关键字与保留字都有哪些？
 
