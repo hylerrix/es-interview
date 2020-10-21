@@ -40,5 +40,12 @@
 
 * 并行可以是并发，而并发不一定是并行。并行一般需要物理层面的支持。
 
+## BSD UNIX 的进程通信机制？
+
+> Socket的英文原义是“孔”或“插座”。作为BSD UNIX的[进程通信](https://baike.baidu.com/item/进程通信)机制，取后一种意思。通常也称作"[套接字](https://baike.baidu.com/item/套接字)"，用于描述IP地址和端口，是一个通信链的句柄，可以用来实现不同虚拟机或不同计算机之间的通信。在Internet上的[主机](https://baike.baidu.com/item/主机)一般运行了多个服务软件，同时提供几种服务。每种服务都打开一个Socket，并绑定到一个端口上，不同的端口对应于不同的服务。Socket正如其英文原义那样，像一个多孔插座。一台主机犹如布满各种插座的房间，每个插座有一个编号，有的插座提供220伏交流电， 有的提供110伏交流电，有的则提供有线电视节目。 客户软件将插头插到不同编号的插座，就可以得到不同的服务。—— [百度百科](https://baike.baidu.com/item/socket/281150)
+
+* Socket API 原本是为网络通讯设计的，但后来在 socket 的框架上发展出一种 IPC （Inter-Process Communication）机制，就是 UNIX Domain Socket 也称为本地域。虽然网络 socket 也可用于同一台主机的进程间通讯（通过loopback地址127.0.0.1），但是 UNIX Domain Socket 用于 IPC 更有效率：**不需要经过网络协议栈，不需要打包拆包、计算校验和、维护序号和应答等，只是将应用层数据从一个进程拷贝到另一个进程**。这是因为，IPC 机制本质上是可靠的通讯，而网络协议是为不可靠的通讯设计的。UNIX Domain Socket 也提供面向流和面向数据包两种 API 接口，类似于 TCP 和 UDP，但是面向消息的 UNIX Domain Socket 也是可靠的，消息既不会丢失也不会顺序错乱。
+* 
+
 ## 如何区分用户态和内核态？
 

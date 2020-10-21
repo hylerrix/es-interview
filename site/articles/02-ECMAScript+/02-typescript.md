@@ -4,6 +4,8 @@
 
 > TS 特有的东西：typeof，keyof， infer
 
+> https://github.com/typescript-exercises/typescript-exercises
+
 ## 为什么需要 TypeScript
 
 * TypeScript 的基础特性：
@@ -17,6 +19,10 @@
   * 由于浏览器只运行 JavaScript、所以需要构建、编译过程，在将代码提供给浏览器之前，需要将代码转移为 JavaScript。
   * 如果 source map 不能很好地映射到预编译的源代码，调试会很痛苦。
   * 大多数开发人员不熟悉这些语言，需要增加团队成本来学习。
+
+## 如何理解 DefinitelyTyped 项目？
+
+
 
 ## TypeScript v1~v4 新特性
 
@@ -138,8 +144,6 @@ export const Throwable = (fn?: () => () => void) => {
 }
 ```
 
-## 如何在 TypeScript 中实现继承？
-
 ## Typescript 中的模块有什么特点？
 
 ## TypeScript 中的枚举？
@@ -147,3 +151,50 @@ export const Throwable = (fn?: () => () => void) => {
 ## 如何检查 TypeScript 中的 null 和 undefined？
 
 ## TypeScript 是如何支持函数重载的？
+
+## 动手实战常见的 Type Assertion？
+
+```typescript
+/* Checks if T1 equals to T2. */
+export type IsTypeEqual<T1, T2> = IsNotAny<T1> extends false ? false : (
+    IsNotAny<T2> extends false ? false : (
+        [T1] extends [T2] ? ([T2] extends [T1] ? true : false): false
+    )
+);
+
+/* Checks if T2 can be assigned to T1. */
+export type IsTypeAssignable<T1, T2> = IsNotAny<T1> extends false ? false : (
+    IsNotAny<T2> extends false ? false : (
+        [T2] extends [T1] ? true : false
+    )
+);
+
+/**
+ * Returns `false` if `any` is specified, otherwise returns `true`.
+ * @see https://stackoverflow.com/a/49928360/3406963
+ */
+export type IsNotAny<T> = 0 extends (1 & T) ? false : true;
+
+/* Returns true for false and vice versa. */
+export type Not<T> = [T] extends [true] ? false : true;
+
+/**
+ * Extracts and returns the first argument of the specified function.
+ */
+export type FirstArgument<T> = T extends (arg1: infer A, ...args: any[]) => any ? A : never;
+
+/**
+ * Extracts and returns the second argument of the specified function.
+ */
+export type SecondArgument<T> = T extends (arg1: any, arg2: infer A, ...args: any[]) => any ? A : never;
+
+/* Extracts and returns the third argument of the specified function. */
+export type ThirdArgument<T> = T extends (arg1: any, arg2: any, arg3: infer A, ...args: any[]) => any ? A : never;
+
+/* Extracts and returns array element type. */
+export type ArrayElement<T> = T extends (infer I)[] ? I : never;
+
+/* A simple type assertion function which always expects a true-type. */
+export function typeAssert<T extends true>() {}
+```
+
