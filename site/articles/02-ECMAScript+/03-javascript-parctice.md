@@ -1,5 +1,91 @@
 # JavaScript 常见实战题
 
+> * NaN == NaN，null == undefined
+> * arguments 的使用
+> * 实现 stringify 序列化函数
+
+### 如何区分 Object 和 Array
+
+- 利用 toString() 方法
+
+```javascript
+function isArrayOne (arr) {  
+    return Object.prototype.toString.call(arr) === "[object Array]"
+}
+var obj = {"k1":"v1"};  
+var arr = [1,2];
+console.log("对象的结果："+isArrayOne(obj));  // false
+console.log("数组的结果："+isArrayOne(arr));  // true
+```
+
+- 利用 isArray，使用 Javascript 1.8.5(ECMAScript 5)，变量名字.isArray( ) 可以实现这个目的，前提是支持这一函数。其实 isArray() 就是利用 toString() 方法的封装使用。
+
+```javascript
+function isArray(obj) {  //obj 是待检测的对象，如果返回 true 则为数组
+    if (Array.isArray) {  
+        return Array.isArray(obj);  
+    } else {  
+     return Object.prototype.toString.call(obj)==="[object Array]";  
+    }  
+}
+```
+
+- 通过 instanceof 运算符来判断(instanceof 运算符左边是子对象，即待测对象，右边是父构造函数，这里是 Array)。instance 实例：凡是用 new 构造函数创建出的对象，都称为是构造函数的实例。
+
+```javascript
+var obj = {"k1":"v1"};  
+var arr = [1,2];
+console.log("Instanceof 处理对象的结果："+(obj instanceof Array));  
+console.log("Instanceof 处理数组的结果："+(arr instanceof Array));
+```
+
+- 使用 isPrototypeOf() 函数检测一个对象是否是 Array 的原型，或处于原型链中。不但可检测直接父对象，还可检测整个原型链上的所有父对象。
+
+```javascript
+Array.prototype.isPrototypeOf(arr) // true 表示是数组，false 不是数组
+```
+
+- 利用构造函数 constructor
+
+```javascript
+var obj = {'k':'v'};  
+var t1 = new Array(1);  
+var t2 = t1;  
+console.log(obj.constructor == Array);  // false
+console.log(t1.constructor == Array);  // true
+console.log(t2.constructor == Array);  // true
+```
+
+- 使用 typeof + arr.concat 结合判断，局限性在于如果开发者定义了 concat 属性，便会引起冲突
+
+```javascript
+function isArrayFour (arr) {  
+    if (typeof(arr)==="object") {  
+        if (arr.concat) {  
+            return "This is Array";  
+        } else {  
+            return "This Not Array";  
+        }  
+    }  
+}  
+var arr = [1];  
+var obj = {'k':'v'};  
+console.log(typeof(arr));  
+console.log(typeof(obj));  
+console.log(isArrayFour(arr));  
+console.log(isArrayFour(obj));
+```
+
+### 如何遍历对象和数组
+
+* 对象遍历
+  - for in 循环：`for (var property in obj) { console.log(property); }`。但这会遍历到它的继承属性，在使用前需要加入 `obj.hasOwnProperty(property)` 检查。
+  - Object.keys()：`Object.keys(obj).forEach(function (property) { ... })`。
+  - Object.getOwnPropertyNames()：`Object.getOwnPropertyNames(obj).forEach(function (property) { ... })`。Object.getOwnPropertyNames() 方法返回一个由指定对象的所有自身属性的属性名(包括不可枚举属性但不包括 Symbol 值作为名称的属性)组成的数组。
+* 数组遍历
+  - for loop：`for (var i = 0; i < arr.length; i++)`。这里的常见错误是 var 是函数作用域而不是块级作用域。ES2015 引入了块级作用域 let，建议使用。
+  - forEach：`arr.forEach(function (el, index) { ... })`。这个语句结构有时会更精简，不必使用 index。还有 every 和 some 方法可以提前终止遍历。
+
 ## 一个函数实现 add(1)(2)(3)、add(1, 2, 3)
 
 ```javascript
@@ -1288,4 +1374,3 @@ function _asyncToGenerator(fn) {
   };
 }
 ```
-

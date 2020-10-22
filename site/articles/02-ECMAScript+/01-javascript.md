@@ -1,114 +1,45 @@
 # JavaScript 基础知识
 
-## DOM 和 BOM 是什么？
+> 重点关注从 ES 到 JS，与众不同的地方。即从标准逐步走向应用层，但不涉及具体实战。
 
-* **BOM 浏览器对象模型**：根节点是 `window`。
-  * navigator 对象：`appCodeName; appName; appVersion; cookieEnabled; platform; userAgent;`。
-  * screen 对象：`availHeight; availWidth; height; width; colorDepth;`。
-  * history 对象：`back; forward; go;`。
-  * location 对象：
-    * 属性：`hash; host; hostName; href; pathname; port; portocol; `。
-    * 方法：`assign; reload; replace`。
-  * document 对象：
-    * 集合：`anchors; images; links; forms;`。
-    * 属性：`cookie; domain; referrer; title; URL;`。
-    * 方法：`open; close; write; writeIn;`。
-  * 窗口控制：`moveBy; moveTo; resizeBy; resizeTo; scrollBy; scrollTo;`。
-  * 焦点控制：`focus; blur;`。
-  * 打开关闭窗口：`open; close;`。
-  * 定时器：`setTimeout; clearTimeout; setInterval; clearInterval`。
-  * 对话框：`alert; confirm; prompt;`。
-  * 属性：
-    * 状态栏：`defaultStatus; status`。
-    * 窗口位置 - IE：`screenLeft; screenTop;`。
-    * 窗口位置 - !IE：`screenX; screenY; pageXOffset; pageYOffset;`。
-    * 窗口位置 - FF：`innerHeight; innerWidth; outerHeight; outerWidth;`。
-    * 其它：`opener; close; name; self;`。
-* **DOM 文档对象模型**：W3C 标准。根节点是 `window.document`。
-  * 获取节点：
-    * document：`getElementById; getElementsByName; getElementsByTagName; `。
-    * 节点指针：`firstChild; lastChild; childNodes; previousSibling; nextSibling; parentNode;`。
-  * 节点操作：
-    * 创建节点：`createElement; createAttribute; createTextNode;`。
-    * 插入节点：`appendChild; insertBefore;`。
-    * 替换节点：`replaceChild;`。
-    * 复制节点：`cloneNode;`。
-    * 删除节点：`removeChild;`。
-  * 属性操作（获取/设置/删除）：`getAttribute; setAttribute; removeAttribute`。
-  * 文本操作：`insertData; appendData, deleteData, replaceData; spliceData; substring;`。
+## 基础数据类型
 
-## new 的原理？
+### 基础数据类型都有哪些？
 
-* 创建一个新的空对象
-* 将构造函数的作用域赋给新对象（因此 this 就指向了这个新对象）
-* 执行构造函数中的代码（为这个新对象添加属性）
-* 如果这个函数有返回值，则返回；否则，就会默认返回新对象。
+* undefiend 没有定义数据类型
+* number 数值数据类型，例如 10 或者 1 或者 5.5
+  * NaN 是一种特殊的 number
+* string 字符串数据类型用来描述文本，例如 "你的姓名"
+  * string 的内置属性和方法：
+  * 构造函数 String()
+* boolean 布尔类型 true | false ，不是正就是反
+  * boolean 的内置属性和方法：
+  * 构造函数
+* object 对象类型，复杂的一组描述信息的集合
+  * null 是一种特殊的 object
+  * object 的内置属性和方法：
+  * 构造函数
+  * Object.prototype
+* function 函数类型
+  * 函数的内置属性和方法：
+  * 构造函数
+  * Function.prototype
 
-## call()、apply()、bind() 的原理？
+### String 有哪些操作？
 
-> 参考：[进击的前端面试 - 知乎专栏](https://www.zhihu.com/column/c_1155423857010659328)
+### Boolean 有哪些操作？
 
-* call：【显示调用】传入多个参数，第一个参数是 this 的指向，之后的参数都是函数的参数。
-* call 做了三件事：`person.fullName.call(person1, "Hello, ");`。
-  * 显示地改变 this 的指向为第一个参数。
-  * 从 call 的第二个参数开始，都传递给调用 call 的函数中。
-  * 不改变调用函数本身内部，调用函数不使用 call 时会和 call 不再有关系。
-* `foo.call(this, arg1, arg2, arg3) == foo.apply(this, arguments) == this.foo(arg1, arg2, arg3);`。
-* call 的使用场景：
-  * 让类数组使用数组的方法：`Array.prototype.slice.call(arguments)`
+### Undifined/NULL 有哪些操作？
 
-* apply：【显示调用】传入两个参数，第一个参数是 this 的指向，第二个参数是函数参数组成的数组。
-  * 在 ES6 解构赋值之前，可以用 apply 给函数传入参数数组。
+### Function 有哪些操作？
 
-* bind：【隐式调用】创建一个新的函数，在 bind() 被调用时，这个新函数的 this 被 bind 的第一个参数指定，其余的参数将作为新函数的参数供调用时使用。
-* bind 做了四件事：`greeting.bind(obj, 'the world')('JS')`。
-  * 改变调用者中 this 的指向，之后返回一个函数。
-  * 调用 bind 时，除了第一个代表 this 的指向，还能传递参数给调用者。
-  * 调用生成的“绑定函数”时，再传入剩余参数。
-  * 生成的“绑定函数”也可以使用 new 运算符构造，提供的 this 值会被忽略，但前置参数仍会提供给模拟函数。
+### Object 有哪些操作？
 
-## Promise 的原理与实现？
+### Number 有哪些操作？
 
-## JavaScript 数值类型的计算机原理？
+* 浮点？
 
-
-
-## 闭包和 IIFE 的概念与实战？
-
-* IIFE 可以达到不暴露私有成员的目的
-* 能够在 IIFE 完成执行后任维系着内部功能的生存期。
-* IIFE，Immediately Invoked Function Expressions，代表立即执行函数。
-* IIFE 的外层括号不是必须的，因为 IIFE 是一个函数表达式。
-
-闭包，closure，概念最早提出在 1964 年，1975 年最早实现，是函数和声明该函数的词法环境的组合。词法作用域中使用的域，是变量在代码中声明的位置所决定的。
-
-闭包就是能够读取其他函数内部变量的函数。
-
-Javascript语言的特殊之处，就在于函数内部可以直接读取全局变量。另一方面，在函数外部自然无法读取函数内的局部变量。本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。
-
-* 为什么使用闭包：
-  * 利用闭包实现数据私有化或模拟私有方法，这个方式也称为模块模式。
-  * 部分参数函数柯里化。
-* 如何从外部读取局部变量？
-  * 那就是在函数的内部，再定义一个函数。这就是 JavaScript 语言特有的"链式作用域"结构(chain scop)，子对象会一级一级地向上寻找所有父对象的变量。
-* 使用闭包的注意点
-  * 由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。
-  * 闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。
-
-## 待做
-
-* DOM 冒泡机制
-
-- let、const、var 区别及变量提升
-- 隐式类型转换、事件代理
-- setTimeout、setInterval 与 requestAnimationFrame
-- 作用域链与执行上下文
-- 异步原理及其发展史
-- typeof、instanceof
-
-## 基础类型 - Object
-
-## 基础结构 - 数组
+### Array 有哪些操作？
 
 * Array 静态方法：`Array.from(); Array.isArray(); Array.of();`。
 * Array 原型方法：
@@ -118,7 +49,6 @@ Javascript语言的特殊之处，就在于函数内部可以直接读取全局�
   * `.reduce(); .reduceRight(); .reverse(); .shift(); .slice(); .some(); .sort(); .splice(); `。
   * `.toLocaleString(); .toSource(); .toString(); .unshift(); .values();`。
   * `Array.prototype[@@iterator](); get Array[@@species]`。
-
 * Array 常见考题：
   * 数组拷贝。
   * 数组展开。
@@ -134,41 +64,9 @@ Javascript语言的特殊之处，就在于函数内部可以直接读取全局�
   * 0.1+0.2 == 0.3？原因？
 * 链式调用：add(2, 5)，add(2)(5)，add(1)(1)(5) 的结果都为 7
 
-## 特殊关键字
+## 重点实战概念
 
-* NaN == NaN，null == undefined
-* arguments 的使用
-* 实现 stringify 序列化函数
-
-## 面向对象 & 函数式
-
-* JavaScript 继承方式的实现方案？
-* 实现柯里化
-* function a () {} 和 var a = function () {} 区别、变量提升
-
-## 应用类
-
-* 防抖、节流函数
-* setTimeout、promise 的使用
-* function request(urls, maxNumber, callback) 要求编写函数实现，根据urls数组内的url地址进行并发网络请求，最大并发数maxNumber,当所有请求完毕后调用callback函数(已知请求网络的方法可以使用fetch api)
-* getUrlParams(url,key)
-
-
-## 单线程模型是怎么样的？
-
-
-
-
-## 怎么理解原型链？
-
-```javascript
-console.log(Person === Person.prototype.constructor);
-console.log(person.__proto__ === Person.prototype);
-```
-
-## 怎么理解作用域链？
-
-## JavaScript 内置全局对象有哪些？
+### JavaScript 内置全局对象有哪些？
 
 没有 Web 浏览器宿主环境的条件下，对于任何 JavaScript 程序，在程序开始之前，JavaScript 解释器都会初始化一个全局对象供程序使用，通过使用该 JavaScript 全局对象，可以访问所有预定义的全局属性、全局普通函数、全局构造函数和全局对象。这些预定义的全局 XX 都是“JS全局对象”的属性。此“JS全局对象”没有名称，可以在全局作用域内使用 this 关键字或引用“JavaScript 全局对象”。
 
@@ -189,56 +87,9 @@ console.log(person.__proto__ === Person.prototype);
 
 Web 浏览器这个宿主环境中特有的 JavaScript 全局对象为“window 全局对象”，“window 全局对象” 提供了与当前窗口、页面有关的诸多属性与方法。除了这些与浏览器有关的全局属性和方法，window 对象还封装了“JavaScript 内置全局对象”，并向外暴露“JavaScript 内置全局对象的属性与接口”。因此，当进行浏览器端 JavaScript 编程时，只需关心“window 全局对象”即可。
 
-## JSON 是什么？
+### Window 全局内置的属性和方法？
 
-* JSON 对象包含两个方法：
-
-  * 用于解析 JavaScript Object Notation  (JSON) 的 parse() 方法
-  * 以及将对象/值转换为 JSON 字符串的 stringify() 方法。
-  * 除了这两个方法, JSON 这个对象本身并没有其他作用，也不能被调用或者作为构造函数调用。
-  * 把数据结构或者对象转换成某种格式的过程称为「序列化」
-  * 而将序列化过程的结果反向转换回某种数据结构或对象的过程称为「反序列化」。
-
-* JSON 的本质
-  * JSON 指的是 JavaScript 对象表示法（JavaScript Object Notation）
-  * JSON 是轻量级的文本数据交换格式
-  * JSON 独立于语言，JSON 解析器和 JSON 库支持许多不同的编程语言。
-  * JSON 具有自我描述性，更易理解
-  
-* JSON 风格指南：
-
-  * 所有的属性名必须在双引号内。
-  * JSON对象中不包含注释。
-  * JSON中的数据元素应以扁平化方式呈现。不能为了方便而将数据任意分组。
-  * 选择有意义的属性名。
-
-  - - 属性名应该是具有定义语义的有意义的名称。
-    - 属性名必须是驼峰式的，ASCII 码字符串。
-    - 首字符必须是字母，下划线(_)或美元符号($)。
-    - 随后的其他字符可以是字母，数字，下划线(_)或美元符号($)。
-    - 应该避免使用 Javascript 中的保留关键字
-
-  - 在 JSON Map 中键名可以使用任意 Unicode 字符。
-
-JS 常见类型 与 JSON 的区别：
-
-| JavaScript类型 | JSON 的不同点                                                |
-| -------------- | ------------------------------------------------------------ |
-| 对象和数组     | 属性名称必须是双引号括起来的字符串；最后一个属性后不能有逗号。 |
-| 数值           | 禁止出现前导零（ JSON.stringify 方法自动忽略前导零，而在 JSON.parse 方法中将会抛出 SyntaxError）；如果有小数点, 则后面至少跟着一位数字。 |
-| 字符串         | 只有有限的一些字符可能会被转义；禁止某些控制字符； Unicode 行分隔符 （U+2028）和段分隔符 （U+2029）被允许 ; 字符串必须用双引号括起来。请参考下面的示例，可以看到 JSON.parse() 能够正常解析，但将其当作JavaScript解析时会抛出 SyntaxError 错误： |
-
-```
-let code = '"\u2028\u2029"';
-JSON.parse(code);  // 正常
-eval(code);  // 错误
-```
-
-* JSON.parse()：解析 JSON 字符串并返回对应的值，可以额外传入一个转换函数，用来将生成的值和其属性, 在返回之前进行某些修改。
-* JSON.stringify()：返回与指定值对应的JSON字符串，可以通过额外的参数, 控制仅包含某些属性, 或者以自定义方法来替换某些 key 对应的属性值。
-* JSON Polyfill：JSON 对象可能不被老版本的浏览器支持。可以将下面的代码放到JS脚本最开始的位置，这样就可以在没有原生支持 JSON 对象的浏览器（如IE6）中使用 JSON 对象。
-
-## 什么是 JavaScript 关联数组？
+### 关联数组有哪些操作？
 
 > 其它多数语言里，数组分为索引数组和关联数组，索引数组又分为一维数组、二维数组和多维数组。
 >
@@ -315,279 +166,77 @@ var arr = new Array(50000000);
 var arr2 = {};
 ```
 
-## 如何区分 Object 和 Array
+### 如何理解隐式类型转换？
 
-- 利用 toString() 方法
+### new 的原理？
 
-```javascript
-function isArrayOne (arr) {  
-    return Object.prototype.toString.call(arr) === "[object Array]"
-}
-var obj = {"k1":"v1"};  
-var arr = [1,2];
-console.log("对象的结果："+isArrayOne(obj));  // false
-console.log("数组的结果："+isArrayOne(arr));  // true
-```
+* 创建一个新的空对象
+* 将构造函数的作用域赋给新对象（因此 this 就指向了这个新对象）
+* 执行构造函数中的代码（为这个新对象添加属性）
+* 如果这个函数有返回值，则返回；否则，就会默认返回新对象。
 
-- 利用 isArray，使用 Javascript 1.8.5(ECMAScript 5)，变量名字.isArray( ) 可以实现这个目的，前提是支持这一函数。其实 isArray() 就是利用 toString() 方法的封装使用。
+### call()、apply()、bind() 的原理？
 
-```javascript
-function isArray(obj) {  //obj 是待检测的对象，如果返回 true 则为数组
-    if (Array.isArray) {  
-        return Array.isArray(obj);  
-    } else {  
-     return Object.prototype.toString.call(obj)==="[object Array]";  
-    }  
-}
-```
+> 参考：[进击的前端面试 - 知乎专栏](https://www.zhihu.com/column/c_1155423857010659328)
 
-- 通过 instanceof 运算符来判断(instanceof 运算符左边是子对象，即待测对象，右边是父构造函数，这里是 Array)。instance 实例：凡是用 new 构造函数创建出的对象，都称为是构造函数的实例。
+* call：【显示调用】传入多个参数，第一个参数是 this 的指向，之后的参数都是函数的参数。
+* call 做了三件事：`person.fullName.call(person1, "Hello, ");`。
+  * 显示地改变 this 的指向为第一个参数。
+  * 从 call 的第二个参数开始，都传递给调用 call 的函数中。
+  * 不改变调用函数本身内部，调用函数不使用 call 时会和 call 不再有关系。
+* `foo.call(this, arg1, arg2, arg3) == foo.apply(this, arguments) == this.foo(arg1, arg2, arg3);`。
+* call 的使用场景：
+  * 让类数组使用数组的方法：`Array.prototype.slice.call(arguments)`
 
-```javascript
-var obj = {"k1":"v1"};  
-var arr = [1,2];
-console.log("Instanceof 处理对象的结果："+(obj instanceof Array));  
-console.log("Instanceof 处理数组的结果："+(arr instanceof Array));
-```
+* apply：【显示调用】传入两个参数，第一个参数是 this 的指向，第二个参数是函数参数组成的数组。
+  * 在 ES6 解构赋值之前，可以用 apply 给函数传入参数数组。
 
-- 使用 isPrototypeOf() 函数检测一个对象是否是 Array 的原型，或处于原型链中。不但可检测直接父对象，还可检测整个原型链上的所有父对象。
+* bind：【隐式调用】创建一个新的函数，在 bind() 被调用时，这个新函数的 this 被 bind 的第一个参数指定，其余的参数将作为新函数的参数供调用时使用。
+* bind 做了四件事：`greeting.bind(obj, 'the world')('JS')`。
+  * 改变调用者中 this 的指向，之后返回一个函数。
+  * 调用 bind 时，除了第一个代表 this 的指向，还能传递参数给调用者。
+  * 调用生成的“绑定函数”时，再传入剩余参数。
+  * 生成的“绑定函数”也可以使用 new 运算符构造，提供的 this 值会被忽略，但前置参数仍会提供给模拟函数。
 
-```javascript
-Array.prototype.isPrototypeOf(arr) // true 表示是数组，false 不是数组
-```
+## 异步与事件机制
 
-- 利用构造函数 constructor
+### 如何理解 JS 单线程模型与事件机制？
 
-```javascript
-var obj = {'k':'v'};  
-var t1 = new Array(1);  
-var t2 = t1;  
-console.log(obj.constructor == Array);  // false
-console.log(t1.constructor == Array);  // true
-console.log(t2.constructor == Array);  // true
-```
+* 事件循环是一个单线程循环，用于监视调用堆栈并检查是否有工作即将在任务队列中完成。如果调用堆栈为空并且任务队列中有回调函数，则将回调函数出队并推送到调用堆栈中执行。
+  * JavaScript 分为同步任务和异步任务
+  * 同步任务都在主线程上执行，形成一个执行栈
+  * 主线程之外，事件触发线程管理着一个任务队列，只要异步任务有了运行结果，就在任务队列之中放置一个事件。
+  * 一旦执行栈中的所有同步任务执行完毕，此时 JavaScript 引擎空闲，系统就会读取任务队列，将可运行的异步任务添加到可执行栈中，开始执行。
 
-- 使用 typeof + arr.concat 结合判断，局限性在于如果开发者定义了 concat 属性，便会引起冲突
+### 如何理解宏任务与微任务？
 
-```javascript
-function isArrayFour (arr) {  
-    if (typeof(arr)==="object") {  
-        if (arr.concat) {  
-            return "This is Array";  
-        } else {  
-            return "This Not Array";  
-        }  
-    }  
-}  
-var arr = [1];  
-var obj = {'k':'v'};  
-console.log(typeof(arr));  
-console.log(typeof(obj));  
-console.log(isArrayFour(arr));  
-console.log(isArrayFour(obj));
-```
-
-## 如何遍历对象和数组
-
-* 对象遍历
-  - for in 循环：`for (var property in obj) { console.log(property); }`。但这会遍历到它的继承属性，在使用前需要加入 `obj.hasOwnProperty(property)` 检查。
-  - Object.keys()：`Object.keys(obj).forEach(function (property) { ... })`。
-  - Object.getOwnPropertyNames()：`Object.getOwnPropertyNames(obj).forEach(function (property) { ... })`。Object.getOwnPropertyNames() 方法返回一个由指定对象的所有自身属性的属性名(包括不可枚举属性但不包括 Symbol 值作为名称的属性)组成的数组。
-* 数组遍历
-  - for loop：`for (var i = 0; i < arr.length; i++)`。这里的常见错误是 var 是函数作用域而不是块级作用域。ES2015 引入了块级作用域 let，建议使用。
-  - forEach：`arr.forEach(function (el, index) { ... })`。这个语句结构有时会更精简，不必使用 index。还有 every 和 some 方法可以提前终止遍历。
-
-## JavaScript 事件机制
-
-> 事件冒泡、事件捕获和事件委托
-
-**事件流**：
-
-* 事件流被分为三个阶段(15)捕获过程、(56)目标过程、(6~10)冒泡过程。
-
-* IE 提出的是冒泡流，而网景提出的是捕获流，后来在 W3C 组织的统一之下，JS 支持了冒泡流和捕获流，但是目前低版本的 IE 浏览器还是只能支持冒泡流(IE6, IE7, IE8 均只支持冒泡流)，所以为了能够兼容更多的浏览器，建议大家使用冒泡流。
-
-* 从事件传播的过程能够看出来，当点击鼠标后，会先发生事件的捕获
-  * 捕获阶段：首先 window 会获捕获到事件，之后 document、documentElement、body 会捕获到，再之后就是在 body 中 DOM 元素一层一层的捕获到事件，有 wrapDiv、innerP。
-    *目标阶段：真正点击的元素textSpan的事件发生了两次，因为在上面的JavaScript代码中，textSapn既在捕获阶段绑定了事件，又在冒泡阶段绑定了事件，所以发生了两次。但是这里有一点是需要注意，在目标阶段并不一定先发生在捕获阶段所绑定的事件，而是先绑定的事件发生，一会会解释一下。
-  * 冒泡阶段：会和捕获阶段相反的步骤将事件一步一步的冒泡到window
-
-**JavaScript 事件冒泡**：
-
-* 当触发子元素时，事件会沿着 DOM 向上冒泡。事件冒泡是实现事件委托的原理。阻止冒泡示例：
-
-```javascript
-var btn = document.getElementById('btn')
-btn.addEventListener('click', function (event) {
-    // event.preventDefault() // 阻止默认行为
-    event.stopPropagation() // 阻止冒泡
-    console.log('clicked')
-})
-```
-
-**JavaScript 事件委托(事件代理)**：
-
-事件委托是将事件监听器添加到父元素，而不是每个子元素单独设置事件监听器。当触发子元素时，事件会冒泡到父元素，监听器就会触发，这种技术的好处如下。
-
-- 内存占用减少，因为只需要一个父元素的事件处理程序，而不必为每个后代都添加事件处理程序。
-- 无需从已删除的元素中解绑处理程序，也不许将处理程序绑定到新元素上。
-
-示例目标：为 div 下的每个 a 标签绑定点击事件：
-
-```html
-<div id="div1">
-    <a href="#" id="a1">a1</a>
-    <a href="#">a2</a>
-    <a href="#">a3</a>
-    <a href="#">a4</a>
-</div>
-<button>点击增加一个 a 标签</button>
-```
-
-示例原理：监听 div 下的事件触发点是不是 a 标签：
-
-```javascript
-function bindEvent(elem, type, selector, fn) {
-    // 这样可以实现重载
-    if (fn == null) {
-        fn = selector
-        selector = null
-    }
-    // 绑定事件
-    elem.addEventListener(type, function (e) {
-        var target
-        // 有 selector 说明需要做事件代理
-        if (selector) {
-            // 获取触发事件的元素，即 e.target
-            target = e.target
-            // 看是否符合 selector 这个条件
-            if (target.matches(selector)) {
-                fn.call(target, e)
-            }
-        } else {
-            // 无 selector，说明不需要事件代理
-            fn(e)
-        }
-    })
-}
-```
-
-使用示例：
-
-```javascript
-// 使用代理 bindEvent 多一个 'a' 参数
-var div = document.getElementById('div')
-bindEvent(div1, 'click', 'a', function (e) {
-    console.log(this.innerHTML)
-})
-
-// 不使用代理
-var a1 = document.getElementById('a1')
-bindEvent(div, 'click', function (e) {
-    console.log(a1.innerHTML)
-})
-```
-
-**JavaScript 事件循环**：
-
-事件循环是一个单线程循环，用于监视调用堆栈并检查是否有工作即将在任务队列中完成。如果调用堆栈为空并且任务队列中有回调函数，则将回调函数出队并推送到调用堆栈中执行。
-
-- JavaScript 分为同步任务和异步任务
-- 同步任务都在主线程上执行，形成一个执行栈
-- 主线程之外，事件触发线程管理着一个任务队列，只要异步任务有了运行结果，就在任务队列之中放置一个事件。
-- 一旦执行栈中的所有同步任务执行完毕，此时 JavaScript 引擎空闲，系统就会读取任务队列，将可运行的异步任务添加到可执行栈中，开始执行。
-
-## 宏任务与微任务
-
-JavaScript 中分为两种任务类型：macrotask 和 microtask，在 ECMAScript 中，microtask 称为 jobs，macrotask 可称为 task。
-
+* JavaScript 中分为两种任务类型：macrotask 和 microtask，在 ECMAScript 中，microtask 称为 jobs，macrotask 可称为 task。
 - macrotask 宏任务，可以理解是每次执行栈执行的代码就是一个宏任务，包括每次从事件队列中获取一个事件回调并放到执行栈中执行
-
-- - 每一个 task 会从头到尾将这个任务执行完毕，不会执行其它
+  - 每一个 task 会从头到尾将这个任务执行完毕，不会执行其它
   - 浏览器为了能够使得 JavaScript 内部 task 与 DOM 任务能够有序的执行，会在一个 task 执行结束后，在下一个 task 执行开始前，对页面进行重新渲染。
-
 - microtask 微任务，可以理解是在当前 task 执行结束后立即执行的任务
-
-- - 在当前 task 任务后，下一个 task 之前，在渲染之前
+  - 在当前 task 任务后，下一个 task 之前，在渲染之前
   - 所以它的响应速度相比 setTimeout(setTimeout 是 task)会更快，因为无需等渲染
   - 在某一个 macrotask 执行完后，就会将在它执行期间产生的所有 microtask 都执行完毕(在渲染前)。
+* 分别什么场景会用到 macrotask 和 microtask？
+  - macrotask：主代码块，setTimeout，setInterval 等(可以看到，事件队列中的每一个事件都是一个 macrotask)
+  - microtask：Promise，process.nextTick 等
+* 在node环境下，process.nextTick 的优先级高于 Promise__，也就是可以简单理解为：在宏任务结束后会先执行微任务队列中的 nextTickQueue 部分，然后才会执行微任务中的 Promise 部分。
+* 从线程角度重新理解：
+  * macrotask 中的事件都是放在一个事件队列中的，而这个队列由事件触发线程维护
+  * microtask 中的所有微任务都是添加到微任务队列 Job Queues 中，等待当前 macrotask 执行完毕后执行，而这个队列由 JavaScript 引擎线程维护
+* 所以，总结下运行机制：
+  * 执行一个宏任务（栈中没有就从事件队列中获取）
+  * 执行过程中如果遇到微任务，就将它添加到微任务的任务队列中
+  * 宏任务执行完毕后，立即执行当前微任务队列中的所有微任务（依次执行）
+  * 当前宏任务执行完毕，开始检查渲染，然后 GUI 线程接管渲染
+  * 渲染完毕后，JavaScript 线程继续接管，开始下一个宏任务（从事件队列中获取）
+* 另外，请注意下 Promise 的 polyfill 与官方版本的区别：
+  * 官方版本中，是标准的 microtask 形式
+  * polyfill，一般都是通过 setTimeout 模拟的，所以是 macrotask 形式
+* 注意，有一些浏览器执行结果不一样，因为它们可能把 microtask 当成macrotask来执行了。
 
-分别什么场景会用到 macrotask 和 microtask？
-
-- macrotask：主代码块，setTimeout，setInterval 等(可以看到，事件队列中的每一个事件都是一个 macrotask)
-- microtask：Promise，process.nextTick 等
-
-> 在node环境下，process.nextTick 的优先级高于 Promise__，也就是可以简单理解为：在宏任务结束后会先执行微任务队列中的 nextTickQueue 部分，然后才会执行微任务中的 Promise 部分。
-
-从线程角度重新理解：
-
-- macrotask 中的事件都是放在一个事件队列中的，而这个队列由事件触发线程维护
-- microtask 中的所有微任务都是添加到微任务队列 Job Queues 中，等待当前 macrotask 执行完毕后执行，而这个队列由 JavaScript 引擎线程维护
-
-所以，总结下运行机制：
-
-- 执行一个宏任务（栈中没有就从事件队列中获取）
-- 执行过程中如果遇到微任务，就将它添加到微任务的任务队列中
-- 宏任务执行完毕后，立即执行当前微任务队列中的所有微任务（依次执行）
-- 当前宏任务执行完毕，开始检查渲染，然后 GUI 线程接管渲染
-- 渲染完毕后，JavaScript 线程继续接管，开始下一个宏任务（从事件队列中获取）
-
-另外，请注意下 Promise 的 polyfill 与官方版本的区别：
-
-- 官方版本中，是标准的 microtask 形式
-- polyfill，一般都是通过 setTimeout 模拟的，所以是 macrotask 形式
-
-> 注意，有一些浏览器执行结果不一样，因为它们可能把 microtask 当成macrotask来执行了。
-
-## Promise 机制是怎样的？
-
-* 同步函数与异步函数
-  - 同步函数阻塞，语句完成后，下一句才执行。
-  - 异步函数不阻塞，通常接受回调作为参数，在调用异步函数后立即继续执行下一行。回调函数仅在异步操作完成且调用堆栈为空时调用。
-* Promise 是一个可能在未来某个时间产生结果的对象：操作成功的结果或失败的原因。Promise 可能处于以下三种状态之一：fulfilled、rejected、pending。用户可以对 Promise 添加回调函数来处理操作成功的结果或失败的原因。
-* Promise 代替回调函数的优点：
-  - 避免可读性极差的回调地狱。
-  - 使用 .then() 编写的顺序异步代码，既简单又易读。
-  - 使用 Promise.all() 编写异步代码变得很容易。
-* Promise 代替回调函数的缺点：
-- 在不支持 ES2015 的旧版浏览器中，需要引入 Polyfill 才能使用。
-
-## CORS 的实现原理？
-
-CORS 是一个 W3C 标准，全称是"跨域资源共享"(Cross-origin resource sharing)。它允许浏览器向跨源服务器，发出 XMLHttpRequest 请求，从而克服了 AJAX 只能同源使用的限制。
-
-基本上目前所有的浏览器都实现了 CORS 标准,其实目前几乎所有的浏览器 ajax 请求都是基于 CORS 机制的。
-
-浏览器将CORS请求分成两类：简单请求(simple request)和非简单请求(not-so-simple request)。只要同时满足以下两大条件，就属于简单请求。
-
-* 请求方法是以下三种方法之一：HEAD, GET, POST
-* HTTP的头信息不超出以下几种字段：
-* Accept
-* Accept-Language
-* Content-Language
-* Last-Event-ID
-* Content-Type(只限于三个值 application/x-www-form-urlencoded、 multipart/form-data、text/plain)
-
-凡是不同时满足上面两个条件，就属于非简单请求。
-
-## JSONP 的实现原理？
-
-JSONP 是一种通常用于绕过 Web 浏览器中的跨域限制的方法，因为 Ajax 不允许跨域请求。JSONP 通过 `<script>` 标签发送跨域请求，通常使用 callback 查询参数，例如：https://example.com?callback=printData。然后服务器将数据包装在一个名为 printData 的函数中并将其返回客户端。
-
-```html
-<script>
-function printData (data) {
-    console.log('My name is ${data.name}')
-}
-</script>
-<script src="https://example.com?callback=printData"></script>
-// 文件加载自 https://example.com?callback=printData
-printData({ name: 'Yang shun'} )
-```
-
-客户端必须在其全局范围内具有 printData 函数，并且在收到来自跨域的响应时，该函数将由客户端执行。JSONP 可能具有一些安全隐患，因此需要信任 JSONP 数据的提供者。
-
-## AJAX（XMLHttpRequest） 怎么使用及优缺点？
+### 如何理解 AJAX？
 
 Ajax 是创建异步 Web 应用的一种 Web 开发技术，起源于 IE 的 Active X 控件，并以 XMLHTTPRequest API 方式提供编程接口。借助 Ajax，Web 应用可以异步(在后台)向服务器发送数据和从服务器检索数据，而不会干扰现有页面的现实和行为。现在通常将 JSON 替换为 XML，因为 JavaScript 对 JSON 由原生支持优势。
 
@@ -627,7 +276,58 @@ xhr.readyState 的状态码说明：
 - 3 -（交互）正在解析响应内容
 - 4 -（完成）响应内容解析完成，可以在客户端调用了
 
-## Fetch API 怎么使用？
+### 跨域 CORS 的实现原理？
+
+CORS 是一个 W3C 标准，全称是"跨域资源共享"(Cross-origin resource sharing)。它允许浏览器向跨源服务器，发出 XMLHttpRequest 请求，从而克服了 AJAX 只能同源使用的限制。
+
+基本上目前所有的浏览器都实现了 CORS 标准,其实目前几乎所有的浏览器 ajax 请求都是基于 CORS 机制的。
+
+浏览器将CORS请求分成两类：简单请求(simple request)和非简单请求(not-so-simple request)。只要同时满足以下两大条件，就属于简单请求。
+
+* 请求方法是以下三种方法之一：HEAD, GET, POST
+* HTTP的头信息不超出以下几种字段：
+* Accept
+* Accept-Language
+* Content-Language
+* Last-Event-ID
+* Content-Type(只限于三个值 application/x-www-form-urlencoded、 multipart/form-data、text/plain)
+
+凡是不同时满足上面两个条件，就属于非简单请求。
+
+### 跨域 JSONP 的实现原理？
+
+JSONP 是一种通常用于绕过 Web 浏览器中的跨域限制的方法，因为 Ajax 不允许跨域请求。JSONP 通过 `<script>` 标签发送跨域请求，通常使用 callback 查询参数，例如：https://example.com?callback=printData。然后服务器将数据包装在一个名为 printData 的函数中并将其返回客户端。
+
+```html
+<script>
+function printData (data) {
+    console.log('My name is ${data.name}')
+}
+</script>
+<script src="https://example.com?callback=printData"></script>
+// 文件加载自 https://example.com?callback=printData
+printData({ name: 'Yang shun'} )
+```
+
+客户端必须在其全局范围内具有 printData 函数，并且在收到来自跨域的响应时，该函数将由客户端执行。JSONP 可能具有一些安全隐患，因此需要信任 JSONP 数据的提供者。
+
+## 新特性 API
+
+### 如何理解 Promise API？
+
+* 同步函数与异步函数
+  - 同步函数阻塞，语句完成后，下一句才执行。
+  - 异步函数不阻塞，通常接受回调作为参数，在调用异步函数后立即继续执行下一行。回调函数仅在异步操作完成且调用堆栈为空时调用。
+* Promise 是一个可能在未来某个时间产生结果的对象：操作成功的结果或失败的原因。Promise 可能处于以下三种状态之一：fulfilled、rejected、pending。用户可以对 Promise 添加回调函数来处理操作成功的结果或失败的原因。
+* Promise 代替回调函数的优点：
+  - 避免可读性极差的回调地狱。
+  - 使用 .then() 编写的顺序异步代码，既简单又易读。
+  - 使用 Promise.all() 编写异步代码变得很容易。
+* Promise 代替回调函数的缺点：
+
+- 在不支持 ES2015 的旧版浏览器中，需要引入 Polyfill 才能使用。
+
+### 如何理解 Fetch API？
 
 Fetch 支 持headers 定义，通过 headers 自定义可以方便地实现多种请求方法(PUT、GET、POST 等)、请求头(包括跨域)和 cache 策略等；除此之外还支持 response（返回数据）多种类型，比如支持二进制文件、字符串和 formData 等。
 
@@ -642,27 +342,38 @@ fetch('some/api/data.json', {
 }).then(function(response) { ... });...
 ```
 
-## 同源策略的机制是什么？
+### 如何理解 Proxy API？
 
-同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
+* Proxy 用于修改某些操作的默认行为，等同于在语言层面做出修改，所以属于一种“元编程”（meta programming），即对编程语言进行编程。
+* Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。Proxy 这个词的原意是代理，用在这里表示由它来“代理”某些操作，可以译为“代理器”。
+* `var proxy = new Proxy(target, handler);`。
+* Proxy 实例也可以作为其他对象的原型对象。
+* 13 种 Proxy 支持的拦截操作：
+  * `get(target, propKey, receiver)`：拦截对象属性的读取，比如 `proxy.foo` 和 `proxy['foo']`。
+  * `set(target, propKey, value, receiver)`：拦截对象属性的设置，比如 `proxy.foo = v` 或 `proxy['foo'] = v`，返回一个布尔值。
+  * `has(target, propKey)`：拦截 `propKey in proxy` 的操作，返回一个布尔值。
+  * `deleteProperty(target, propKey)`：拦截 `delete proxy[propKey]` 的操作，返回一个布尔值。
+  * `ownKeys(target)`：拦截 `Object.getOwnPropertyNames(proxy)`、`Object.getOwnPropertySymbols(proxy)`、`Object.keys(proxy)`、`for...in` 循环，返回一个数组。该方法返回目标对象所有自身的属性的属性名，而 `Object.keys()` 的返回结果仅包括目标对象自身的可遍历属性。
+  * `getOwnPropertyDescriptor(target, propKey)`：拦截 `Object.getOwnPropertyDescriptor(proxy, propKey)`，返回属性的描述对象。
+  * `defineProperty(target, propKey, propDesc)`：拦截 `Object.defineProperty(proxy, propKey, propDesc)`。
+  * `Object.defineProperties(proxy, propDescs)`，返回一个布尔值。
+  * `preventExtensions(target)`：拦截 `Object.preventExtensions(proxy)`，返回一个布尔值。
+  * `getPrototypeOf(target)`：拦截 `Object.getPrototypeOf(proxy)`，返回一个对象。
+  * `isExtensible(target)`：拦截 `Object.isExtensible(proxy)`，返回一个布尔值。
+  * `setPrototypeOf(target, proto)`：拦截 `Object.setPrototypeOf(proxy, proto)`，返回一个布尔值。如果目标对象是函数，那么还有两种额外操作可以拦截。
+  * `apply(target, object, args)`：拦截 Proxy 实例作为函数调用的操作，比如 `proxy(...args); proxy.call(object, ...args)、proxy.apply(...)`。
+  * `construct(target, args)`：拦截 Proxy 实例作为构造函数调用的操作，比如 `new proxy(...args)`。
 
-## 客户端存储机制是怎样的？
+```
+var obj = new Proxy({}, {
+  get: function (target, propKey, receiver) {
+    console.log(`getting ${propKey}!`);
+    return Reflect.get(target, propKey, receiver);
+  },
+  set: function (target, propKey, value, receiver) {
+    console.log(`setting ${propKey}!`);
+    return Reflect.set(target, propKey, value, receiver);
+  }
+});
+```
 
-* localStorage、sessionStorage、Storage 的方法及属性：clear()、getItem()、key()、removeItem()、setItem()、constructor()、length
-
-Cookie、LocalStorage、SessionStorage 都是客户端以键值对存储的存储机制，并且只能将值存储为字符串。
-
-|                                    | Cookie                              | LocalStorage | SessionStorage |
-| ---------------------------------- | ----------------------------------- | ------------ | -------------- |
-| 由谁初始化                         | 服务器(Set-Cookie 请求头)或客户端   | 客户端       | 客户端         |
-| 过期时间                           | 手动设置                            | 永不过期     | 当前页面关闭时 |
-| 在当前浏览器会话中是否保持不变     | 取决于是否设置过期时间              | 是           | 否             |
-| 是否与域名相关联                   | 是                                  | 否           | 否             |
-| 是否随着每个 HTTP 请求发送给服务器 | 是，Cookie 会自动设置 Cookie 请求头 | 否           | 否             |
-| 每个域名容量                       | 4kb                                 | 5mb          | 5mb            |
-| 访问权限                           | 任一窗口                            | 任一窗口     | 当前页面窗口   |
-
-## 什么是 AOP 面向切面编程？
-
-* AOP 即面向切面编程，简单来说就是可以通过编译期或者运行时在不修改源代码的情况下给程序动态增加功能的一种技术。
-* AOP 应用场景：日志记录、性能监控、埋点上报、异常处理等等。对于业务无关的附加功能，直接写到业务代码中也可以实现，但这显然不是一个有"洁癖"程序员的作风；而且这些功能往往需求多变，或者会污染业务代码的实现，掺杂在一起难以维护。无侵入的 AOP 才是"附加功能"的最佳选择。

@@ -12,28 +12,6 @@
 - 存储：cookie、sessionStorage、localStorage、indexDB、ServiceWorker
 - 渲染、重绘
 
-> 浏览器多线程
-
-GUI 渲染线程
-
-JS 引擎线程
-
-事件触发线程
-
-异步 HTTP 请求线程
-
-Web Worker
-
-> 浏览器多标签页之间的通信
-
-WebSocket
-
-LocalStorage：事件监听，无关跨域
-
-SharedWorker：但必须是同源的
-
-
-
 ## 浏览器有什么特点？
 
 * 可用于使用万维网；
@@ -101,6 +79,34 @@ SharedWorker：但必须是同源的
   * 减少关键资源的数量：CSS 和 JS 文件放在 bundle 当中；在 link 上使用 media query。
   * 减少关键渲染路径的长度：
 
+## 浏览器多页面之间如何通信？
+
+* 标签页之间的通信
+  * WebSocket
+  * LocalStorage：事件监听，无关跨域
+  * SharedWorker：但必须是同源的
+
+## 同源策略的机制是什么？
+
+同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
+
+## 客户端存储机制是怎样的？
+
+* Web SQL:2010年被W3C废弃的本地数据库数据存储方案，但是主流浏览器(火狐除外)都已经有了相关的实 现，web sql类似于SQLite，是真正意义上的关系型数据库，用sql进行操作，当我们用JavaScript时要进行转换， 较为繁琐。
+* IndexedDB: 是被正式纳入HTML5标准的数据库储存方案，它是NoSQL数据库，用键值对进行储存，可以进行快 速读取操作，非常适合web场景，同时用JavaScript进行操作会非常方便。
+* localStorage、sessionStorage、Storage 的方法及属性：clear()、getItem()、key()、removeItem()、setItem()、constructor()、length
+* Cookie、LocalStorage、SessionStorage 都是客户端以键值对存储的存储机制，并且只能将值存储为字符串。
+
+|                                    | Cookie                              | LocalStorage | SessionStorage |
+| ---------------------------------- | ----------------------------------- | ------------ | -------------- |
+| 由谁初始化                         | 服务器(Set-Cookie 请求头)或客户端   | 客户端       | 客户端         |
+| 过期时间                           | 手动设置                            | 永不过期     | 当前页面关闭时 |
+| 在当前浏览器会话中是否保持不变     | 取决于是否设置过期时间              | 是           | 否             |
+| 是否与域名相关联                   | 是                                  | 否           | 否             |
+| 是否随着每个 HTTP 请求发送给服务器 | 是，Cookie 会自动设置 Cookie 请求头 | 否           | 否             |
+| 每个域名容量                       | 4kb                                 | 5mb          | 5mb            |
+| 访问权限                           | 任一窗口                            | 任一窗口     | 当前页面窗口   |
+
 ## 同源策略的原理与怎么解决跨域问题？
 
 * 无视跨域问题的标签：`<script>、<link>、<img>、<video>、<audio>、<iframe>`。
@@ -131,11 +137,8 @@ SharedWorker：但必须是同源的
     * 构建 DOM -> 子资源加载 -> 提示浏览器如何加载资源 -> 计算样式 -> 布局树（遍历 DOM 树和 CSS 树） -> 绘制 -> 更新渲染流（动画） -> 排版（不涉及主线程，分层光栅化）
   * 存储进程
   * 工具进程
-* 
 
-## 浏览器的多进程与内核的多线程机制？
-
-多进程
+## 浏览器的多进程？
 
 * **浏览器是多进程的**
   - 主控进程，Browser 进程：浏览器的主进程(负责协调、主控)，只有一个
@@ -159,74 +162,66 @@ SharedWorker：但必须是同源的
     - 最后 Render 进程将结果传递给 Browser 进程
   - Browser 进程接收到结果并将结果绘制出来
 
-浏览器内核是多线程的，浏览器内核多线程列表：
+## 内核的多线程机制？
 
-- **GUI 线程**
+* **GUI 线程**
   - 负责渲染浏览器界面，解析 HTML，CSS，构建 DOM 树和 RenderObject 树，布局和绘制等。
   - 当界面需要重绘 Repaint 或由于某种操作引发回流 Reflow 时，该线程就会执行
   - 注意，GUI 渲染线程与 JavaScript 引擎线程是互斥的，当 JS 引擎执行时GUI线程会被挂起(相当于被冻结了），GUI 更新会被保存在一个队列中等到 JavaScript 引擎空闲时立即被执行。
-- **JavaScript 引擎线程**
+* **JavaScript 引擎线程**
   - 也称为JS内核，负责处理 JavaScript 脚本程序。例如 V8 引擎。
   - JavaScript 引擎线程负责解析 JavaScript 脚本，运行代码。
   - JavaScript 引擎一直等待着任务队列中任务的到来，然后加以处理，一个 Tab 页(Renderer 进程)中无论什么时候都只有一个 JavaScript 线程在运行 JavaScript 程序
   - 同样注意，GUI 渲染线程与 JavaScript 引擎线程是互斥的，所以如果 JavaScript 执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞。
-- **事件触发线程**
+* **事件触发线程**
   - 归属于浏览器而不是 JavaScript 引擎，用来控制事件循环(可以理解，JavaScript引擎自己都忙不过来，需要浏览器另开线程协助)
   - 当 JavaScript 引擎执行代码块如 SetTimeOut 时(也可来自浏览器内核的其他线程,如鼠标点击、AJAX异步请求等)，会将对应任务添加到事件线程中。
   - 当对应的事件符合触发条件被触发时，该线程会把事件添加到待处理队列的队尾，等待 JavaScript 引擎的处理
   - 注意，由于 JavaScript 的单线程关系，所以这些待处理队列中的事件都得排队等待 JavaScript 引擎处理(当 JavaScript 引擎空闲时才会去执行)
-- **定时触发器线程**
+* **定时触发器线程**
   - 传说中的 SetInterval 与 SetTimeout 所在的线程
   - 浏览器定时计数器并不是由 JavaScript 引擎计数的，因为 JavaScript 引擎是单线程的, 如果处于阻塞线程状态就会影响记计时的准确
   - 因此通过单独线程来计时并触发定时，计时完毕后，添加到事件队列中，等待 JavaScript 引擎空闲后执行)
   - 注意，W3C 在 HTML 标准中规定，规定要求 SetTimeout 中低于 4ms 的时间间隔算为 4ms。
-- **网络请求线程/异步 HTTP 请求线程**
+* **网络请求线程/异步 HTTP 请求线程**
   - 每次网络请求时都需要开辟单独的线程，开启网络线程到发出一个完整的 HTTP 请求过程中包括：dns 查询、TCP/IP 请求构建、五层因特网协议栈等
   - 在 XMLHttpRequest 在连接后是通过浏览器新开一个线程请求
     将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件，将这个回调再放入事件队列中，再由 JavaScript 引擎执行。
-
-浏览器内核中线程之间的关系：
-
-* GUI 渲染线程与 JavaScript 引擎线程互斥
-  * 由于 JavaScript 是可操纵 DOM 的，如果在修改这些元素属性同时渲染界面(即 JavaScript 线程和 UI 线程同时运行)，那么渲染线程前后获得的元素数据就可能不一致了。
-  * 因此为了防止渲染出现不可预期的结果，浏览器设置 GUI 渲染线程与 JavaScript 引擎为互斥的关系，当 JavaScript 引擎执行时 GUI 线程会被挂起，GUI 更新则会被保存在一个队列中等到 JavaScript 引擎线程空闲时立即被执行。
-* JavaScript 阻塞页面加载
-  * JavaScript 如果执行时间过长就会阻塞页面。譬如，假设 JavaScript 引擎正在进行巨量的计算，此时就算 GUI 有更新，也会被保存到队列中，等待 JavaScript 引擎空闲后执行。然后，由于巨量计算，所以 JavaScript 引擎很可能很久很久后才能空闲，自然会感觉到巨卡无比。
-
-WebWorker，JavaScript 的多线程
-
-* WebWorker 的 MDN 官方解释如下：
-  * Web Worker 为 Web 内容在后台线程中运行脚本提供了一种简单的方法。线程可以执行任务而不干扰用户界面。
-  * 一个 Worker 是使用一个构造函数创建的一个对象(e.g. Worker()) 运行一个命名的 JavaScript 文件
-  * 这个文件包含将在工作线程中运行的代码 Workers 运行在另一个全局上下文中,不同于当前的 Window
-  * 因此，使用 Window 快捷方式获取当前全局的范围(而不是 self) 在一个 Worker 内将返回错误
-* JavaScript 引擎是单线程的，这一点的本质仍然未改变。如果有非常耗时的工作，请单独开一个 Worker 线程。
-  - 创建 Worker 时，JavaScript 引擎向浏览器申请开一个子线程。子线程是浏览器开的，完全受主线程控制，而且不能操作DOM
-  - JavaScript 引擎线程与 Worker 线程间通过特定的方式通信(postMessage API，需要通过序列化对象来与线程交互特定的数据)
-* WebWorker 与 SharedWorked
-  - WebWorker 只属于某个页面，不会和其他页面的 Render 进程(浏览器内核进程)共享
-    - 所以 Chrome 在 Render 进程中创建一个新的线程来运行 Worker 中的 JavaScript 程序
-  - SharedWorker 是浏览器所有页面共享的，不能采用与 Worker 同样的方式实现，因为它不隶属于某个 Render 进程，可以为多个 Render 进程共享使用
-    - 所以 Chrome 浏览器为 SharedWorker 单独创建一个进程来运行 JavaScript 程序，在浏览器中每个相同的 JavaScript 只存在一个 SharedWorker 进程，不管它被创建多少次。
-
-网络线程静态资源下载：这里将遇到的静态资源分为一下几大类(未列举所有)：CSS样式资源、JS脚本资源、img图片类资源。
-
-* 遇到 CSS 样式资源
-  - CSS 下载时异步，不会阻塞浏览器构建 DOM 树
-  - 但是会阻塞渲染，也就是在构建 render 时，会等到 CSS 下载解析完毕后才进行(这点与浏览器优化有关，防止 CSS 规则不断改变，避免了重复的构建)
-  - 有例外，media query 声明的 CSS 是不会阻塞渲染的
-* 遇到 JS 脚本资源
-  - 阻塞浏览器的解析，也就是说发现一个外链脚本时，需等待脚本下载完成并执行后才会继续解析 HTML
-  - 浏览器的优化，一般现代浏览器有优化，在脚本阻塞时，也会继续下载其它资源(当然有并发上限)，但是虽然脚本可以并行下载，解析过程仍然是阻塞的，也就是说必须这个脚本执行完毕后才会接下来的解析，并行下载只是一种优化而已
-  - defer 与 async，普通的脚本是会阻塞浏览器解析的，但是可以加上 defer 或 async 属性，这样脚本就变成异步了，可以等到解析完毕后再执行。注意，defer 和 async 是有区别的：
-    - async 是异步执行，异步下载完毕后就会执行，不确保执行顺序，一定在 onload 前，但不确定在 DOMContentLoaded 事件的前或后
-    - defer 是延迟执行，在浏览器看起来的效果像是将脚本放在了 body 后面一样(虽然按规范应该是在 DOMContentLoaded 事件前，但实际上不同浏览器的优化效果不一样，也有可能在它后面)
-* 遇到 img 图片类资源：遇到图片等资源时，直接就是异步下载，不会阻塞解析，下载完毕后直接用图片替换原有 src 的地方。
-
-loaded 和 domcontentloaded
-
-- DOMContentLoaded 事件触发时，仅当 DOM 加载完成，不包括样式表，图片(譬如如果有 async 加载的脚本就不一定完成)
-- load 事件触发时，页面上所有 DOM，样式表，脚本，图片都已经加载完成了。
+* 浏览器内核中线程之间的关系：
+  * GUI 渲染线程与 JavaScript 引擎线程互斥
+    * 由于 JavaScript 是可操纵 DOM 的，如果在修改这些元素属性同时渲染界面(即 JavaScript 线程和 UI 线程同时运行)，那么渲染线程前后获得的元素数据就可能不一致了。
+    * 因此为了防止渲染出现不可预期的结果，浏览器设置 GUI 渲染线程与 JavaScript 引擎为互斥的关系，当 JavaScript 引擎执行时 GUI 线程会被挂起，GUI 更新则会被保存在一个队列中等到 JavaScript 引擎线程空闲时立即被执行。
+  * JavaScript 阻塞页面加载
+    * JavaScript 如果执行时间过长就会阻塞页面。譬如，假设 JavaScript 引擎正在进行巨量的计算，此时就算 GUI 有更新，也会被保存到队列中，等待 JavaScript 引擎空闲后执行。然后，由于巨量计算，所以 JavaScript 引擎很可能很久很久后才能空闲，自然会感觉到巨卡无比。
+* WebWorker，JavaScript 的多线程
+  * WebWorker 的 MDN 官方解释如下：
+    * Web Worker 为 Web 内容在后台线程中运行脚本提供了一种简单的方法。线程可以执行任务而不干扰用户界面。
+    * 一个 Worker 是使用一个构造函数创建的一个对象(e.g. Worker()) 运行一个命名的 JavaScript 文件
+    * 这个文件包含将在工作线程中运行的代码 Workers 运行在另一个全局上下文中,不同于当前的 Window
+    * 因此，使用 Window 快捷方式获取当前全局的范围(而不是 self) 在一个 Worker 内将返回错误
+  * JavaScript 引擎是单线程的，这一点的本质仍然未改变。如果有非常耗时的工作，请单独开一个 Worker 线程。
+    - 创建 Worker 时，JavaScript 引擎向浏览器申请开一个子线程。子线程是浏览器开的，完全受主线程控制，而且不能操作DOM
+    - JavaScript 引擎线程与 Worker 线程间通过特定的方式通信(postMessage API，需要通过序列化对象来与线程交互特定的数据)
+  * WebWorker 与 SharedWorked
+    - WebWorker 只属于某个页面，不会和其他页面的 Render 进程(浏览器内核进程)共享
+      - 所以 Chrome 在 Render 进程中创建一个新的线程来运行 Worker 中的 JavaScript 程序
+    - SharedWorker 是浏览器所有页面共享的，不能采用与 Worker 同样的方式实现，因为它不隶属于某个 Render 进程，可以为多个 Render 进程共享使用
+      - 所以 Chrome 浏览器为 SharedWorker 单独创建一个进程来运行 JavaScript 程序，在浏览器中每个相同的 JavaScript 只存在一个 SharedWorker 进程，不管它被创建多少次。
+* 网络线程静态资源下载：这里将遇到的静态资源分为一下几大类(未列举所有)：CSS样式资源、JS脚本资源、img图片类资源。
+  * 遇到 CSS 样式资源
+    - CSS 下载时异步，不会阻塞浏览器构建 DOM 树
+    - 但是会阻塞渲染，也就是在构建 render 时，会等到 CSS 下载解析完毕后才进行(这点与浏览器优化有关，防止 CSS 规则不断改变，避免了重复的构建)
+    - 有例外，media query 声明的 CSS 是不会阻塞渲染的
+  * 遇到 JS 脚本资源
+    - 阻塞浏览器的解析，也就是说发现一个外链脚本时，需等待脚本下载完成并执行后才会继续解析 HTML
+    - 浏览器的优化，一般现代浏览器有优化，在脚本阻塞时，也会继续下载其它资源(当然有并发上限)，但是虽然脚本可以并行下载，解析过程仍然是阻塞的，也就是说必须这个脚本执行完毕后才会接下来的解析，并行下载只是一种优化而已
+    - defer 与 async，普通的脚本是会阻塞浏览器解析的，但是可以加上 defer 或 async 属性，这样脚本就变成异步了，可以等到解析完毕后再执行。注意，defer 和 async 是有区别的：
+      - async 是异步执行，异步下载完毕后就会执行，不确保执行顺序，一定在 onload 前，但不确定在 DOMContentLoaded 事件的前或后
+      - defer 是延迟执行，在浏览器看起来的效果像是将脚本放在了 body 后面一样(虽然按规范应该是在 DOMContentLoaded 事件前，但实际上不同浏览器的优化效果不一样，也有可能在它后面)
+  * 遇到 img 图片类资源：遇到图片等资源时，直接就是异步下载，不会阻塞解析，下载完毕后直接用图片替换原有 src 的地方。
+* loaded 和 domcontentloaded
+  * DOMContentLoaded 事件触发时，仅当 DOM 加载完成，不包括样式表，图片(譬如如果有 async 加载的脚本就不一定完成)
+  * load 事件触发时，页面上所有 DOM，样式表，脚本，图片都已经加载完成了。
 
 ## 浏览器兼容性有什么需要注意的？
 
@@ -398,3 +393,6 @@ loaded 和 domcontentloaded
 > 内容安全策略 (CSP, Content Security Policy) 是一个附加的安全层，用于帮助检测和缓解某些类型的攻击，包括跨站脚本 (XSS) 和数据注入等攻击。 这些攻击可用于实现从数据窃取到网站破坏或作为恶意软件分发版本等用途。
 
 例如，“Google Chrome 浏览器”采用了“安全浏览”技术，这种技术也应用于其他几种现代浏览器。当您浏览网页时，浏览器会将每个网页与疑似存在网上诱骗和恶意软件的网站列表进行快速比对。这个列表会在您的本地计算机上进行存储和维护，从而帮助您保护浏览隐私。如果从本地列表中找到了匹配项，浏览器就会向 Google 发送一条请求，以获取更多信息。（这条请求是完全加密的，不会以纯文本形式发送。）如果 Google 通过验证确定是匹配项，“Chrome 浏览器”就会显示一个红色警告页面，提醒您尝试访问的网页可能存在风险。浏览器获取和载入网站时，如何通过扩展验证证书验证网站的身份。
+
+## 如何理解 GPU 硬件加速？
+
