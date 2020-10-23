@@ -186,6 +186,8 @@ ECMA-262 定义了 ECMAScript 支持的一套关键字和一套保留字。如�
 
 ## 模块化
 
+> 重点关注标准、基础数据类型、新 API 特性
+
 ### ES 模块化发展史
 
 * 社区解决方案 - 同步服务端 CommonJS & Node.js：
@@ -294,86 +296,156 @@ var moduleName = (function () {
 })(); // IIFE
 ```
 
-## 重点基础概念
+## 数据类型
 
-### 如何理解闭包？
+### 基础数据类型都有哪些？
 
-* 特点：
-  * 用来包装私有变量
-  * 形成一个不销毁的栈环境
-  * 匿名函数可以访问父级作用域的变量
-* 缺点：容易内存泄漏
-* 场景：内部计数器
+* undefiend 没有定义数据类型
+* number 数值数据类型，例如 10 或者 1 或者 5.5
+  * NaN 是一种特殊的 number
+* string 字符串数据类型用来描述文本，例如 "你的姓名"
+  * string 的内置属性和方法：
+  * 构造函数 String()
+* boolean 布尔类型 true | false ，不是正就是反
+  * boolean 的内置属性和方法：
+  * 构造函数
+* object 对象类型，复杂的一组描述信息的集合
+  * null 是一种特殊的 object
+  * object 的内置属性和方法：
+  * 构造函数
+  * Object.prototype
+* function 函数类型
+  * 函数的内置属性和方法：
+  * 构造函数
+  * Function.prototype
 
-### 如何理解闭包和 IIFE？
+### String 有哪些操作？
 
-* IIFE
-  * IIFE 可以达到不暴露私有成员的目的
-  * 能够在 IIFE 完成执行后任维系着内部功能的生存期。
-  * IIFE，Immediately Invoked Function Expressions，代表立即执行函数。
-  * IIFE 的外层括号不是必须的，因为 IIFE 是一个函数表达式。
-* 闭包
-  * 闭包，closure，概念最早提出在 1964 年，1975 年最早实现，是函数和声明该函数的词法环境的组合。词法作用域中使用的域，是变量在代码中声明的位置所决定的。
-  * 闭包就是能够读取其他函数内部变量的函数。
-  * Javascript语言的特殊之处，就在于函数内部可以直接读取全局变量。另一方面，在函数外部自然无法读取函数内的局部变量。本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。
-  * 为什么使用闭包：
-    * 利用闭包实现数据私有化或模拟私有方法，这个方式也称为模块模式。
-    * 部分参数函数柯里化。
-  * 如何从外部读取局部变量？
-    * 那就是在函数的内部，再定义一个函数。这就是 JavaScript 语言特有的"链式作用域"结构(chain scop)，子对象会一级一级地向上寻找所有父对象的变量。
-  * 使用闭包的注意点
-    * 由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。
-    * 闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。
+### Boolean 有哪些操作？
 
-### 如何理解作用域链？
+### Undifined/NULL 有哪些操作？
 
-### 如何理解变量提升（var/let/const）？
+### Function 有哪些操作？
 
-* 编译器预编译的时候，第一步只会记录变量和函数的定义，第二步才会执行程序。
-  * 所有这些函数和变量声明都被添加到名为词法环境的 JavaScript 数据结构内的内存中。
-* var 会变量提升，初始值为 undefined
-* let 和 const 相比 var
-  * 都会被提升，但是不会被初始化，不能被引用
-  * 只在块级作用域中有效
-  * 不允许重复声明
-  * 不会绑定全局作用域
-* let 和 const 区别
-  * const 定义的指针不能修改，但是指向的对象属性可以修改
+### Object 有哪些操作？
 
-### 如何理解原型链？
+### Number 有哪些操作？
 
-所有 JavaScript 对象都有一个 prototype 属性，指向它的原型对象。当试图访问一个对象的属性时，如果没有在该对象上找到，它还会搜寻该对象的原型，以及该对象的原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。这种行为是在模拟经典的继承，与其说是继承，不如说是委托。
+* JS 的 Number 类型遵循的是 IEEE 754 标准，使用的是 64 位固定⻓度来表示。
 
-- 每个对象都有 `__proto__` 属性。
-- 函数有 `prototype`，定义在 ES 规范里。
-- 实例继承构造函数 prototype 的所有属性和方法
-  - 实例的 `__proto__` 指向构造函数的 prototype
-  - 对象具有属性 `__proto__`，可称为隐式原型，一个对象的隐式原型指向构造该对象的构造函数的原型，这也保证了实例能够访问在构造函数原型中定义的属性和方法。
-- 几乎所有的 JavaScript 对象都是 Object 的实例。
-  - 一个典型的对象继承了 Object.prototype 的属性（包括方法），尽管这些属性可能被遮蔽（也被称为覆盖）。
-  - 但是有时候可能故意创建不具有典型原型链继承的对象，比如通过 Object.create(null) 创建的对象，或者通过 Object.setPrototypeOf 方法改变原型链。
-  - 改变 Object 原型，会通过原型链，而改变所有对象；除非这些属性和方法被其他对原型链更里层的改动所覆盖。这提供了一个非常强大的、但有潜在危险的机制，来覆盖或扩展对象行为。
-- 所有的构造器的 constructor 都指向 Function
-- Function 的 prototype 指向一个特殊匿名函数，而这个特殊匿名函数的 `__proto__` 指向Object.prototype
+* IEEE 754 浮点数由三个域组成，分别为 sign bit (符号位)、exponent bias (指数偏移值) 和 fraction (分数值)。64 位中，sign bit 占 1 位，exponent bias 占 11 位，fraction 占 52 位。
+* 以 0.1 转换为 IEEE 754 标准表示为例解释一下如何求 exponent bias 和 fraction。转换过程主要经历 3 个过程：
+  * 将 0.1 转换为二进制表示。
+  * 将转换后的二进制通过科学计数法表示。
+  * 将通过科学计数法表示的二进制转换为 IEEE 754 标准表示。
+
+### Array 有哪些操作？
+
+* Array 静态方法：`Array.from(); Array.isArray(); Array.of();`。
+* Array 原型方法：
+  * `.concat(); .copyWithin(); .entries(); .every();`。
+  * `.fill(); .filter(); .find(); .findIndex(); .flat(); .flatMap(); .forEach();`。
+  * `.includes(); .indexOf(); .join(); .keys(); .lastIndexOf(); .map(); .pop(); .push(); `。
+  * `.reduce(); .reduceRight(); .reverse(); .shift(); .slice(); .some(); .sort(); .splice(); `。
+  * `.toLocaleString(); .toSource(); .toString(); .unshift(); .values();`。
+  * `Array.prototype[@@iterator](); get Array[@@species]`。
+* Array 常见考题：
+  * 数组拷贝。
+  * 数组展开。
+  * 用 reduce 实现 map 的功能
+  * 类数组转化成数组的方法
+  * 实现数组 flatten
+* Object 常见考题：
+  * 深拷贝、浅拷贝
+  * 如何判断一个对象是不是空对象？
+* 类数组和数组的互相转换？
+* Number & BigInt 常见考题：
+  * 大数操作
+  * 0.1+0.2 == 0.3？原因？
+* 链式调用：add(2, 5)，add(2)(5)，add(1)(1)(5) 的结果都为 7
+
+### BigInt 有哪些操作？
+
+* JavaScript中Number.MAX_SAFE_INTEGER表示最大安全数字,计算结果是9007199254740991，即在这个数范围内不会出现精度丢失(小数除外)。 但是一旦超过这个范围，js就会出现计算不准确的情况，这在大数计算的时候不得不依靠一些第三方库进行解决，因此官方提出了BigInt来解决此问题。
+
+### 什么是关联数组？
+
+> 其它多数语言里，数组分为索引数组和关联数组，索引数组又分为一维数组、二维数组和多维数组。
+>
+> 引用：“JavaScript 里面没有关联数组和索引数组这两种不同的区分，一切对象都是键值对，数组也是对象，数组也可以看作是键值对。”
+>
+> 自我感悟，存疑：JavaScript 还是有索引数组和关联数组的微小差异。索引数组和 length 属性直接挂钩，关联数组其实访问的是数组上的属性及其值，length 一般都是 0(没有真正的数据内容)。
+
+在计算机科学中，关联数组（英语：Associative Array），又称映射（Map）、字典（Dictionary）是一个抽象的数据结构，它包含着类似于（键，值）的有序对。一个关联数组中的有序对可以重复（如C中的 multimap）也可以不重复（如 C 中的 map）。这种数据结构包含以下几种常见的操作：
+
+- 向关联数组添加配对
+- 从关联数组内删除配对
+- 修改关联数组内的配对
+- 根据已知的键寻找配对
+
+> 字典问题是设计一种能够具备关联数组特性的数据结构。解决字典问题的常用方法，是利用散列表，但有些情况下，也可以直接使用二叉查找树或其他结构。
+>
+> 许多程序设计语言内置基本的数据类型，提供对关联数组的支持。而内容定址存储器则是硬件层面上实现对关联数组的支持。
+
+属性值和键值的异同
+
+- 属性和键值不一样，给数组新增一个属性，其依然为数组，length 不变，新增的被读取时将是属性值，而非键值。
 
 ```javascript
-Function instanceof Object; // true
-Object instanceof Function; // true
+var a = [1,2,3]; // 定义一个数组
+console.log(a);
+console.log(a.length); // 结果为3
 
-//①构造器Function的构造器是它自身
-Function.constructor=== Function;//true
-//②构造器Object的构造器是Function（由此可知所有构造器的constructor都指向Function）
-Object.constructor === Function;//true
-//③构造器Function的__proto__是一个特殊的匿名函数function() {}
-console.log(Function.__proto__);//function() {}
-//④这个特殊的匿名函数的__proto__指向Object的prototype原型。
-Function.__proto__.__proto__ === Object.prototype//true
-//⑤Object的__proto__指向Function的prototype，也就是上面③中所述的特殊匿名函数
-Object.__proto__ === Function.prototype;//true
-Function.prototype === Function.__proto__;//true
+a["name"] = "xiaoming"; // 我们再给它赋值，这是给 a 数组增加了一个属性叫 name，而不是在数组里添加数据。
+console.log(a); // [1, 2, 3, aaa: 1]，a 依然是数组
+console.log(a.length); // 结果还是为 3
+
+a.push(4);
+console.log(a) // [1, 2, 3, 4, aaa: 1]，a 依然是数组
+console.log(a.length); // 结果为4
 ```
 
-### 如何理解 JSON？
+- 以下两种写法效果是一样的，但 j2 符合 JSON 风格，当 JSON 对象作为 Map(映射、关联数组) 时使用。
+  - JSON 对象和 JSON Map 在运行时看起来是一样的；这个特性与 API 设计相关。当 JSON 对象被当作 Map 使用时，API 文件应当做出说明。
+  - Map 的键名不一定要遵循属性名称的命名准则。键名可以包含任意的 Unicode 字符。客户端可使用 Map 熟悉的方括号来访问这些属性。
+
+```javascript
+var j1 = {
+    name: 'j1',
+    age: 18,
+    fun: function () {
+        console.log(1)
+    }
+}
+
+var j2 = {
+    "name": "j2",
+    "age": 18,
+    "fun": function () {
+        console.log(1)
+    }
+}
+```
+
+遍历关联数组
+
+```javascript
+for (var key in array){  
+    console.log("键:",key);  
+    console.log("值:",array[key]); 
+}
+```
+
+关联数组和索引数组的遍历效率问题。
+
+遍历赋值以下数组时，第一次耗费时间差不多，浏览器默认优化之后，arr2 作为 Array 而非 Object 存取速度更快。
+
+```javascript
+var arr = new Array(50000000);
+var arr2 = {};
+```
+
+### 什么是 JSON？
 
 * JSON 对象包含两个方法：
 
@@ -405,7 +477,7 @@ Function.prototype === Function.__proto__;//true
 
   - 在 JSON Map 中键名可以使用任意 Unicode 字符。
 
-JS 常见类型 与 JSON 的区别：
+### JS 常见类型 与 JSON 的区别？
 
 | JavaScript类型 | JSON 的不同点                                                |
 | -------------- | ------------------------------------------------------------ |
@@ -423,55 +495,69 @@ eval(code);  // 错误
 * JSON.stringify()：返回与指定值对应的JSON字符串，可以通过额外的参数, 控制仅包含某些属性, 或者以自定义方法来替换某些 key 对应的属性值。
 * JSON Polyfill：JSON 对象可能不被老版本的浏览器支持。可以将下面的代码放到JS脚本最开始的位置，这样就可以在没有原生支持 JSON 对象的浏览器（如IE6）中使用 JSON 对象。
 
-## 疑难对比
+## 新特性 API
 
-### setTimeOut/setInterval/requestAnimationFrame？
+### 如何理解 Promise API？
 
-### constructor/typeof/instanceof 的区别？
+* 同步函数与异步函数
+  - 同步函数阻塞，语句完成后，下一句才执行。
+  - 异步函数不阻塞，通常接受回调作为参数，在调用异步函数后立即继续执行下一行。回调函数仅在异步操作完成且调用堆栈为空时调用。
+* Promise 是一个可能在未来某个时间产生结果的对象：操作成功的结果或失败的原因。Promise 可能处于以下三种状态之一：fulfilled、rejected、pending。用户可以对 Promise 添加回调函数来处理操作成功的结果或失败的原因。
+* Promise 代替回调函数的优点：
+  - 避免可读性极差的回调地狱。
+  - 使用 .then() 编写的顺序异步代码，既简单又易读。
+  - 使用 Promise.all() 编写异步代码变得很容易。
+* Promise 代替回调函数的缺点：
 
-只要一个对象 a 的内部 prototype 属性或者它的原型链上的任意对象与 b.prototype 是同一个对象,那么 a instanceof b 就返回true。
+- 在不支持 ES2015 的旧版浏览器中，需要引入 Polyfill 才能使用。
+
+### 如何理解 Fetch API？
+
+Fetch 支 持headers 定义，通过 headers 自定义可以方便地实现多种请求方法(PUT、GET、POST 等)、请求头(包括跨域)和 cache 策略等；除此之外还支持 response（返回数据）多种类型，比如支持二进制文件、字符串和 formData 等。
 
 ```javascript
-Array instanceof Object // true
-Object instanceof Object // true
-Array instanceof Array // false
-null instanceof Object // false
-NaN instanceof Number // false
-'str' instanceof String // false
-new String('str') instanceof String // true
+fetch('some/api/data.json', {
+  method:'POST', // 请求类型 GET、POST
+  headers:{}, // 请求的头信息，形式为 Headers 对象或 ByteString
+  body:{}, // 请求发送的数据 blob、BufferSource、FormData、URLSearchParams(get 或 head 方法中不能包含 body)
+  mode:'', // 请求的模式，是否跨域等，如 cors、 no-cors 或 same-origin
+  credentials:'', // cookie 的跨域策略，如 omit、same-origin 或 include
+  cache:'', // 请求的 cache 模式: default、no-store、reload、no-cache、 force-cache 或 only-if-cached
+}).then(function(response) { ... });...
 ```
 
-### 对象字面量 vs 构造函数创建对象的对比？
+### 如何理解 Proxy API？
 
-> 在 JavaScript 中，我们可以通过 new 关键字、Object.create() 函数创建一个对象，或者使用字面量记法(也称对象初始化器材——object initializer)。字面量记法使用花括号定义对象，对象的 Property 与值以名称 - 值对的方式组织，用冒号分隔。我们还需要在每个名称 - 值对的最后加上逗号(除了最后一个名称 - 值对)。值可以包含变量、函数，或者其他对象。
->
-> —— 《 SPA 设计与架构 》
+* Proxy 用于修改某些操作的默认行为，等同于在语言层面做出修改，所以属于一种“元编程”（meta programming），即对编程语言进行编程。
+* Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。Proxy 这个词的原意是代理，用在这里表示由它来“代理”某些操作，可以译为“代理器”。
+* `var proxy = new Proxy(target, handler);`。
+* Proxy 实例也可以作为其他对象的原型对象。
+* 13 种 Proxy 支持的拦截操作：
+  * `get(target, propKey, receiver)`：拦截对象属性的读取，比如 `proxy.foo` 和 `proxy['foo']`。
+  * `set(target, propKey, value, receiver)`：拦截对象属性的设置，比如 `proxy.foo = v` 或 `proxy['foo'] = v`，返回一个布尔值。
+  * `has(target, propKey)`：拦截 `propKey in proxy` 的操作，返回一个布尔值。
+  * `deleteProperty(target, propKey)`：拦截 `delete proxy[propKey]` 的操作，返回一个布尔值。
+  * `ownKeys(target)`：拦截 `Object.getOwnPropertyNames(proxy)`、`Object.getOwnPropertySymbols(proxy)`、`Object.keys(proxy)`、`for...in` 循环，返回一个数组。该方法返回目标对象所有自身的属性的属性名，而 `Object.keys()` 的返回结果仅包括目标对象自身的可遍历属性。
+  * `getOwnPropertyDescriptor(target, propKey)`：拦截 `Object.getOwnPropertyDescriptor(proxy, propKey)`，返回属性的描述对象。
+  * `defineProperty(target, propKey, propDesc)`：拦截 `Object.defineProperty(proxy, propKey, propDesc)`。
+  * `Object.defineProperties(proxy, propDescs)`，返回一个布尔值。
+  * `preventExtensions(target)`：拦截 `Object.preventExtensions(proxy)`，返回一个布尔值。
+  * `getPrototypeOf(target)`：拦截 `Object.getPrototypeOf(proxy)`，返回一个对象。
+  * `isExtensible(target)`：拦截 `Object.isExtensible(proxy)`，返回一个布尔值。
+  * `setPrototypeOf(target, proto)`：拦截 `Object.setPrototypeOf(proxy, proto)`，返回一个布尔值。如果目标对象是函数，那么还有两种额外操作可以拦截。
+  * `apply(target, object, args)`：拦截 Proxy 实例作为函数调用的操作，比如 `proxy(...args); proxy.call(object, ...args)、proxy.apply(...)`。
+  * `construct(target, args)`：拦截 Proxy 实例作为构造函数调用的操作，比如 `new proxy(...args)`。
 
-字面量的优势：
-
-- 它的代码量更少，更易读；
-- 它可以强调对象就是一个简单的可变的散列表，而不必一定派生自某个类；
-- 对象字面量运行速度更快，因为它们可以在解析的时候被优化：它们不需要"作用域解析(scope resolution)"；因为存在我们创建了一个同名的构造函数 Object() 的可能，当我们调用 Object() 的时候，解析器需要顺着作用域链从当前作用域开始查找，如果在当前作用域找到了名为Object()的函数就执行，如果没找到，就继续顺着作用域链往上照，直到找到全局 Object() 构造函数为止
-- Object() 构造函数可以接收参数，通过这个参数可以把对象实例的创建过程委托给另一个内置构造函数，并返回另外一个对象实例，而这往往不是你想要的。
-
-### this 与箭头函数的规则和特点？
-
-* this 有四种绑定：和调用位置有关，和定义位置无关
-  * 默认绑定：在非严格模式下，this 就是全局对象，否则是 undefined。`foo()`。
-  * 隐式绑定：`o.foo()`。
-  * 显示绑定：如果 foo 是通过 call、apply 或者 bind 调用的，那么这种调用就是显式绑定。`foo.call(obj)`。
-  * new 关键字绑定：构造函数中。
-* 箭头函数的特点：和定义位置有关，和调用位置无关
-  * 无视 this 的四种绑定规则。
-  * this 的值就是函数创建时候所在的 lexical scope 中的 this，而和调用方式无关。
-  * 箭头函数中无法使用 `function.arguments` 对象。
-* 绑定规则优先级：箭头函数 > 关键字 new 调用 > 显式绑定 > 隐式绑定 > 默认绑定
-
-* this 是 JavaScript 语言的一个关键字，函数调用的方式决定了 this 的值，this 取值符合以下标准：
-  * 在调用函数时使用 new 关键字，函数内的 this 是一个全新的对象。
-  * 如果 apply、call 或 bind 方法用于调用、创建一个函数，函数内的 this 就是作为参数传入这些方法的对象。
-  * 当函数作为对象里的方法被调用时，函数内的 this 时调用该函数的对象。比如当 obj.method() 被调用时，函数内的 this 将绑定到 obj 对象。
-  * 如果调用函数不符合上述规则，那么 this 的值指向全局对象。浏览器环境下 this 的值指向 window 对象，但是在严格模式下('use strict')，this 的值为 undefined。
-  * 如果符合上述多个规则，则较高的规则(1 号最高，4 号最低)将决定 this 的值。
-  * 如果该函数是 ES2015 中的箭头函数，将忽略上面的所有规则，this 被设置为它被创建时的上下文。
+```
+var obj = new Proxy({}, {
+  get: function (target, propKey, receiver) {
+    console.log(`getting ${propKey}!`);
+    return Reflect.get(target, propKey, receiver);
+  },
+  set: function (target, propKey, value, receiver) {
+    console.log(`setting ${propKey}!`);
+    return Reflect.set(target, propKey, value, receiver);
+  }
+});
+```
 

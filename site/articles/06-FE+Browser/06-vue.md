@@ -46,7 +46,7 @@
   * 生命周期：
     * `beforeCreate; created; beforeMount; mounted; beforeUpdate; updated; beforeDestroy; destroyed;`。
     * 移除：`beforeCompile; attached; detached; `
-    * 替换：`compiled, ready -> mounted``
+    * 替换：`compiled, ready -> mounted`
     * 重新命名：`init -> beforeCreate`
   * Virtual-DOM
     * 渲染层开始基于轻量级的 Virtual DOM 实现，大多数情况下初始化渲染速度和内存消耗都提升了 2~4 倍
@@ -60,6 +60,19 @@
   * 提高循环性能可不添加 `:key="index"`
   * transition 是一个组件
   * `<router-link to="/home">我是主页</router-link>`
+
+## Vue 的生命周期
+
+* beforeCreate：组件实例被创建之初，组件的属性生效之前
+* created：组件实例已经完全创建，属性也绑定，但真实dom还没有生成， $el 还不可用
+* beforeMount：在挂载开始之前被调用:相关的 render 函数首次被调用
+* mounted el：被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子
+* beforeUpdate：组件数据更新之前调用，发生在虚拟 DOM 打补丁之前
+* update：组件数据更新之后
+* activited：keep-alive专属，组件被激活时调用
+* deadctivated：keep-alive专属，组件被销毁时调用
+* beforeDestory：组件销毁前调用
+* destoryed：组件销毁后调用
 
 ## 实现 Vue 的双向绑定
 
@@ -112,6 +125,53 @@ input.addEventListener('keyup', function(e) {
   proxy.text = e.target.value;
 });
 ```
+
+## Vue 组件如何通信？
+
+* props/$emit+v-on: 通过props将数据自上而下传递，而通过$emit和v-on来向上传递信息。
+* EventBus: 通过EventBus进行信息的发布与订阅
+* vuex: 是全局数据管理库，可以通过vuex管理全局的数据流
+* $attrs/$listeners: Vue2.4中加入的$attrs/$listeners可以进行跨级的组件通信
+* provide/inject:以允许一个祖先组件向其所有子孙后代注入一个依赖，不论组件层次有多深，并在起上下游关系成 立的时间里始终生效，这成为了跨组件通信的基础
+* 还有用 solt 插槽或 ref 实例进行通信
+
+## computed 和 Watch 有什么区别？
+
+* computed：
+  * computed 是计算属性，也就是计算值，它更多用于计算值的场景。
+  * computed 具有缓存性，computed 的值在 getter 执行后会缓存，只有在它依赖的属性值改变之后，下一次获取 computed 的值才会重新调用对应的 getter 来计算。
+  * computed 适用于计算比较消耗性能的计算场景。
+* watch：
+  * 更多的是观察的作用，监听回调。
+  * 无缓存性，页面重新渲染时值不变化也会执行
+* 当我们进行数值计算，而且依赖于其它数据时，用 computed
+* 如果需要在某个数据变化时做一些事情，使用 watch 来观察这个数据的变化。
+
+## Vue 如何实现双向绑定？
+
+* 利用 Object.defineProperty 劫持对象的访问器，在属性值发生变化时获取变化后响应。
+* Vue 3 中通过 Proxy 代理对象进行类似的操作。
+
+## 如何理解 Vue 响应式系统？
+
+* 任何一个 Vue Component 都有一个与之对应的 Watcher 实例。
+* Vue 的 data 上的属性会被添加 getter 和 setter 属性。
+* 当 Vue Component render 函数被执行的时候，data 上会被触碰（被读），getter 会被调用，此时 Vue 会记录此 Vue Component 所依赖的所有 data。（依赖收集）
+* data 被改动时，setter 会被调用，此时 Vue 会去通知所有依赖此 data 的组件去调用他们的 render 函数进行更新。
+
+## 如何理解 Vue 的依赖收集？
+
+## 如何理解 Vue 的变化侦测原理？
+
+* Vue 已经可以数据劫持后，为什么还需要虚拟 DOM 进行 diff 检测差异？
+  * 现代前端框架有两种方式侦测变化,一种是pull一种是push
+  * pull: 其代表为React,我们可以回忆一下React是如何侦测到变化的,我们通常会用 setState API显式更新,然后React会进 行一层层的Virtual Dom Diff操作找出差异,然后Patch到DOM上,React从一开始就不知道到底是哪发生了变化,只是知道 「有变化了」,然后再进行比较暴力的Diff操作查找「哪发生变化了」，另外一个代表就是Angular的脏检查操作。
+  * push: Vue的响应式系统则是push的代表,当Vue程序初始化的时候就会对数据data进行依赖的收集,一但数据发生变化,响 应式系统就会立刻得知,因此Vue是一开始就知道是「在哪发生变化了」,但是这又会产生一个问题,如果你熟悉Vue的响 应式系统就知道,通常一个绑定一个数据就需要一个Watcher,一但我们的绑定细粒度过高就会产生大量的Watcher,这会 带来内存以及依赖追踪的开销,而细粒度过低会无法精准侦测变化,因此Vue的设计是选择中等细粒度的方案,在组件级别 进行push侦测的方式,也就是那套响应式系统,通常我们会第一时间侦测到发生变化的组件,然后在组件内部进行Virtual Dom Diff获取更加具体的差异,而Virtual Dom Diff则是pull操作,Vue是push+pull结合的方式进行变化侦测的。
+* Vue 中为什么没有类似的 shouldComponentUpdate？
+  * React是pull的方式侦测变化,当React知道发生变化后,会使用Virtual Dom Diff进行差异检测,但是很多组件实际上是肯定 不会发生变化的,这个时候需要用shouldComponentUpdate进行手动操作来减少diff,从而提高程序整体的性能.
+  * Vue是pull+push的方式侦测变化的,在一开始就知道那个组件发生了变化,因此在push的阶段并不需要手动控制diff,而组 件内部采用的diff方式实际上是可以引入类似于shouldComponentUpdate相关生命周期的,但是通常合理大小的组件不会 有过量的diff,手动优化的价值有限,因此目前Vue并没有考虑引入shouldComponentUpdate这种手动优化的生命周期.
+
+## 如何理解 Vue 的 Keep-Alive？
 
 ## 如何解决 getter/setter 不能监听数组变异方法
 

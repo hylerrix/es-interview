@@ -1,70 +1,8 @@
 # JavaScript 基础知识
 
-> 重点关注从 ES 到 JS，与众不同的地方。即从标准逐步走向应用层，但不涉及具体实战。
+> 重点关注异步、跨域、JS 基础知识、疑难对比
 
-## 基础数据类型
-
-### 基础数据类型都有哪些？
-
-* undefiend 没有定义数据类型
-* number 数值数据类型，例如 10 或者 1 或者 5.5
-  * NaN 是一种特殊的 number
-* string 字符串数据类型用来描述文本，例如 "你的姓名"
-  * string 的内置属性和方法：
-  * 构造函数 String()
-* boolean 布尔类型 true | false ，不是正就是反
-  * boolean 的内置属性和方法：
-  * 构造函数
-* object 对象类型，复杂的一组描述信息的集合
-  * null 是一种特殊的 object
-  * object 的内置属性和方法：
-  * 构造函数
-  * Object.prototype
-* function 函数类型
-  * 函数的内置属性和方法：
-  * 构造函数
-  * Function.prototype
-
-### String 有哪些操作？
-
-### Boolean 有哪些操作？
-
-### Undifined/NULL 有哪些操作？
-
-### Function 有哪些操作？
-
-### Object 有哪些操作？
-
-### Number 有哪些操作？
-
-* 浮点？
-
-### Array 有哪些操作？
-
-* Array 静态方法：`Array.from(); Array.isArray(); Array.of();`。
-* Array 原型方法：
-  * `.concat(); .copyWithin(); .entries(); .every();`。
-  * `.fill(); .filter(); .find(); .findIndex(); .flat(); .flatMap(); .forEach();`。
-  * `.includes(); .indexOf(); .join(); .keys(); .lastIndexOf(); .map(); .pop(); .push(); `。
-  * `.reduce(); .reduceRight(); .reverse(); .shift(); .slice(); .some(); .sort(); .splice(); `。
-  * `.toLocaleString(); .toSource(); .toString(); .unshift(); .values();`。
-  * `Array.prototype[@@iterator](); get Array[@@species]`。
-* Array 常见考题：
-  * 数组拷贝。
-  * 数组展开。
-  * 用 reduce 实现 map 的功能
-  * 类数组转化成数组的方法
-  * 实现数组 flatten
-* Object 常见考题：
-  * 深拷贝、浅拷贝
-  * 如何判断一个对象是不是空对象？
-* 类数组和数组的互相转换？
-* Number & BigInt 常见考题：
-  * 大数操作
-  * 0.1+0.2 == 0.3？原因？
-* 链式调用：add(2, 5)，add(2)(5)，add(1)(1)(5) 的结果都为 7
-
-## 重点实战概念
+## 内置对象
 
 ### JavaScript 内置全局对象有哪些？
 
@@ -89,115 +27,6 @@ Web 浏览器这个宿主环境中特有的 JavaScript 全局对象为“window 
 
 ### Window 全局内置的属性和方法？
 
-### 关联数组有哪些操作？
-
-> 其它多数语言里，数组分为索引数组和关联数组，索引数组又分为一维数组、二维数组和多维数组。
->
-> 引用：“JavaScript 里面没有关联数组和索引数组这两种不同的区分，一切对象都是键值对，数组也是对象，数组也可以看作是键值对。”
->
-> 自我感悟，存疑：JavaScript 还是有索引数组和关联数组的微小差异。索引数组和 length 属性直接挂钩，关联数组其实访问的是数组上的属性及其值，length 一般都是 0(没有真正的数据内容)。
-
-在计算机科学中，关联数组（英语：Associative Array），又称映射（Map）、字典（Dictionary）是一个抽象的数据结构，它包含着类似于（键，值）的有序对。一个关联数组中的有序对可以重复（如C中的 multimap）也可以不重复（如 C 中的 map）。这种数据结构包含以下几种常见的操作：
-
-- 向关联数组添加配对
-- 从关联数组内删除配对
-- 修改关联数组内的配对
-- 根据已知的键寻找配对
-
-> 字典问题是设计一种能够具备关联数组特性的数据结构。解决字典问题的常用方法，是利用散列表，但有些情况下，也可以直接使用二叉查找树或其他结构。
->
-> 许多程序设计语言内置基本的数据类型，提供对关联数组的支持。而内容定址存储器则是硬件层面上实现对关联数组的支持。
-
-属性值和键值的异同
-
-- 属性和键值不一样，给数组新增一个属性，其依然为数组，length 不变，新增的被读取时将是属性值，而非键值。
-
-```javascript
-var a = [1,2,3]; // 定义一个数组
-console.log(a);
-console.log(a.length); // 结果为3
-
-a["name"] = "xiaoming"; // 我们再给它赋值，这是给 a 数组增加了一个属性叫 name，而不是在数组里添加数据。
-console.log(a); // [1, 2, 3, aaa: 1]，a 依然是数组
-console.log(a.length); // 结果还是为 3
-
-a.push(4);
-console.log(a) // [1, 2, 3, 4, aaa: 1]，a 依然是数组
-console.log(a.length); // 结果为4
-```
-
-- 以下两种写法效果是一样的，但 j2 符合 JSON 风格，当 JSON 对象作为 Map(映射、关联数组) 时使用。
-  - JSON 对象和 JSON Map 在运行时看起来是一样的；这个特性与 API 设计相关。当 JSON 对象被当作 Map 使用时，API 文件应当做出说明。
-  - Map 的键名不一定要遵循属性名称的命名准则。键名可以包含任意的 Unicode 字符。客户端可使用 Map 熟悉的方括号来访问这些属性。
-
-```javascript
-var j1 = {
-    name: 'j1',
-    age: 18,
-    fun: function () {
-        console.log(1)
-    }
-}
-
-var j2 = {
-    "name": "j2",
-    "age": 18,
-    "fun": function () {
-        console.log(1)
-    }
-}
-```
-
-遍历关联数组
-
-```javascript
-for (var key in array){  
-    console.log("键:",key);  
-    console.log("值:",array[key]); 
-}
-```
-
-关联数组和索引数组的遍历效率问题
-
-遍历赋值以下数组时，第一次耗费时间差不多，浏览器默认优化之后，arr2 作为 Array 而非 Object 存取速度更快。
-
-```javascript
-var arr = new Array(50000000);
-var arr2 = {};
-```
-
-### 如何理解隐式类型转换？
-
-### new 的原理？
-
-* 创建一个新的空对象
-* 将构造函数的作用域赋给新对象（因此 this 就指向了这个新对象）
-* 执行构造函数中的代码（为这个新对象添加属性）
-* 如果这个函数有返回值，则返回；否则，就会默认返回新对象。
-
-### call()、apply()、bind() 的原理？
-
-> 参考：[进击的前端面试 - 知乎专栏](https://www.zhihu.com/column/c_1155423857010659328)
-
-* call：【显示调用】传入多个参数，第一个参数是 this 的指向，之后的参数都是函数的参数。
-* call 做了三件事：`person.fullName.call(person1, "Hello, ");`。
-  * 显示地改变 this 的指向为第一个参数。
-  * 从 call 的第二个参数开始，都传递给调用 call 的函数中。
-  * 不改变调用函数本身内部，调用函数不使用 call 时会和 call 不再有关系。
-* `foo.call(this, arg1, arg2, arg3) == foo.apply(this, arguments) == this.foo(arg1, arg2, arg3);`。
-* call 的使用场景：
-  * 让类数组使用数组的方法：`Array.prototype.slice.call(arguments)`
-
-* apply：【显示调用】传入两个参数，第一个参数是 this 的指向，第二个参数是函数参数组成的数组。
-  * 在 ES6 解构赋值之前，可以用 apply 给函数传入参数数组。
-
-* bind：【隐式调用】创建一个新的函数，在 bind() 被调用时，这个新函数的 this 被 bind 的第一个参数指定，其余的参数将作为新函数的参数供调用时使用。
-* bind 做了四件事：`greeting.bind(obj, 'the world')('JS')`。
-  * 改变调用者中 this 的指向，之后返回一个函数。
-  * 调用 bind 时，除了第一个代表 this 的指向，还能传递参数给调用者。
-  * 调用生成的“绑定函数”时，再传入剩余参数。
-  * 生成的“绑定函数”也可以使用 new 运算符构造，提供的 this 值会被忽略，但前置参数仍会提供给模拟函数。
-
 ## 异步与事件机制
 
 ### 如何理解 JS 单线程模型与事件机制？
@@ -211,6 +40,7 @@ var arr2 = {};
 ### 如何理解宏任务与微任务？
 
 * JavaScript 中分为两种任务类型：macrotask 和 microtask，在 ECMAScript 中，microtask 称为 jobs，macrotask 可称为 task。
+
 - macrotask 宏任务，可以理解是每次执行栈执行的代码就是一个宏任务，包括每次从事件队列中获取一个事件回调并放到执行栈中执行
   - 每一个 task 会从头到尾将这个任务执行完毕，不会执行其它
   - 浏览器为了能够使得 JavaScript 内部 task 与 DOM 任务能够有序的执行，会在一个 task 执行结束后，在下一个 task 执行开始前，对页面进行重新渲染。
@@ -218,6 +48,7 @@ var arr2 = {};
   - 在当前 task 任务后，下一个 task 之前，在渲染之前
   - 所以它的响应速度相比 setTimeout(setTimeout 是 task)会更快，因为无需等渲染
   - 在某一个 macrotask 执行完后，就会将在它执行期间产生的所有 microtask 都执行完毕(在渲染前)。
+
 * 分别什么场景会用到 macrotask 和 microtask？
   - macrotask：主代码块，setTimeout，setInterval 等(可以看到，事件队列中的每一个事件都是一个 macrotask)
   - microtask：Promise，process.nextTick 等
@@ -276,27 +107,34 @@ xhr.readyState 的状态码说明：
 - 3 -（交互）正在解析响应内容
 - 4 -（完成）响应内容解析完成，可以在客户端调用了
 
-### 跨域 CORS 的实现原理？
+## 如何实现跨域请求？
 
-CORS 是一个 W3C 标准，全称是"跨域资源共享"(Cross-origin resource sharing)。它允许浏览器向跨源服务器，发出 XMLHttpRequest 请求，从而克服了 AJAX 只能同源使用的限制。
+* 同源策略限制了从同一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的重要安全机制。
+* 同源是指"协议+域名+端口"三者相同，即便两个不同的域名指向同一个ip地址，也非同源。
+* 不受跨域限制的标签：`<img src=xxx>`、`<link href=xxx>`、`<script src=xxx>`。
+* CORS
 
-基本上目前所有的浏览器都实现了 CORS 标准,其实目前几乎所有的浏览器 ajax 请求都是基于 CORS 机制的。
-
-浏览器将CORS请求分成两类：简单请求(simple request)和非简单请求(not-so-simple request)。只要同时满足以下两大条件，就属于简单请求。
-
-* 请求方法是以下三种方法之一：HEAD, GET, POST
-* HTTP的头信息不超出以下几种字段：
-* Accept
-* Accept-Language
-* Content-Language
-* Last-Event-ID
-* Content-Type(只限于三个值 application/x-www-form-urlencoded、 multipart/form-data、text/plain)
-
-凡是不同时满足上面两个条件，就属于非简单请求。
-
-### 跨域 JSONP 的实现原理？
-
-JSONP 是一种通常用于绕过 Web 浏览器中的跨域限制的方法，因为 Ajax 不允许跨域请求。JSONP 通过 `<script>` 标签发送跨域请求，通常使用 callback 查询参数，例如：https://example.com?callback=printData。然后服务器将数据包装在一个名为 printData 的函数中并将其返回客户端。
+  * CORS 是一个 W3C 标准，全称是"跨域资源共享"(Cross-origin resource sharing)。它允许浏览器向跨源服务器，发出 XMLHttpRequest 请求，从而克服了 AJAX 只能同源使用的限制。
+  * 基本上目前所有的浏览器都实现了 CORS 标准,其实目前几乎所有的浏览器 ajax 请求都是基于 CORS 机制的。
+  * 浏览器将CORS请求分成两类：简单请求(simple request)和非简单请求(not-so-simple request)。只要同时满足以下两大条件，就属于简单请求。
+    * 请求方法是以下三种方法之一：HEAD, GET, POST
+    * HTTP的头信息不超出以下几种字段：
+    * Accept
+    * Accept-Language
+    * Content-Language
+    * Last-Event-ID
+    * Content-Type(只限于三个值 application/x-www-form-urlencoded、 multipart/form-data、text/plain)
+  * 凡是不同时满足上面两个条件，就属于非简单请求。
+* JSONP：
+  * JSONP 是一种通常用于绕过 Web 浏览器中的跨域限制的方法，因为 Ajax 不允许跨域请求。JSONP 通过 `<script>` 标签发送跨域请求，通常使用 callback 查询参数，例如：https://example.com?callback=printData。然后服务器将数据包装在一个名为 printData 的函数中并将其返回客户端。
+  * 客户端必须在其全局范围内具有 printData 函数，并且在收到来自跨域的响应时，该函数将由客户端执行。JSONP 可能具有一些安全隐患，因此需要信任 JSONP 数据的提供者。
+* Nginx：反向代理来解决跨域问题。
+* 其他跨域方案：
+  * HTML5 XMLHttpRequest 有一个API，postMessage()方法允许来自不同源的脚本采用异步方式进行有限的通信， 可以实现跨文本档、多窗口、跨域消息传递。
+  * WebSocket 是一种双向通信协议，在建立连接之后，WebSocket 的 server 与 client 都能主动向对方发送或接收数 据，连接建立好了之后 client 与 server 之间的双向通信就与 HTTP 无关了，因此可以跨域。
+  * window.name + iframe:window.name属性值在不同的⻚面(甚至不同域名)加载后依旧存在，并且可以支持非常 ⻓的 name 值，我们可以利用这个特点进行跨域。
+  * location.hash + iframe:a.html欲与c.html跨域相互通信，通过中间⻚b.html来实现。 三个⻚面，不同域之间利用 iframe的location.hash传值，相同域之间直接js访问来通信。
+  * document.domain + iframe: 该方式只能用于二级域名相同的情况下，比如 a.test.com 和 b.test.com 适用于该方 式，我们只需要给⻚面添加 document.domain ='test.com' 表示二级域名都相同就可以实现跨域，两个⻚面都通过js 强制设置document.domain为基础主域，就实现了同域。
 
 ```html
 <script>
@@ -309,71 +147,195 @@ function printData (data) {
 printData({ name: 'Yang shun'} )
 ```
 
-客户端必须在其全局范围内具有 printData 函数，并且在收到来自跨域的响应时，该函数将由客户端执行。JSONP 可能具有一些安全隐患，因此需要信任 JSONP 数据的提供者。
+## 重点基础概念
 
-## 新特性 API
+### 如何理解闭包和 IIFE？
 
-### 如何理解 Promise API？
+* IIFE
+  * IIFE 可以达到不暴露私有成员的目的
+  * 能够在 IIFE 完成执行后任维系着内部功能的生存期。
+  * IIFE，Immediately Invoked Function Expressions，代表立即执行函数。
+  * IIFE 的外层括号不是必须的，因为 IIFE 是一个函数表达式。
+* 闭包
+  * 闭包，closure，概念最早提出在 1964 年，1975 年最早实现，是函数和声明该函数的词法环境的组合。词法作用域中使用的域，是变量在代码中声明的位置所决定的。
+  * 闭包就是能够读取其他函数内部变量的函数。
+  * Javascript语言的特殊之处，就在于函数内部可以直接读取全局变量。另一方面，在函数外部自然无法读取函数内的局部变量。本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。
+  * 为什么使用闭包：
+    * 利用闭包实现数据私有化或模拟私有方法，这个方式也称为模块模式。
+    * 部分参数函数柯里化。
+  * 如何从外部读取局部变量？
+    * 那就是在函数的内部，再定义一个函数。这就是 JavaScript 语言特有的"链式作用域"结构(chain scop)，子对象会一级一级地向上寻找所有父对象的变量。
+  * 使用闭包的注意点
+    * 由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。
+    * 闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。
 
-* 同步函数与异步函数
-  - 同步函数阻塞，语句完成后，下一句才执行。
-  - 异步函数不阻塞，通常接受回调作为参数，在调用异步函数后立即继续执行下一行。回调函数仅在异步操作完成且调用堆栈为空时调用。
-* Promise 是一个可能在未来某个时间产生结果的对象：操作成功的结果或失败的原因。Promise 可能处于以下三种状态之一：fulfilled、rejected、pending。用户可以对 Promise 添加回调函数来处理操作成功的结果或失败的原因。
-* Promise 代替回调函数的优点：
-  - 避免可读性极差的回调地狱。
-  - 使用 .then() 编写的顺序异步代码，既简单又易读。
-  - 使用 Promise.all() 编写异步代码变得很容易。
-* Promise 代替回调函数的缺点：
+### 如何理解作用域链？
 
-- 在不支持 ES2015 的旧版浏览器中，需要引入 Polyfill 才能使用。
+> 词法作用域
 
-### 如何理解 Fetch API？
+* JavaScript在执行过程中会创造可执行上下文，可执行上下文中的词法环境中含有外部词法环境的引用，我们 可以通过这个引用获取外部词法环境的变量、声明等，这些引用串联起来一直指向全局的词法环境，因此形成了作用域 链。
 
-Fetch 支 持headers 定义，通过 headers 自定义可以方便地实现多种请求方法(PUT、GET、POST 等)、请求头(包括跨域)和 cache 策略等；除此之外还支持 response（返回数据）多种类型，比如支持二进制文件、字符串和 formData 等。
+### 如何理解变量提升（var/let/const）？
+
+* 编译器预编译的时候，第一步只会记录变量和函数的定义，第二步才会执行程序。
+  * 所有这些函数和变量声明都被添加到名为词法环境的 JavaScript 数据结构内的内存中。
+* var 会变量提升，初始值为 undefined
+* let 和 const 相比 var
+  * 都会被提升，但是不会被初始化，不能被引用
+  * 只在块级作用域中有效
+  * 不允许重复声明
+  * 不会绑定全局作用域
+* let 和 const 区别
+  * const 定义的指针不能修改，但是指向的对象属性可以修改
+
+### 如何理解原型链？
+
+所有 JavaScript 对象都有一个 prototype 属性，指向它的原型对象。当试图访问一个对象的属性时，如果没有在该对象上找到，它还会搜寻该对象的原型，以及该对象的原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。这种行为是在模拟经典的继承，与其说是继承，不如说是委托。
+
+- 每个对象都有 `__proto__` 属性。
+- 函数有 `prototype`，定义在 ES 规范里。
+- 实例继承构造函数 prototype 的所有属性和方法
+  - 实例的 `__proto__` 指向构造函数的 prototype
+  - 对象具有属性 `__proto__`，可称为隐式原型，一个对象的隐式原型指向构造该对象的构造函数的原型，这也保证了实例能够访问在构造函数原型中定义的属性和方法。
+- 几乎所有的 JavaScript 对象都是 Object 的实例。
+  - 一个典型的对象继承了 Object.prototype 的属性（包括方法），尽管这些属性可能被遮蔽（也被称为覆盖）。
+  - 但是有时候可能故意创建不具有典型原型链继承的对象，比如通过 Object.create(null) 创建的对象，或者通过 Object.setPrototypeOf 方法改变原型链。
+  - 改变 Object 原型，会通过原型链，而改变所有对象；除非这些属性和方法被其他对原型链更里层的改动所覆盖。这提供了一个非常强大的、但有潜在危险的机制，来覆盖或扩展对象行为。
+- 所有的构造器的 constructor 都指向 Function
+- Function 的 prototype 指向一个特殊匿名函数，而这个特殊匿名函数的 `__proto__` 指向Object.prototype
 
 ```javascript
-fetch('some/api/data.json', {
-  method:'POST', // 请求类型 GET、POST
-  headers:{}, // 请求的头信息，形式为 Headers 对象或 ByteString
-  body:{}, // 请求发送的数据 blob、BufferSource、FormData、URLSearchParams(get 或 head 方法中不能包含 body)
-  mode:'', // 请求的模式，是否跨域等，如 cors、 no-cors 或 same-origin
-  credentials:'', // cookie 的跨域策略，如 omit、same-origin 或 include
-  cache:'', // 请求的 cache 模式: default、no-store、reload、no-cache、 force-cache 或 only-if-cached
-}).then(function(response) { ... });...
+Function instanceof Object; // true
+Object instanceof Function; // true
+
+//①构造器Function的构造器是它自身
+Function.constructor=== Function;//true
+//②构造器Object的构造器是Function（由此可知所有构造器的constructor都指向Function）
+Object.constructor === Function;//true
+//③构造器Function的__proto__是一个特殊的匿名函数function() {}
+console.log(Function.__proto__);//function() {}
+//④这个特殊的匿名函数的__proto__指向Object的prototype原型。
+Function.__proto__.__proto__ === Object.prototype//true
+//⑤Object的__proto__指向Function的prototype，也就是上面③中所述的特殊匿名函数
+Object.__proto__ === Function.prototype;//true
+Function.prototype === Function.__proto__;//true
 ```
 
-### 如何理解 Proxy API？
+### 如何理解显示/隐式类型转换？
 
-* Proxy 用于修改某些操作的默认行为，等同于在语言层面做出修改，所以属于一种“元编程”（meta programming），即对编程语言进行编程。
-* Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。Proxy 这个词的原意是代理，用在这里表示由它来“代理”某些操作，可以译为“代理器”。
-* `var proxy = new Proxy(target, handler);`。
-* Proxy 实例也可以作为其他对象的原型对象。
-* 13 种 Proxy 支持的拦截操作：
-  * `get(target, propKey, receiver)`：拦截对象属性的读取，比如 `proxy.foo` 和 `proxy['foo']`。
-  * `set(target, propKey, value, receiver)`：拦截对象属性的设置，比如 `proxy.foo = v` 或 `proxy['foo'] = v`，返回一个布尔值。
-  * `has(target, propKey)`：拦截 `propKey in proxy` 的操作，返回一个布尔值。
-  * `deleteProperty(target, propKey)`：拦截 `delete proxy[propKey]` 的操作，返回一个布尔值。
-  * `ownKeys(target)`：拦截 `Object.getOwnPropertyNames(proxy)`、`Object.getOwnPropertySymbols(proxy)`、`Object.keys(proxy)`、`for...in` 循环，返回一个数组。该方法返回目标对象所有自身的属性的属性名，而 `Object.keys()` 的返回结果仅包括目标对象自身的可遍历属性。
-  * `getOwnPropertyDescriptor(target, propKey)`：拦截 `Object.getOwnPropertyDescriptor(proxy, propKey)`，返回属性的描述对象。
-  * `defineProperty(target, propKey, propDesc)`：拦截 `Object.defineProperty(proxy, propKey, propDesc)`。
-  * `Object.defineProperties(proxy, propDescs)`，返回一个布尔值。
-  * `preventExtensions(target)`：拦截 `Object.preventExtensions(proxy)`，返回一个布尔值。
-  * `getPrototypeOf(target)`：拦截 `Object.getPrototypeOf(proxy)`，返回一个对象。
-  * `isExtensible(target)`：拦截 `Object.isExtensible(proxy)`，返回一个布尔值。
-  * `setPrototypeOf(target, proto)`：拦截 `Object.setPrototypeOf(proxy, proto)`，返回一个布尔值。如果目标对象是函数，那么还有两种额外操作可以拦截。
-  * `apply(target, object, args)`：拦截 Proxy 实例作为函数调用的操作，比如 `proxy(...args); proxy.call(object, ...args)、proxy.apply(...)`。
-  * `construct(target, args)`：拦截 Proxy 实例作为构造函数调用的操作，比如 `new proxy(...args)`。
+* 在if语句、逻辑语句、数学运算逻辑、==等情况下都可能出现隐式类型转换。
 
+### 如何实现不可变数据？
+
+### 如何理解基础类型/引用类型？
+
+## 特性深入
+
+### new/this/箭头函数？
+
+* new 一个对象的过程：
+  * 创建一个新的空对象
+  * 将构造函数的作用域赋给新对象（因此 this 就指向了这个新对象）
+  * 执行构造函数中的代码（为这个新对象添加属性）
+  * 如果这个函数有返回值，则返回；否则，就会默认返回新对象。
+
+* this 有四种绑定：和调用位置有关，和定义位置无关
+  * 默认绑定：在非严格模式下，this 就是全局对象，否则是 undefined。`foo()`。
+  * 隐式绑定：`o.foo()`。
+  * 显示绑定：如果 foo 是通过 call、apply 或者 bind 调用的，那么这种调用就是显式绑定。`foo.call(obj)`。
+  * new 关键字绑定：构造函数中。
+* 箭头函数的特点：和定义位置有关，和调用位置无关
+  * 无视 this 的四种绑定规则。
+  * this 的值就是函数创建时候所在的 lexical scope 中的 this，而和调用方式无关。
+  * 箭头函数中无法使用 `function.arguments` 对象。
+* 绑定规则优先级：箭头函数 > 关键字 new 调用 > 显式绑定 > 隐式绑定 > 默认绑定。
+
+* this 是 JavaScript 语言的一个关键字，函数调用的方式决定了 this 的值，this 取值符合以下标准：
+  * 在调用函数时使用 new 关键字，函数内的 this 是一个全新的对象。
+  * 如果 apply、call 或 bind 方法用于调用、创建一个函数，函数内的 this 就是作为参数传入这些方法的对象。
+  * 当函数作为对象里的方法被调用时，函数内的 this 时调用该函数的对象。比如当 obj.method() 被调用时，函数内的 this 将绑定到 obj 对象。
+  * 如果调用函数不符合上述规则，那么 this 的值指向全局对象。浏览器环境下 this 的值指向 window 对象，但是在严格模式下('use strict')，this 的值为 undefined。
+  * 如果符合上述多个规则，则较高的规则(1 号最高，4 号最低)将决定 this 的值。
+  * 如果该函数是 ES2015 中的箭头函数，将忽略上面的所有规则，this 被设置为它被创建时的上下文。
+
+### call()、apply()、bind()？
+
+> 参考：[进击的前端面试 - 知乎专栏](https://www.zhihu.com/column/c_1155423857010659328)
+
+* call：【显示调用】传入多个参数，第一个参数是 this 的指向，之后的参数都是函数的参数。
+* call 做了三件事：`person.fullName.call(person1, "Hello, ");`。
+  * 显示地改变 this 的指向为第一个参数。
+  * 从 call 的第二个参数开始，都传递给调用 call 的函数中。
+  * 不改变调用函数本身内部，调用函数不使用 call 时会和 call 不再有关系。
+* `foo.call(this, arg1, arg2, arg3) == foo.apply(this, arguments) == this.foo(arg1, arg2, arg3);`。
+* call 的使用场景：
+  * 让类数组使用数组的方法：`Array.prototype.slice.call(arguments)`
+
+* apply：【显示调用】传入两个参数，第一个参数是 this 的指向，第二个参数是函数参数组成的数组。
+  * 在 ES6 解构赋值之前，可以用 apply 给函数传入参数数组。
+
+* bind：【隐式调用】创建一个新的函数，在 bind() 被调用时，这个新函数的 this 被 bind 的第一个参数指定，其余的参数将作为新函数的参数供调用时使用。
+* bind 做了四件事：`greeting.bind(obj, 'the world')('JS')`。
+  * 改变调用者中 this 的指向，之后返回一个函数。
+  * 调用 bind 时，除了第一个代表 this 的指向，还能传递参数给调用者。
+  * 调用生成的“绑定函数”时，再传入剩余参数。
+  * 生成的“绑定函数”也可以使用 new 运算符构造，提供的 this 值会被忽略，但前置参数仍会提供给模拟函数。
+
+### setTimeOut/setInterval/requestAnimationFrame？
+
+### constructor/typeof/instanceof？
+
+只要一个对象 a 的内部 prototype 属性或者它的原型链上的任意对象与 b.prototype 是同一个对象,那么 a instanceof b 就返回true。
+
+```javascript
+Array instanceof Object // true
+Object instanceof Object // true
+Array instanceof Array // false
+null instanceof Object // false
+NaN instanceof Number // false
+'str' instanceof String // false
+new String('str') instanceof String // true
 ```
-var obj = new Proxy({}, {
-  get: function (target, propKey, receiver) {
-    console.log(`getting ${propKey}!`);
-    return Reflect.get(target, propKey, receiver);
-  },
-  set: function (target, propKey, value, receiver) {
-    console.log(`setting ${propKey}!`);
-    return Reflect.set(target, propKey, value, receiver);
-  }
-});
-```
 
+## Proxy 与 Object.defineProperty 的优劣对比？
+
+* Proxy 的优势：
+  * Proxy 可以直接监听对象而非属性
+  * Proxy 可以直接监听数组的变化
+  * Proxy 有多达 13 种拦截方法，不限于 apply、ownKeys、deleteProperty、has
+  * Proxy 返回的是一个新对象，可以只操作新对象达到目的；Object.defineProperty 只能遍历对象属性直接修改。
+  * Proxy 作为新标准将受到浏览器厂商重点持续的性能优化，也就是传说中的性能红利
+* Object.defineProperty 的优势：
+  * 兼容性好，支持 IE9
+
+### 对象字面量 vs 构造函数创建对象？
+
+> 在 JavaScript 中，我们可以通过 new 关键字、Object.create() 函数创建一个对象，或者使用字面量记法(也称对象初始化器材——object initializer)。字面量记法使用花括号定义对象，对象的 Property 与值以名称 - 值对的方式组织，用冒号分隔。我们还需要在每个名称 - 值对的最后加上逗号(除了最后一个名称 - 值对)。值可以包含变量、函数，或者其他对象。
+>
+> —— 《 SPA 设计与架构 》
+
+字面量的优势：
+
+- 它的代码量更少，更易读；
+- 它可以强调对象就是一个简单的可变的散列表，而不必一定派生自某个类；
+- 对象字面量运行速度更快，因为它们可以在解析的时候被优化：它们不需要"作用域解析(scope resolution)"；因为存在我们创建了一个同名的构造函数 Object() 的可能，当我们调用 Object() 的时候，解析器需要顺着作用域链从当前作用域开始查找，如果在当前作用域找到了名为Object()的函数就执行，如果没找到，就继续顺着作用域链往上照，直到找到全局 Object() 构造函数为止
+- Object() 构造函数可以接收参数，通过这个参数可以把对象实例的创建过程委托给另一个内置构造函数，并返回另外一个对象实例，而这往往不是你想要的。
+
+### toString()/valueOf()？
+
+### Async - Await/Generator/Promise？
+
+* async 函数，就是 Generator 函数的语法糖，它建立在Promises上，并且与所有现有的基于Promise的API兼容。
+  * Async—声明一个异步函数(async function someName(){...})
+  * 自动将常规函数转换成Promise，返回值也是一个Promise对象
+  * 只有async函数内部的异步操作执行完，才会执行then方法指定的回调函数
+  * 异步函数内部可以使用await
+  * Await—暂停异步的功能执行(var result = await someAsyncCall();)
+  * 放置在Promise调用之前，await强制其他代码等待，直到Promise完成并返回结果
+  * 只能与Promise一起使用，不适用与回调 4. 只能在async函数内部使用
+
+* Async 相比于 Promise 的优势：
+  * 代码读起来更加同步，Promise虽然摆脱了回调地狱，但是then的链式调用也会带来额外的阅读负担
+  * Promise传递中间值非常麻烦，而async/await几乎是同步的写法，非常优雅
+  * 错误处理友好，async/await可以用成熟的try/catch，Promise的错误捕获非常冗余
+  * 调试友好，Promise的调试很差，由于没有代码块，你不能在一个返回表达式的箭头函数中设置断点，如果你在一 个.then代码块中使用调试器的步进(step-over)功能，调试器并不会进入后续的.then代码块，因为调试器只能跟踪 同步代码的『每一步』。

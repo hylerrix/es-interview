@@ -1,6 +1,6 @@
 # DOM
 
-### DOM 和 BOM 是什么？
+## DOM 和 BOM 是什么？
 
 * **BOM 浏览器对象模型**：根节点是 `window`。
   * navigator 对象：`appCodeName; appName; appVersion; cookieEnabled; platform; userAgent;`。
@@ -189,3 +189,9 @@ alert("W3C Hello");
 * 当初始的 HTML 文档完全加载和解析完成之后，DOMContentLoaded 事件被触发，而无需等待样式表、图像和子框架的完成加载。
 * window 的 load 事件仅在 DOM 和所有相关资源全部完成加载后才会触发。
 
+## DOM 树的构建过程？
+
+* 转码: 浏览器将接收到的二进制数据按照指定编码格式转化为HTML字符串
+* 生成Tokens: 之后开始parser，浏览器会将HTML字符串解析成Tokens
+* 构建Nodes: 对Node添加特定的属性，通过指针确定 Node 的父、子、兄弟关系和所属 treeScope
+* 生成DOM Tree: 通过node包含的指针确定的关系构建出DOM Tree
