@@ -15,8 +15,8 @@ jobs:
           curl -fsSL https://deno.land/x/install/install.sh | sh
           export PATH="$DENO_INSTALL/bin:$PATH"
           deno --version
-          deno upgrade --version 1.4.4
-          deno install --unstable --allow-env --allow-read --allow-write --allow-net -n pagic https://deno.land/x/pagic@v0.9.7/mod.ts
+          deno upgrade --version 1.4.6
+          deno install --unstable --allow-env --allow-read --allow-write --allow-net -n pagic https://deno.land/x/pagic@v0.10.3/mod.ts
           pagic build
 
       - name: Deploy

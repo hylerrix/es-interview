@@ -136,7 +136,7 @@ NODE_MODULES_PATHS(START)
 
 ### 如何理解 node_modules？
 
-## 核心模块的编译原理？
+### 核心模块的编译原理？
 
 * JavaScript 核心模块的编译过程
 * C、C++ 核心模块的编译过程

@@ -52,6 +52,16 @@
 
 * [deno-tutorial.js.org](http://deno-tutorial.js.org/)
 
+## 参与方式
+
+```bash
+$ curl -fsSL https://deno.land/x/install/install.sh | sh
+$ export DENO_INSTALL="/Users/didi/.deno"
+$ export PATH="$DENO_INSTALL/bin:$PATH"
+$ deno install --unstable --allow-read --allow-write --allow-net --allow-run --name=pagic https://deno.land/x/pagic/mod.ts
+$ pagic build --watch --serve
+```
+
 ## 贡献者 ✨
 
 感谢如下贡献者的贡献 ([emoji key](https://allcontributors.org/docs/en/emoji-key)):

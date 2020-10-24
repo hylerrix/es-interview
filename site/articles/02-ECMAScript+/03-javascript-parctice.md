@@ -1,8 +1,117 @@
 # JavaScript 常见实战题
 
-> * NaN == NaN，null == undefined
-> * arguments 的使用
-> * 实现 stringify 序列化函数
+## 面向对象
+
+### 实现 InstanceOf
+
+```javascript
+// L 表示左表达式，R 表示右表达式
+function instance_of(L, R) {
+    var O = R.prototype;
+  L = L.__proto__;
+  while (true) {
+        if (L === null){
+            return false;
+        }
+        // 这里重点：当 O 严格等于 L 时，返回 true
+        if (O === L) {
+            return true;
+        }
+        L = L.__proto__;
+  }
+}
+```
+
+### 实现 JavaScript 继承
+
+```javascript
+// 原型链继承
+function myExtend(C, P) {
+    var F = function(){};
+    F.prototype = P.prototype;
+    C.prototype = new F();
+    C.prototype.constructor = C;
+    C.super = P.prototype;
+}
+```
+
+### 实现 JavaScript 函数重载？
+
+方法 1，通过非严格模式下的 arguments：
+
+```javascript
+function overLoading() {
+　　// 根据 arguments.length，对不同的值进行不同的操作
+　　switch(arguments.length) {
+　　　　case 0:
+　　　　　　/*操作1的代码写在这里*/
+　　　　　　break;
+　　　　case 1:
+　　　　　　/*操作2的代码写在这里*/
+　　　　　　break;
+　　　　default:
+　　　　    break;
+    }
+}
+```
+
+方法 2：
+
+```javascript
+// addMethod
+function addMethod(object, name, fn) {
+　　var old = object[name]; // 把前一次添加的方法存在一个临时变量 old 里面
+　　object[name] = function() { // 重写了 object[name] 的方法
+　　　　// 如果调用 object[name] 方法时，传入的参数个数跟预期的一致，则直接调用
+　　　　if(fn.length === arguments.length) {
+　　　　　　return fn.apply(this, arguments);
+　　　　// 否则，判断 old 是否是函数，如果是，就调用 old
+　　　　} else if(typeof old === "function") {
+　　　　　　return old.apply(this, arguments);
+　　　　}
+　　}
+}
+
+var people = {
+　　values: ["Dean Edwards", "Alex Russell", "Dean Tom"]
+};
+ 
+/* 下面开始通过 addMethod 来实现对 people.find 方法的重载 */
+ 
+// 不传参数时，返回 peopld.values 里面的所有元素
+addMethod(people, "find", function() {
+　　return this.values;
+});
+ 
+// 传一个参数时，按 first-name 的匹配进行返回
+addMethod(people, "find", function(firstName) {
+　　var ret = [];
+　　for(var i = 0; i < this.values.length; i++) {
+　　　　if(this.values[i].indexOf(firstName) === 0) {
+　　　　　　ret.push(this.values[i]);
+　　　　}
+　　}
+　　return ret;
+});
+ 
+// 传两个参数时，返回 first-name 和 last-name 都匹配的元素
+addMethod(people, "find", function(firstName, lastName) {
+　　var ret = [];
+　　for(var i = 0; i < this.values.length; i++) {
+　　　　if(this.values[i] === (firstName + " " + lastName)) {
+　　　　　　ret.push(this.values[i]);
+　　　　}
+　　}
+　　return ret;
+});
+ 
+// 测试：
+console.log(people.find()); //["Dean Edwards", "Alex Russell", "Dean Tom"]
+console.log(people.find("Dean")); //["Dean Edwards", "Dean Tom"]
+console.log(people.find("Dean Edwards")); //["Dean Edwards"]
+```
+
+## 数据类型
 
 ### 如何区分 Object 和 Array
 
@@ -76,17 +185,7 @@ console.log(isArrayFour(arr));
 console.log(isArrayFour(obj));
 ```
 
-### 如何遍历对象和数组
-
-* 对象遍历
-  - for in 循环：`for (var property in obj) { console.log(property); }`。但这会遍历到它的继承属性，在使用前需要加入 `obj.hasOwnProperty(property)` 检查。
-  - Object.keys()：`Object.keys(obj).forEach(function (property) { ... })`。
-  - Object.getOwnPropertyNames()：`Object.getOwnPropertyNames(obj).forEach(function (property) { ... })`。Object.getOwnPropertyNames() 方法返回一个由指定对象的所有自身属性的属性名(包括不可枚举属性但不包括 Symbol 值作为名称的属性)组成的数组。
-* 数组遍历
-  - for loop：`for (var i = 0; i < arr.length; i++)`。这里的常见错误是 var 是函数作用域而不是块级作用域。ES2015 引入了块级作用域 let，建议使用。
-  - forEach：`arr.forEach(function (el, index) { ... })`。这个语句结构有时会更精简，不必使用 index。还有 every 和 some 方法可以提前终止遍历。
-
-## 一个函数实现 add(1)(2)(3)、add(1, 2, 3)
+### 一个函数实现 add(1)(2)(3)、add(1, 2, 3)
 
 ```javascript
 function add(){
@@ -103,7 +202,7 @@ function add(){
 console.log(add(10)(10)(20))
 ```
 
-## 动手实现 new
+### 动手实现 new
 
 ```javascript
 function Person(name, age, job) {
@@ -136,7 +235,7 @@ person.sayName();        // Nicholas
 console.log(person.__proto__ === Person.prototype);   // true
 ```
 
-## 动手实现 Array.isArray
+### 动手实现 Array.isArray
 
 ```javascript
 Array.myIsArray = function(o) { 
@@ -144,76 +243,7 @@ Array.myIsArray = function(o) {
 };
 ```
 
-## 动手实现节流和防抖？
-
-```javascript
-// https://zhuanlan.zhihu.com/p/87591677
-function throttle(func, wait, options) {
-  var timeout, context, args, result;
-  var previous = 0;
-  if (!options) options = {};
- 
-  var later = function() {
-    previous = options.leading === false? 0: Date.now(); 
-    timeout = null;
-    result = func.apply(context, args);
-  };
- 
-  var throttled = function() {
-    var now = Date.now();
-    if (!previous && options.leading === false) previous = now;
-    var remaining = wait - (now - previous);
-  	context = this;
-    args = arguments;
-    if (remaining <= 0 || remaining > wait) {
-      if (timeout) {
-        clearTimeout(timeout);
-        timeout = null;
-      }
-      previous = now;
-      result = func.apply(context, args);
-    } else if (!timeout && options.trailing !== false) {
-      timeout = setTimeout(later, remaining);
-    }
-    return result;
-  }
-  throttled.cancel = function() {
-    clearTimeout(timeout);
-    previous = 0;
-    timeout = context = args = null;
-  };
-  return throttled;
-}
-```
-
-```javascript
-// https://zhuanlan.zhihu.com/p/86426949
-function debounce(func, wait, immediate) {
-  var timeout, result;
-  var debounced = function() {
-  var context = this;
-  var args = arguments;
-  if (timeout) clearTimeout(timeout);
-    var later = function() {
-      timeout = null;
-      if (!immediate) result = func.apply(context, args);
-    };
-    var callNow = immediate && !timeout;
-    timeout = setTimeout(later, wait);
-    if (callNow) result = func.apply(this, args);
-    return result;
-  }
-  debounced.cancel = function() {
-    clearTimeout(timeout);
-    timeout = null;
-  };
-  return debounced;
-}
-```
-
-
-
-## 动手实现 Array.prototype.reduce
+### 动手实现 Array.prototype.reduce
 
 ```javascript
 Array.prototype.myReduce = function(callback, initialValue) {
@@ -235,7 +265,7 @@ let sum = arr.myReduce((acc, val) => {
 console.log(sum); // 15
 ```
 
-## 动手实现 Object.create()
+### 动手实现 Object.create()
 
 ```javascript
 function create =  function (o) {
@@ -245,7 +275,7 @@ function create =  function (o) {
 };
 ```
 
-## JavaScript 实现继承的多种方式
+### JavaScript 实现继承的多种方式
 
 类式继承：
 
@@ -379,7 +409,94 @@ dog.greet('汪汪');  // "汪汪"
 console.log(dog.color); // "黑色"
 ```
 
-## 动手实现 call()、bind()、apply()
+### 实现数组扁平化操作
+
+```javascript
+Array.prototype.myFlat = function(num = 1) {
+  if (Array.isArray(this)) {
+    let arr = [];
+    if (!Number(num) || Number(num) < 0) {
+      return this;
+    }
+    this.forEach(item => {
+      if(Array.isArray(item)){
+        let count = num
+        arr = arr.concat(item.myFlat(--count))
+      } else {
+        arr.push(item)
+      }  
+    });
+    return arr;
+  } else {
+    throw tihs + ".flat is not a function";
+  }
+};
+```
+
+
+```javascript
+// 递归
+function flatten(arr) {
+    if (!Array.isArray(arr)) {
+        return [arr];
+    }
+    let res = [];
+    for (let i=0;i<arr.length;i++) {
+        res.push(...flatten(arr[i]));
+   }
+   return res;
+}
+
+const arr = [1, [2, [3, 4, [5]]]];
+console.log(flatten(arr));
+```
+
+```javascript
+// 迭代
+function flatten2(arr) {
+  const stack = [...arr];
+  const res = [];
+  while (stack.length) {
+    // 从栈里取出
+    const next = stack.pop();
+    if (Array.isArray(next)) {
+      // 把next扁平化，然后放入stack中
+      stack.push(...next);
+    } else {
+      res.push(next);
+    }
+  }
+  // reverse to restore input order
+  return res.reverse();
+}
+
+console.log(flatten2(arr));
+```
+
+```javascript
+// generator 异步迭代
+function* flatten3(arr) {
+    let length = arr.length;
+    for (let i=0; i<length; i++) {
+        let item = arr[i];
+        if (Array.isArray(item)) {
+    	    yield* flatten3(item);
+        } else {
+    	    yield item;
+        }
+    }
+} 
+
+let res = [];
+for (let f of flatten3 (arr)) {
+    res.push(f);
+}
+console.log(res);
+```
+
+## 常见方法
+
+### 动手实现 call()、bind()、apply()
 
 ```javascript
 Function.prototype.myCall = function(context) {
@@ -485,7 +602,7 @@ var objGreeting = greeting.myBind(obj, 'the world');
 objGreeting('JS'); // Welcome Smiley to the world in JS
 ```
 
-## 动手实现 map()、filter()、reduce()
+### 动手实现 map()、filter()、reduce()
 
 ```javascript
 Array.prototype.myMap = function(func) {
@@ -544,396 +661,7 @@ console.log(array1.reduce(reducer, 5));
 console.log(array1.myReduce(reducer, 5));
 ```
 
-## 实现数组扁平化操作
-
-```javascript
-Array.prototype.myFlat = function(num = 1) {
-  if (Array.isArray(this)) {
-    let arr = [];
-    if (!Number(num) || Number(num) < 0) {
-      return this;
-    }
-    this.forEach(item => {
-      if(Array.isArray(item)){
-        let count = num
-        arr = arr.concat(item.myFlat(--count))
-      } else {
-        arr.push(item)
-      }  
-    });
-    return arr;
-  } else {
-    throw tihs + ".flat is not a function";
-  }
-};
-```
-
-
-```javascript
-// 递归
-function flatten(arr) {
-    if (!Array.isArray(arr)) {
-        return [arr];
-    }
-    let res = [];
-    for (let i=0;i<arr.length;i++) {
-        res.push(...flatten(arr[i]));
-   }
-   return res;
-}
-
-const arr = [1, [2, [3, 4, [5]]]];
-console.log(flatten(arr));
-```
-
-```javascript
-// 迭代
-function flatten2(arr) {
-  const stack = [...arr];
-  const res = [];
-  while (stack.length) {
-    // 从栈里取出
-    const next = stack.pop();
-    if (Array.isArray(next)) {
-      // 把next扁平化，然后放入stack中
-      stack.push(...next);
-    } else {
-      res.push(next);
-    }
-  }
-  // reverse to restore input order
-  return res.reverse();
-}
-
-console.log(flatten2(arr));
-```
-
-```javascript
-// generator 异步迭代
-function* flatten3(arr) {
-    let length = arr.length;
-    for (let i=0; i<length; i++) {
-        let item = arr[i];
-        if (Array.isArray(item)) {
-    	    yield* flatten3(item);
-        } else {
-    	    yield item;
-        }
-    }
-} 
-
-let res = [];
-for (let f of flatten3 (arr)) {
-    res.push(f);
-}
-console.log(res);
-```
-
-## 实现 JavaScript 继承
-
-```javascript
-// 原型链继承
-function myExtend(C, P) {
-    var F = function(){};
-    F.prototype = P.prototype;
-    C.prototype = new F();
-    C.prototype.constructor = C;
-    C.super = P.prototype;
-}
-```
-
-## 实现 JavaScript 函数重载？
-
-方法 1，通过非严格模式下的 arguments：
-
-```javascript
-function overLoading() {
-　　// 根据 arguments.length，对不同的值进行不同的操作
-　　switch(arguments.length) {
-　　　　case 0:
-　　　　　　/*操作1的代码写在这里*/
-　　　　　　break;
-　　　　case 1:
-　　　　　　/*操作2的代码写在这里*/
-　　　　　　break;
-　　　　default:
-　　　　    break;
-    }
-}
-```
-
-方法 2：
-
-```javascript
-// addMethod
-function addMethod(object, name, fn) {
-　　var old = object[name]; // 把前一次添加的方法存在一个临时变量 old 里面
-　　object[name] = function() { // 重写了 object[name] 的方法
-　　　　// 如果调用 object[name] 方法时，传入的参数个数跟预期的一致，则直接调用
-　　　　if(fn.length === arguments.length) {
-　　　　　　return fn.apply(this, arguments);
-　　　　// 否则，判断 old 是否是函数，如果是，就调用 old
-　　　　} else if(typeof old === "function") {
-　　　　　　return old.apply(this, arguments);
-　　　　}
-　　}
-}
-
-var people = {
-　　values: ["Dean Edwards", "Alex Russell", "Dean Tom"]
-};
- 
-/* 下面开始通过 addMethod 来实现对 people.find 方法的重载 */
- 
-// 不传参数时，返回 peopld.values 里面的所有元素
-addMethod(people, "find", function() {
-　　return this.values;
-});
- 
-// 传一个参数时，按 first-name 的匹配进行返回
-addMethod(people, "find", function(firstName) {
-　　var ret = [];
-　　for(var i = 0; i < this.values.length; i++) {
-　　　　if(this.values[i].indexOf(firstName) === 0) {
-　　　　　　ret.push(this.values[i]);
-　　　　}
-　　}
-　　return ret;
-});
- 
-// 传两个参数时，返回 first-name 和 last-name 都匹配的元素
-addMethod(people, "find", function(firstName, lastName) {
-　　var ret = [];
-　　for(var i = 0; i < this.values.length; i++) {
-　　　　if(this.values[i] === (firstName + " " + lastName)) {
-　　　　　　ret.push(this.values[i]);
-　　　　}
-　　}
-　　return ret;
-});
- 
-// 测试：
-console.log(people.find()); //["Dean Edwards", "Alex Russell", "Dean Tom"]
-console.log(people.find("Dean")); //["Dean Edwards", "Dean Tom"]
-console.log(people.find("Dean Edwards")); //["Dean Edwards"]
-```
-
-## 动手实现 JSON
-
-```javascript
-if (!window.JSON) {
-  window.JSON = {
-    parse: function(sJSON) { return eval('(' + sJSON + ')'); },
-    stringify: (function () {
-      var toString = Object.prototype.toString;
-      var isArray = Array.isArray || function (a) { return toString.call(a) === '[object Array]'; };
-      var escMap = {'"': '\\"', '\\': '\\\\', '\b': '\\b', '\f': '\\f', '\n': '\\n', '\r': '\\r', '\t': '\\t'};
-      var escFunc = function (m) { return escMap[m] || '\\u' + (m.charCodeAt(0) + 0x10000).toString(16).substr(1); };
-      var escRE = /[\\"\u0000-\u001F\u2028\u2029]/g;
-      return function stringify(value) {
-        if (value == null) {
-          return 'null';
-        } else if (typeof value === 'number') {
-          return isFinite(value) ? value.toString() : 'null';
-        } else if (typeof value === 'boolean') {
-          return value.toString();
-        } else if (typeof value === 'object') {
-          if (typeof value.toJSON === 'function') {
-            return stringify(value.toJSON());
-          } else if (isArray(value)) {
-            var res = '[';
-            for (var i = 0; i < value.length; i++)
-              res += (i ? ', ' : '') + stringify(value[i]);
-            return res + ']';
-          } else if (toString.call(value) === '[object Object]') {
-            var tmp = [];
-            for (var k in value) {
-              if (value.hasOwnProperty(k))
-                tmp.push(stringify(k) + ': ' + stringify(value[k]));
-            }
-            return '{' + tmp.join(', ') + '}';
-          }
-        }
-        return '"' + value.toString().replace(escRE, escFunc) + '"';
-      };
-    })()
-  };
-}
-```
-
-## 动手实现 XMLHttpRequest
-
-```javascript
-function ajax(url, fnSucc, fnFaild) {
-  var xhttp;
-  // 第一步：创建 XMLHttpRequest 对象
-  if (window.XMLHttpRequest) {
-      // 现代浏览器
-      xhttp = new XMLHttpRequest();
-   } else {
-      // IE6 等老版本浏览器
-      xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  // 第四步：处理响应
-  xhttp.onreadystatechange = function() {
-    if (xhttp.readyState === 4) {
-      if (xhttp.status === 200) {
-        fnSucc(xhttp.responseText)
-      } else {
-      	if (fnFaild) fnFaild(xhttp.responseText)
-      }
-    } 
-  };
-  // 第二步：初始化 XMLHttpRequest 方法
-  xhttp.open('GET', url);
-  // 第三步：XMLHttpRequest 向服务器发送请求
-  xhttp.send();
-}
-
-ajax('/smileyFace', mySuccessFunc, myFailFunc);
-```
-
-## 动手实现数组克隆
-
-```javascript
-let array1 = [1, 'a', true, null, undefined];
-let c1 = array1.slice();
-let cc1 = array1.concat();
-let fc1 = Array.from(array1);
-Array.prototype.push.apply([], array1);
-let mc1 = array1.map((item) => item; });
-// 变相的实现深拷贝，数组中的项如果是undefined，那么转换后将变为null
-// 如果数组的项为对象，那么对象之间不可相互引用。会造成循环引用，无法JSON序列化。
-let jsonc = JSON.parse(JSON.stringify(array1));
-let fc1 = [...array1];
-```
-
-## 动手实现对象克隆
-
-```javascript
-function clone(obj){
-    var o;
-    if(typeof obj == "object"){
-        if(obj === null){
-            o = null;
-        }else{
-            if(obj instanceof Array){
-                o = [];
-                for(var i = 0, len = obj.length; i < len; i++){
-                    o.push(clone(obj[i]));
-                }
-            }else{
-                o = {};
-                for(var k in obj){
-                    o[k] = clone(obj[k]);
-                }
-            }
-        }
-    }else{
-        o = obj;
-    }
-    return o;
-}
-```
-
-```javascript
-function clone(obj){
-    var o, obj;
-    if (obj.constructor == Object){
-        o = new obj.constructor();
-    }else{
-        o = new obj.constructor(obj.valueOf());
-    }
-    for(var key in obj){
-        if ( o[key] != obj[key] ){
-            if ( typeof(obj[key]) == 'object' ){
-                o[key] = clone(obj[key]);
-            }else{
-                o[key] = obj[key];
-            }
-        }
-    }
-    o.toString = obj.toString;
-    o.valueOf = obj.valueOf;
-    return o;
-}
-```
-
-```javascript
-function clone(obj){
-    function Fn(){}
-    Fn.prototype = obj;
-    var o = new Fn();
-    for(var a in o){
-        if(typeof o[a] == "object") {
-            o[a] = clone(o[a]);
-        }
-    }
-    return o;
-}
-```
-
-## 动手实现浅拷贝与深拷贝
-
-```javascript
-// 同时考虑对象和数组，考虑循环引用
-function clone(target, map = new WeakMap()) {
-  if(typeof target === 'object'){
-    let cloneTarget = Array.isArray(target) ? [] : {};
-    if(map.get(target)) {
-      return target;
-    }
-    map.set(target, cloneTarget);
-    for(const key in target) {
-      cloneTarget[key] = clone(target[key], map)
-    }
-    return cloneTarget;
-  } else {
-    return target;
-  }
-}
-```
-
-- 数组浅拷贝
-
-```javascript
-var a = [1, 1],
-    b = a;
-console.log(a === b) // true
-```
-
-- 数组深拷贝
-
-```javascript
-function cloneObj(obj) {
-    var tempObj = {};
-    
-    if (obj instanceof Array) {
-        tempObj = [];
-    }
-    
-    for (var prop in obj) {
-        if (typeof prop === 'Object') {
-            cloneObj(prop);
-        }
-        
-        tempObj[prop] = obj[prop];
-    }
-    
-    return tempObj;
-}
-
-var myCountry = {
-    name: 'China',
-    birth: 1949
-}
-
-var country = cloneObj(myCountry);
-
-console.log(country === myCountry); // false
-```
-
-## 使用 MutationObserver 实现 microtask
+### 使用 MutationObserver 实现 microtask
 
 MutationObserver 可以用来实现 microtask，它属于 microtask，优先级小于 Promise，一般是 Promise 不支持时才会这样做。
 
@@ -965,48 +693,7 @@ timerFunc = () => {
 
 MessageChannel 属于宏任务，优先级是：MessageChannel->setTimeout，所以 Vue 2.5+ 内部的 nextTick 与 2.4 及之前的实现是不一样的，需要注意下。
 
-## 使用 Proxy 拓展构造函数
-
-```js
-function extend(sup, base) {
-  var descriptor = Object.getOwnPropertyDescriptor(
-    base.prototype, "constructor"
-  );
-  base.prototype = Object.create(sup.prototype);
-  var handler = {
-    construct: function(target, args) {
-      var obj = Object.create(base.prototype);
-      this.apply(target, obj, args);
-      return obj;
-    },
-    apply: function(target, that, args) {
-      sup.apply(that, args);
-      base.apply(that, args);
-    }
-  };
-  var proxy = new Proxy(base, handler);
-  descriptor.value = proxy;
-  Object.defineProperty(base.prototype, "constructor", descriptor);
-  return proxy;
-}
-
-var Person = function (name) {
-  this.name = name
-};
-
-var Boy = extend(Person, function (name, age) {
-  this.age = age;
-});
-
-Boy.prototype.sex = "M";
-
-var Peter = new Boy("Peter", 13);
-console.log(Peter.sex);  // "M"
-console.log(Peter.name); // "Peter"
-console.log(Peter.age);  // 13
-```
-
-## 动手实现柯里化函数
+### 动手实现柯里化函数
 
 ```javascript
 function myCurry(fn) {
@@ -1029,7 +716,7 @@ function myCurry(fn) {
 }
 ```
 
-## 动手实现 JavaScript AOP
+### 动手实现 JavaScript AOP
 
 > https://juejin.im/post/6844903858649432078
 
@@ -1124,7 +811,537 @@ let aop = {
 export default aop;
 ```
 
-## 动手实现 Promise
+### 动手实现防抖和节流？
+
+* 防抖 debounce：当持续触发事件时，一定时间段内没有再触发事件，事件处理函数才会执行一次，如果设定的时间到来之前，又一次触发了事件，就重新开始延时。
+  * search搜索联想，用户在不断输入值时，用防抖来节约请求资源。
+  * 频繁操作点赞和取消点赞，因此需要获取最后一次操作结果并发送给服务器
+* 节流 throttle：当持续触发事件时，保证一定时间段内只调用一次事件处理函数。
+  * 拖拽场景：鼠标不断点击触发，mousedown(单位时间内只触发一次)
+  * 缩放场景：window触发resize的时候，不断的调整浏览器窗口大小会不断的触发这个事件，用防抖来让其只触发一次。
+  * 动画场景：避免短时间内多次触发动画引起性能问题。
+
+```javascript
+// 防抖简化版
+const debounce = (fn, delay) => {
+  let timer = null;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn.apply(this, args);
+    }, delay);
+  };
+};
+```
+
+```javascript
+// 节流简化版
+const throttle = (fn, delay = 500) => {
+  let flag = true;
+  return (...args) => {
+    if (!flag) return;
+    flag = false;
+    setTimeout(() => {
+      fn.apply(this, args);
+      flag = true;
+    }, delay);
+  };
+};
+```
+
+```javascript
+// 防抖复杂版
+// https://zhuanlan.zhihu.com/p/86426949
+function debounce(func, wait, immediate) {
+  var timeout, result;
+  var debounced = function() {
+  var context = this;
+  var args = arguments;
+  if (timeout) clearTimeout(timeout);
+    var later = function() {
+      timeout = null;
+      if (!immediate) result = func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    timeout = setTimeout(later, wait);
+    if (callNow) result = func.apply(this, args);
+    return result;
+  }
+  debounced.cancel = function() {
+    clearTimeout(timeout);
+    timeout = null;
+  };
+  return debounced;
+}
+```
+
+```javascript
+// 节流复杂版
+// https://zhuanlan.zhihu.com/p/87591677
+function throttle(func, wait, options) {
+  var timeout, context, args, result;
+  var previous = 0;
+  if (!options) options = {};
+ 
+  var later = function() {
+    previous = options.leading === false? 0: Date.now(); 
+    timeout = null;
+    result = func.apply(context, args);
+  };
+ 
+  var throttled = function() {
+    var now = Date.now();
+    if (!previous && options.leading === false) previous = now;
+    var remaining = wait - (now - previous);
+  	context = this;
+    args = arguments;
+    if (remaining <= 0 || remaining > wait) {
+      if (timeout) {
+        clearTimeout(timeout);
+        timeout = null;
+      }
+      previous = now;
+      result = func.apply(context, args);
+    } else if (!timeout && options.trailing !== false) {
+      timeout = setTimeout(later, remaining);
+    }
+    return result;
+  }
+  throttled.cancel = function() {
+    clearTimeout(timeout);
+    previous = 0;
+    timeout = context = args = null;
+  };
+  return throttled;
+}
+```
+
+### 模板引擎的简单实现
+
+```javascript
+let template = '我是{{name}}，年龄{{age}}，性别{{sex}}';
+let data = {
+  name: '姓名',
+  age: 18
+}
+render(template, data);// 我是姓名，年龄18，性别undefined
+
+function render(template, data) {
+  const reg = /\{\{(\w+)\}\}/; // 模板字符串正则
+  if (reg.test(template)) { // 判断模板里是否有模板字符串
+    const name = reg.exec(template)[1]; // 查找当前模板里第一个模板字符串的字段
+    template = template.replace(reg, data[name]); // 将第一个模板字符串渲染
+    return render(template, data); // 递归的渲染并返回渲染后的结构
+  }
+  return template; // 如果模板没有模板字符串直接返回
+}
+```
+
+## 字符串与正则
+
+### 解析 URL Params 为对象？
+
+```javascript
+let url = "http://www.domain.com/?user=anoymous&id=123&id=456&city=test&enabled"
+parseParam(url)
+
+function parseParam(url) {
+  const paramsStr = /.\?(.+)$/.exec(url)[1] // 将问号后面的字符串取出来
+  const paramsArr = paramsStr.split('&') // 将字符串以 & 分割后存到数组中
+  let paramsObj = {}
+  // 将 params 存到对象中
+  paramsArr.forEach(param => {
+    if (/=/.test(param)) { // 处理有 value 的参数
+      let [key, val] = param.split('=') // 分割 key 和 value
+      val = decodeURIComponent(val) // 解码
+      val = /^\d+$/.test(val) ? parseFloat(val) : val // 判断是否为数字
+      if (paramsObj.hasOwnProperty(key)) { // 如果对象有 key，则添加一个值
+        paramsObj[key] = [].concat(paramsObj[key], val)
+      } else { // 如果对象没有这个 key，创建 key 并设置值
+        paramsObj[key] = val
+      }
+    } else {
+      paramsObj[param] = true
+    }
+  })
+  return paramsObj
+}
+```
+
+### 字符串转换为驼峰法？
+
+```javascript
+var s1 = 'get-element-by-id'
+
+var f = function (s) {
+  return s.replace(/-\w/g, function (x) {
+    return x.slice(1).toUpperCase()
+  })
+}
+```
+
+### 基本遍历查找子字符串出现的位置
+
+请使用最基本的遍历来实现判断字符串 a 是否被包含在字符串 b 中，并返回第一次出现的位置(找不到返回 -1)。
+
+```javascript
+a='34';b='1234567'; // 返回 2
+a='35';b='1234567'; // 返回 -1
+a='355';b='12354355'; // 返回 5 isContain(a,b);
+
+function isContain(a, b) {
+  for (let i in b) {
+    if (a[0] === b[i]) {
+      let tmp = true
+      for (let j in a) {
+        if (a[j] !== b[~~i + ~~j]) {
+          tmp = false
+        }
+      }
+      if (tmp) {
+        return i
+      }
+    }
+  }
+  return -1
+}
+```
+
+### 正则查找字符串中出现最多的字符和个数
+
+```javascript
+// 例: abbcccddddd -> 字符最多的是d，出现了5次
+let str = 'abcabcabcbbccccc'
+let num = 0
+let char = ''
+// 使其按照一定的次序排列
+str = str.split('').sort().join('')
+// 'aaabbbbbcccccccc'
+// 定义正则表达式
+let re = /{\w}\1+/g
+str.replace(re, ($0, $1) => {
+  if (num < $0.length) {
+    num = $0.length
+    char = $1
+  }
+})
+console.log(`字符最多的是${char}, 出现了${num}次`)
+```
+
+### 实现千位分隔符
+
+```javascript
+// 保留三位小数
+parseToMoney(1234.56) // return '1,234.56'
+parseToMoney(123456789) // return '123,456,789'
+parseToMoney(1087654.321) // return '1,087,654.321'
+
+function parseToMoney(num) {
+  num = parseFloat(num.toFixed(3))
+  let [integer, decimal] = String.prototype.split.call(num, '.')
+  integer = integer.replace(/\d(?=(\d{3})+$)/g, '$&,')
+  return integer + '.' + (decimal ? decimal : '')
+}
+
+// 正则表达式，运用了正则的前向声明和反前向声明
+function parseToMoney(str){
+  // 仅仅对位置进行匹配
+  let re = /(?=(?!\b)(\d{3})+$)/g
+  return str.replace(re,',')
+}
+```
+
+### 正则判断电话号/邮箱/身份证
+
+```javascript
+// 电话号
+function isPhone(tel) {
+  var regx = /^1[34578]\d{9}$/
+  return regx.test(tel)
+}
+// 邮箱
+function isEmail(email) {
+  var regx = /^([a-zA-Z0-9_\-])+@([a-zA-Z0-9_\-])+(\.[a-zA-Z0-9_\-])+$/;
+  return regx.test(email);
+}
+// 身份证
+function isCardNo(number) {
+  var regx = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; return regx.test(number);
+}
+```
+
+## 遍历 & 克隆
+
+### 如何遍历对象和数组
+
+* 对象遍历
+  - for in 循环：`for (var property in obj) { console.log(property); }`。但这会遍历到它的继承属性，在使用前需要加入 `obj.hasOwnProperty(property)` 检查。
+  - Object.keys()：`Object.keys(obj).forEach(function (property) { ... })`。
+  - Object.getOwnPropertyNames()：`Object.getOwnPropertyNames(obj).forEach(function (property) { ... })`。Object.getOwnPropertyNames() 方法返回一个由指定对象的所有自身属性的属性名(包括不可枚举属性但不包括 Symbol 值作为名称的属性)组成的数组。
+* 数组遍历
+  - for loop：`for (var i = 0; i < arr.length; i++)`。这里的常见错误是 var 是函数作用域而不是块级作用域。ES2015 引入了块级作用域 let，建议使用。
+  - forEach：`arr.forEach(function (el, index) { ... })`。这个语句结构有时会更精简，不必使用 index。还有 every 和 some 方法可以提前终止遍历。
+
+### 动手实现数组克隆
+
+```javascript
+let array1 = [1, 'a', true, null, undefined];
+let c1 = array1.slice();
+let cc1 = array1.concat();
+let fc1 = Array.from(array1);
+Array.prototype.push.apply([], array1);
+let mc1 = array1.map((item) => item; });
+// 变相的实现深拷贝，数组中的项如果是undefined，那么转换后将变为null
+// 如果数组的项为对象，那么对象之间不可相互引用。会造成循环引用，无法JSON序列化。
+let jsonc = JSON.parse(JSON.stringify(array1));
+let fc1 = [...array1];
+```
+
+- 数组浅拷贝
+
+```javascript
+var a = [1, 1],
+    b = a;
+console.log(a === b) // true
+```
+
+- 数组深拷贝
+
+```javascript
+function cloneObj(obj) {
+    var tempObj = {};
+    
+    if (obj instanceof Array) {
+        tempObj = [];
+    }
+    
+    for (var prop in obj) {
+        if (typeof prop === 'Object') {
+            cloneObj(prop);
+        }
+        
+        tempObj[prop] = obj[prop];
+    }
+    
+    return tempObj;
+}
+
+var myCountry = {
+    name: 'China',
+    birth: 1949
+}
+
+var country = cloneObj(myCountry);
+
+console.log(country === myCountry); // false
+```
+
+### 动手实现对象克隆
+
+```javascript
+function clone(obj){
+    var o;
+    if(typeof obj == "object"){
+        if(obj === null){
+            o = null;
+        }else{
+            if(obj instanceof Array){
+                o = [];
+                for(var i = 0, len = obj.length; i < len; i++){
+                    o.push(clone(obj[i]));
+                }
+            }else{
+                o = {};
+                for(var k in obj){
+                    o[k] = clone(obj[k]);
+                }
+            }
+        }
+    }else{
+        o = obj;
+    }
+    return o;
+}
+```
+
+```javascript
+function clone(obj){
+    var o, obj;
+    if (obj.constructor == Object){
+        o = new obj.constructor();
+    }else{
+        o = new obj.constructor(obj.valueOf());
+    }
+    for(var key in obj){
+        if ( o[key] != obj[key] ){
+            if ( typeof(obj[key]) == 'object' ){
+                o[key] = clone(obj[key]);
+            }else{
+                o[key] = obj[key];
+            }
+        }
+    }
+    o.toString = obj.toString;
+    o.valueOf = obj.valueOf;
+    return o;
+}
+```
+
+```javascript
+function clone(obj){
+    function Fn(){}
+    Fn.prototype = obj;
+    var o = new Fn();
+    for(var a in o){
+        if(typeof o[a] == "object") {
+            o[a] = clone(o[a]);
+        }
+    }
+    return o;
+}
+```
+
+### 动手实现浅拷贝与深拷贝
+
+```javascript
+// 同时考虑对象和数组，考虑循环引用
+function clone(target, map = new WeakMap()) {
+  if(typeof target === 'object'){
+    let cloneTarget = Array.isArray(target) ? [] : {};
+    if(map.get(target)) {
+      return target;
+    }
+    map.set(target, cloneTarget);
+    for(const key in target) {
+      cloneTarget[key] = clone(target[key], map)
+    }
+    return cloneTarget;
+  } else {
+    return target;
+  }
+}
+```
+
+```javascript
+/**
+ * deep clone
+ * @param {[type]} parent object 需要进行克隆的对象
+ * @return {[type]} 深克隆后的对象
+ */
+const clone = parent => {
+  // 判断类型
+  const isType = (obj, type) => {
+    if (typeof obj !== "Object") return false
+    const typeString = Object.prototype.toString.call(obj)
+    let flag
+    switch (type) {
+      case "Array":
+        flag = typeString === "[object Array]"
+        break
+      case "Date":
+        flag = typeString === "[Object Date]"
+      case "RegExp":
+        flag = typeSting === "[object RegExp]"
+        break
+      default:
+        flag = false
+    }
+    return flag
+  }
+  
+  // 处理正则
+  const getRegExp = re => {
+    var flags = ""
+    if (re.global) flags += "g"
+    if (re.ignoreCase) flags += "i"
+    if (re.multiline) flags += "m"
+    return flags
+  }
+  
+  // 维护两个储存循环引用的数组
+  const parents = []
+  const children = []
+  
+  const _clone = parent => {
+    if (pareng === null) return null
+    if (typeof parent !== "object") return parent
+    let child, proto
+    if (isType(parent, "Array")) {
+      // 对数组做特殊处理
+      child = new RegExp(parent.source, getRegExp(parent))
+      if (parent.lastIndex) child.lastIndex = parent.lastIndex
+    } else if (isType(parent, "Date")) {
+      // 对 Date 对象做特殊处理
+      child = new Date(parent.getItem())
+    } else {
+      // 处理对象原型
+      proto = Object.getPrototypeOf(parent)
+      // 利用 Object.create 切断原型链
+      child = Object.create(proto)
+    }
+    //处理循环引用
+    const index = parents.indexOf(parent)
+    if (index != -1) {
+      // 如果父数组存在本对象，说明之前已经被引用过，直接返回此对象
+      return children[index]
+    }
+    parents.push(parent)
+    children.push(child)
+    for (let i in parent) {
+      // 递归
+      child[i] = _clone(parent[i])
+    }
+    return child
+  }
+
+  return _clone(parent)
+}
+```
+
+## 特性 API
+
+### 使用 Proxy 拓展构造函数
+
+```js
+function extend(sup, base) {
+  var descriptor = Object.getOwnPropertyDescriptor(
+    base.prototype, "constructor"
+  );
+  base.prototype = Object.create(sup.prototype);
+  var handler = {
+    construct: function(target, args) {
+      var obj = Object.create(base.prototype);
+      this.apply(target, obj, args);
+      return obj;
+    },
+    apply: function(target, that, args) {
+      sup.apply(that, args);
+      base.apply(that, args);
+    }
+  };
+  var proxy = new Proxy(base, handler);
+  descriptor.value = proxy;
+  Object.defineProperty(base.prototype, "constructor", descriptor);
+  return proxy;
+}
+
+var Person = function (name) {
+  this.name = name
+};
+
+var Boy = extend(Person, function (name, age) {
+  this.age = age;
+});
+
+Boy.prototype.sex = "M";
+
+var Peter = new Boy("Peter", 13);
+console.log(Peter.sex);  // "M"
+console.log(Peter.name); // "Peter"
+console.log(Peter.age);  // 13
+```
+
+### 动手实现 Promise
 
 ```javascript
 // 判断变量否为function
@@ -1328,27 +1545,7 @@ class MyPromise {
 }
 ```
 
-## 实现 InstanceOf
-
-```javascript
-// L 表示左表达式，R 表示右表达式
-function instance_of(L, R) {
-    var O = R.prototype;
-  L = L.__proto__;
-  while (true) {
-        if (L === null){
-            return false;
-        }
-        // 这里重点：当 O 严格等于 L 时，返回 true
-        if (O === L) {
-            return true;
-        }
-        L = L.__proto__;
-  }
-}
-```
-
-## 实现 async/await
+### 实现 async/await
 
 ```javascript
 // 就是利用 generator（生成器）分割代码片段。然后我们使用一个函数让其自迭代，每一个yield 用 promise 包裹起来。执行下一步的时机由 promise 来控制
@@ -1374,3 +1571,79 @@ function _asyncToGenerator(fn) {
   };
 }
 ```
+
+### 动手实现 JSON
+
+```javascript
+if (!window.JSON) {
+  window.JSON = {
+    parse: function(sJSON) { return eval('(' + sJSON + ')'); },
+    stringify: (function () {
+      var toString = Object.prototype.toString;
+      var isArray = Array.isArray || function (a) { return toString.call(a) === '[object Array]'; };
+      var escMap = {'"': '\\"', '\\': '\\\\', '\b': '\\b', '\f': '\\f', '\n': '\\n', '\r': '\\r', '\t': '\\t'};
+      var escFunc = function (m) { return escMap[m] || '\\u' + (m.charCodeAt(0) + 0x10000).toString(16).substr(1); };
+      var escRE = /[\\"\u0000-\u001F\u2028\u2029]/g;
+      return function stringify(value) {
+        if (value == null) {
+          return 'null';
+        } else if (typeof value === 'number') {
+          return isFinite(value) ? value.toString() : 'null';
+        } else if (typeof value === 'boolean') {
+          return value.toString();
+        } else if (typeof value === 'object') {
+          if (typeof value.toJSON === 'function') {
+            return stringify(value.toJSON());
+          } else if (isArray(value)) {
+            var res = '[';
+            for (var i = 0; i < value.length; i++)
+              res += (i ? ', ' : '') + stringify(value[i]);
+            return res + ']';
+          } else if (toString.call(value) === '[object Object]') {
+            var tmp = [];
+            for (var k in value) {
+              if (value.hasOwnProperty(k))
+                tmp.push(stringify(k) + ': ' + stringify(value[k]));
+            }
+            return '{' + tmp.join(', ') + '}';
+          }
+        }
+        return '"' + value.toString().replace(escRE, escFunc) + '"';
+      };
+    })()
+  };
+}
+```
+
+### 动手实现 XMLHttpRequest
+
+```javascript
+function ajax(url, fnSucc, fnFaild) {
+  var xhttp;
+  // 第一步：创建 XMLHttpRequest 对象
+  if (window.XMLHttpRequest) {
+      // 现代浏览器
+      xhttp = new XMLHttpRequest();
+   } else {
+      // IE6 等老版本浏览器
+      xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  // 第四步：处理响应
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState === 4) {
+      if (xhttp.status === 200) {
+        fnSucc(xhttp.responseText)
+      } else {
+      	if (fnFaild) fnFaild(xhttp.responseText)
+      }
+    } 
+  };
+  // 第二步：初始化 XMLHttpRequest 方法
+  xhttp.open('GET', url);
+  // 第三步：XMLHttpRequest 向服务器发送请求
+  xhttp.send();
+}
+
+ajax('/smileyFace', mySuccessFunc, myFailFunc);
+```
+

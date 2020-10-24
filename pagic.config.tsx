@@ -38,13 +38,8 @@ export default {
     '/articles/': [
       'articles/README.md',
       'articles/es-timeline.md',
+      'articles/es-direction.md',
       'articles/00-Profession/README.md',
-      // {
-      //   link: 'articles/00-Profession/README.md',
-      //   title: '职业 & 成长',
-      //   children: [
-      //   ],
-      // },
       {
         link: 'articles/01-Programming/README.md',
         title: '编程基础',
@@ -54,9 +49,10 @@ export default {
           'articles/01-Programming/02-algorithms.md',
           'articles/01-Programming/03-design-patterns.md',
           'articles/01-Programming/04-software-engineering.md',
-          'articles/01-Programming/05-network-security.md',
-          'articles/01-Programming/06-software-test.md',
-          'articles/01-Programming/07-version-control.md',
+          'articles/01-Programming/05-software-test.md',
+          'articles/01-Programming/06-version-control.md',
+          'articles/01-Programming/07-computer-principles.md',
+          'articles/01-Programming/08-compilation-principle.md',
         ],
       },
       {
@@ -76,6 +72,7 @@ export default {
           'articles/03-HTML+CSS/00-html.md',
           'articles/03-HTML+CSS/01-css-design.md',
           'articles/03-HTML+CSS/02-html-css-practice.md',
+          'articles/03-HTML+CSS/03-dom-bom.md',
         ],
       },
       {
@@ -84,7 +81,7 @@ export default {
         children: [
           'articles/04-Network+API/00-network.md',
           'articles/04-Network+API/01-fe-be-api.md',
-          'articles/04-Network+API/02-login.md',
+          'articles/04-Network+API/02-network-security.md',
         ],
       },
       {
@@ -101,11 +98,13 @@ export default {
         title: '前端应用开发 + 浏览器',
         children: [
           'articles/06-FE+Browser/00-browser.md',
-          'articles/06-FE+Browser/01-fe-framework.md',
+          'articles/06-FE+Browser/01-fe-engineering.md',
           'articles/06-FE+Browser/02-fe-tooltain.md',
           'articles/06-FE+Browser/03-pack-tool.md',
           'articles/06-FE+Browser/04-fe-mobile.md',
           'articles/06-FE+Browser/05-react.md',
+          'articles/06-FE+Browser/06-vue.md',
+          'articles/06-FE+Browser/07-iframe.md',
         ],
       },
       {
@@ -116,14 +115,16 @@ export default {
           'articles/07-BE+Server/01-node-framework.md',
         ],
       },
+      'articles/draw-in-markdown.md',
+      'articles/roadmap.md',
     ],
   },
   tools: {
     editOnGithub: true,
-    backToTop: true
+    backToTop: true,
   },
   ga: {
-    id: 'UA-169223577-1' 
+    id: 'UA-169223577-1',
   },
-  port: 8011
+  port: 8011,
 }

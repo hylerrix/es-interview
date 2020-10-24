@@ -1,4 +1,4 @@
-# DOM
+# DOM + BOM
 
 ## DOM 和 BOM 是什么？
 
