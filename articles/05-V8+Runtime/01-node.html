@@ -1,7 +1,11 @@
-<!doctype html><html class="" data-reactroot=""><head><link rel="icon" type="image/png" href="/favicon.png"/>
+<!doctype html><html class="" data-reactroot=""><head><script async="" src="https://www.google-analytics.com/analytics.js"></script><script>
+            window.GoogleAnalyticsObject="ga";(window.ga=window.ga||function(){(window.ga.q=window.ga.q||[]).push(arguments);}),(window.ga.l=1*new Date());
+
+            ga('create', 'UA-169223577-1', 'auto');
+            ga('send', 'pageview');</script><link rel="icon" type="image/png" href="/favicon.png"/>
 <meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="收集汇总梳理全网资源，涵盖 JS/TS 前后端的全方位面试题库（含提示性解析），助力找个好工作！"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/>
 <title data-react-helmet="true">Node · ECMAScript+ 面试宝典</title>
-<link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/><link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/>
+<link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/><link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/>
 <script data-react-helmet="true" >
     const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (shouldSetIsDark) {
@@ -9,7 +13,7 @@
       document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
     }
   </script>
-</head><body><header><h1 class="hide_on_mobile"><a href="/">ECMAScript+ 面试宝典</a></h1><nav><ul><li class="show_on_mobile flex_center"><a class="czs-menu-l" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a></li><li class="show_on_mobile"><h1 class="mobile_title"><a href="/">ECMAScript+ 面试宝典</a></h1></li><li class="hide_on_mobile"><a href="/articles/">文章</a></li><li class="hide_on_mobile"><a href="http://qiniu.ningo.cloud/hylerrix/reward-alipay.png" target="_blank">打赏一下!!</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix/deno-tutorial" target="_blank">Deno 钻研之术</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">持续添加中...</a></li><li class="hide_on_mobile"><a href="https://github.com/ningowood" target="_blank">凝果屋</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">关于</a></li><li style="flex-grow:1"></li><li class="flex_center"><a class="czs-github-logo" href="https://github.com/hylerrix/es-interview" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul></nav></header><aside class="sidebar"><ol><li class=""><a href="/articles/index.html" class="nav_link">ESMAScript+ 面试宝典</a></li><li class=""><a href="/articles/es-timeline.html" class="nav_link">前端大事记</a></li><li class=""><a href="/articles/00-Profession/index.html" class="nav_link">职业 &amp; 成长</a></li><li class="unfold"><a href="/articles/01-Programming/index.html" class="nav_link">编程基础<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/01-Programming/00-language.html" class="nav_link">编程语言</a></li><li class=""><a href="/articles/01-Programming/01-operating-system.html" class="nav_link">操作系统</a></li><li class=""><a href="/articles/01-Programming/02-algorithms.html" class="nav_link">算法</a></li><li class=""><a href="/articles/01-Programming/03-design-patterns.html" class="nav_link">设计模式</a></li><li class=""><a href="/articles/01-Programming/04-software-engineering.html" class="nav_link">工程化</a></li><li class=""><a href="/articles/01-Programming/05-network-security.html" class="nav_link">安全</a></li><li class=""><a href="/articles/01-Programming/06-software-test.html" class="nav_link">测试</a></li><li class=""><a href="/articles/01-Programming/07-version-control.html" class="nav_link">版本控制</a></li></ol></li><li class="unfold"><a href="/articles/02-ECMAScript+/index.html" class="nav_link">ECMAScript+<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/02-ECMAScript+/00-ecmascript.html" class="nav_link">ECMAScript</a></li><li class=""><a href="/articles/02-ECMAScript+/01-javascript.html" class="nav_link">JavaScript 基础知识</a></li><li class=""><a href="/articles/02-ECMAScript+/02-typescript.html" class="nav_link">TypeScript</a></li><li class=""><a href="/articles/02-ECMAScript+/03-javascript-parctice.html" class="nav_link">JavaScript 常见实战题</a></li></ol></li><li class="unfold"><a href="/articles/03-HTML+CSS/index.html" class="nav_link">HTML + CSS<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/03-HTML+CSS/00-html.html" class="nav_link">HTML</a></li><li class=""><a href="/articles/03-HTML+CSS/01-css-design.html" class="nav_link">CSS</a></li><li class=""><a href="/articles/03-HTML+CSS/02-html-css-practice.html" class="nav_link">HTML + CSS 实战</a></li></ol></li><li class="unfold"><a href="/articles/04-Network+API/index.html" class="nav_link">网络 + 前后端协作<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/04-Network+API/00-network.html" class="nav_link">网络</a></li><li class=""><a href="/articles/04-Network+API/01-fe-be-api.html" class="nav_link">前后端协作</a></li><li class=""><a href="/articles/04-Network+API/02-login.html" class="nav_link">登录</a></li></ol></li><li class="unfold"><a href="/articles/05-V8+Runtime/index.html" class="nav_link">V8 + JavaScript 运行时<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/05-V8+Runtime/00-v8.html" class="nav_link">V8</a></li><li class=""><a href="/articles/05-V8+Runtime/01-node.html" class="nav_link active">Node</a></li><li class=""><a href="/articles/05-V8+Runtime/02-deno.html" class="nav_link">Deno</a></li></ol></li><li class="unfold"><a href="/articles/06-FE+Browser/index.html" class="nav_link">前端应用开发 + 浏览器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/06-FE+Browser/00-browser.html" class="nav_link">浏览器</a></li><li class=""><a href="/articles/06-FE+Browser/01-fe-framework.html" class="nav_link">前端</a></li><li class=""><a href="/articles/06-FE+Browser/02-fe-tooltain.html" class="nav_link">前端工具链</a></li><li class=""><a href="/articles/06-FE+Browser/03-pack-tool.html" class="nav_link">前端打包工具</a></li><li class=""><a href="/articles/06-FE+Browser/04-fe-mobile.html" class="nav_link">移动端 Web 开发</a></li><li class=""><a href="/articles/06-FE+Browser/05-react.html" class="nav_link">React</a></li></ol></li><li class="unfold"><a href="/articles/07-BE+Server/index.html" class="nav_link">后端应用开发 + 服务器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/07-BE+Server/00-linux-nginx-database.html" class="nav_link">Linux + Nginx + 数据库</a></li><li class=""><a href="/articles/07-BE+Server/01-node-framework.html" class="nav_link">Node 框架</a></li></ol></li></ol></aside><section class="main"><div class="main_article"><article><h1>Node</h1>
+</head><body><header><h1 class="hide_on_mobile"><a href="/">ECMAScript+ 面试宝典</a></h1><nav><ul><li class="show_on_mobile flex_center"><a class="czs-menu-l" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a></li><li class="show_on_mobile"><h1 class="mobile_title"><a href="/">ECMAScript+ 面试宝典</a></h1></li><li class="hide_on_mobile"><a href="/articles/">文章</a></li><li class="hide_on_mobile"><a href="http://qiniu.ningo.cloud/hylerrix/reward-alipay.png" target="_blank">打赏一下!!</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix/deno-tutorial" target="_blank">Deno 钻研之术</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">持续添加中...</a></li><li class="hide_on_mobile"><a href="https://github.com/ningowood" target="_blank">凝果屋</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">关于</a></li><li style="flex-grow:1"></li><li class="flex_center"><a class="czs-github-logo" href="https://github.com/hylerrix/es-interview" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul></nav></header><aside class="sidebar"><ol><li class=""><a href="/articles/index.html" class="nav_link">ESMAScript+ 面试宝典</a></li><li class=""><a href="/articles/es-timeline.html" class="nav_link">前端大事记</a></li><li class=""><a href="/articles/es-direction.html" class="nav_link">ES 方向 &amp; 谁在招人？</a></li><li class=""><a href="/articles/00-Profession/index.html" class="nav_link">职业 &amp; 成长</a></li><li class="unfold"><a href="/articles/01-Programming/index.html" class="nav_link">编程基础<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/01-Programming/00-language.html" class="nav_link">编程语言</a></li><li class=""><a href="/articles/01-Programming/01-operating-system.html" class="nav_link">操作系统</a></li><li class=""><a href="/articles/01-Programming/02-algorithms.html" class="nav_link">算法</a></li><li class=""><a href="/articles/01-Programming/03-design-patterns.html" class="nav_link">设计模式</a></li><li class=""><a href="/articles/01-Programming/04-software-engineering.html" class="nav_link">软件工程</a></li><li class=""><a href="/articles/01-Programming/05-software-test.html" class="nav_link">测试</a></li><li class=""><a href="/articles/01-Programming/06-version-control.html" class="nav_link">版本控制</a></li><li class=""><a href="/articles/01-Programming/07-computer-principles.html" class="nav_link">计算机组成原理</a></li><li class=""><a href="/articles/01-Programming/08-compilation-principle.html" class="nav_link">编译原理</a></li></ol></li><li class="unfold"><a href="/articles/02-ECMAScript+/index.html" class="nav_link">ECMAScript+<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/02-ECMAScript+/00-ecmascript.html" class="nav_link">ECMAScript</a></li><li class=""><a href="/articles/02-ECMAScript+/01-javascript.html" class="nav_link">JavaScript 基础知识</a></li><li class=""><a href="/articles/02-ECMAScript+/02-typescript.html" class="nav_link">TypeScript</a></li><li class=""><a href="/articles/02-ECMAScript+/03-javascript-parctice.html" class="nav_link">JavaScript 常见实战题</a></li></ol></li><li class="unfold"><a href="/articles/03-HTML+CSS/index.html" class="nav_link">HTML + CSS<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/03-HTML+CSS/00-html.html" class="nav_link">HTML</a></li><li class=""><a href="/articles/03-HTML+CSS/01-css-design.html" class="nav_link">CSS</a></li><li class=""><a href="/articles/03-HTML+CSS/02-html-css-practice.html" class="nav_link">HTML + CSS 实战</a></li><li class=""><a href="/articles/03-HTML+CSS/03-dom-bom.html" class="nav_link">DOM + BOM</a></li></ol></li><li class="unfold"><a href="/articles/04-Network+API/index.html" class="nav_link">网络 + 前后端协作<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/04-Network+API/00-network.html" class="nav_link">网络</a></li><li class=""><a href="/articles/04-Network+API/01-fe-be-api.html" class="nav_link">前后端协作</a></li><li class=""><a href="/articles/04-Network+API/02-network-security.html" class="nav_link">网络安全</a></li></ol></li><li class="unfold"><a href="/articles/05-V8+Runtime/index.html" class="nav_link">V8 + JavaScript 运行时<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/05-V8+Runtime/00-v8.html" class="nav_link">V8</a></li><li class=""><a href="/articles/05-V8+Runtime/01-node.html" class="nav_link active">Node</a></li><li class=""><a href="/articles/05-V8+Runtime/02-deno.html" class="nav_link">Deno</a></li></ol></li><li class="unfold"><a href="/articles/06-FE+Browser/index.html" class="nav_link">前端应用开发 + 浏览器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/06-FE+Browser/00-browser.html" class="nav_link">浏览器</a></li><li class=""><a href="/articles/06-FE+Browser/01-fe-engineering.html" class="nav_link">前端工程化</a></li><li class=""><a href="/articles/06-FE+Browser/02-fe-tooltain.html" class="nav_link">前端工具链</a></li><li class=""><a href="/articles/06-FE+Browser/03-pack-tool.html" class="nav_link">前端打包工具</a></li><li class=""><a href="/articles/06-FE+Browser/04-fe-mobile.html" class="nav_link">移动端 Web 开发</a></li><li class=""><a href="/articles/06-FE+Browser/05-react.html" class="nav_link">React</a></li><li class=""><a href="/articles/06-FE+Browser/06-vue.html" class="nav_link">Vue</a></li><li class=""><a href="/articles/06-FE+Browser/07-iframe.html" class="nav_link">iframe</a></li></ol></li><li class="unfold"><a href="/articles/07-BE+Server/index.html" class="nav_link">后端应用开发 + 服务器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/07-BE+Server/00-linux-nginx-database.html" class="nav_link">Linux + Nginx + 数据库</a></li><li class=""><a href="/articles/07-BE+Server/01-node-framework.html" class="nav_link">Node 框架</a></li></ol></li><li class=""><a href="/articles/draw-in-markdown.html" class="nav_link">如何用 Markdown 绘制图片</a></li><li class=""><a href="/articles/roadmap.html" class="nav_link">变更日志</a></li></ol></aside><section class="main"><div class="main_article"><article><h1>Node</h1>
 <ul>
 <li>nodejs I/O 模型、事件模型、高并发
 <ul>
@@ -23,19 +27,270 @@
 <li>mongoose</li>
 <li>何判断一个IP是不是国内IP？</li>
 </ul>
-<h2 id="node-%E7%9A%84%E5%BC%82%E6%AD%A5%E6%80%A7%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9">Node 的异步性有什么特点？<a class="anchor" href="#node-%E7%9A%84%E5%BC%82%E6%AD%A5%E6%80%A7%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9">§</a></h2>
-<h2 id="node-%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B">Node 的事件模型<a class="anchor" href="#node-%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B">§</a></h2>
-<h2 id="node-%E6%A8%A1%E5%9D%97%E5%8C%96">Node 模块化<a class="anchor" href="#node-%E6%A8%A1%E5%9D%97%E5%8C%96">§</a></h2>
+<blockquote>
+<p><a href="https://github.com/semlinker/node-deep">https://github.com/semlinker/node-deep</a></p>
+</blockquote>
+<h2 id="%E5%9F%BA%E7%A1%80">基础<a class="anchor" href="#%E5%9F%BA%E7%A1%80">§</a></h2>
+<h3 id="node-%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E7%9A%84%E6%96%B9%E5%BC%8F%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B">Node 进程通信的方式都有哪些？<a class="anchor" href="#node-%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E7%9A%84%E6%96%B9%E5%BC%8F%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B">§</a></h3>
 <ul>
-<li>Node 中每个 js 文件模块会包含在隐藏的函数中运行
+<li>通过 stdin/stdout 传递</li>
+<li>Node 原生 IPC 支持</li>
+<li>通过 Sockets</li>
+<li>借助 Message Queue</li>
+</ul>
+<h2 id="node-%E6%A8%A1%E5%9D%97%E5%8C%96">Node 模块化<a class="anchor" href="#node-%E6%A8%A1%E5%9D%97%E5%8C%96">§</a></h2>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-node-module">如何理解 Node Module？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-node-module">§</a></h3>
+<ul>
+<li>
+<p>Node 中每个 js 文件模块会包含在隐藏的函数中运行</p>
 <ul>
 <li>function (exports, require, module, __filename, __dirname) {}</li>
 <li>其中，module 代表模块本身，module.exports 可以统一导出</li>
 <li>exports 是形参，指向 module.exports 的值，但是不能统一导出</li>
 </ul>
 </li>
+<li>
+<p>Node 中的模块分类：</p>
+<ul>
+<li>底层模块：Node.js 中以 C++ 形式提供的模块，如 tcp_wrap、contextify 等</li>
+<li>常量模块：Node.js 中定义常量的模块，用来导出如 signal，openssl 库、文件访问权限等常量的定义。如文件访问权限中的 O_RDONLY，O_CREAT、signal 中的 SIGHUP，SIGINT 等。</li>
+<li>原生模块：Node.js 中以 JavaScript 形式提供的模块，如 http、https、fs 等。有些 native module 需要借助于 builtin module 实现背后的功能。<strong>如对于 native 模块 buffer , 还是需要借助 builtin node_buffer.cc 中提供的功能来实现大容量内存申请和管理，目的是能够脱离 V8 内存大小使用限制</strong>。</li>
+<li>第三方模块：以上模块可以统称 Node.js 内建模块，除此之外为第三方模块，典型的如 express 模块。</li>
 </ul>
-<h2 id="%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%97%B4%E4%BB%B6">动手实现中间件<a class="anchor" href="#%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%97%B4%E4%BB%B6">§</a></h2>
+</li>
+<li>
+<p>module 对象：每个模块内部都有，代表当前模块。它有以下属性。</p>
+<ul>
+<li><code>module.id</code> 模块的识别符，通常是带有绝对路径的模块文件名。</li>
+<li><code>module.filename</code> 模块的文件名，带有绝对路径。</li>
+<li><code>module.loaded</code> 返回一个布尔值，表示模块是否已经完成加载。</li>
+<li><code>module.parent</code> 返回一个对象，表示调用该模块的模块。</li>
+<li><code>module.children</code> 返回一个数组，表示该模块要用到的其他模块。</li>
+<li><code>module.exports</code> 表示模块对外输出的值。</li>
+</ul>
+</li>
+<li>
+<p>清除已缓存模块：</p>
+<ul>
+<li>
+<pre class="language-autoit"><code class="language-autoit"><span class="token operator">/</span><span class="token operator">/</span>删除指定模块的缓存
+delete require<span class="token punctuation">.</span>cache<span class="token punctuation">[</span>require<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'/*被缓存的模块名称*/'</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+<span class="token operator">/</span><span class="token operator">/</span> 删除所有模块的缓存
+Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>require<span class="token punctuation">.</span>cache<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token function">function</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> {
+     delete require<span class="token punctuation">.</span>cache<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token comment">;</span>
+}<span class="token punctuation">)</span><span class="token comment">;</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-require">如何理解 require()？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-require">§</a></h3>
+<ul>
+<li>
+<p>require 函数支持导入文件：<code>.js</code>、<code>.json</code>、<code>.node</code>。</p>
+</li>
+<li>
+<p>require 不会出现死循环，但只会输出相应模块已加载的部分数据。</p>
+</li>
+<li>
+<p>导入模块时，需要经历三个步骤（不论是核心模块还是文件模块，require() 方法对相同模块的二次加载都一律采用缓存优先的方式，这是第一优先级。不同之处在于核心模块的缓存检查优先于文件模块的缓存检查。）：</p>
+<ul>
+<li>
+<p>路径分析：分析 . 或 .. 开始的相对路径文件模块、以 / 开始的绝对路径文件模块、非路径形式的文件模块，如自定义的 connect 模块</p>
+</li>
+<li>
+<p>文件定位：文件扩展名的分析、目录和包的处理。</p>
+<ul>
+<li>
+<p>扩展名分析：Node 会按 .js、.json、.node 的次序补足扩展名，依次尝试。</p>
+</li>
+<li>
+<p>目录分析：require() 通过分析文件扩展名之后，可能没有查找到对应文件，但却得到一个目录，这在引入自定义模块和逐个模块路径进行查找时经常会出现，此时 Node 会将目录当做一个包来处理。</p>
+</li>
+<li>
+<p>包处理：Node 对 CommonJS 包规范进行了一定程度的支持。首先，Node 在当前目录下查找 package.json （CommonJS 包规范定义的包描述文件），通过 JSON.parse() 解析出包描述对象，从中取出 main 属性指定的文件名进行定位。如果文件名缺少扩展名，将会进入扩展名分析的步骤。</p>
+<p>而如果 main 属性指定的文件名错误，或者压根没有 package.json 文件，Node 会将 index 当做默认文件名，依次查找 index.js、index.json、index.node。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>编译执行</p>
+</li>
+</ul>
+</li>
+<li>
+<p>require 函数执行的主要流程：</p>
+</li>
+</ul>
+<pre class="language-autoit"><code class="language-autoit">从 Y 路径的模块 <span class="token function">require</span><span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+<span class="token number">1</span><span class="token punctuation">.</span> 如果 X 是一个核心模块，
+   a<span class="token punctuation">.</span> 返回核心模块
+   b<span class="token punctuation">.</span> 结束
+<span class="token number">2</span><span class="token punctuation">.</span> 如果 X 是以 <span class="token string">'/'</span> 开头
+   a<span class="token punctuation">.</span> 设 Y 为文件系统根目录
+<span class="token number">3</span><span class="token punctuation">.</span> 如果 X 是以 <span class="token string">'./'</span> 或 <span class="token string">'/'</span> 或 <span class="token string">'../'</span> 开头
+   a<span class="token punctuation">.</span> 加载文件<span class="token punctuation">(</span>Y <span class="token operator">+</span> X<span class="token punctuation">)</span>
+   b<span class="token punctuation">.</span> 加载目录<span class="token punctuation">(</span>Y <span class="token operator">+</span> X<span class="token punctuation">)</span>
+<span class="token number">4</span><span class="token punctuation">.</span> 加载Node模块<span class="token punctuation">(</span>X<span class="token punctuation">,</span> <span class="token function">dirname</span><span class="token punctuation">(</span>Y<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token number">5</span><span class="token punctuation">.</span> 抛出 <span class="token string">"未找到"</span>
+
+加载文件<span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+<span class="token number">1</span><span class="token punctuation">.</span> 如果 X 是一个文件，加载 X 作为 JavaScript 文本。结束
+<span class="token number">2</span><span class="token punctuation">.</span> 如果 X<span class="token punctuation">.</span>js 是一个文件，加载 X<span class="token punctuation">.</span>js 作为 JavaScript 文本。结束
+<span class="token number">3</span><span class="token punctuation">.</span> 如果 X<span class="token punctuation">.</span>json 是一个文件，解析 X<span class="token punctuation">.</span>json 成一个 JavaScript 对象。结束
+<span class="token number">4</span><span class="token punctuation">.</span> 如果 X<span class="token punctuation">.</span>node 是一个文件，加载 X<span class="token punctuation">.</span>node 作为二进制插件。结束
+
+加载索引<span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+<span class="token number">1</span><span class="token punctuation">.</span> 如果 X<span class="token operator">/</span>index<span class="token punctuation">.</span>js 是一个文件，加载 X<span class="token operator">/</span>index<span class="token punctuation">.</span>js 作为 JavaScript 文本。结束
+<span class="token number">3</span><span class="token punctuation">.</span> 如果 X<span class="token operator">/</span>index<span class="token punctuation">.</span>json  是一个文件，解析 X<span class="token operator">/</span>index<span class="token punctuation">.</span>json 成一个 JavaScript 对象。结束
+<span class="token number">4</span><span class="token punctuation">.</span> 如果 X<span class="token operator">/</span>index<span class="token punctuation">.</span>node 是一个文件，加载 X<span class="token operator">/</span>index<span class="token punctuation">.</span>node 作为二进制插件。结束
+
+加载目录<span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+<span class="token number">1</span><span class="token punctuation">.</span> 如果 X<span class="token operator">/</span>package<span class="token punctuation">.</span>json 是一个文件，
+   a<span class="token punctuation">.</span> 解析 X<span class="token operator">/</span>package<span class="token punctuation">.</span>json，查找 <span class="token string">"main"</span> 字段
+   b<span class="token punctuation">.</span> let M <span class="token operator">=</span> X <span class="token operator">+</span> <span class="token punctuation">(</span>json main 字段<span class="token punctuation">)</span>
+   c<span class="token punctuation">.</span> 加载文件<span class="token punctuation">(</span>M<span class="token punctuation">)</span>
+   d<span class="token punctuation">.</span> 加载索引<span class="token punctuation">(</span>M<span class="token punctuation">)</span>
+<span class="token number">2</span><span class="token punctuation">.</span> 加载索引<span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+
+加载Node模块<span class="token punctuation">(</span>X<span class="token punctuation">,</span> START<span class="token punctuation">)</span>
+<span class="token number">1</span><span class="token punctuation">.</span> let DIRS<span class="token operator">=</span><span class="token function">NODE_MODULES_PATHS</span><span class="token punctuation">(</span>START<span class="token punctuation">)</span>
+<span class="token number">2</span><span class="token punctuation">.</span> <span class="token keyword">for</span> each DIR <span class="token keyword">in</span> DIRS<span class="token punctuation">:</span>
+   a<span class="token punctuation">.</span> 加载文件<span class="token punctuation">(</span>DIR<span class="token operator">/</span>X<span class="token punctuation">)</span>
+   b<span class="token punctuation">.</span> 加载目录<span class="token punctuation">(</span>DIR<span class="token operator">/</span>X<span class="token punctuation">)</span>
+
+<span class="token function">NODE_MODULES_PATHS</span><span class="token punctuation">(</span>START<span class="token punctuation">)</span>
+<span class="token number">1</span><span class="token punctuation">.</span> let PARTS <span class="token operator">=</span> path <span class="token function">split</span><span class="token punctuation">(</span>START<span class="token punctuation">)</span>
+<span class="token number">2</span><span class="token punctuation">.</span> let I <span class="token operator">=</span> count of PARTS <span class="token operator">-</span> <span class="token number">1</span>
+<span class="token number">3</span><span class="token punctuation">.</span> let DIRS <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token number">4</span><span class="token punctuation">.</span> <span class="token keyword">while</span> I <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+   a<span class="token punctuation">.</span> <span class="token keyword">if</span> PARTS<span class="token punctuation">[</span>I<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"node_modules"</span> CONTINUE
+   b<span class="token punctuation">.</span> DIR <span class="token operator">=</span> path <span class="token function">join</span><span class="token punctuation">(</span>PARTS<span class="token punctuation">[</span><span class="token number">0</span> <span class="token punctuation">.</span><span class="token punctuation">.</span> I<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">"node_modules"</span><span class="token punctuation">)</span>
+   c<span class="token punctuation">.</span> DIRS <span class="token operator">=</span> DIRS <span class="token operator">+</span> DIR
+   d<span class="token punctuation">.</span> let I <span class="token operator">=</span> I <span class="token operator">-</span> <span class="token number">1</span>
+<span class="token number">5</span><span class="token punctuation">.</span> return DIRS
+</code></pre>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-moduleexportsexports">如何理解 module.exports/exports？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-moduleexportsexports">§</a></h3>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-node_modules">如何理解 node_modules？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-node_modules">§</a></h3>
+<h3 id="%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97%E7%9A%84%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86">核心模块的编译原理？<a class="anchor" href="#%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97%E7%9A%84%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86">§</a></h3>
+<ul>
+<li>JavaScript 核心模块的编译过程</li>
+<li>C、C++ 核心模块的编译过程</li>
+</ul>
+<h2 id="node-%E5%86%85%E5%BB%BA%E6%A8%A1%E5%9D%97">Node 内建模块<a class="anchor" href="#node-%E5%86%85%E5%BB%BA%E6%A8%A1%E5%9D%97">§</a></h2>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-arraybufferunit8arraytypedarray">如何理解 ArrayBuffer/Unit8Array/TypedArray？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-arraybufferunit8arraytypedarray">§</a></h3>
+<ul>
+<li>ArrayBuffer
+<ul>
+<li>ArrayBuffer 对象用来表示<strong>通用的、固定长度的</strong>原始二进制数据缓冲区。<strong>ArrayBuffer 不能直接操作，而是要通过<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/TypedArray">类型数组对象</a> 或 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/DataView"><code>DataView</code></a> 对象来操作</strong>，它们会将缓冲区中的数据表示为特定的格式，并通过这些格式来读写缓冲区的内容。</li>
+<li>从 ECMAScript 2015 开始，ArrayBuffer 对象需要用 new 运算符创建。如果调用构造函数时没有使用 new，将会抛出 TypeError 异常。</li>
+</ul>
+</li>
+<li>Unit8Array
+<ul>
+<li>Uint8Array 数组类型表示一个 8 位无符号整型数组，创建时内容被初始化为 0。创建完后，可以以<strong>对象的方式或使用数组下标索引的方式</strong>引用数组中的元素。</li>
+</ul>
+</li>
+<li>从 ArrayBuffer 到 TypedArray
+<ul>
+<li>ArrayBuffer 本身只是一个 0 和 1 存放在一行里面的一个集合，ArrayBuffer 不知道第一个和第二个元素在数组中该如何分配。</li>
+<li>为了能提供上下文，我们需要将其封装在一个叫做 View 的东西里面。这些在数据上的 View 可以被添加进确定类型的数组，而且我们有很多种确定类型的数据可以使用。
+<ul>
+<li>可以使用一个 Int8 的确定类型数组来分离存放 8 位二进制字节。</li>
+<li>可以使用一个无符号的 Int16 数组来分离存放 16 位二进制字节，这样如果是一个无符号的整数也能处理。</li>
+<li>甚至可以在相同基础的 Buffer 上使用不同的 View，同样的操作不同的 View 会给你不同的结果。</li>
+</ul>
+</li>
+<li>在这种方式中，ArrayBuffer 基本上扮演了一个原生内存的角色，它模拟了像 C 语言才有的那种直接访问内存的方式。<strong>你可能想知道为什么我们不让程序直接访问内存，而是添加了这种抽象层，因为直接访问内存将导致一些安全漏洞</strong>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-node-buffer">如何理解 Node Buffer？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-node-buffer">§</a></h3>
+<ul>
+<li>在 ECMAScript 2015 (ES6) 引入 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray"><code>TypedArray</code></a> 之前，JavaScript 语言没有读取或操作二进制数据流的机制。Buffer 类被引入作为 Node.js API 的一部分，使其可以在 TCP 流或文件系统操作等场景中处理二进制数据流。</li>
+<li><strong>Buffer 类的实例类似于整数数组，但 Buffer 的大小是固定的、且在 V8 堆外分配物理内存。 Buffer 的大小在被创建时确定，且无法调整。</strong></li>
+<li>在 Node.js v6 之前的版本中，Buffer 实例是通过 Buffer 构造函数创建的，它根据提供的参数返回不同的 Buffer：</li>
+<li>Buffer 的内存管理：
+<ul>
+<li>8K 内存池：在 Node.js 应用程序启动时，为了方便地、高效地使用 Buffer，会创建一个大小为 8K 的内存池。</li>
+<li>当未设置编码的时候，默认使用 utf8 编码；</li>
+<li>当字符串所需字节数大于4KB，则直接进行内存分配；</li>
+<li>当字符串所需字节数小于4KB，但超过预分配的 8K 内存池的剩余空间，则重新申请 8K 的内存池；</li>
+<li>调用 <code>new FastBuffer(allocPool, poolOffset, length)</code> 创建 FastBuffer 对象，进行数据存储，数据成功保存后，会进行长度校验、更新 poolOffset 偏移量和字节对齐等操作。</li>
+</ul>
+</li>
+<li>Array slice() 和 Buffer slice() 的区别：
+<ul>
+<li>Array slice() 方法返回一个从开始到结束（不包括结束）选择的数组的一部分浅拷贝到一个新数组对象，且原始数组不会被修改。</li>
+<li>Buffer slice() 返回一个指向相同原始内存的新建的 Buffer，但做了偏移且通过 start 和 end 索引进行裁剪。注意，修改这个新建的 Buffer 切片，也会同时修改原始的 Buffer 的内存，因为这两个对象所分配的内存是重叠的。</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-node-stream">如何理解 Node Stream？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-node-stream">§</a></h3>
+<ul>
+<li>流是数据的集合 —— 就像数组或字符串一样。流与它们的不同之处在于，流可能无法立马可用，并且它们不需要全部载入内存中。这种特性使得流能够处理大量数据，或者在一个时刻处理来自外部数据源的数据。</li>
+<li>Node.js 有四种类型的流：
+<ul>
+<li>Readable：表示数据能够被消费，例如可以通过 <code>fs.createReadStream()</code> 方法创建可读流。
+<ul>
+<li><code>HTTP res Client</code>、<code>HTTP req Server</code>、<code>fs read streams</code>、<code>zlib streams</code>、<code>crypto streams</code>、<code>TCP sockets</code>、<code>child process stdout and stderr</code></li>
+</ul>
+</li>
+<li>Writable：表示数据能被写，例如可以通过 <code>fs.createWriteStream()</code> 方法创建可写流。
+<ul>
+<li><code>HTTP req Client</code>、<code>HTTP res Server</code>、<code>fs write streams</code>、<code>zlib streams</code>、<code>crypto streams</code>、<code>TCP sockets</code>、<code>child process stdin</code>、<code>process.stdout</code>、<code>process.stderr</code></li>
+</ul>
+</li>
+<li>Duplex：表示既是 Readable 流也是 Writable 流，如 TCP Socket。</li>
+<li>Transform：也是 Duplex 流，能够用来修改或转换数据。例如 <code>zlib.createGzip</code> 方法用来使用 gzip 压缩数据。你可以认为 transform 流是一个函数，它的输入是 Writable 流，输出是 Readable 流。</li>
+</ul>
+</li>
+<li>所有的流都是 EventEmitter 的实例，它们能够监听或触发事件，用于控制读取和写入数据。Readable 与 Writable 流支持的常见的事件和方法：
+<ul>
+<li>Readable Stream
+<ul>
+<li>Events：<code>data</code>、<code>end</code>、<code>error</code>、<code>close</code>、<code>readble</code></li>
+<li>Functions：
+<ul>
+<li><code>pipe()</code>、<code>unpipe()</code></li>
+<li><code>read()</code>、<code>unshift()</code>、<code>resume()</code></li>
+<li><code>pause()</code>、<code>isPaused()</code></li>
+<li><code>setEncoding()</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Writable Stream
+<ul>
+<li>Events：<code>drain</code>、<code>finish</code>、<code>error</code>、<code>close</code>、<code>pipe/unpipe</code></li>
+<li>Functions：<code>write()</code>、<code>end()</code>、<code>cork()</code>、<code>uncork()</code>、<code>setDefaultEncoding()</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-node-net">如何理解 Node Net？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-node-net">§</a></h3>
+<ul>
+<li>Node.js 的网络模块架构：在 Node.js 的模块里面，与网络相关的模块有：<strong>Net</strong>、<strong>DNS</strong>、<strong>HTTP</strong>、<strong>TLS/SSL</strong>、<strong>HTTPS</strong>、<strong>UDP/Datagram</strong>，除此之外，还有 v8 底层相关的网络模块有 <code>tcp_wrap.cc</code>、<code>udp_wrap.cc</code>、<code>pipe_wrap.cc</code>、<code>stream_wrap.cc</code> 等等，在 JavaScript 层以及 C++ 层之间通过 <code>process.binding </code>进行桥接相互通信。</li>
+<li><code>net</code> 模块提供了创建基于流的 TCP 或 <a href="http://nodejs.cn/api/net.html#net_ipc_support">IPC</a> 服务器 (<a href="http://nodejs.cn/api/net.html#net_net_createserver_options_connectionlistener"><code>net.createServer()</code></a>) 和客户端 (<a href="http://nodejs.cn/api/net.html#net_net_createconnection"><code>net.createConnection()</code></a>) 的异步网络 API。</li>
+</ul>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-node-http">如何理解 Node HTTP？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-node-http">§</a></h3>
+<ul>
+<li>一个简单 HTTP 请求的流程
+<ul>
+<li>调用 <code>http.createServer()</code> 方法创建 server 对象，该对象创建完后，我们调用 <code>listen()</code> 方法执行监听操作。</li>
+<li>当 server 接收到客户端的连接请求，在成功创建 socket 对象后，会触发 <code>connection</code> 事件。</li>
+<li>当 <code>connection</code> 事件触发后，会执行对应的 <code>connectionListener</code> 回调函数。在函数内部会利用 HTTPParser 对象，对请求报文进行解析。</li>
+<li>在完成请求头的解析后，会创建 IncomingMessage 对象，并填充相关的属性，比如 url、httpVersion、method 和 headers 等。</li>
+<li>在配置完 IncomingMessage 对象后，会调用 parserOnIncoming 函数，在该函数内会构建 ServerResponse 响应对象，如果请求头不包含 expect 字段，则 server 就会触发 <code>request</code> 事件，并传递当前的请求对象和响应对象。</li>
+<li><code>request</code> 事件触发后，就会执行我们设定的 <code>requestListener</code> 函数。</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E5%B7%A5%E7%A8%8B">工程<a class="anchor" href="#%E5%B7%A5%E7%A8%8B">§</a></h2>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-bff-%E5%B1%82">如何理解 BFF 层？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-bff-%E5%B1%82">§</a></h3>
+<h3 id="%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%97%B4%E4%BB%B6">动手实现中间件<a class="anchor" href="#%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%97%B4%E4%BB%B6">§</a></h3>
 <pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token punctuation">{</span>
   fns<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token function">calback</span><span class="token punctuation">(</span><span class="token parameter">ctx</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -54,7 +309,38 @@
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h2 id="%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0-eventemmiter">动手实现 EventEmmiter？<a class="anchor" href="#%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0-eventemmiter">§</a></h2>
+<h3 id="%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA-unix-%E5%9F%9F%E5%A5%97%E6%8E%A5%E5%AD%97%E6%9C%8D%E5%8A%A1%E5%99%A8">动手实现一个 UNIX 域套接字服务器<a class="anchor" href="#%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA-unix-%E5%9F%9F%E5%A5%97%E6%8E%A5%E5%AD%97%E6%9C%8D%E5%8A%A1%E5%99%A8">§</a></h3>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> net <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"net"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> server <span class="token operator">=</span> net<span class="token punctuation">.</span><span class="token method function property-access">createServer</span><span class="token punctuation">(</span><span class="token parameter">c</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  c<span class="token punctuation">.</span><span class="token method function property-access">on</span><span class="token punctuation">(</span><span class="token string">"end"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"client disconnected"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  c<span class="token punctuation">.</span><span class="token method function property-access">write</span><span class="token punctuation">(</span><span class="token string">"hello\r\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  c<span class="token punctuation">.</span><span class="token method function property-access">pipe</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+server<span class="token punctuation">.</span><span class="token method function property-access">on</span><span class="token punctuation">(</span><span class="token string">"error"</span><span class="token punctuation">,</span> <span class="token parameter">err</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">throw</span> err<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// server.listen(path[, backlog][, callback]) for IPC servers</span>
+server<span class="token punctuation">.</span><span class="token method function property-access">listen</span><span class="token punctuation">(</span><span class="token string">"/tmp/echo.sock"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"server bound"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<pre class="language-bash"><code class="language-bash">➜  ~ <span class="token function">nc</span> -U /tmp/echo.sock
+hello
+semlinker
+semlinker
+i love node
+i love node
+</code></pre>
+<h2 id="%E5%BC%82%E6%AD%A5">异步<a class="anchor" href="#%E5%BC%82%E6%AD%A5">§</a></h2>
+<h3 id="node-%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B">Node 的事件模型？<a class="anchor" href="#node-%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B">§</a></h3>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-eventemmiter">如何理解 EventEmmiter？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-eventemmiter">§</a></h3>
+<ul>
+<li>所有能触发事件的对象都是 <code>EventEmitter</code> 类的实例。 这些对象开放了一个 <code>eventEmitter.on()</code> 函数，允许将一个或多个函数绑定到会被对象触发的命名事件上。 事件名称通常是驼峰式的字符串，但也可以使用任何有效的 JavaScript 属性名。</li>
+<li>当 EventEmitter 对象触发一个事件时，所有绑定在该事件上的函数都被同步地调用。</li>
+</ul>
+<h3 id="%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0-eventemmiter">动手实现 EventEmmiter？<a class="anchor" href="#%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0-eventemmiter">§</a></h3>
 <pre class="language-javascript"><code class="language-javascript"><span class="token comment">// 简单实现</span>
 <span class="token keyword">class</span> <span class="token class-name">EventEmitter</span> <span class="token punctuation">{</span>
   <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -300,4 +586,8 @@ emitter<span class="token punctuation">.</span><span class="token method functio
 emitter<span class="token punctuation">.</span><span class="token method function property-access">allOff</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 emitter<span class="token punctuation">.</span><span class="token method function property-access">emit</span><span class="token punctuation">(</span><span class="token string">'demo'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// nothing</span>
-</code></pre></article><div class="prev_next"><a class="prev button" href="/articles/05-V8+Runtime/00-v8.html">«  <!-- -->V8</a><a class="next button" href="/articles/05-V8+Runtime/02-deno.html">Deno<!-- -->  »</a></div></div><div class="main_toc_container nav_link_container"><div class="main_toc"><aside><nav class="toc"><ol><li><a href="#node-%E7%9A%84%E5%BC%82%E6%AD%A5%E6%80%A7%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9">Node 的异步性有什么特点？</a></li><li><a href="#node-%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B">Node 的事件模型</a></li><li><a href="#node-%E6%A8%A1%E5%9D%97%E5%8C%96">Node 模块化</a></li><li><a href="#%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%97%B4%E4%BB%B6">动手实现中间件</a></li><li><a href="#%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0-eventemmiter">动手实现 EventEmmiter？</a></li></ol></nav></aside></div></div></section><footer>Powered by<!-- --> <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><div class="tools flex_center hide_on_mobile"><a class="czs-pen button" href="https://github.com/hylerrix/es-interview/edit/master/articles/05-V8+Runtime/01-node.md" target="_blank" style="background-image:url(&quot;/assets/czs-pen.svg&quot;)"></a><a class="czs-angle-up-l button" href="#" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></a></div><script crossorigin="anonymous" src="https://unpkg.com/react@16.13.1/umd/react.production.min.js"></script><script crossorigin="anonymous" src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
+</code></pre>
+<h2 id="npm">NPM<a class="anchor" href="#npm">§</a></h2>
+<h3 id="npm-%E7%9A%84%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C">NPM 的常见操作？<a class="anchor" href="#npm-%E7%9A%84%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C">§</a></h3>
+<h3 id="%E7%BC%96%E5%86%99-npm-%E5%8C%85%E9%83%BD%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88">编写 NPM 包都需要注意什么？<a class="anchor" href="#%E7%BC%96%E5%86%99-npm-%E5%8C%85%E9%83%BD%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88">§</a></h3>
+<h3 id="%E5%A6%82%E4%BD%95%E5%8F%91%E5%B8%83%E7%A7%81%E6%9C%89-npm-%E5%8C%85">如何发布私有 NPM 包？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E5%8F%91%E5%B8%83%E7%A7%81%E6%9C%89-npm-%E5%8C%85">§</a></h3></article><div class="prev_next"><a class="prev button" href="/articles/05-V8+Runtime/00-v8.html">«  <!-- -->V8</a><a class="next button" href="/articles/05-V8+Runtime/02-deno.html">Deno<!-- -->  »</a></div></div><div class="main_toc_container nav_link_container"><div class="main_toc"><aside><nav class="toc"><ol><li><a href="#%E5%9F%BA%E7%A1%80">基础</a><ol><li><a href="#node-%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E7%9A%84%E6%96%B9%E5%BC%8F%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B">Node 进程通信的方式都有哪些？</a></li></ol></li><li><a href="#node-%E6%A8%A1%E5%9D%97%E5%8C%96">Node 模块化</a><ol><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-node-module">如何理解 Node Module？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-require">如何理解 require()？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-moduleexportsexports">如何理解 module.exports/exports？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-node_modules">如何理解 node_modules？</a></li><li><a href="#%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97%E7%9A%84%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86">核心模块的编译原理？</a></li></ol></li><li><a href="#node-%E5%86%85%E5%BB%BA%E6%A8%A1%E5%9D%97">Node 内建模块</a><ol><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-arraybufferunit8arraytypedarray">如何理解 ArrayBuffer/Unit8Array/TypedArray？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-node-buffer">如何理解 Node Buffer？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-node-stream">如何理解 Node Stream？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-node-net">如何理解 Node Net？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-node-http">如何理解 Node HTTP？</a></li></ol></li><li><a href="#%E5%B7%A5%E7%A8%8B">工程</a><ol><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-bff-%E5%B1%82">如何理解 BFF 层？</a></li><li><a href="#%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%97%B4%E4%BB%B6">动手实现中间件</a></li><li><a href="#%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA-unix-%E5%9F%9F%E5%A5%97%E6%8E%A5%E5%AD%97%E6%9C%8D%E5%8A%A1%E5%99%A8">动手实现一个 UNIX 域套接字服务器</a></li></ol></li><li><a href="#%E5%BC%82%E6%AD%A5">异步</a><ol><li><a href="#node-%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B">Node 的事件模型？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-eventemmiter">如何理解 EventEmmiter？</a></li><li><a href="#%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0-eventemmiter">动手实现 EventEmmiter？</a></li></ol></li><li><a href="#npm">NPM</a><ol><li><a href="#npm-%E7%9A%84%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C">NPM 的常见操作？</a></li><li><a href="#%E7%BC%96%E5%86%99-npm-%E5%8C%85%E9%83%BD%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88">编写 NPM 包都需要注意什么？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E5%8F%91%E5%B8%83%E7%A7%81%E6%9C%89-npm-%E5%8C%85">如何发布私有 NPM 包？</a></li></ol></li></ol></nav></aside></div></div></section><footer>Powered by<!-- --> <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><div class="tools flex_center hide_on_mobile"><a class="czs-pen button" href="https://github.com/hylerrix/es-interview/edit/master/articles/05-V8+Runtime/01-node.md" target="_blank" style="background-image:url(&quot;/assets/czs-pen.svg&quot;)"></a><a class="czs-angle-up-l button" href="#" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></a></div><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>

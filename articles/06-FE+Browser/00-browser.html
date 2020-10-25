@@ -1,7 +1,11 @@
-<!doctype html><html class="" data-reactroot=""><head><link rel="icon" type="image/png" href="/favicon.png"/>
+<!doctype html><html class="" data-reactroot=""><head><script async="" src="https://www.google-analytics.com/analytics.js"></script><script>
+            window.GoogleAnalyticsObject="ga";(window.ga=window.ga||function(){(window.ga.q=window.ga.q||[]).push(arguments);}),(window.ga.l=1*new Date());
+
+            ga('create', 'UA-169223577-1', 'auto');
+            ga('send', 'pageview');</script><link rel="icon" type="image/png" href="/favicon.png"/>
 <meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="收集汇总梳理全网资源，涵盖 JS/TS 前后端的全方位面试题库（含提示性解析），助力找个好工作！"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/>
 <title data-react-helmet="true">浏览器 · ECMAScript+ 面试宝典</title>
-<link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/><link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/>
+<link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/><link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/>
 <script data-react-helmet="true" >
     const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (shouldSetIsDark) {
@@ -9,35 +13,21 @@
       document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
     }
   </script>
-</head><body><header><h1 class="hide_on_mobile"><a href="/">ECMAScript+ 面试宝典</a></h1><nav><ul><li class="show_on_mobile flex_center"><a class="czs-menu-l" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a></li><li class="show_on_mobile"><h1 class="mobile_title"><a href="/">ECMAScript+ 面试宝典</a></h1></li><li class="hide_on_mobile"><a href="/articles/">文章</a></li><li class="hide_on_mobile"><a href="http://qiniu.ningo.cloud/hylerrix/reward-alipay.png" target="_blank">打赏一下!!</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix/deno-tutorial" target="_blank">Deno 钻研之术</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">持续添加中...</a></li><li class="hide_on_mobile"><a href="https://github.com/ningowood" target="_blank">凝果屋</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">关于</a></li><li style="flex-grow:1"></li><li class="flex_center"><a class="czs-github-logo" href="https://github.com/hylerrix/es-interview" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul></nav></header><aside class="sidebar"><ol><li class=""><a href="/articles/index.html" class="nav_link">ESMAScript+ 面试宝典</a></li><li class=""><a href="/articles/es-timeline.html" class="nav_link">前端大事记</a></li><li class=""><a href="/articles/00-Profession/index.html" class="nav_link">职业 &amp; 成长</a></li><li class="unfold"><a href="/articles/01-Programming/index.html" class="nav_link">编程基础<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/01-Programming/00-language.html" class="nav_link">编程语言</a></li><li class=""><a href="/articles/01-Programming/01-operating-system.html" class="nav_link">操作系统</a></li><li class=""><a href="/articles/01-Programming/02-algorithms.html" class="nav_link">算法</a></li><li class=""><a href="/articles/01-Programming/03-design-patterns.html" class="nav_link">设计模式</a></li><li class=""><a href="/articles/01-Programming/04-software-engineering.html" class="nav_link">工程化</a></li><li class=""><a href="/articles/01-Programming/05-network-security.html" class="nav_link">安全</a></li><li class=""><a href="/articles/01-Programming/06-software-test.html" class="nav_link">测试</a></li><li class=""><a href="/articles/01-Programming/07-version-control.html" class="nav_link">版本控制</a></li></ol></li><li class="unfold"><a href="/articles/02-ECMAScript+/index.html" class="nav_link">ECMAScript+<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/02-ECMAScript+/00-ecmascript.html" class="nav_link">ECMAScript</a></li><li class=""><a href="/articles/02-ECMAScript+/01-javascript.html" class="nav_link">JavaScript 基础知识</a></li><li class=""><a href="/articles/02-ECMAScript+/02-typescript.html" class="nav_link">TypeScript</a></li><li class=""><a href="/articles/02-ECMAScript+/03-javascript-parctice.html" class="nav_link">JavaScript 常见实战题</a></li></ol></li><li class="unfold"><a href="/articles/03-HTML+CSS/index.html" class="nav_link">HTML + CSS<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/03-HTML+CSS/00-html.html" class="nav_link">HTML</a></li><li class=""><a href="/articles/03-HTML+CSS/01-css-design.html" class="nav_link">CSS</a></li><li class=""><a href="/articles/03-HTML+CSS/02-html-css-practice.html" class="nav_link">HTML + CSS 实战</a></li></ol></li><li class="unfold"><a href="/articles/04-Network+API/index.html" class="nav_link">网络 + 前后端协作<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/04-Network+API/00-network.html" class="nav_link">网络</a></li><li class=""><a href="/articles/04-Network+API/01-fe-be-api.html" class="nav_link">前后端协作</a></li><li class=""><a href="/articles/04-Network+API/02-login.html" class="nav_link">登录</a></li></ol></li><li class="unfold"><a href="/articles/05-V8+Runtime/index.html" class="nav_link">V8 + JavaScript 运行时<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/05-V8+Runtime/00-v8.html" class="nav_link">V8</a></li><li class=""><a href="/articles/05-V8+Runtime/01-node.html" class="nav_link">Node</a></li><li class=""><a href="/articles/05-V8+Runtime/02-deno.html" class="nav_link">Deno</a></li></ol></li><li class="unfold"><a href="/articles/06-FE+Browser/index.html" class="nav_link">前端应用开发 + 浏览器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/06-FE+Browser/00-browser.html" class="nav_link active">浏览器</a></li><li class=""><a href="/articles/06-FE+Browser/01-fe-framework.html" class="nav_link">前端</a></li><li class=""><a href="/articles/06-FE+Browser/02-fe-tooltain.html" class="nav_link">前端工具链</a></li><li class=""><a href="/articles/06-FE+Browser/03-pack-tool.html" class="nav_link">前端打包工具</a></li><li class=""><a href="/articles/06-FE+Browser/04-fe-mobile.html" class="nav_link">移动端 Web 开发</a></li><li class=""><a href="/articles/06-FE+Browser/05-react.html" class="nav_link">React</a></li></ol></li><li class="unfold"><a href="/articles/07-BE+Server/index.html" class="nav_link">后端应用开发 + 服务器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/07-BE+Server/00-linux-nginx-database.html" class="nav_link">Linux + Nginx + 数据库</a></li><li class=""><a href="/articles/07-BE+Server/01-node-framework.html" class="nav_link">Node 框架</a></li></ol></li></ol></aside><section class="main"><div class="main_article"><article><h1>浏览器</h1>
+</head><body><header><h1 class="hide_on_mobile"><a href="/">ECMAScript+ 面试宝典</a></h1><nav><ul><li class="show_on_mobile flex_center"><a class="czs-menu-l" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a></li><li class="show_on_mobile"><h1 class="mobile_title"><a href="/">ECMAScript+ 面试宝典</a></h1></li><li class="hide_on_mobile"><a href="/articles/">文章</a></li><li class="hide_on_mobile"><a href="http://qiniu.ningo.cloud/hylerrix/reward-alipay.png" target="_blank">打赏一下!!</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix/deno-tutorial" target="_blank">Deno 钻研之术</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">持续添加中...</a></li><li class="hide_on_mobile"><a href="https://github.com/ningowood" target="_blank">凝果屋</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">关于</a></li><li style="flex-grow:1"></li><li class="flex_center"><a class="czs-github-logo" href="https://github.com/hylerrix/es-interview" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul></nav></header><aside class="sidebar"><ol><li class=""><a href="/articles/index.html" class="nav_link">ESMAScript+ 面试宝典</a></li><li class=""><a href="/articles/es-timeline.html" class="nav_link">前端大事记</a></li><li class=""><a href="/articles/es-direction.html" class="nav_link">ES 方向 &amp; 谁在招人？</a></li><li class=""><a href="/articles/00-Profession/index.html" class="nav_link">职业 &amp; 成长</a></li><li class="unfold"><a href="/articles/01-Programming/index.html" class="nav_link">编程基础<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/01-Programming/00-language.html" class="nav_link">编程语言</a></li><li class=""><a href="/articles/01-Programming/01-operating-system.html" class="nav_link">操作系统</a></li><li class=""><a href="/articles/01-Programming/02-algorithms.html" class="nav_link">算法</a></li><li class=""><a href="/articles/01-Programming/03-design-patterns.html" class="nav_link">设计模式</a></li><li class=""><a href="/articles/01-Programming/04-software-engineering.html" class="nav_link">软件工程</a></li><li class=""><a href="/articles/01-Programming/05-software-test.html" class="nav_link">测试</a></li><li class=""><a href="/articles/01-Programming/06-version-control.html" class="nav_link">版本控制</a></li><li class=""><a href="/articles/01-Programming/07-computer-principles.html" class="nav_link">计算机组成原理</a></li><li class=""><a href="/articles/01-Programming/08-compilation-principle.html" class="nav_link">编译原理</a></li></ol></li><li class="unfold"><a href="/articles/02-ECMAScript+/index.html" class="nav_link">ECMAScript+<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/02-ECMAScript+/00-ecmascript.html" class="nav_link">ECMAScript</a></li><li class=""><a href="/articles/02-ECMAScript+/01-javascript.html" class="nav_link">JavaScript 基础知识</a></li><li class=""><a href="/articles/02-ECMAScript+/02-typescript.html" class="nav_link">TypeScript</a></li><li class=""><a href="/articles/02-ECMAScript+/03-javascript-parctice.html" class="nav_link">JavaScript 常见实战题</a></li></ol></li><li class="unfold"><a href="/articles/03-HTML+CSS/index.html" class="nav_link">HTML + CSS<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/03-HTML+CSS/00-html.html" class="nav_link">HTML</a></li><li class=""><a href="/articles/03-HTML+CSS/01-css-design.html" class="nav_link">CSS</a></li><li class=""><a href="/articles/03-HTML+CSS/02-html-css-practice.html" class="nav_link">HTML + CSS 实战</a></li><li class=""><a href="/articles/03-HTML+CSS/03-dom-bom.html" class="nav_link">DOM + BOM</a></li></ol></li><li class="unfold"><a href="/articles/04-Network+API/index.html" class="nav_link">网络 + 前后端协作<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/04-Network+API/00-network.html" class="nav_link">网络</a></li><li class=""><a href="/articles/04-Network+API/01-fe-be-api.html" class="nav_link">前后端协作</a></li><li class=""><a href="/articles/04-Network+API/02-network-security.html" class="nav_link">网络安全</a></li></ol></li><li class="unfold"><a href="/articles/05-V8+Runtime/index.html" class="nav_link">V8 + JavaScript 运行时<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/05-V8+Runtime/00-v8.html" class="nav_link">V8</a></li><li class=""><a href="/articles/05-V8+Runtime/01-node.html" class="nav_link">Node</a></li><li class=""><a href="/articles/05-V8+Runtime/02-deno.html" class="nav_link">Deno</a></li></ol></li><li class="unfold"><a href="/articles/06-FE+Browser/index.html" class="nav_link">前端应用开发 + 浏览器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/06-FE+Browser/00-browser.html" class="nav_link active">浏览器</a></li><li class=""><a href="/articles/06-FE+Browser/01-fe-engineering.html" class="nav_link">前端工程化</a></li><li class=""><a href="/articles/06-FE+Browser/02-fe-tooltain.html" class="nav_link">前端工具链</a></li><li class=""><a href="/articles/06-FE+Browser/03-pack-tool.html" class="nav_link">前端打包工具</a></li><li class=""><a href="/articles/06-FE+Browser/04-fe-mobile.html" class="nav_link">移动端 Web 开发</a></li><li class=""><a href="/articles/06-FE+Browser/05-react.html" class="nav_link">React</a></li><li class=""><a href="/articles/06-FE+Browser/06-vue.html" class="nav_link">Vue</a></li><li class=""><a href="/articles/06-FE+Browser/07-iframe.html" class="nav_link">iframe</a></li></ol></li><li class="unfold"><a href="/articles/07-BE+Server/index.html" class="nav_link">后端应用开发 + 服务器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/07-BE+Server/00-linux-nginx-database.html" class="nav_link">Linux + Nginx + 数据库</a></li><li class=""><a href="/articles/07-BE+Server/01-node-framework.html" class="nav_link">Node 框架</a></li></ol></li><li class=""><a href="/articles/draw-in-markdown.html" class="nav_link">如何用 Markdown 绘制图片</a></li><li class=""><a href="/articles/roadmap.html" class="nav_link">变更日志</a></li></ol></aside><section class="main"><div class="main_article"><article><h1>浏览器</h1>
 <ul>
 <li>localStorage、sessionStorage、cookie、Session</li>
 <li>Web Worker，Web Storage</li>
-<li>跨域：jsonp、CORS、nginx 代理...</li>
-<li>http 长链接，浏览器缓存</li>
+<li>http 长链接</li>
 <li>浏览器渲染流程</li>
 <li>浏览器多进程与 JavaScript 单线程</li>
 <li>浏览器抓包</li>
 <li>三次握手、四次挥手</li>
-<li>跨域、同源策略：jsonp、cors、服务器代理、document.domain、postMessage</li>
+<li>服务器代理、document.domain、postMessage</li>
 <li>存储：cookie、sessionStorage、localStorage、indexDB、ServiceWorker</li>
 <li>渲染、重绘</li>
 </ul>
-<blockquote>
-<p>浏览器多线程</p>
-</blockquote>
-<p>GUI 渲染线程</p>
-<p>JS 引擎线程</p>
-<p>事件触发线程</p>
-<p>异步 HTTP 请求线程</p>
-<p>Web Worker</p>
-<blockquote>
-<p>浏览器多标签页之间的通信</p>
-</blockquote>
-<p>WebSocket</p>
-<p>LocalStorage：事件监听，无关跨域</p>
-<p>SharedWorker：但必须是同源的</p>
-<h2 id="%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9">浏览器有什么特点？<a class="anchor" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9">§</a></h2>
+<h2 id="%E5%9F%BA%E7%A1%80">基础<a class="anchor" href="#%E5%9F%BA%E7%A1%80">§</a></h2>
+<h3 id="%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9">浏览器有什么特点？<a class="anchor" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9">§</a></h3>
 <ul>
 <li>可用于使用万维网；</li>
 <li>提供丰富多彩的用户界面：其中包括上下页、刷新、地址栏、书签、显示源码等功能；</li>
@@ -46,13 +36,123 @@
 <li>可通过多个窗口或多个标签页同时打开多种由统一资源标识符标志的信息资源：网络、图片、影音等；</li>
 <li>可通过开放开发的浏览器插件来拓展浏览器功能。</li>
 </ul>
-<h2 id="%E8%BE%93%E5%85%A5-url-%E5%88%B0%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88">输入 URL 到显示页面都发生了什么？<a class="anchor" href="#%E8%BE%93%E5%85%A5-url-%E5%88%B0%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88">§</a></h2>
+<h3 id="%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%A4%E8%BD%AE%E5%A4%A7%E6%88%98%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88">浏览器两轮大战发生了什么？<a class="anchor" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%A4%E8%BD%AE%E5%A4%A7%E6%88%98%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88">§</a></h3>
 <ul>
-<li>浏览器的进程线程 &amp; 文档树</li>
-<li>TCP/IP 模型 &amp; HTTP 协议</li>
-<li>前后端应用 &amp; HTTP 服务器</li>
+<li>第一轮概要，Netscape 对抗新 IE
+<ul>
+<li>围绕在二十世纪末期——人们开始注意到万维网</li>
+<li>当时市场及网页浏览标准以 Netscape 主导。Netscape 曾改进了史前浏览器 Mosaic 的实用性和稳定性，并在网络上提供免费试用版。</li>
+<li>用户界面友好的微软公司争取到 Mosaic 授权，IE 浏览器登场。</li>
+<li>IE 浏览器从技术层面通过最先支持 CSS、新增网页动态加载及图片位置改变等优势，逐步提高了市场占有率。</li>
+<li>一场要求网页无论使用 IE 或 Netscape 均能正常浏览的 “可用任何浏览器浏览”（Viewable With Any Browser）运动悄然崛起。</li>
+<li>微软公司使用诸多商业手段与公司规模较小的 Netscape 公司争抢浏览器用户。</li>
+<li>Netscape 浏览器市场占用率从 90% 跌至 IE 占有率之下。</li>
+<li>Netscape 公司落败，被美国在线公司收购。</li>
 </ul>
-<h2 id="%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E5%8F%8A%E5%85%B6%E7%BB%84%E6%88%90">常见浏览器内核及其组成？<a class="anchor" href="#%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E5%8F%8A%E5%85%B6%E7%BB%84%E6%88%90">§</a></h2>
+</li>
+<li>第二轮概要，旧 IE 对抗各大新浏览器
+<ul>
+<li>IE 浏览器寡占市场，暴露问题：使用专属格式，不尊重网页公开标准；由于高占有率，成为电脑蠕虫病毒攻击的主要目标之一。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Netscape 浏览器衰落之时开发浏览器源码，酝酿出安全性较高的 Firefox 浏览器。</li>
+<li>2012 年报告，Chrome 市场占有率达 33%，超过 IE 浏览器，成为全球第一大。</li>
+</ul>
+<ul>
+<li>总结，使用尽可能新的浏览器
+<ul>
+<li>第一，旧版浏览器通常无法更新最新的安全补丁和功能，因而极易受到攻击。</li>
+<li>第二，网络的发展十分迅速。旧版浏览器可能无法支持当今网站和网络应用程序中的许多最
+新功能。</li>
+<li>第三，旧版浏览器阻碍了网络创新的步伐。如果大量的互联网用户都墨守旧版浏览器，网络
+开发人员就不得不在设计网站时兼顾新旧技术。</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E4%BB%80%E4%B9%88%E6%98%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%B2%99%E7%9B%92%E6%A8%A1%E5%9E%8B">什么是浏览器的沙盒模型？<a class="anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%B2%99%E7%9B%92%E6%A8%A1%E5%9E%8B">§</a></h3>
+<blockquote>
+<p>内容安全策略 (CSP, Content Security Policy) 是一个附加的安全层，用于帮助检测和缓解某些类型的攻击，包括跨站脚本 (XSS) 和数据注入等攻击。 这些攻击可用于实现从数据窃取到网站破坏或作为恶意软件分发版本等用途。</p>
+</blockquote>
+<p>例如，“Google Chrome 浏览器”采用了“安全浏览”技术，这种技术也应用于其他几种现代浏览器。当您浏览网页时，浏览器会将每个网页与疑似存在网上诱骗和恶意软件的网站列表进行快速比对。这个列表会在您的本地计算机上进行存储和维护，从而帮助您保护浏览隐私。如果从本地列表中找到了匹配项，浏览器就会向 Google 发送一条请求，以获取更多信息。（这条请求是完全加密的，不会以纯文本形式发送。）如果 Google 通过验证确定是匹配项，“Chrome 浏览器”就会显示一个红色警告页面，提醒您尝试访问的网页可能存在风险。浏览器获取和载入网站时，如何通过扩展验证证书验证网站的身份。</p>
+<h3 id="%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E6%9C%89%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84">浏览器兼容性有什么需要注意的？<a class="anchor" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E6%9C%89%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84">§</a></h3>
+<ul>
+<li>
+<p>在确定问题原因和有问题的浏览器后，使用单独的样式表，仅供出现问题的浏览器加载。这种方法需要使用服务器端渲染。</p>
+</li>
+<li>
+<p>使用已经处理好此类问题的库，比如 BootStrap。</p>
+</li>
+<li>
+<p>使用 Reset CSS 或 Normalize.css。</p>
+</li>
+<li>
+<p>优雅的降级/渐进式增强，构建基于用户体验的应用，同时确保它在旧版浏览器中正常运行。</p>
+</li>
+<li>
+<p>利用 <a href="http://caniuse.com">caniuse.com</a> 检查特性支持。</p>
+</li>
+<li>
+<p>使用 autoprefixer 自动生成 CSS 属性前缀。</p>
+</li>
+<li>
+<p>使用 Modernizr 进行特性检测。Modernizr 是一套 JavaScript  库，用来侦测浏览器是否支持 HTML5 与 CSS3 等规格。如果浏览器不支持，Modernizr 会使用其他的解决方法来进行模拟。</p>
+</li>
+</ul>
+<h2 id="%E5%86%85%E6%A0%B8">内核<a class="anchor" href="#%E5%86%85%E6%A0%B8">§</a></h2>
+<h3 id="%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E5%8F%8A%E5%85%B6%E7%BB%84%E6%88%90">常见浏览器内核及其组成？<a class="anchor" href="#%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E5%8F%8A%E5%85%B6%E7%BB%84%E6%88%90">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>浏览器 RunTime</th>
+<th>内核 / 渲染引擎</th>
+<th><strong>JavaScript</strong> 引擎</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chrome</td>
+<td>Blink(b28+), Webkit(v27)</td>
+<td>V8</td>
+</tr>
+<tr>
+<td>FireFox</td>
+<td>Gecko</td>
+<td>SpiderMonkey</td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>Webkit</td>
+<td>JavaScriptCore</td>
+</tr>
+<tr>
+<td>Edge</td>
+<td>EdgeHTML</td>
+<td>Chakra(for JavaScript)</td>
+</tr>
+<tr>
+<td>IE</td>
+<td>Trident</td>
+<td>Chakra(for JScript)</td>
+</tr>
+<tr>
+<td>PhantomJS</td>
+<td>Webkit</td>
+<td>JavaScriptCore</td>
+</tr>
+<tr>
+<td>Node</td>
+<td>-</td>
+<td>V8</td>
+</tr>
+<tr>
+<td>Deno</td>
+<td>-</td>
+<td>V8</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li>常见的浏览器内核：
 <ul>
@@ -101,50 +201,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86%E4%B8%8E%E5%85%B3%E9%94%AE%E6%B8%B2%E6%9F%93%E8%B7%AF%E5%BE%84">浏览器的渲染原理与关键渲染路径？<a class="anchor" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86%E4%B8%8E%E5%85%B3%E9%94%AE%E6%B8%B2%E6%9F%93%E8%B7%AF%E5%BE%84">§</a></h2>
-<ul>
-<li>渲染过程
-<ul>
-<li>创建 DOM 树：独立树</li>
-<li>创建 CSS 树：独立树</li>
-<li>生成渲染树（文档流）：<code>&lt;head&gt;</code> 内部及 <code>display: none</code> 都不在，<code>visibility: hidden</code>在树中。</li>
-<li>执行脚本（就是JavaScript）：
-<ul>
-<li>脚本会阻塞 DOM 的解析，但在脚本修改 CSSOM 的地方，会在创建好 CSSOM 后执行。</li>
-<li>放在紧跟 <code>&lt;/body&gt;</code> 之前，可以保证 DOM 树的解析。</li>
-<li>async：异步下载，下载好后立刻执行。</li>
-<li>defer：异步下载，下载好后等页面解析完再执行。</li>
-</ul>
-</li>
-<li>布局：</li>
-<li>绘制：</li>
-</ul>
-</li>
-<li>优化关键渲染路径：
-<ul>
-<li>减少文件大小：最小化文件；压缩文件；以及缓存文件。</li>
-<li>减少关键资源的数量：CSS 和 JS 文件放在 bundle 当中；在 link 上使用 media query。</li>
-<li>减少关键渲染路径的长度：</li>
-</ul>
-</li>
-</ul>
-<h2 id="%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98">同源策略的原理与怎么解决跨域问题？<a class="anchor" href="#%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98">§</a></h2>
-<ul>
-<li>无视跨域问题的标签：<code>&lt;script&gt;、&lt;link&gt;、&lt;img&gt;、&lt;video&gt;、&lt;audio&gt;、&lt;iframe&gt;</code>。</li>
-<li>解决方法：
-<ul>
-<li>JSONP（JSON with Padding）：只能处理 GET 请求。</li>
-<li>CORS（Cross-Origin Resource Sharing）：新增了一组 HTTP 首部字段，允许服务器声明哪些源站通过浏览器有权限访问哪些资源。
-<ul>
-<li>简单请求：</li>
-<li>预检请求：预检，查看自己是否可以跨域</li>
-</ul>
-</li>
-<li>代理</li>
-</ul>
-</li>
-</ul>
-<h2 id="%E7%8E%B0%E4%BB%A3%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E9%83%A8%E6%8F%AD%E7%A7%98">现代浏览器内部揭秘？<a class="anchor" href="#%E7%8E%B0%E4%BB%A3%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E9%83%A8%E6%8F%AD%E7%A7%98">§</a></h2>
+<h3 id="%E7%8E%B0%E4%BB%A3%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E9%83%A8%E6%8F%AD%E7%A7%98">现代浏览器内部揭秘？<a class="anchor" href="#%E7%8E%B0%E4%BB%A3%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E9%83%A8%E6%8F%AD%E7%A7%98">§</a></h3>
 <ul>
 <li>多进程架构：两个进程之间使用 IPC 进行通信
 <ul>
@@ -179,10 +236,8 @@
 <li>工具进程</li>
 </ul>
 </li>
-<li></li>
 </ul>
-<h2 id="%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B8%8E%E5%86%85%E6%A0%B8%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6">浏览器的多进程与内核的多线程机制？<a class="anchor" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B8%8E%E5%86%85%E6%A0%B8%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6">§</a></h2>
-<p>多进程</p>
+<h3 id="%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%A4%9A%E8%BF%9B%E7%A8%8B">浏览器的多进程？<a class="anchor" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%A4%9A%E8%BF%9B%E7%A8%8B">§</a></h3>
 <ul>
 <li><strong>浏览器是多进程的</strong>
 <ul>
@@ -218,7 +273,7 @@
 </ul>
 </li>
 </ul>
-<p>浏览器内核是多线程的，浏览器内核多线程列表：</p>
+<h3 id="%E5%86%85%E6%A0%B8%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6">内核的多线程机制？<a class="anchor" href="#%E5%86%85%E6%A0%B8%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6">§</a></h3>
 <ul>
 <li><strong>GUI 线程</strong>
 <ul>
@@ -258,8 +313,7 @@
 将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件，将这个回调再放入事件队列中，再由 JavaScript 引擎执行。</li>
 </ul>
 </li>
-</ul>
-<p>浏览器内核中线程之间的关系：</p>
+<li>浏览器内核中线程之间的关系：
 <ul>
 <li>GUI 渲染线程与 JavaScript 引擎线程互斥
 <ul>
@@ -273,7 +327,8 @@
 </ul>
 </li>
 </ul>
-<p>WebWorker，JavaScript 的多线程</p>
+</li>
+<li>WebWorker，JavaScript 的多线程
 <ul>
 <li>WebWorker 的 MDN 官方解释如下：
 <ul>
@@ -304,7 +359,8 @@
 </ul>
 </li>
 </ul>
-<p>网络线程静态资源下载：这里将遇到的静态资源分为一下几大类(未列举所有)：CSS样式资源、JS脚本资源、img图片类资源。</p>
+</li>
+<li>网络线程静态资源下载：这里将遇到的静态资源分为一下几大类(未列举所有)：CSS样式资源、JS脚本资源、img图片类资源。
 <ul>
 <li>遇到 CSS 样式资源
 <ul>
@@ -327,74 +383,87 @@
 </li>
 <li>遇到 img 图片类资源：遇到图片等资源时，直接就是异步下载，不会阻塞解析，下载完毕后直接用图片替换原有 src 的地方。</li>
 </ul>
-<p>loaded 和 domcontentloaded</p>
+</li>
+<li>loaded 和 domcontentloaded
 <ul>
 <li>DOMContentLoaded 事件触发时，仅当 DOM 加载完成，不包括样式表，图片(譬如如果有 async 加载的脚本就不一定完成)</li>
 <li>load 事件触发时，页面上所有 DOM，样式表，脚本，图片都已经加载完成了。</li>
 </ul>
-<h2 id="%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E6%9C%89%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84">浏览器兼容性有什么需要注意的？<a class="anchor" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E6%9C%89%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84">§</a></h2>
-<ul>
-<li>
-<p>在确定问题原因和有问题的浏览器后，使用单独的样式表，仅供出现问题的浏览器加载。这种方法需要使用服务器端渲染。</p>
-</li>
-<li>
-<p>使用已经处理好此类问题的库，比如 BootStrap。</p>
-</li>
-<li>
-<p>使用 Reset CSS 或 Normalize.css。</p>
-</li>
-<li>
-<p>优雅的降级/渐进式增强，构建基于用户体验的应用，同时确保它在旧版浏览器中正常运行。</p>
-</li>
-<li>
-<p>利用 <a href="http://caniuse.com">caniuse.com</a> 检查特性支持。</p>
-</li>
-<li>
-<p>使用 autoprefixer 自动生成 CSS 属性前缀。</p>
-</li>
-<li>
-<p>使用 Modernizr 进行特性检测。Modernizr 是一套 JavaScript  库，用来侦测浏览器是否支持 HTML5 与 CSS3 等规格。如果浏览器不支持，Modernizr 会使用其他的解决方法来进行模拟。</p>
 </li>
 </ul>
-<h2 id="%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%A4%E8%BD%AE%E5%A4%A7%E6%88%98%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88">浏览器两轮大战发生了什么？<a class="anchor" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%A4%E8%BD%AE%E5%A4%A7%E6%88%98%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88">§</a></h2>
+<h3 id="%E6%B5%8F%E8%A7%88%E5%99%A8%E5%A4%9A%E9%A1%B5%E9%9D%A2%E4%B9%8B%E9%97%B4%E5%A6%82%E4%BD%95%E9%80%9A%E4%BF%A1">浏览器多页面之间如何通信？<a class="anchor" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%A4%9A%E9%A1%B5%E9%9D%A2%E4%B9%8B%E9%97%B4%E5%A6%82%E4%BD%95%E9%80%9A%E4%BF%A1">§</a></h3>
 <ul>
-<li>第一轮概要，Netscape 对抗新 IE
+<li>标签页之间的通信
 <ul>
-<li>围绕在二十世纪末期——人们开始注意到万维网</li>
-<li>当时市场及网页浏览标准以 Netscape 主导。Netscape 曾改进了史前浏览器 Mosaic 的实用性和稳定性，并在网络上提供免费试用版。</li>
-<li>用户界面友好的微软公司争取到 Mosaic 授权，IE 浏览器登场。</li>
-<li>IE 浏览器从技术层面通过最先支持 CSS、新增网页动态加载及图片位置改变等优势，逐步提高了市场占有率。</li>
-<li>一场要求网页无论使用 IE 或 Netscape 均能正常浏览的 “可用任何浏览器浏览”（Viewable With Any Browser）运动悄然崛起。</li>
-<li>微软公司使用诸多商业手段与公司规模较小的 Netscape 公司争抢浏览器用户。</li>
-<li>Netscape 浏览器市场占用率从 90% 跌至 IE 占有率之下。</li>
-<li>Netscape 公司落败，被美国在线公司收购。</li>
-</ul>
-</li>
-<li>第二轮概要，旧 IE 对抗各大新浏览器
-<ul>
-<li>IE 浏览器寡占市场，暴露问题：使用专属格式，不尊重网页公开标准；由于高占有率，成为电脑蠕虫病毒攻击的主要目标之一。</li>
+<li>WebSocket</li>
+<li>LocalStorage：事件监听，无关跨域</li>
+<li>SharedWorker：但必须是同源的</li>
 </ul>
 </li>
 </ul>
+<h2 id="%E6%B8%B2%E6%9F%93">渲染<a class="anchor" href="#%E6%B8%B2%E6%9F%93">§</a></h2>
+<h3 id="%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BB%8E%E8%BE%93%E5%85%A5%E7%BD%91%E5%9D%80%E5%88%B0%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88">浏览器从输入网址到显示页面都发生了什么？<a class="anchor" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BB%8E%E8%BE%93%E5%85%A5%E7%BD%91%E5%9D%80%E5%88%B0%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88">§</a></h3>
 <ul>
-<li>Netscape 浏览器衰落之时开发浏览器源码，酝酿出安全性较高的 Firefox 浏览器。</li>
-<li>2012 年报告，Chrome 市场占有率达 33%，超过 IE 浏览器，成为全球第一大。</li>
+<li>关键字
+<ul>
+<li>浏览器：
+<ul>
+<li>浏览器的进程、浏览器内核的多线程、JavaScript 的单线程</li>
+<li>文档树：layout、paint、复合层与简单层、CSS 可视化格式模型</li>
+<li>V8 &amp; JS：变量提升、执行上下文、VO、AO、作用域链、回收机制</li>
 </ul>
+</li>
+<li>网络：TCP/IP 模型、HTTP 协议、缓存机制</li>
+<li>硬件：
 <ul>
-<li>总结，使用尽可能新的浏览器
+<li>键盘输入、操作系统交互、屏幕显示原理、网卡等硬件交互</li>
+<li>集线器、路由器、接入网、电话局、网络运营商、电话局、接入网</li>
+<li>防火墙、缓存服务器、DNS 服务器、CDN 服务器、网卡驱动</li>
+</ul>
+</li>
+<li>安全：跨域、拦截、抓包</li>
+<li>应用：
 <ul>
-<li>第一，旧版浏览器通常无法更新最新的安全补丁和功能，因而极易受到攻击。</li>
-<li>第二，网络的发展十分迅速。旧版浏览器可能无法支持当今网站和网络应用程序中的许多最
-新功能。</li>
-<li>第三，旧版浏览器阻碍了网络创新的步伐。如果大量的互联网用户都墨守旧版浏览器，网络
-开发人员就不得不在设计网站时兼顾新旧技术。</li>
+<li>前端应用</li>
+<li>后端应用</li>
+<li>服务器 &amp; 数据库：负载均衡</li>
 </ul>
 </li>
 </ul>
-<h2 id="%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E7%9A%84%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6">浏览器内核的渲染机制？<a class="anchor" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E7%9A%84%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6">§</a></h2>
+</li>
+</ul>
+<h3 id="%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86%E4%B8%8E%E5%85%B3%E9%94%AE%E6%B8%B2%E6%9F%93%E8%B7%AF%E5%BE%84">浏览器的渲染原理与关键渲染路径？<a class="anchor" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86%E4%B8%8E%E5%85%B3%E9%94%AE%E6%B8%B2%E6%9F%93%E8%B7%AF%E5%BE%84">§</a></h3>
 <ul>
-<li>
-<p>解析 HTML，构建 DOM 树</p>
+<li>渲染过程
+<ul>
+<li>创建 DOM 树：独立树</li>
+<li>创建 CSS 树：独立树</li>
+<li>生成渲染树（文档流）：<code>&lt;head&gt;</code> 内部及 <code>display: none</code> 都不在，<code>visibility: hidden</code>在树中。</li>
+<li>执行脚本（就是JavaScript）：
+<ul>
+<li>脚本会阻塞 DOM 的解析，但在脚本修改 CSSOM 的地方，会在创建好 CSSOM 后执行。</li>
+<li>放在紧跟 <code>&lt;/body&gt;</code> 之前，可以保证 DOM 树的解析。</li>
+<li>async：异步下载，下载好后立刻执行。</li>
+<li>defer：异步下载，下载好后等页面解析完再执行。</li>
+</ul>
+</li>
+<li>布局：</li>
+<li>绘制：</li>
+</ul>
+</li>
+<li>优化关键渲染路径：
+<ul>
+<li>减少文件大小：最小化文件；压缩文件；以及缓存文件。</li>
+<li>减少关键资源的数量：CSS 和 JS 文件放在 bundle 当中；在 link 上使用 media query。</li>
+<li>减少关键渲染路径的长度：</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%E7%9A%84%E6%9C%BA%E5%88%B6%E6%98%AF%E4%BB%80%E4%B9%88">同源策略的机制是什么？<a class="anchor" href="#%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%E7%9A%84%E6%9C%BA%E5%88%B6%E6%98%AF%E4%BB%80%E4%B9%88">§</a></h3>
+<p>同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。</p>
+<h3 id="%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E7%9A%84%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6">浏览器内核的渲染机制？<a class="anchor" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E7%9A%84%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6">§</a></h3>
+<ul>
+<li>解析 HTML，构建 DOM 树
 <ul>
 <li><code>Bytes → characters → tokens → nodes → DOM</code></li>
 <li>Conversion 转换：浏览器将获得的 HTML 内容(Bytes)基于他的编码转换为单个字符</li>
@@ -404,20 +473,17 @@
 例如：body 对象的父节点就是 HTML 对象，然后段略 p 对象的父节点就是 body 对象</li>
 </ul>
 </li>
-<li>
-<p>解析 CSS，生成 CSS 规则树</p>
+<li>解析 CSS，生成 CSS 规则树
 <ul>
 <li><code>Bytes → characters → tokens → nodes → CSSOM</code></li>
 </ul>
 </li>
-<li>
-<p>合并 DOM 树和 CSS 规则，生成 render 树</p>
+<li>合并 DOM 树和 CSS 规则，生成 render 树
 <ul>
 <li>一般来说，渲染树和 DOM 树相对应的，但不是严格意义上的一一对应。因为有一些不可见的DOM元素不会插入到渲染树中，如 head 这种不可见的标签或者 <code>display: none</code> 等。</li>
 </ul>
 </li>
-<li>
-<p>渲染过程：</p>
+<li>渲染过程：
 <ul>
 <li>计算CSS样式</li>
 <li>构建渲染树</li>
@@ -426,8 +492,7 @@
 <li>浏览器会将各层的信息发送给 GPU，GPU 会将各层合成(composite)，显示在屏幕上。</li>
 </ul>
 </li>
-<li>
-<p>回流和重绘</p>
+<li>回流和重绘
 <ul>
 <li>Layout，也称为 Reflow，即回流。一般意味着元素的内容、结构、位置或尺寸发生了变化，需要重新计算样式和渲染树</li>
 <li>Repaint，即重绘。意味着元素发生的改变只是影响了元素的一些外观之类的时候（例如，背景色，边框颜色，文字颜色等），此时只需要应用新样式绘制这个元素就可以了</li>
@@ -454,8 +519,7 @@
 </li>
 </ul>
 </li>
-<li>
-<p>普通图层和混合图层</p>
+<li>普通图层和混合图层
 <ul>
 <li>可以认为默认只有一个复合图层，所有的 DOM 节点都是在这个复合图层下的</li>
 <li>如果开启了硬件加速功能，可以将某个节点变成复合图层</li>
@@ -463,29 +527,139 @@
 <li>而简单图层中，就算是 absolute 等布局，变化时不影响整体的回流，但是由于在同一个图层中，仍然是会影响绘制的，因此做动画时性能仍然很低。而复合层是独立的，所以一般做动画推荐使用硬件加速。</li>
 </ul>
 </li>
-<li>
-<p>硬件加速变成复合图层：经测试，除了上述可以引发硬件加速的属性外，其它属性并不会变成复合层。</p>
+<li>硬件加速变成复合图层：经测试，除了上述可以引发硬件加速的属性外，其它属性并不会变成复合层。
 <ul>
 <li>最常用的方式：translate3d、translateZ</li>
 <li>opacity 属性/过渡动画（需要动画执行的过程中才会创建合成层，动画没有开始或结束后元素还会回到之前的状态）</li>
 <li>will-chang 属性，一般配合 opacity 与 translate 使用</li>
 </ul>
 </li>
-<li>
-<p>absolute 和硬件加速的区别</p>
+<li>absolute 和硬件加速的区别
 <ul>
 <li>absolute 虽然可以脱离普通文档流，但是无法脱离默认复合层。所以，就算 absolute 中信息改变时不会改变普通文档流中 render 树，但浏览器最终绘制时，是整个复合层绘制的，absolute 中信息的改变仍然会影响整个复合层的绘制。</li>
 <li>硬件加速直接就是在另一个复合层了，所以它的信息改变不会影响默认复合层。</li>
 </ul>
 </li>
-<li>
-<p>复合层的作用？：一般一个元素开启硬件加速后会变成复合图层，可以独立于普通文档流中，改动后可以避免整个页面重绘，提升性能。</p>
+<li>复合层的作用？：一般一个元素开启硬件加速后会变成复合图层，可以独立于普通文档流中，改动后可以避免整个页面重绘，提升性能。</li>
+<li>硬件加速时请使用 index。使用硬件加速时，尽可能的使用index，防止浏览器默认给后续的元素创建复合层渲染。如果a是一个复合图层，而且b在a上面，那么b也会被隐式转为一个复合图层，这点需要特别注意。</li>
+</ul>
+<h3 id="%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92%E7%9A%84%E6%9C%BA%E5%88%B6">重绘和重排的机制？<a class="anchor" href="#%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92%E7%9A%84%E6%9C%BA%E5%88%B6">§</a></h3>
+<ul>
+<li>基础
+<ul>
+<li>重排：部分（或整个）渲染树需要重新分析并且节点尺寸需要重新计算，表现为重新生成布局，重新排列元素。</li>
+<li>重绘：由于节点的几何属性发生改变活着由于样式发生改变，例如改变元素背景色时，屏幕上的部分内容需要更新，表现为某些元素的外观被改变。</li>
+<li>重排和重绘代价是高昂的，它们会破坏用户体验，并且让UI展示非常迟缓，而相比之下重排的性能影响更大，在两者无 法避免的情况下，一般我们宁可选择代价更小的重绘。</li>
+<li>『重绘』不一定会出现『重排』，『重排』必然会出现『重绘』。</li>
+</ul>
 </li>
-<li>
-<p>硬件加速时请使用 index。使用硬件加速时，尽可能的使用index，防止浏览器默认给后续的元素创建复合层渲染。如果a是一个复合图层，而且b在a上面，那么b也会被隐式转为一个复合图层，这点需要特别注意。</p>
+<li>如何触发？</li>
+<li>任何改变用来构建渲染树的信息都会导致一次重排或重绘：
+<ul>
+<li>添加、删除、更新DOM节点</li>
+<li>通过display: none隐藏一个DOM节点-触发重排和重绘</li>
+<li>通过visibility: hidden隐藏一个DOM节点-只触发重绘，因为没有几何变化 移动或者给⻚面中的DOM节点添加动画</li>
+<li>添加一个样式表，调整样式属性 用户行为，例如调整窗口大小，改变字号，或者滚动。</li>
+</ul>
+</li>
+<li>如何避免？
+<ul>
+<li>集中改变样式：如更换一次 class</li>
+<li>使用 DocumentFragment：使用 <code>createDocumentFragment</code> 创建一个游离于 DOM 树之外的节点，然后在此节点上批量操作，最后插入到 DOM 树中，此时只触发了一次重排。</li>
+<li>将元素提升为合成层：优点：
+<ul>
+<li>合成层的位图，会交由 GPU 合成，比 CPU 处理更快。</li>
+<li>当需要 repaint 时，只需要 repaint 本身，不会影响到其他的层。</li>
+<li>对于 transform 和 opactiy 效果，不会触发 layout 和 paint。</li>
+<li>提升合成层最好的方式是使用 CSS 的 will-change 属性。</li>
+</ul>
 </li>
 </ul>
-<h2 id="javascript-%E7%9A%84%E5%BC%95%E6%93%8E%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8F%8A%E5%85%B6%E7%89%B9%E7%82%B9">JavaScript 的引擎有哪些及其特点？<a class="anchor" href="#javascript-%E7%9A%84%E5%BC%95%E6%93%8E%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8F%8A%E5%85%B6%E7%89%B9%E7%82%B9">§</a></h2>
+</li>
+</ul>
+<h3 id="gpu-%E5%A6%82%E4%BD%95%E5%8F%82%E4%B8%8E%E6%B8%B2%E6%9F%93">GPU 如何参与渲染？<a class="anchor" href="#gpu-%E5%A6%82%E4%BD%95%E5%8F%82%E4%B8%8E%E6%B8%B2%E6%9F%93">§</a></h3>
+<h2 id="%E8%BF%9B%E9%98%B6">进阶<a class="anchor" href="#%E8%BF%9B%E9%98%B6">§</a></h2>
+<h3 id="%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AD%98%E5%82%A8%E6%9C%BA%E5%88%B6%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84">客户端存储机制是怎样的？<a class="anchor" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AD%98%E5%82%A8%E6%9C%BA%E5%88%B6%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84">§</a></h3>
+<ul>
+<li>Web SQL:2010年被W3C废弃的本地数据库数据存储方案，但是主流浏览器(火狐除外)都已经有了相关的实 现，web sql类似于SQLite，是真正意义上的关系型数据库，用sql进行操作，当我们用JavaScript时要进行转换， 较为繁琐。</li>
+<li>IndexedDB: 是被正式纳入HTML5标准的数据库储存方案，它是NoSQL数据库，用键值对进行储存，可以进行快 速读取操作，非常适合web场景，同时用JavaScript进行操作会非常方便。</li>
+<li>localStorage、sessionStorage、Storage 的方法及属性：clear()、getItem()、key()、removeItem()、setItem()、constructor()、length</li>
+<li>Cookie、LocalStorage、SessionStorage 都是客户端以键值对存储的存储机制，并且只能将值存储为字符串。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Cookie</th>
+<th>LocalStorage</th>
+<th>SessionStorage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>由谁初始化</td>
+<td>服务器(Set-Cookie 请求头)或客户端</td>
+<td>客户端</td>
+<td>客户端</td>
+</tr>
+<tr>
+<td>过期时间</td>
+<td>手动设置</td>
+<td>永不过期</td>
+<td>当前页面关闭时</td>
+</tr>
+<tr>
+<td>在当前浏览器会话中是否保持不变</td>
+<td>取决于是否设置过期时间</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>是否与域名相关联</td>
+<td>是</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>是否随着每个 HTTP 请求发送给服务器</td>
+<td>是，Cookie 会自动设置 Cookie 请求头</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>每个域名容量</td>
+<td>4kb</td>
+<td>5mb</td>
+<td>5mb</td>
+</tr>
+<tr>
+<td>访问权限</td>
+<td>任一窗口</td>
+<td>任一窗口</td>
+<td>当前页面窗口</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%E4%B8%8E%E8%B7%A8%E5%9F%9F">同源策略与跨域？<a class="anchor" href="#%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%E4%B8%8E%E8%B7%A8%E5%9F%9F">§</a></h3>
+<ul>
+<li>无视跨域问题的标签：<code>&lt;script&gt;、&lt;link&gt;、&lt;img&gt;、&lt;video&gt;、&lt;audio&gt;、&lt;iframe&gt;</code>。</li>
+<li>解决方法：
+<ul>
+<li>JSONP（JSON with Padding）：只能处理 GET 请求。</li>
+<li>CORS（Cross-Origin Resource Sharing）：新增了一组 HTTP 首部字段，允许服务器声明哪些源站通过浏览器有权限访问哪些资源。
+<ul>
+<li>简单请求：</li>
+<li>预检请求：预检，查看自己是否可以跨域</li>
+</ul>
+</li>
+<li>代理</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E4%BD%BF%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7">如何高效使用浏览器开发者工具？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E4%BD%BF%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7">§</a></h3>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-gpu-%E7%A1%AC%E4%BB%B6%E5%8A%A0%E9%80%9F">如何理解 GPU 硬件加速？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-gpu-%E7%A1%AC%E4%BB%B6%E5%8A%A0%E9%80%9F">§</a></h3>
+<h2 id="js-%E5%BC%95%E6%93%8E">JS 引擎<a class="anchor" href="#js-%E5%BC%95%E6%93%8E">§</a></h2>
+<h3 id="js-%E7%9A%84%E5%BC%95%E6%93%8E%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8F%8A%E5%85%B6%E7%89%B9%E7%82%B9">JS 的引擎有哪些及其特点？<a class="anchor" href="#js-%E7%9A%84%E5%BC%95%E6%93%8E%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8F%8A%E5%85%B6%E7%89%B9%E7%82%B9">§</a></h3>
 <ul>
 <li>
 <p>KJS 引擎，与早期 KHTML 引擎相配</p>
@@ -524,7 +698,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="javascript-%E5%BC%95%E6%93%8E%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B">JavaScript 引擎解析过程<a class="anchor" href="#javascript-%E5%BC%95%E6%93%8E%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B">§</a></h2>
+<h3 id="js-%E5%BC%95%E6%93%8E%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B">JS 引擎解析过程<a class="anchor" href="#js-%E5%BC%95%E6%93%8E%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B">§</a></h3>
 <ul>
 <li>JavaScript 的解析阶段
 <ul>
@@ -624,9 +798,4 @@
 </li>
 </ul>
 </li>
-</ul>
-<h2 id="%E4%BB%80%E4%B9%88%E6%98%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%B2%99%E7%9B%92%E6%A8%A1%E5%9E%8B">什么是浏览器的沙盒模型？<a class="anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%B2%99%E7%9B%92%E6%A8%A1%E5%9E%8B">§</a></h2>
-<blockquote>
-<p>内容安全策略 (CSP, Content Security Policy) 是一个附加的安全层，用于帮助检测和缓解某些类型的攻击，包括跨站脚本 (XSS) 和数据注入等攻击。 这些攻击可用于实现从数据窃取到网站破坏或作为恶意软件分发版本等用途。</p>
-</blockquote>
-<p>例如，“Google Chrome 浏览器”采用了“安全浏览”技术，这种技术也应用于其他几种现代浏览器。当您浏览网页时，浏览器会将每个网页与疑似存在网上诱骗和恶意软件的网站列表进行快速比对。这个列表会在您的本地计算机上进行存储和维护，从而帮助您保护浏览隐私。如果从本地列表中找到了匹配项，浏览器就会向 Google 发送一条请求，以获取更多信息。（这条请求是完全加密的，不会以纯文本形式发送。）如果 Google 通过验证确定是匹配项，“Chrome 浏览器”就会显示一个红色警告页面，提醒您尝试访问的网页可能存在风险。浏览器获取和载入网站时，如何通过扩展验证证书验证网站的身份。</p></article><div class="prev_next"><a class="prev button" href="/articles/06-FE+Browser/index.html">«  <!-- -->前端应用开发 + 浏览器</a><a class="next button" href="/articles/06-FE+Browser/01-fe-framework.html">前端<!-- -->  »</a></div></div><div class="main_toc_container nav_link_container"><div class="main_toc"><aside><nav class="toc"><ol><li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9">浏览器有什么特点？</a></li><li><a href="#%E8%BE%93%E5%85%A5-url-%E5%88%B0%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88">输入 URL 到显示页面都发生了什么？</a></li><li><a href="#%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E5%8F%8A%E5%85%B6%E7%BB%84%E6%88%90">常见浏览器内核及其组成？</a></li><li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86%E4%B8%8E%E5%85%B3%E9%94%AE%E6%B8%B2%E6%9F%93%E8%B7%AF%E5%BE%84">浏览器的渲染原理与关键渲染路径？</a></li><li><a href="#%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98">同源策略的原理与怎么解决跨域问题？</a></li><li><a href="#%E7%8E%B0%E4%BB%A3%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E9%83%A8%E6%8F%AD%E7%A7%98">现代浏览器内部揭秘？</a></li><li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B8%8E%E5%86%85%E6%A0%B8%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6">浏览器的多进程与内核的多线程机制？</a></li><li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E6%9C%89%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84">浏览器兼容性有什么需要注意的？</a></li><li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%A4%E8%BD%AE%E5%A4%A7%E6%88%98%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88">浏览器两轮大战发生了什么？</a></li><li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E7%9A%84%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6">浏览器内核的渲染机制？</a></li><li><a href="#javascript-%E7%9A%84%E5%BC%95%E6%93%8E%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8F%8A%E5%85%B6%E7%89%B9%E7%82%B9">JavaScript 的引擎有哪些及其特点？</a></li><li><a href="#javascript-%E5%BC%95%E6%93%8E%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B">JavaScript 引擎解析过程</a></li><li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%B2%99%E7%9B%92%E6%A8%A1%E5%9E%8B">什么是浏览器的沙盒模型？</a></li></ol></nav></aside></div></div></section><footer>Powered by<!-- --> <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><div class="tools flex_center hide_on_mobile"><a class="czs-pen button" href="https://github.com/hylerrix/es-interview/edit/master/articles/06-FE+Browser/00-browser.md" target="_blank" style="background-image:url(&quot;/assets/czs-pen.svg&quot;)"></a><a class="czs-angle-up-l button" href="#" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></a></div><script crossorigin="anonymous" src="https://unpkg.com/react@16.13.1/umd/react.production.min.js"></script><script crossorigin="anonymous" src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
+</ul></article><div class="prev_next"><a class="prev button" href="/articles/06-FE+Browser/index.html">«  <!-- -->前端应用开发 + 浏览器</a><a class="next button" href="/articles/06-FE+Browser/01-fe-engineering.html">前端工程化<!-- -->  »</a></div></div><div class="main_toc_container nav_link_container"><div class="main_toc"><aside><nav class="toc"><ol><li><a href="#%E5%9F%BA%E7%A1%80">基础</a><ol><li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9">浏览器有什么特点？</a></li><li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%A4%E8%BD%AE%E5%A4%A7%E6%88%98%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88">浏览器两轮大战发生了什么？</a></li><li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%B2%99%E7%9B%92%E6%A8%A1%E5%9E%8B">什么是浏览器的沙盒模型？</a></li><li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E6%9C%89%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84">浏览器兼容性有什么需要注意的？</a></li></ol></li><li><a href="#%E5%86%85%E6%A0%B8">内核</a><ol><li><a href="#%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E5%8F%8A%E5%85%B6%E7%BB%84%E6%88%90">常见浏览器内核及其组成？</a></li><li><a href="#%E7%8E%B0%E4%BB%A3%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E9%83%A8%E6%8F%AD%E7%A7%98">现代浏览器内部揭秘？</a></li><li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%A4%9A%E8%BF%9B%E7%A8%8B">浏览器的多进程？</a></li><li><a href="#%E5%86%85%E6%A0%B8%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6">内核的多线程机制？</a></li><li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%A4%9A%E9%A1%B5%E9%9D%A2%E4%B9%8B%E9%97%B4%E5%A6%82%E4%BD%95%E9%80%9A%E4%BF%A1">浏览器多页面之间如何通信？</a></li></ol></li><li><a href="#%E6%B8%B2%E6%9F%93">渲染</a><ol><li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BB%8E%E8%BE%93%E5%85%A5%E7%BD%91%E5%9D%80%E5%88%B0%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88">浏览器从输入网址到显示页面都发生了什么？</a></li><li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86%E4%B8%8E%E5%85%B3%E9%94%AE%E6%B8%B2%E6%9F%93%E8%B7%AF%E5%BE%84">浏览器的渲染原理与关键渲染路径？</a></li><li><a href="#%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%E7%9A%84%E6%9C%BA%E5%88%B6%E6%98%AF%E4%BB%80%E4%B9%88">同源策略的机制是什么？</a></li><li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E7%9A%84%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6">浏览器内核的渲染机制？</a></li><li><a href="#%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92%E7%9A%84%E6%9C%BA%E5%88%B6">重绘和重排的机制？</a></li><li><a href="#gpu-%E5%A6%82%E4%BD%95%E5%8F%82%E4%B8%8E%E6%B8%B2%E6%9F%93">GPU 如何参与渲染？</a></li></ol></li><li><a href="#%E8%BF%9B%E9%98%B6">进阶</a><ol><li><a href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AD%98%E5%82%A8%E6%9C%BA%E5%88%B6%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84">客户端存储机制是怎样的？</a></li><li><a href="#%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%E4%B8%8E%E8%B7%A8%E5%9F%9F">同源策略与跨域？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E4%BD%BF%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7">如何高效使用浏览器开发者工具？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-gpu-%E7%A1%AC%E4%BB%B6%E5%8A%A0%E9%80%9F">如何理解 GPU 硬件加速？</a></li></ol></li><li><a href="#js-%E5%BC%95%E6%93%8E">JS 引擎</a><ol><li><a href="#js-%E7%9A%84%E5%BC%95%E6%93%8E%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8F%8A%E5%85%B6%E7%89%B9%E7%82%B9">JS 的引擎有哪些及其特点？</a></li><li><a href="#js-%E5%BC%95%E6%93%8E%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B">JS 引擎解析过程</a></li></ol></li></ol></nav></aside></div></div></section><footer>Powered by<!-- --> <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><div class="tools flex_center hide_on_mobile"><a class="czs-pen button" href="https://github.com/hylerrix/es-interview/edit/master/articles/06-FE+Browser/00-browser.md" target="_blank" style="background-image:url(&quot;/assets/czs-pen.svg&quot;)"></a><a class="czs-angle-up-l button" href="#" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></a></div><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>

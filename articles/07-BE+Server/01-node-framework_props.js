@@ -2,24 +2,31 @@ import projectConfig from '/pagic.config.js';
 var _a, _b;
 export default {
     'prev': {
-        "text": "Linux + Nginx + 数据库",
+        "title": "Linux + Nginx + 数据库",
         "link": "articles/07-BE+Server/00-linux-nginx-database.html"
     },
-    'next': null,
-    'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
+    'next': {
+        "title": "如何用 Markdown 绘制图片",
+        "link": "articles/draw-in-markdown.html"
+    },
     'sidebar': [
         {
-            "text": "ESMAScript+ 面试宝典",
+            "title": "ESMAScript+ 面试宝典",
             "link": "articles/index.html",
             "pagePath": "articles/README.md"
         },
         {
-            "text": "前端大事记",
+            "title": "前端大事记",
             "link": "articles/es-timeline.html",
             "pagePath": "articles/es-timeline.md"
         },
         {
-            "text": "职业 & 成长",
+            "title": "ES 方向 & 谁在招人？",
+            "link": "articles/es-direction.html",
+            "pagePath": "articles/es-direction.md"
+        },
+        {
+            "title": "职业 & 成长",
             "link": "articles/00-Profession/index.html",
             "pagePath": "articles/00-Profession/README.md"
         },
@@ -28,47 +35,51 @@ export default {
             "title": "编程基础",
             "children": [
                 {
-                    "text": "编程语言",
+                    "title": "编程语言",
                     "link": "articles/01-Programming/00-language.html",
                     "pagePath": "articles/01-Programming/00-language.md"
                 },
                 {
-                    "text": "操作系统",
+                    "title": "操作系统",
                     "link": "articles/01-Programming/01-operating-system.html",
                     "pagePath": "articles/01-Programming/01-operating-system.md"
                 },
                 {
-                    "text": "算法",
+                    "title": "算法",
                     "link": "articles/01-Programming/02-algorithms.html",
                     "pagePath": "articles/01-Programming/02-algorithms.md"
                 },
                 {
-                    "text": "设计模式",
+                    "title": "设计模式",
                     "link": "articles/01-Programming/03-design-patterns.html",
                     "pagePath": "articles/01-Programming/03-design-patterns.md"
                 },
                 {
-                    "text": "工程化",
+                    "title": "软件工程",
                     "link": "articles/01-Programming/04-software-engineering.html",
                     "pagePath": "articles/01-Programming/04-software-engineering.md"
                 },
                 {
-                    "text": "安全",
-                    "link": "articles/01-Programming/05-network-security.html",
-                    "pagePath": "articles/01-Programming/05-network-security.md"
+                    "title": "测试",
+                    "link": "articles/01-Programming/05-software-test.html",
+                    "pagePath": "articles/01-Programming/05-software-test.md"
                 },
                 {
-                    "text": "测试",
-                    "link": "articles/01-Programming/06-software-test.html",
-                    "pagePath": "articles/01-Programming/06-software-test.md"
+                    "title": "版本控制",
+                    "link": "articles/01-Programming/06-version-control.html",
+                    "pagePath": "articles/01-Programming/06-version-control.md"
                 },
                 {
-                    "text": "版本控制",
-                    "link": "articles/01-Programming/07-version-control.html",
-                    "pagePath": "articles/01-Programming/07-version-control.md"
+                    "title": "计算机组成原理",
+                    "link": "articles/01-Programming/07-computer-principles.html",
+                    "pagePath": "articles/01-Programming/07-computer-principles.md"
+                },
+                {
+                    "title": "编译原理",
+                    "link": "articles/01-Programming/08-compilation-principle.html",
+                    "pagePath": "articles/01-Programming/08-compilation-principle.md"
                 }
             ],
-            "text": "编程基础",
             "pagePath": "articles/01-Programming/README.md"
         },
         {
@@ -76,27 +87,26 @@ export default {
             "title": "ECMAScript+",
             "children": [
                 {
-                    "text": "ECMAScript",
+                    "title": "ECMAScript",
                     "link": "articles/02-ECMAScript+/00-ecmascript.html",
                     "pagePath": "articles/02-ECMAScript+/00-ecmascript.md"
                 },
                 {
-                    "text": "JavaScript 基础知识",
+                    "title": "JavaScript 基础知识",
                     "link": "articles/02-ECMAScript+/01-javascript.html",
                     "pagePath": "articles/02-ECMAScript+/01-javascript.md"
                 },
                 {
-                    "text": "TypeScript",
+                    "title": "TypeScript",
                     "link": "articles/02-ECMAScript+/02-typescript.html",
                     "pagePath": "articles/02-ECMAScript+/02-typescript.md"
                 },
                 {
-                    "text": "JavaScript 常见实战题",
+                    "title": "JavaScript 常见实战题",
                     "link": "articles/02-ECMAScript+/03-javascript-parctice.html",
                     "pagePath": "articles/02-ECMAScript+/03-javascript-parctice.md"
                 }
             ],
-            "text": "ECMAScript+",
             "pagePath": "articles/02-ECMAScript+/README.md"
         },
         {
@@ -104,22 +114,26 @@ export default {
             "title": "HTML + CSS",
             "children": [
                 {
-                    "text": "HTML",
+                    "title": "HTML",
                     "link": "articles/03-HTML+CSS/00-html.html",
                     "pagePath": "articles/03-HTML+CSS/00-html.md"
                 },
                 {
-                    "text": "CSS",
+                    "title": "CSS",
                     "link": "articles/03-HTML+CSS/01-css-design.html",
                     "pagePath": "articles/03-HTML+CSS/01-css-design.md"
                 },
                 {
-                    "text": "HTML + CSS 实战",
+                    "title": "HTML + CSS 实战",
                     "link": "articles/03-HTML+CSS/02-html-css-practice.html",
                     "pagePath": "articles/03-HTML+CSS/02-html-css-practice.md"
+                },
+                {
+                    "title": "DOM + BOM",
+                    "link": "articles/03-HTML+CSS/03-dom-bom.html",
+                    "pagePath": "articles/03-HTML+CSS/03-dom-bom.md"
                 }
             ],
-            "text": "HTML + CSS",
             "pagePath": "articles/03-HTML+CSS/README.md"
         },
         {
@@ -127,22 +141,21 @@ export default {
             "title": "网络 + 前后端协作",
             "children": [
                 {
-                    "text": "网络",
+                    "title": "网络",
                     "link": "articles/04-Network+API/00-network.html",
                     "pagePath": "articles/04-Network+API/00-network.md"
                 },
                 {
-                    "text": "前后端协作",
+                    "title": "前后端协作",
                     "link": "articles/04-Network+API/01-fe-be-api.html",
                     "pagePath": "articles/04-Network+API/01-fe-be-api.md"
                 },
                 {
-                    "text": "登录",
-                    "link": "articles/04-Network+API/02-login.html",
-                    "pagePath": "articles/04-Network+API/02-login.md"
+                    "title": "网络安全",
+                    "link": "articles/04-Network+API/02-network-security.html",
+                    "pagePath": "articles/04-Network+API/02-network-security.md"
                 }
             ],
-            "text": "网络 + 前后端协作",
             "pagePath": "articles/04-Network+API/README.md"
         },
         {
@@ -150,22 +163,21 @@ export default {
             "title": "V8 + JavaScript 运行时",
             "children": [
                 {
-                    "text": "V8",
+                    "title": "V8",
                     "link": "articles/05-V8+Runtime/00-v8.html",
                     "pagePath": "articles/05-V8+Runtime/00-v8.md"
                 },
                 {
-                    "text": "Node",
+                    "title": "Node",
                     "link": "articles/05-V8+Runtime/01-node.html",
                     "pagePath": "articles/05-V8+Runtime/01-node.md"
                 },
                 {
-                    "text": "Deno",
+                    "title": "Deno",
                     "link": "articles/05-V8+Runtime/02-deno.html",
                     "pagePath": "articles/05-V8+Runtime/02-deno.md"
                 }
             ],
-            "text": "V8 + JavaScript 运行时",
             "pagePath": "articles/05-V8+Runtime/README.md"
         },
         {
@@ -173,37 +185,46 @@ export default {
             "title": "前端应用开发 + 浏览器",
             "children": [
                 {
-                    "text": "浏览器",
+                    "title": "浏览器",
                     "link": "articles/06-FE+Browser/00-browser.html",
                     "pagePath": "articles/06-FE+Browser/00-browser.md"
                 },
                 {
-                    "text": "前端",
-                    "link": "articles/06-FE+Browser/01-fe-framework.html",
-                    "pagePath": "articles/06-FE+Browser/01-fe-framework.md"
+                    "title": "前端工程化",
+                    "link": "articles/06-FE+Browser/01-fe-engineering.html",
+                    "pagePath": "articles/06-FE+Browser/01-fe-engineering.md"
                 },
                 {
-                    "text": "前端工具链",
+                    "title": "前端工具链",
                     "link": "articles/06-FE+Browser/02-fe-tooltain.html",
                     "pagePath": "articles/06-FE+Browser/02-fe-tooltain.md"
                 },
                 {
-                    "text": "前端打包工具",
+                    "title": "前端打包工具",
                     "link": "articles/06-FE+Browser/03-pack-tool.html",
                     "pagePath": "articles/06-FE+Browser/03-pack-tool.md"
                 },
                 {
-                    "text": "移动端 Web 开发",
+                    "title": "移动端 Web 开发",
                     "link": "articles/06-FE+Browser/04-fe-mobile.html",
                     "pagePath": "articles/06-FE+Browser/04-fe-mobile.md"
                 },
                 {
-                    "text": "React",
+                    "title": "React",
                     "link": "articles/06-FE+Browser/05-react.html",
                     "pagePath": "articles/06-FE+Browser/05-react.md"
+                },
+                {
+                    "title": "Vue",
+                    "link": "articles/06-FE+Browser/06-vue.html",
+                    "pagePath": "articles/06-FE+Browser/06-vue.md"
+                },
+                {
+                    "title": "iframe",
+                    "link": "articles/06-FE+Browser/07-iframe.html",
+                    "pagePath": "articles/06-FE+Browser/07-iframe.md"
                 }
             ],
-            "text": "前端应用开发 + 浏览器",
             "pagePath": "articles/06-FE+Browser/README.md"
         },
         {
@@ -211,18 +232,27 @@ export default {
             "title": "后端应用开发 + 服务器",
             "children": [
                 {
-                    "text": "Linux + Nginx + 数据库",
+                    "title": "Linux + Nginx + 数据库",
                     "link": "articles/07-BE+Server/00-linux-nginx-database.html",
                     "pagePath": "articles/07-BE+Server/00-linux-nginx-database.md"
                 },
                 {
-                    "text": "Node 框架",
+                    "title": "Node 框架",
                     "link": "articles/07-BE+Server/01-node-framework.html",
                     "pagePath": "articles/07-BE+Server/01-node-framework.md"
                 }
             ],
-            "text": "后端应用开发 + 服务器",
             "pagePath": "articles/07-BE+Server/README.md"
+        },
+        {
+            "title": "如何用 Markdown 绘制图片",
+            "link": "articles/draw-in-markdown.html",
+            "pagePath": "articles/draw-in-markdown.md"
+        },
+        {
+            "title": "变更日志",
+            "link": "articles/roadmap.html",
+            "pagePath": "articles/roadmap.md"
         }
     ],
     config: { "root": "/", ...projectConfig, ...(_b = (_a = projectConfig.i18n) === null || _a === void 0 ? void 0 : _a.overrides) === null || _b === void 0 ? void 0 : _b['undefined'] },
@@ -233,11 +263,25 @@ export default {
     'content': React.createElement("article", { dangerouslySetInnerHTML: {
             __html: '<h1>Node 框架</h1>\n<h2 id="nest">Nest<a class="anchor" href="#nest">§</a></h2>\n<blockquote>\n<p>Nest 的特点？</p>\n</blockquote>\n<ul>\n<li>构建高效、可扩展的 Node.js Web 应用程序的框架；</li>\n<li>结合 OOP（面向对象编程）、FP（函数式编程）、FRP（函数响应式编程） 等元素；</li>\n<li>底层使用 Express，但也支持 Fastify，可以方便地使用各种可用的第三方插件；</li>\n<li>使用 Typescript，强类型语言、类型推断机制、编译期类型检查等，为后端开发和维护提供了很好的支持；</li>\n<li>模块化开发，让应用程序更容易分层，提供了易于使用的模块化管理机制；</li>\n<li>内置 IOC 容器，大量使用依赖注入，开发更便捷、更高效；</li>\n<li>轻松编写 AOP 代码，面向切面编程，轻松实现日志、拦截器、过滤器等功能；</li>\n<li>支持 TypeORM，最好的 Typescript ORM 框架，轻松编写 DAO 层的各类逻辑；</li>\n<li>轻松构建 MVC、API、WebSocket、微服务等系统；</li>\n</ul>\n<blockquote>\n<p>Nest 的关键技术？</p>\n</blockquote>'
         } }),
+    'head': React.createElement(React.Fragment, null,
+        React.createElement(Ga, { id: "UA-169223577-1" }),
+        React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" })),
     'script': React.createElement(React.Fragment, null,
-        React.createElement("script", { crossOrigin: "anonymous", src: "https://unpkg.com/react@16.13.1/umd/react.production.min.js" }),
-        React.createElement("script", { crossOrigin: "anonymous", src: "https://unpkg.com/react-dom@16.13.1/umd/react-dom.production.min.js" }),
+        React.createElement("script", { src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
+        React.createElement("script", { src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
+    'contentTitle': React.createElement("h1", { key: "0" }, "Node \u6846\u67B6"),
+    'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
+            __html: '<h2 id="nest">Nest<a class="anchor" href="#nest">§</a></h2>\n<blockquote>\n<p>Nest 的特点？</p>\n</blockquote>\n<ul>\n<li>构建高效、可扩展的 Node.js Web 应用程序的框架；</li>\n<li>结合 OOP（面向对象编程）、FP（函数式编程）、FRP（函数响应式编程） 等元素；</li>\n<li>底层使用 Express，但也支持 Fastify，可以方便地使用各种可用的第三方插件；</li>\n<li>使用 Typescript，强类型语言、类型推断机制、编译期类型检查等，为后端开发和维护提供了很好的支持；</li>\n<li>模块化开发，让应用程序更容易分层，提供了易于使用的模块化管理机制；</li>\n<li>内置 IOC 容器，大量使用依赖注入，开发更便捷、更高效；</li>\n<li>轻松编写 AOP 代码，面向切面编程，轻松实现日志、拦截器、过滤器等功能；</li>\n<li>支持 TypeORM，最好的 Typescript ORM 框架，轻松编写 DAO 层的各类逻辑；</li>\n<li>轻松构建 MVC、API、WebSocket、微服务等系统；</li>\n</ul>\n<blockquote>\n<p>Nest 的关键技术？</p>\n</blockquote>'
+        } }),
+    'contentHasKatex': false,
     'toc': React.createElement("aside", { dangerouslySetInnerHTML: {
             __html: '<nav class="toc"><ol><li><a href="#nest">Nest</a></li></ol></nav>'
-        } })
+        } }),
+    'date': "2020-10-25T07:04:16.000Z",
+    'updated': null,
+    'author': "hylerrix",
+    'contributors': [
+        "hylerrix"
+    ]
 };

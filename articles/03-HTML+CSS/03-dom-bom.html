@@ -1,0 +1,236 @@
+<!doctype html><html class="" data-reactroot=""><head><script async="" src="https://www.google-analytics.com/analytics.js"></script><script>
+            window.GoogleAnalyticsObject="ga";(window.ga=window.ga||function(){(window.ga.q=window.ga.q||[]).push(arguments);}),(window.ga.l=1*new Date());
+
+            ga('create', 'UA-169223577-1', 'auto');
+            ga('send', 'pageview');</script><link rel="icon" type="image/png" href="/favicon.png"/>
+<meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="收集汇总梳理全网资源，涵盖 JS/TS 前后端的全方位面试题库（含提示性解析），助力找个好工作！"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/>
+<title data-react-helmet="true">DOM + BOM · ECMAScript+ 面试宝典</title>
+<link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/><link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/>
+<script data-react-helmet="true" >
+    const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (shouldSetIsDark) {
+      document.documentElement.classList.add('is_dark');
+      document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
+    }
+  </script>
+</head><body><header><h1 class="hide_on_mobile"><a href="/">ECMAScript+ 面试宝典</a></h1><nav><ul><li class="show_on_mobile flex_center"><a class="czs-menu-l" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a></li><li class="show_on_mobile"><h1 class="mobile_title"><a href="/">ECMAScript+ 面试宝典</a></h1></li><li class="hide_on_mobile"><a href="/articles/">文章</a></li><li class="hide_on_mobile"><a href="http://qiniu.ningo.cloud/hylerrix/reward-alipay.png" target="_blank">打赏一下!!</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix/deno-tutorial" target="_blank">Deno 钻研之术</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">持续添加中...</a></li><li class="hide_on_mobile"><a href="https://github.com/ningowood" target="_blank">凝果屋</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">关于</a></li><li style="flex-grow:1"></li><li class="flex_center"><a class="czs-github-logo" href="https://github.com/hylerrix/es-interview" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul></nav></header><aside class="sidebar"><ol><li class=""><a href="/articles/index.html" class="nav_link">ESMAScript+ 面试宝典</a></li><li class=""><a href="/articles/es-timeline.html" class="nav_link">前端大事记</a></li><li class=""><a href="/articles/es-direction.html" class="nav_link">ES 方向 &amp; 谁在招人？</a></li><li class=""><a href="/articles/00-Profession/index.html" class="nav_link">职业 &amp; 成长</a></li><li class="unfold"><a href="/articles/01-Programming/index.html" class="nav_link">编程基础<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/01-Programming/00-language.html" class="nav_link">编程语言</a></li><li class=""><a href="/articles/01-Programming/01-operating-system.html" class="nav_link">操作系统</a></li><li class=""><a href="/articles/01-Programming/02-algorithms.html" class="nav_link">算法</a></li><li class=""><a href="/articles/01-Programming/03-design-patterns.html" class="nav_link">设计模式</a></li><li class=""><a href="/articles/01-Programming/04-software-engineering.html" class="nav_link">软件工程</a></li><li class=""><a href="/articles/01-Programming/05-software-test.html" class="nav_link">测试</a></li><li class=""><a href="/articles/01-Programming/06-version-control.html" class="nav_link">版本控制</a></li><li class=""><a href="/articles/01-Programming/07-computer-principles.html" class="nav_link">计算机组成原理</a></li><li class=""><a href="/articles/01-Programming/08-compilation-principle.html" class="nav_link">编译原理</a></li></ol></li><li class="unfold"><a href="/articles/02-ECMAScript+/index.html" class="nav_link">ECMAScript+<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/02-ECMAScript+/00-ecmascript.html" class="nav_link">ECMAScript</a></li><li class=""><a href="/articles/02-ECMAScript+/01-javascript.html" class="nav_link">JavaScript 基础知识</a></li><li class=""><a href="/articles/02-ECMAScript+/02-typescript.html" class="nav_link">TypeScript</a></li><li class=""><a href="/articles/02-ECMAScript+/03-javascript-parctice.html" class="nav_link">JavaScript 常见实战题</a></li></ol></li><li class="unfold"><a href="/articles/03-HTML+CSS/index.html" class="nav_link">HTML + CSS<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/03-HTML+CSS/00-html.html" class="nav_link">HTML</a></li><li class=""><a href="/articles/03-HTML+CSS/01-css-design.html" class="nav_link">CSS</a></li><li class=""><a href="/articles/03-HTML+CSS/02-html-css-practice.html" class="nav_link">HTML + CSS 实战</a></li><li class=""><a href="/articles/03-HTML+CSS/03-dom-bom.html" class="nav_link active">DOM + BOM</a></li></ol></li><li class="unfold"><a href="/articles/04-Network+API/index.html" class="nav_link">网络 + 前后端协作<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/04-Network+API/00-network.html" class="nav_link">网络</a></li><li class=""><a href="/articles/04-Network+API/01-fe-be-api.html" class="nav_link">前后端协作</a></li><li class=""><a href="/articles/04-Network+API/02-network-security.html" class="nav_link">网络安全</a></li></ol></li><li class="unfold"><a href="/articles/05-V8+Runtime/index.html" class="nav_link">V8 + JavaScript 运行时<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/05-V8+Runtime/00-v8.html" class="nav_link">V8</a></li><li class=""><a href="/articles/05-V8+Runtime/01-node.html" class="nav_link">Node</a></li><li class=""><a href="/articles/05-V8+Runtime/02-deno.html" class="nav_link">Deno</a></li></ol></li><li class="unfold"><a href="/articles/06-FE+Browser/index.html" class="nav_link">前端应用开发 + 浏览器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/06-FE+Browser/00-browser.html" class="nav_link">浏览器</a></li><li class=""><a href="/articles/06-FE+Browser/01-fe-engineering.html" class="nav_link">前端工程化</a></li><li class=""><a href="/articles/06-FE+Browser/02-fe-tooltain.html" class="nav_link">前端工具链</a></li><li class=""><a href="/articles/06-FE+Browser/03-pack-tool.html" class="nav_link">前端打包工具</a></li><li class=""><a href="/articles/06-FE+Browser/04-fe-mobile.html" class="nav_link">移动端 Web 开发</a></li><li class=""><a href="/articles/06-FE+Browser/05-react.html" class="nav_link">React</a></li><li class=""><a href="/articles/06-FE+Browser/06-vue.html" class="nav_link">Vue</a></li><li class=""><a href="/articles/06-FE+Browser/07-iframe.html" class="nav_link">iframe</a></li></ol></li><li class="unfold"><a href="/articles/07-BE+Server/index.html" class="nav_link">后端应用开发 + 服务器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/07-BE+Server/00-linux-nginx-database.html" class="nav_link">Linux + Nginx + 数据库</a></li><li class=""><a href="/articles/07-BE+Server/01-node-framework.html" class="nav_link">Node 框架</a></li></ol></li><li class=""><a href="/articles/draw-in-markdown.html" class="nav_link">如何用 Markdown 绘制图片</a></li><li class=""><a href="/articles/roadmap.html" class="nav_link">变更日志</a></li></ol></aside><section class="main"><div class="main_article"><article><h1>DOM + BOM</h1>
+<h2 id="dom-%E5%92%8C-bom-%E6%98%AF%E4%BB%80%E4%B9%88">DOM 和 BOM 是什么？<a class="anchor" href="#dom-%E5%92%8C-bom-%E6%98%AF%E4%BB%80%E4%B9%88">§</a></h2>
+<ul>
+<li><strong>BOM 浏览器对象模型</strong>：根节点是 <code>window</code>。
+<ul>
+<li>navigator 对象：<code>appCodeName; appName; appVersion; cookieEnabled; platform; userAgent;</code>。</li>
+<li>screen 对象：<code>availHeight; availWidth; height; width; colorDepth;</code>。</li>
+<li>history 对象：<code>back; forward; go;</code>。</li>
+<li>location 对象：
+<ul>
+<li>属性：<code>hash; host; hostName; href; pathname; port; portocol; </code>。</li>
+<li>方法：<code>assign; reload; replace</code>。</li>
+</ul>
+</li>
+<li>document 对象：
+<ul>
+<li>集合：<code>anchors; images; links; forms;</code>。</li>
+<li>属性：<code>cookie; domain; referrer; title; URL;</code>。</li>
+<li>方法：<code>open; close; write; writeIn;</code>。</li>
+</ul>
+</li>
+<li>窗口控制：<code>moveBy; moveTo; resizeBy; resizeTo; scrollBy; scrollTo;</code>。</li>
+<li>焦点控制：<code>focus; blur;</code>。</li>
+<li>打开关闭窗口：<code>open; close;</code>。</li>
+<li>定时器：<code>setTimeout; clearTimeout; setInterval; clearInterval</code>。</li>
+<li>对话框：<code>alert; confirm; prompt;</code>。</li>
+<li>属性：
+<ul>
+<li>状态栏：<code>defaultStatus; status</code>。</li>
+<li>窗口位置 - IE：<code>screenLeft; screenTop;</code>。</li>
+<li>窗口位置 - !IE：<code>screenX; screenY; pageXOffset; pageYOffset;</code>。</li>
+<li>窗口位置 - FF：<code>innerHeight; innerWidth; outerHeight; outerWidth;</code>。</li>
+<li>其它：<code>opener; close; name; self;</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>DOM 文档对象模型</strong>：W3C 标准。根节点是 <code>window.document</code>。
+<ul>
+<li>获取节点：
+<ul>
+<li>document：<code>getElementById; getElementsByName; getElementsByTagName; </code>。</li>
+<li>节点指针：<code>firstChild; lastChild; childNodes; previousSibling; nextSibling; parentNode;</code>。</li>
+</ul>
+</li>
+<li>节点操作：
+<ul>
+<li>创建节点：<code>createElement; createAttribute; createTextNode;</code>。</li>
+<li>插入节点：<code>appendChild; insertBefore;</code>。</li>
+<li>替换节点：<code>replaceChild;</code>。</li>
+<li>复制节点：<code>cloneNode;</code>。</li>
+<li>删除节点：<code>removeChild;</code>。</li>
+</ul>
+</li>
+<li>属性操作（获取/设置/删除）：<code>getAttribute; setAttribute; removeAttribute</code>。</li>
+<li>文本操作：<code>insertData; appendData, deleteData, replaceData; spliceData; substring;</code>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-dom-lever">如何理解 DOM Lever？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-dom-lever">§</a></h2>
+<ul>
+<li>DOM 一级</li>
+<li>DOM 二级</li>
+<li>DOM 三级</li>
+</ul>
+<h2 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E4%BA%8B%E4%BB%B6%E6%B5%81%E5%86%92%E6%B3%A1%E6%8D%95%E8%8E%B7%E5%A7%94%E6%89%98">如何理解事件流/冒泡/捕获/委托？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E4%BA%8B%E4%BB%B6%E6%B5%81%E5%86%92%E6%B3%A1%E6%8D%95%E8%8E%B7%E5%A7%94%E6%89%98">§</a></h2>
+<p><strong>事件流</strong>：</p>
+<ul>
+<li>
+<p>事件流被分为三个阶段(15)捕获过程、(56)目标过程、(6~10)冒泡过程。</p>
+</li>
+<li>
+<p>IE 提出的是冒泡流，而网景提出的是捕获流，后来在 W3C 组织的统一之下，JS 支持了冒泡流和捕获流，但是目前低版本的 IE 浏览器还是只能支持冒泡流(IE6, IE7, IE8 均只支持冒泡流)，所以为了能够兼容更多的浏览器，建议大家使用冒泡流。</p>
+</li>
+<li>
+<p>从事件传播的过程能够看出来，当点击鼠标后，会先发生事件的捕获</p>
+<ul>
+<li>捕获阶段：首先 window 会获捕获到事件，之后 document、documentElement、body 会捕获到，再之后就是在 body 中 DOM 元素一层一层的捕获到事件，有 wrapDiv、innerP。
+*目标阶段：真正点击的元素textSpan的事件发生了两次，因为在上面的JavaScript代码中，textSapn既在捕获阶段绑定了事件，又在冒泡阶段绑定了事件，所以发生了两次。但是这里有一点是需要注意，在目标阶段并不一定先发生在捕获阶段所绑定的事件，而是先绑定的事件发生，一会会解释一下。</li>
+<li>冒泡阶段：会和捕获阶段相反的步骤将事件一步一步的冒泡到window</li>
+</ul>
+</li>
+</ul>
+<p><strong>JavaScript 事件冒泡</strong>：</p>
+<ul>
+<li>当触发子元素时，事件会沿着 DOM 向上冒泡。事件冒泡是实现事件委托的原理。阻止冒泡示例：</li>
+</ul>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">var</span> btn <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">'btn'</span><span class="token punctuation">)</span>
+btn<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// event.preventDefault() // 阻止默认行为</span>
+    event<span class="token punctuation">.</span><span class="token method function property-access">stopPropagation</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 阻止冒泡</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">'clicked'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p><strong>JavaScript 事件委托(事件代理)</strong>：</p>
+<p>事件委托是将事件监听器添加到父元素，而不是每个子元素单独设置事件监听器。当触发子元素时，事件会冒泡到父元素，监听器就会触发，这种技术的好处如下。</p>
+<ul>
+<li>优点：
+<ul>
+<li>内存占用减少，因为只需要一个父元素的事件处理程序，而不必为每个后代都添加事件处理程序。</li>
+<li>无需从已删除的元素中解绑处理程序，也不许将处理程序绑定到新元素上。</li>
+</ul>
+</li>
+<li>局限性：
+<ul>
+<li>focus、blur 之类的事件本身没有事件冒泡机制，所以无法委托</li>
+<li>mousemove、mouseout 这样的事件，虽然有事件冒泡，但是只能不断通过位置去计算定位，对性能消耗高，不适 合事件委托</li>
+</ul>
+</li>
+</ul>
+<p>示例目标：为 div 下的每个 a 标签绑定点击事件：</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>div1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>a1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>a1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>a2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>a3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>a4<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">></span></span>点击增加一个 a 标签<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>示例原理：监听 div 下的事件触发点是不是 a 标签：</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">bindEvent</span><span class="token punctuation">(</span><span class="token parameter">elem<span class="token punctuation">,</span> type<span class="token punctuation">,</span> selector<span class="token punctuation">,</span> fn</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 这样可以实现重载</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>fn <span class="token operator">==</span> <span class="token keyword null nil">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        fn <span class="token operator">=</span> selector
+        selector <span class="token operator">=</span> <span class="token keyword null nil">null</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 绑定事件</span>
+    elem<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> target
+        <span class="token comment">// 有 selector 说明需要做事件代理</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>selector<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 获取触发事件的元素，即 e.target</span>
+            target <span class="token operator">=</span> e<span class="token punctuation">.</span><span class="token property-access">target</span>
+            <span class="token comment">// 看是否符合 selector 这个条件</span>
+            <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>target<span class="token punctuation">.</span><span class="token method function property-access">matches</span><span class="token punctuation">(</span>selector<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                fn<span class="token punctuation">.</span><span class="token method function property-access">call</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> e<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 无 selector，说明不需要事件代理</span>
+            <span class="token function">fn</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>使用示例：</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// 使用代理 bindEvent 多一个 'a' 参数</span>
+<span class="token keyword">var</span> div <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span>
+<span class="token function">bindEvent</span><span class="token punctuation">(</span>div1<span class="token punctuation">,</span> <span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">innerHTML</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 不使用代理</span>
+<span class="token keyword">var</span> a1 <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">'a1'</span><span class="token punctuation">)</span>
+<span class="token function">bindEvent</span><span class="token punctuation">(</span>div<span class="token punctuation">,</span> <span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>a1<span class="token punctuation">.</span><span class="token property-access">innerHTML</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="dom-%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B">DOM 的事件模型？<a class="anchor" href="#dom-%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B">§</a></h2>
+<ul>
+<li>DOM之事件模型分脚本模型、内联模型(同类一个，后者覆盖)、动态绑定(同类多个)</li>
+<li>事件就是文档或浏览器窗口中发生的一些特定的交互瞬间，而事件流(又叫事件传播)描述的是从⻚面中接收事件的顺序。</li>
+<li>事件流：
+<ul>
+<li>事件就是文档或浏览器窗口中发生的一些特定的交互瞬间，而事件流(又叫事件传播)描述的是从⻚面中接收事件的顺 序。</li>
+<li>事件冒泡：即事件开始时由最具体的元素(文档中嵌套层次最深的那个节点)接收，然后逐级向上传播到 较为不具体的节点。</li>
+<li>事件捕获：事件捕获的思想是不太具体的节点应该更早接收到事件，而最具体的节点应该最后接收到事件。事件捕获的用意在于在。事件到达预定目标之前就捕获它。</li>
+</ul>
+</li>
+<li>事件流又称为事件传播，DOM2级事件规定的事件流包括三个阶段：
+<ul>
+<li>事件捕获阶段(capture phase)</li>
+<li>处于目标阶段 (target phase)</li>
+<li>事件冒泡阶段(bubbling phase)</li>
+</ul>
+</li>
+</ul>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!--行内绑定:脚本模型--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>javascrpt:alert(<span class="token punctuation">'</span>Hello<span class="token punctuation">'</span>)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Hello1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span> <span class="token comment">&lt;!--内联模型--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>showHello()<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Hello2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span> <span class="token comment">&lt;!--动态绑定--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>btn3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Hello3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+<span class="token comment">/*DOM0:同一个元素，同类事件只能添加一个，如果添加多个，
+* 后面添加的会覆盖之前添加的*/</span>
+<span class="token keyword">function</span> <span class="token function">shoeHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> btn3 <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">"btn3"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+btn3<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/*DOM2:可以给同一个元素添加多个同类事件*/</span> btn3<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"hello1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+btn3<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"hello2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>btn3<span class="token punctuation">.</span><span class="token property-access">attachEvent</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token comment">/*IE*/</span>
+btn3<span class="token punctuation">.</span><span class="token method function property-access">attachEvent</span><span class="token punctuation">(</span><span class="token string">"onclick"</span><span class="token punctuation">,</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"IE Hello1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+<span class="token comment">/*W3C*/</span>
+btn3<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"W3C Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<h2 id="dom-%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6">DOM 的实现机制？<a class="anchor" href="#dom-%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6">§</a></h2>
+<ul>
+<li>当初始的 HTML 文档完全加载和解析完成之后，DOMContentLoaded 事件被触发，而无需等待样式表、图像和子框架的完成加载。</li>
+<li>window 的 load 事件仅在 DOM 和所有相关资源全部完成加载后才会触发。</li>
+</ul>
+<h2 id="dom-%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B">DOM 树的构建过程？<a class="anchor" href="#dom-%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B">§</a></h2>
+<ul>
+<li>转码: 浏览器将接收到的二进制数据按照指定编码格式转化为HTML字符串</li>
+<li>生成Tokens: 之后开始parser，浏览器会将HTML字符串解析成Tokens</li>
+<li>构建Nodes: 对Node添加特定的属性，通过指针确定 Node 的父、子、兄弟关系和所属 treeScope</li>
+<li>生成DOM Tree: 通过node包含的指针确定的关系构建出DOM Tree</li>
+</ul></article><div class="prev_next"><a class="prev button" href="/articles/03-HTML+CSS/02-html-css-practice.html">«  <!-- -->HTML + CSS 实战</a><a class="next button" href="/articles/04-Network+API/index.html">网络 + 前后端协作<!-- -->  »</a></div></div><div class="main_toc_container nav_link_container"><div class="main_toc"><aside><nav class="toc"><ol><li><a href="#dom-%E5%92%8C-bom-%E6%98%AF%E4%BB%80%E4%B9%88">DOM 和 BOM 是什么？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-dom-lever">如何理解 DOM Lever？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E4%BA%8B%E4%BB%B6%E6%B5%81%E5%86%92%E6%B3%A1%E6%8D%95%E8%8E%B7%E5%A7%94%E6%89%98">如何理解事件流/冒泡/捕获/委托？</a></li><li><a href="#dom-%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B">DOM 的事件模型？</a></li><li><a href="#dom-%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6">DOM 的实现机制？</a></li><li><a href="#dom-%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B">DOM 树的构建过程？</a></li></ol></nav></aside></div></div></section><footer>Powered by<!-- --> <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><div class="tools flex_center hide_on_mobile"><a class="czs-pen button" href="https://github.com/hylerrix/es-interview/edit/master/articles/03-HTML+CSS/03-dom-bom.md" target="_blank" style="background-image:url(&quot;/assets/czs-pen.svg&quot;)"></a><a class="czs-angle-up-l button" href="#" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></a></div><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>

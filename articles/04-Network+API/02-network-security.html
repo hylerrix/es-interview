@@ -1,0 +1,259 @@
+<!doctype html><html class="" data-reactroot=""><head><script async="" src="https://www.google-analytics.com/analytics.js"></script><script>
+            window.GoogleAnalyticsObject="ga";(window.ga=window.ga||function(){(window.ga.q=window.ga.q||[]).push(arguments);}),(window.ga.l=1*new Date());
+
+            ga('create', 'UA-169223577-1', 'auto');
+            ga('send', 'pageview');</script><link rel="icon" type="image/png" href="/favicon.png"/>
+<meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="收集汇总梳理全网资源，涵盖 JS/TS 前后端的全方位面试题库（含提示性解析），助力找个好工作！"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/>
+<title data-react-helmet="true">网络安全 · ECMAScript+ 面试宝典</title>
+<link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/><link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/>
+<script data-react-helmet="true" >
+    const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (shouldSetIsDark) {
+      document.documentElement.classList.add('is_dark');
+      document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
+    }
+  </script>
+</head><body><header><h1 class="hide_on_mobile"><a href="/">ECMAScript+ 面试宝典</a></h1><nav><ul><li class="show_on_mobile flex_center"><a class="czs-menu-l" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a></li><li class="show_on_mobile"><h1 class="mobile_title"><a href="/">ECMAScript+ 面试宝典</a></h1></li><li class="hide_on_mobile"><a href="/articles/">文章</a></li><li class="hide_on_mobile"><a href="http://qiniu.ningo.cloud/hylerrix/reward-alipay.png" target="_blank">打赏一下!!</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix/deno-tutorial" target="_blank">Deno 钻研之术</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">持续添加中...</a></li><li class="hide_on_mobile"><a href="https://github.com/ningowood" target="_blank">凝果屋</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">关于</a></li><li style="flex-grow:1"></li><li class="flex_center"><a class="czs-github-logo" href="https://github.com/hylerrix/es-interview" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul></nav></header><aside class="sidebar"><ol><li class=""><a href="/articles/index.html" class="nav_link">ESMAScript+ 面试宝典</a></li><li class=""><a href="/articles/es-timeline.html" class="nav_link">前端大事记</a></li><li class=""><a href="/articles/es-direction.html" class="nav_link">ES 方向 &amp; 谁在招人？</a></li><li class=""><a href="/articles/00-Profession/index.html" class="nav_link">职业 &amp; 成长</a></li><li class="unfold"><a href="/articles/01-Programming/index.html" class="nav_link">编程基础<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/01-Programming/00-language.html" class="nav_link">编程语言</a></li><li class=""><a href="/articles/01-Programming/01-operating-system.html" class="nav_link">操作系统</a></li><li class=""><a href="/articles/01-Programming/02-algorithms.html" class="nav_link">算法</a></li><li class=""><a href="/articles/01-Programming/03-design-patterns.html" class="nav_link">设计模式</a></li><li class=""><a href="/articles/01-Programming/04-software-engineering.html" class="nav_link">软件工程</a></li><li class=""><a href="/articles/01-Programming/05-software-test.html" class="nav_link">测试</a></li><li class=""><a href="/articles/01-Programming/06-version-control.html" class="nav_link">版本控制</a></li><li class=""><a href="/articles/01-Programming/07-computer-principles.html" class="nav_link">计算机组成原理</a></li><li class=""><a href="/articles/01-Programming/08-compilation-principle.html" class="nav_link">编译原理</a></li></ol></li><li class="unfold"><a href="/articles/02-ECMAScript+/index.html" class="nav_link">ECMAScript+<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/02-ECMAScript+/00-ecmascript.html" class="nav_link">ECMAScript</a></li><li class=""><a href="/articles/02-ECMAScript+/01-javascript.html" class="nav_link">JavaScript 基础知识</a></li><li class=""><a href="/articles/02-ECMAScript+/02-typescript.html" class="nav_link">TypeScript</a></li><li class=""><a href="/articles/02-ECMAScript+/03-javascript-parctice.html" class="nav_link">JavaScript 常见实战题</a></li></ol></li><li class="unfold"><a href="/articles/03-HTML+CSS/index.html" class="nav_link">HTML + CSS<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/03-HTML+CSS/00-html.html" class="nav_link">HTML</a></li><li class=""><a href="/articles/03-HTML+CSS/01-css-design.html" class="nav_link">CSS</a></li><li class=""><a href="/articles/03-HTML+CSS/02-html-css-practice.html" class="nav_link">HTML + CSS 实战</a></li><li class=""><a href="/articles/03-HTML+CSS/03-dom-bom.html" class="nav_link">DOM + BOM</a></li></ol></li><li class="unfold"><a href="/articles/04-Network+API/index.html" class="nav_link">网络 + 前后端协作<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/04-Network+API/00-network.html" class="nav_link">网络</a></li><li class=""><a href="/articles/04-Network+API/01-fe-be-api.html" class="nav_link">前后端协作</a></li><li class=""><a href="/articles/04-Network+API/02-network-security.html" class="nav_link active">网络安全</a></li></ol></li><li class="unfold"><a href="/articles/05-V8+Runtime/index.html" class="nav_link">V8 + JavaScript 运行时<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/05-V8+Runtime/00-v8.html" class="nav_link">V8</a></li><li class=""><a href="/articles/05-V8+Runtime/01-node.html" class="nav_link">Node</a></li><li class=""><a href="/articles/05-V8+Runtime/02-deno.html" class="nav_link">Deno</a></li></ol></li><li class="unfold"><a href="/articles/06-FE+Browser/index.html" class="nav_link">前端应用开发 + 浏览器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/06-FE+Browser/00-browser.html" class="nav_link">浏览器</a></li><li class=""><a href="/articles/06-FE+Browser/01-fe-engineering.html" class="nav_link">前端工程化</a></li><li class=""><a href="/articles/06-FE+Browser/02-fe-tooltain.html" class="nav_link">前端工具链</a></li><li class=""><a href="/articles/06-FE+Browser/03-pack-tool.html" class="nav_link">前端打包工具</a></li><li class=""><a href="/articles/06-FE+Browser/04-fe-mobile.html" class="nav_link">移动端 Web 开发</a></li><li class=""><a href="/articles/06-FE+Browser/05-react.html" class="nav_link">React</a></li><li class=""><a href="/articles/06-FE+Browser/06-vue.html" class="nav_link">Vue</a></li><li class=""><a href="/articles/06-FE+Browser/07-iframe.html" class="nav_link">iframe</a></li></ol></li><li class="unfold"><a href="/articles/07-BE+Server/index.html" class="nav_link">后端应用开发 + 服务器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/07-BE+Server/00-linux-nginx-database.html" class="nav_link">Linux + Nginx + 数据库</a></li><li class=""><a href="/articles/07-BE+Server/01-node-framework.html" class="nav_link">Node 框架</a></li></ol></li><li class=""><a href="/articles/draw-in-markdown.html" class="nav_link">如何用 Markdown 绘制图片</a></li><li class=""><a href="/articles/roadmap.html" class="nav_link">变更日志</a></li></ol></aside><section class="main"><div class="main_article"><article><h1>网络安全</h1>
+<h2 id="%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8F%AF%E8%83%BD%E5%BC%95%E8%B5%B7%E5%89%8D%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E5%85%A8%E7%9A%84%E9%97%AE%E9%A2%98">有哪些可能引起前端/浏览器安全的问题？<a class="anchor" href="#%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8F%AF%E8%83%BD%E5%BC%95%E8%B5%B7%E5%89%8D%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E5%85%A8%E7%9A%84%E9%97%AE%E9%A2%98">§</a></h2>
+<ul>
+<li>跨站脚本 (Cross-Site Scripting, XSS)：一种代码注入方式, 为了与 CSS 区分所以被称作 XSS. 早期常⻅于网络论坛, 起因是网站没有对用户的输入进行严格的限制, 使得攻击者可以将脚本上传到帖子让其他人浏览到有恶意脚本的⻚ 面, 其注入方式很简单包括但不限于 JavaScript / VBScript / CSS / Flash 等</li>
+<li>iframe的滥用：iframe中的内容是由第三方来提供的，默认情况下他们不受我们的控制，他们可以在iframe中运行 JavaScirpt脚本、Flash插件、弹出对话框等等，这可能会破坏前端用户体验</li>
+<li>跨站点请求伪造(Cross-Site Request Forgeries，CSRF)：指攻击者通过设置好的陷阱，强制对已完成认证的用 户进行非预期的个人信息或设定信息等某些状态更新，属于被动攻击</li>
+<li>恶意第三方库：无论是后端服务器应用还是前端应用开发，绝大多数时候我们都是在借助开发框架和各种类库进行 快速开发,一旦第三方库被植入恶意代码很容易引起安全问题,比如event-stream的恶意代码事件,2018年11月21日， 名为 FallingSnow的用户在知名JavaScript应用库event-stream在github Issuse中发布了针对植入的恶意代码的疑 问，表示event-stream中存在用于窃取用户数字钱包的恶意代码</li>
+</ul>
+<h2 id="xss-%E5%88%86%E4%B8%BA%E5%87%A0%E7%B1%BB">XSS 分为几类？<a class="anchor" href="#xss-%E5%88%86%E4%B8%BA%E5%87%A0%E7%B1%BB">§</a></h2>
+<ul>
+<li>根据攻击的来源，XSS 攻击可分为存储型、反射型和 DOM 型三种。
+<ul>
+<li>存储区：恶意代码存放的位置。</li>
+<li>插入点：由谁取得恶意代码，并插入到网⻚上。</li>
+</ul>
+</li>
+<li>存储型 XSS
+<ul>
+<li>存储型 XSS 的攻击步骤：
+<ul>
+<li>攻击者将恶意代码提交到目标网站的数据库中。</li>
+<li>用户打开目标网站时，网站服务端将恶意代码从数据库取出，拼接在 HTML 中返回给浏览器。</li>
+<li>用户浏览器接收到响应后解析执行，混在其中的恶意代码也被执行。</li>
+<li>恶意代码窃取用户数据并发送到攻击者的网站，或者冒充用户的行为，调用目标网站接口执行攻击者指定的操作。</li>
+</ul>
+</li>
+<li>这种攻击常⻅于带有用户保存数据的网站功能，如论坛发帖、商品评论、用户私信等。</li>
+</ul>
+</li>
+<li>反射型 XSS
+<ul>
+<li>反射型 XSS 的攻击步骤：
+<ul>
+<li>攻击者构造出特殊的 URL，其中包含恶意代码。</li>
+<li>用户打开带有恶意代码的 URL 时，网站服务端将恶意代码从 URL 中取出，拼接在 HTML 中返回给浏览器。</li>
+<li>用户浏览器接收到响应后解析执行，混在其中的恶意代码也被执行。</li>
+<li>恶意代码窃取用户数据并发送到攻击者的网站，或者冒充用户的行为，调用目标网站接口执行攻击者指定的操作。</li>
+</ul>
+</li>
+<li>反射型 XSS 跟存储型 XSS 的区别是：存储型 XSS 的恶意代码存在数据库里，反射型 XSS 的恶意代码存在 URL 里。</li>
+<li>反射型 XSS 漏洞常⻅于通过 URL 传递参数的功能，如网站搜索、跳转等。</li>
+<li>由于需要用户主动打开恶意的 URL 才能生效，攻击者往往会结合多种手段诱导用户点击。</li>
+<li>POST 的内容也可以触发反射型 XSS，只不过其触发条件比较苛刻(需要构造表单提交⻚面，并引导用户点击)，所 以非常少⻅。</li>
+</ul>
+</li>
+<li>DOM 型 XSS
+<ul>
+<li>DOM 型 XSS 的攻击步骤：
+<ul>
+<li>攻击者构造出特殊的 URL，其中包含恶意代码。</li>
+<li>用户打开带有恶意代码的 URL。</li>
+<li>用户浏览器接收到响应后解析执行，前端 JavaScript 取出 URL 中的恶意代码并执行。</li>
+<li>恶意代码窃取用户数据并发送到攻击者的网站，或者冒充用户的行为，调用目标网站接口执行攻击者指定的操作。</li>
+</ul>
+</li>
+<li>DOM 型 XSS 跟前两种 XSS 的区别：DOM 型 XSS 攻击中，取出和执行恶意代码由浏览器端完成，属于前端 JavaScript 自身的安全漏洞，而其他两种 XSS 都属于服务端的安全漏洞。</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E5%A6%82%E4%BD%95%E9%A2%84%E9%98%B2-xss">如何预防 XSS？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E9%A2%84%E9%98%B2-xss">§</a></h2>
+<ul>
+<li>XSS 的攻击有两大要素：
+<ul>
+<li>攻击者提交恶意代码</li>
+<li>浏览器执行恶意代码</li>
+</ul>
+</li>
+<li>输入过滤：前后端均进行输入验证，但要注意乱码问题，转义过程中局限性很强。</li>
+<li>预防存储型和反射型 XSS 攻击：
+<ul>
+<li>存储型和反射型 XSS 都是在服务端取出恶意代码后，插入到响应 HTML 里的，攻击者刻意编写的“数据”被内嵌到“代码”中，被浏览器执行。</li>
+<li>预防的两种方式：
+<ul>
+<li>改成纯前端渲染，把代码和数据分开。</li>
+<li>对 HTML 进行充分的转义</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>纯前端渲染：
+<ul>
+<li>过程：
+<ul>
+<li>浏览器先加载一个静态 HTML，此 HTML 中不包括任何跟业务相关的数据。</li>
+<li>然后浏览器执行 HTML 中的 JavaScript。</li>
+<li>JavaScript 通过 Ajax 加载业务数据，调用 DOM API 更新到页面上。</li>
+</ul>
+</li>
+<li>纯前端渲染会明确进行 DOM 操作，很难让浏览器执行预期外的代码。</li>
+<li>还需要注意避免 DOM 型 XSS 漏洞。</li>
+<li>对于性能要求较高，有 SEO 需求的页面，仍需要拼接 HTML。</li>
+</ul>
+</li>
+<li>转移 HTML：
+<ul>
+<li>当拼接 HTML 片段很必要时，需要采用合适的转义库，对 HTML 模板各处插入点进行充分的转义。</li>
+<li>HTML 的编码是较为复杂的，要对转义过程进行充分的考量。</li>
+</ul>
+</li>
+<li>预防 DOM 型 XSS 攻击：
+<ul>
+<li>在使用 <code>.innerHTML</code>、<code>.outerHTML</code>、<code>document.write()</code> 时要特别小心，不要把不可信的数据插入到 HTML 页面上，应尽量使用 <code>.textContent</code>、<code>.setAttribute</code> 等。</li>
+<li>如果使用 React/Vue 技术栈，并且不使用 <code>dangerouslySetInnerHTML/v-html</code> 功能，就在前端 render 阶段避免 <code>innerHTML</code>、<code>outerHTML</code> 的 XSS 隐患。</li>
+<li>DOM 中的内联事件监听器，如 <code>location</code>、<code>onclick</code>、<code>onerror</code>、<code>onload</code>、<code>onmouseover</code> 等，<code>&lt;a&gt;</code> 标签的 <code>&lt;href&gt;</code> 属性，JavaScript 中的 <code>eval()</code>、<code>setTimeout()</code>、<code>setInterval()</code> 等，都能把字符串作为代码运行。如果不可信的数据拼接到字符串中传递给这些 API，很容易产生安全隐患，请务必避免。</li>
+</ul>
+</li>
+<li>Content Security Policy
+<ul>
+<li>严格的 CSP 在 XSS 的防范重可以起到如下作用：
+<ul>
+<li>禁止加载外域代码，防止复杂的攻击逻辑。</li>
+<li>禁止外域提交，网站被攻击后，用户的数据不会泄露到外域。</li>
+<li>禁止内联脚本执行（规则较严格，目前发现 Github 使用）。</li>
+<li>禁止未授权的脚本执行（新特性，Google Map 移动端使用）</li>
+<li>合理使用上报功能可以及时发现 XSS，利于尽快修复问题。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>输入内容长度控制：对于不受信任的输入，都应该限定一个合理的长度。虽然无法完全防止 XSS 发生，但可以增加 XSS 攻击的难度。</li>
+<li>HTTP-only Cookie：禁止 JavaScript 读取某些敏感 Cookie，攻击者完成 XSS 注入后也无法窃取此 Cookie。</li>
+<li>验证码：防止脚本冒充用户提交危险操作。</li>
+</ul>
+<h2 id="csrf-%E5%8F%8A%E5%85%B6%E6%94%BB%E5%87%BB%E7%B1%BB%E5%9E%8B">CSRF 及其攻击类型？<a class="anchor" href="#csrf-%E5%8F%8A%E5%85%B6%E6%94%BB%E5%87%BB%E7%B1%BB%E5%9E%8B">§</a></h2>
+<ul>
+<li>CSRF，跨站点请求伪造：攻击者诱导受害者进入第三方网站，在第三方网站中，向被攻击网 站发送跨站请求。利用受害者在被攻击网站已经获取的注册凭证，绕过后台的用户验证，达到冒充用户对被攻击的网站 执行某项操作的目的。</li>
+<li>一个典型的CSRF攻击有着如下的流程：
+<ul>
+<li>受害者登录 <a href="http://a.com">a.com</a> ，并保留了登录凭证(Cookie) 攻击者引诱受害者访问了 <a href="http://b.com">b.com</a></li>
+<li><a href="http://b.com">b.com</a> 向 <a href="http://a.com">a.com</a> 发送了一个请求: <a href="http://a.com/act=xx">a.com/act=xx</a> 浏览器会默认携带a.com的Cookie <a href="http://a.com">a.com</a></li>
+<li>接收到请求后，对请求进行验证，并确认是受害者的凭证，误以为是受害者自己发送的请求</li>
+<li>a.com以受害者的名义执行了act=xx 攻击完成，攻击者在受害者不知情的情况下，冒充受害者，让a.com执行了自己定义的操作</li>
+</ul>
+</li>
+<li>CSRF 的攻击类型：
+<ul>
+<li>GET 类型的 CSRF：悄悄调用一次 GET 请求（如请求某个图片带上参数）</li>
+<li>POST 类型的 CSRF：悄悄调用一次 POST 请求（如隐藏表单）</li>
+<li>链接类型的 CSRF：需要用户主动点击链接才会触发。</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E5%A6%82%E4%BD%95%E9%A2%84%E9%98%B2-csrf">如何预防 CSRF？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E9%A2%84%E9%98%B2-csrf">§</a></h2>
+<ul>
+<li>CSRF 通常从第三方网站发起，被攻击的网站无法防止攻击的发生，只能通过增强自己网站针对 CSRF 的防护能力来提升安全性。</li>
+<li>CSRF 的特点 1 - CSRF 通常发生在第三方域名。
+<ul>
+<li>防范：阻止不明外域的访问：
+<ul>
+<li>同源策略：直接禁止外域（不受信任的域名）对我们发起请求：
+<ul>
+<li>使用Origin Header确定来源域名：在部分与CSRF有关的请求中，请求的Header中会携带Origin字段,如果Origin存 在，那么直接使用Origin中的字段确认来源域名就可以。</li>
+<li>使用Referer Header确定来源域名：根据HTTP协议，在HTTP头中有一个字段叫Referer，记录了该HTTP请求的来 源地址。</li>
+</ul>
+</li>
+<li>Samesite Cookie</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CSRF 的特点 2 - CSRF 攻击者不能获取到 Cookie 等信息，只是使用。
+<ul>
+<li>防范：
+<ul>
+<li>CSRF Token：
+<ul>
+<li>可以要求所有的 用户请求都携带一个CSRF攻击者无法获取到的Token。服务器通过校验请求是否携带正确的Token，来把正常的请求 和攻击的请求区分开，也可以防范CSRF的攻击。</li>
+<li>CSRF Token的防护策略分为三个步骤：
+<ul>
+<li>将CSRF Token输出到⻚面中</li>
+<li>⻚面提交的请求携带这个Token</li>
+<li>服务器验证Token是否正确</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>双重 Cookie 验证：
+<ul>
+<li>要求 Ajax 和表单请求携带一个 Cookie 中的值</li>
+<li>流程：
+<ul>
+<li>在用户访问网站⻚面时，向请求域名注入一个Cookie，内容为随机字符串(例如 <code>csrfcookie=123456</code>)。</li>
+<li>在前端向后端发起请求时，取出Cookie，并添加到URL的参数中</li>
+<li>后端接口验证Cookie中的字段与URL参数中的字段是否一致，不一致则拒绝。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E4%BB%80%E4%B9%88%E6%98%AF-samesite-cookie-%E5%B1%9E%E6%80%A7">什么是 Samesite Cookie 属性？<a class="anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-samesite-cookie-%E5%B1%9E%E6%80%A7">§</a></h2>
+<ul>
+<li>Google起草了一份草案来改进HTTP协议，那就是为Set-Cookie响应头新增Samesite属性，它用来标明这个 Cookie是个“同站 Cookie”，同站Cookie只能作为第一方Cookie，不能作为第三方Cookie，Samesite 有两个属性值:
+<ul>
+<li>Samesite=Strict: 这种称为严格模式，表明这个 Cookie 在任何情况下都不可能作为第三方 Cookie</li>
+<li>Samesite=Lax: 这种称为宽松模式，比 Strict 放宽了点限制,假如这个请求是这种请求且同时是个GET请求，则这个 Cookie可以作为第三方Cookie</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E7%BD%91%E7%BB%9C%E5%8A%AB%E6%8C%81">如何理解网络劫持？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E7%BD%91%E7%BB%9C%E5%8A%AB%E6%8C%81">§</a></h2>
+<ul>
+<li>分为两类：
+<ul>
+<li>DNS 劫持（强制跳转）
+<ul>
+<li>DNS 强制解析：通过修改运营商的本地 DNS 记录，来引导用户流量到缓存服务器</li>
+<li>302 跳转的方式：通过监控网络出口的流量，分析判断哪些内容可以进行劫持处理，再对劫持的内存发起 302 跳转的回复，引导用户获取内容。</li>
+</ul>
+</li>
+<li>HTTP 劫持（注入广告）：
+<ul>
+<li>由于 HTTP 明文传输，运营商可能会修改 HTTP 响应内容。如注入广告</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>应对网络劫持：
+<ul>
+<li>DNS劫持由于涉嫌违法,已经被监管起来,现在很少会有DNS劫持,而http劫持依然非常盛行。</li>
+<li>最有效的办法就是全站HTTPS,将HTTP加密,这使得运营商无法获取明文,就无法劫持你的响应内容。</li>
+</ul>
+</li>
+</ul>
+<h2 id="https-%E4%B8%80%E5%AE%9A%E6%98%AF%E5%AE%89%E5%85%A8%E7%9A%84%E5%90%97">HTTPS 一定是安全的吗？<a class="anchor" href="#https-%E4%B8%80%E5%AE%9A%E6%98%AF%E5%AE%89%E5%85%A8%E7%9A%84%E5%90%97">§</a></h2>
+<ul>
+<li>非全站 HTTPS 并不安全</li>
+</ul>
+<h2 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB">如何理解中间人攻击？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB">§</a></h2>
+<ul>
+<li>中间人 (Man-in-the-middle attack, MITM) 是指攻击者与通讯的两端分别创建独立的联系, 并交换其所收到的数据, 使通 讯的两端认为他们正在通过一个私密的连接与对方直接对话, 但事实上整个会话都被攻击者完全控制. 在中间人攻击中, 攻击者可以拦截通讯双方的通话并插入新的内容。</li>
+<li>一般的过程如下：
+<ul>
+<li>客户端发送请求到服务端，请求被中间人截获</li>
+<li>服务器向客户端发送公钥</li>
+<li>中间人截获公钥，保留在自己手上。然后自己生成一个【伪造的】公钥，发给客户端</li>
+<li>客户端收到伪造的公钥后，生成加密hash值发给服务器</li>
+<li>中间人获得加密hash值，用自己的私钥解密获得真秘钥,同时生成假的加密hash值，发给服务器</li>
+<li>服务器用私钥解密获得假密钥,然后加密数据传输给客户端</li>
+</ul>
+</li>
+</ul></article><div class="prev_next"><a class="prev button" href="/articles/04-Network+API/01-fe-be-api.html">«  <!-- -->前后端协作</a><a class="next button" href="/articles/05-V8+Runtime/index.html">V8 + JavaScript 运行时<!-- -->  »</a></div></div><div class="main_toc_container nav_link_container"><div class="main_toc"><aside><nav class="toc"><ol><li><a href="#%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8F%AF%E8%83%BD%E5%BC%95%E8%B5%B7%E5%89%8D%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E5%85%A8%E7%9A%84%E9%97%AE%E9%A2%98">有哪些可能引起前端/浏览器安全的问题？</a></li><li><a href="#xss-%E5%88%86%E4%B8%BA%E5%87%A0%E7%B1%BB">XSS 分为几类？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E9%A2%84%E9%98%B2-xss">如何预防 XSS？</a></li><li><a href="#csrf-%E5%8F%8A%E5%85%B6%E6%94%BB%E5%87%BB%E7%B1%BB%E5%9E%8B">CSRF 及其攻击类型？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E9%A2%84%E9%98%B2-csrf">如何预防 CSRF？</a></li><li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-samesite-cookie-%E5%B1%9E%E6%80%A7">什么是 Samesite Cookie 属性？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E7%BD%91%E7%BB%9C%E5%8A%AB%E6%8C%81">如何理解网络劫持？</a></li><li><a href="#https-%E4%B8%80%E5%AE%9A%E6%98%AF%E5%AE%89%E5%85%A8%E7%9A%84%E5%90%97">HTTPS 一定是安全的吗？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB">如何理解中间人攻击？</a></li></ol></nav></aside></div></div></section><footer>Powered by<!-- --> <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><div class="tools flex_center hide_on_mobile"><a class="czs-pen button" href="https://github.com/hylerrix/es-interview/edit/master/articles/04-Network+API/02-network-security.md" target="_blank" style="background-image:url(&quot;/assets/czs-pen.svg&quot;)"></a><a class="czs-angle-up-l button" href="#" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></a></div><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>

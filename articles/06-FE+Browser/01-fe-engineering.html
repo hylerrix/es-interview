@@ -1,0 +1,318 @@
+<!doctype html><html class="" data-reactroot=""><head><script async="" src="https://www.google-analytics.com/analytics.js"></script><script>
+            window.GoogleAnalyticsObject="ga";(window.ga=window.ga||function(){(window.ga.q=window.ga.q||[]).push(arguments);}),(window.ga.l=1*new Date());
+
+            ga('create', 'UA-169223577-1', 'auto');
+            ga('send', 'pageview');</script><link rel="icon" type="image/png" href="/favicon.png"/>
+<meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="收集汇总梳理全网资源，涵盖 JS/TS 前后端的全方位面试题库（含提示性解析），助力找个好工作！"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/>
+<title data-react-helmet="true">前端工程化 · ECMAScript+ 面试宝典</title>
+<link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/><link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/>
+<script data-react-helmet="true" >
+    const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (shouldSetIsDark) {
+      document.documentElement.classList.add('is_dark');
+      document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
+    }
+  </script>
+</head><body><header><h1 class="hide_on_mobile"><a href="/">ECMAScript+ 面试宝典</a></h1><nav><ul><li class="show_on_mobile flex_center"><a class="czs-menu-l" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a></li><li class="show_on_mobile"><h1 class="mobile_title"><a href="/">ECMAScript+ 面试宝典</a></h1></li><li class="hide_on_mobile"><a href="/articles/">文章</a></li><li class="hide_on_mobile"><a href="http://qiniu.ningo.cloud/hylerrix/reward-alipay.png" target="_blank">打赏一下!!</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix/deno-tutorial" target="_blank">Deno 钻研之术</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">持续添加中...</a></li><li class="hide_on_mobile"><a href="https://github.com/ningowood" target="_blank">凝果屋</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">关于</a></li><li style="flex-grow:1"></li><li class="flex_center"><a class="czs-github-logo" href="https://github.com/hylerrix/es-interview" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul></nav></header><aside class="sidebar"><ol><li class=""><a href="/articles/index.html" class="nav_link">ESMAScript+ 面试宝典</a></li><li class=""><a href="/articles/es-timeline.html" class="nav_link">前端大事记</a></li><li class=""><a href="/articles/es-direction.html" class="nav_link">ES 方向 &amp; 谁在招人？</a></li><li class=""><a href="/articles/00-Profession/index.html" class="nav_link">职业 &amp; 成长</a></li><li class="unfold"><a href="/articles/01-Programming/index.html" class="nav_link">编程基础<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/01-Programming/00-language.html" class="nav_link">编程语言</a></li><li class=""><a href="/articles/01-Programming/01-operating-system.html" class="nav_link">操作系统</a></li><li class=""><a href="/articles/01-Programming/02-algorithms.html" class="nav_link">算法</a></li><li class=""><a href="/articles/01-Programming/03-design-patterns.html" class="nav_link">设计模式</a></li><li class=""><a href="/articles/01-Programming/04-software-engineering.html" class="nav_link">软件工程</a></li><li class=""><a href="/articles/01-Programming/05-software-test.html" class="nav_link">测试</a></li><li class=""><a href="/articles/01-Programming/06-version-control.html" class="nav_link">版本控制</a></li><li class=""><a href="/articles/01-Programming/07-computer-principles.html" class="nav_link">计算机组成原理</a></li><li class=""><a href="/articles/01-Programming/08-compilation-principle.html" class="nav_link">编译原理</a></li></ol></li><li class="unfold"><a href="/articles/02-ECMAScript+/index.html" class="nav_link">ECMAScript+<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/02-ECMAScript+/00-ecmascript.html" class="nav_link">ECMAScript</a></li><li class=""><a href="/articles/02-ECMAScript+/01-javascript.html" class="nav_link">JavaScript 基础知识</a></li><li class=""><a href="/articles/02-ECMAScript+/02-typescript.html" class="nav_link">TypeScript</a></li><li class=""><a href="/articles/02-ECMAScript+/03-javascript-parctice.html" class="nav_link">JavaScript 常见实战题</a></li></ol></li><li class="unfold"><a href="/articles/03-HTML+CSS/index.html" class="nav_link">HTML + CSS<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/03-HTML+CSS/00-html.html" class="nav_link">HTML</a></li><li class=""><a href="/articles/03-HTML+CSS/01-css-design.html" class="nav_link">CSS</a></li><li class=""><a href="/articles/03-HTML+CSS/02-html-css-practice.html" class="nav_link">HTML + CSS 实战</a></li><li class=""><a href="/articles/03-HTML+CSS/03-dom-bom.html" class="nav_link">DOM + BOM</a></li></ol></li><li class="unfold"><a href="/articles/04-Network+API/index.html" class="nav_link">网络 + 前后端协作<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/04-Network+API/00-network.html" class="nav_link">网络</a></li><li class=""><a href="/articles/04-Network+API/01-fe-be-api.html" class="nav_link">前后端协作</a></li><li class=""><a href="/articles/04-Network+API/02-network-security.html" class="nav_link">网络安全</a></li></ol></li><li class="unfold"><a href="/articles/05-V8+Runtime/index.html" class="nav_link">V8 + JavaScript 运行时<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/05-V8+Runtime/00-v8.html" class="nav_link">V8</a></li><li class=""><a href="/articles/05-V8+Runtime/01-node.html" class="nav_link">Node</a></li><li class=""><a href="/articles/05-V8+Runtime/02-deno.html" class="nav_link">Deno</a></li></ol></li><li class="unfold"><a href="/articles/06-FE+Browser/index.html" class="nav_link">前端应用开发 + 浏览器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/06-FE+Browser/00-browser.html" class="nav_link">浏览器</a></li><li class=""><a href="/articles/06-FE+Browser/01-fe-engineering.html" class="nav_link active">前端工程化</a></li><li class=""><a href="/articles/06-FE+Browser/02-fe-tooltain.html" class="nav_link">前端工具链</a></li><li class=""><a href="/articles/06-FE+Browser/03-pack-tool.html" class="nav_link">前端打包工具</a></li><li class=""><a href="/articles/06-FE+Browser/04-fe-mobile.html" class="nav_link">移动端 Web 开发</a></li><li class=""><a href="/articles/06-FE+Browser/05-react.html" class="nav_link">React</a></li><li class=""><a href="/articles/06-FE+Browser/06-vue.html" class="nav_link">Vue</a></li><li class=""><a href="/articles/06-FE+Browser/07-iframe.html" class="nav_link">iframe</a></li></ol></li><li class="unfold"><a href="/articles/07-BE+Server/index.html" class="nav_link">后端应用开发 + 服务器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/07-BE+Server/00-linux-nginx-database.html" class="nav_link">Linux + Nginx + 数据库</a></li><li class=""><a href="/articles/07-BE+Server/01-node-framework.html" class="nav_link">Node 框架</a></li></ol></li><li class=""><a href="/articles/draw-in-markdown.html" class="nav_link">如何用 Markdown 绘制图片</a></li><li class=""><a href="/articles/roadmap.html" class="nav_link">变更日志</a></li></ol></aside><section class="main"><div class="main_article"><article><h1>前端工程化</h1>
+<h2 id="%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84">前端架构<a class="anchor" href="#%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84">§</a></h2>
+<ul>
+<li>SSR、SPA、双向绑定、懒加载、MVVM：Proxy 与 object.defineProperty</li>
+</ul>
+<h2 id="mv-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%A1%86%E6%9E%B6">MV* 设计模式与框架？<a class="anchor" href="#mv-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%A1%86%E6%9E%B6">§</a></h2>
+<ul>
+<li>MV* 框架
+<ul>
+<li>MVC：模型、视图、控制器</li>
+<li>MVP：模型、视图、表示器</li>
+<li>MVVM：模型、视图、视图模型</li>
+</ul>
+</li>
+<li>为什么要使用 MV* 框架：关注点分离、简化日常任务、提升生产率、标准化、更高效的合作、独立代码更容易更改、更干净的单元测试。</li>
+<li>MVVM：它萌芽于2005年微软推出的基于 Windows 的用户界面框架 WPF ，前端最早的 MVVM 框架 knockout 在2010年发布。
+<ul>
+<li>分层：
+<ul>
+<li>Model 层：对应数据层的域模型，它主要做域模型的同步。通过 Ajax/fetch 等 API 完成客户端和服务端业务 Model 的同 步。在层间关系里，它主要用于抽象出 ViewModel 中视图的 Model。</li>
+<li>View 层：为视图模板存在，在 MVVM 里，整个 View 是一个动态模板。除了定义结构、布局外，它展示的是 ViewModel 层的数据和状态。View 层不负责处理状态，View 层做的是 数据绑定的声明、 指令的声明、 事件绑定的声 明。</li>
+<li>ViewModel 层：把 View 需要的层数据暴露，并对 View 层的 数据绑定声明、 指令声明、 事件绑定声明负责，也就是处理 View 层的具体业务逻辑。ViewModel 底层会做好绑定属性的监听。当 ViewModel 中数据变化，View 层会得到更 新;而当 View 中声明了数据的双向绑定(通常是表单元素)，框架也会监听 View 层(表单)值的变化。一旦值变 化，View 层绑定的 ViewModel 中的数据也会得到自动更新。</li>
+</ul>
+</li>
+<li>优点：
+<ul>
+<li>分离视图(View)和模型(Model),降低代码耦合，提高视图或者逻辑的重用性: 比如视图(View)可以独立于 Model变化和修改，一个ViewModel可以绑定不同的&quot;View&quot;上，当View变化的时候Model不可以不变，当Model变化 的时候View也可以不变。你可以把一些视图逻辑放在一个ViewModel里面，让很多view重用这段视图逻辑</li>
+<li>提高可测试性: ViewModel的存在可以帮助开发者更好地编写测试代码</li>
+<li>自动更新dom: 利用双向绑定,数据更新后视图自动更新,让开发者从繁琐的手动dom中解放</li>
+</ul>
+</li>
+<li>缺点：
+<ul>
+<li>Bug很难被调试: 因为使用双向绑定的模式，当你看到界面异常了，有可能是你View的代码有Bug，也可能是Model 的代码有问题。数据绑定使得一个位置的Bug被快速传递到别的位置，要定位原始出问题的地方就变得不那么容易 了。另外，数据绑定的声明是指令式地写在View的模版当中的，这些内容是没办法去打断点debug的</li>
+<li>一个大的模块中model也会很大，虽然使用方便了也很容易保证了数据的一致性，当时⻓期持有，不释放内存就造 成了花费更多的内存</li>
+<li>对于大型的图形应用程序，视图状态较多，ViewModel的构建和维护的成本都会比较高</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E4%B8%8D%E5%90%8C%E5%9C%BA%E6%99%AF%E4%B8%8B%E5%89%8D%E7%AB%AF%E9%9B%86%E6%88%90%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E6%9C%89%E4%BB%80%E4%B9%88%E6%80%9D%E8%B7%AF">不同场景下前端集成的解决方案有什么思路？<a class="anchor" href="#%E4%B8%8D%E5%90%8C%E5%9C%BA%E6%99%AF%E4%B8%8B%E5%89%8D%E7%AB%AF%E9%9B%86%E6%88%90%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E6%9C%89%E4%BB%80%E4%B9%88%E6%80%9D%E8%B7%AF">§</a></h2>
+<h2 id="%E5%89%8D%E7%AB%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8D%B3%E6%97%B6%E9%80%9A%E4%BF%A1">前端如何实现即时通信？<a class="anchor" href="#%E5%89%8D%E7%AB%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8D%B3%E6%97%B6%E9%80%9A%E4%BF%A1">§</a></h2>
+<ul>
+<li>短轮询：每隔一段时间客户端就发出一个请求，去获取服务器最新的数据，一定程度上模拟实现了及时通信。
+<ul>
+<li>优点：兼容性强，实现非常简单。</li>
+<li>缺点：延迟性高，非常消耗请求资源，影响性能。</li>
+</ul>
+</li>
+<li>Comet：
+<ul>
+<li>基于 AJAX 的长轮询：
+<ul>
+<li>优点：兼容性好，资源浪费较小。</li>
+<li>缺点：服务器 hold 连接会消耗资源，返回数据顺序无保证，难于管理维护。</li>
+</ul>
+</li>
+<li>基于 iframe 及 htmlfile 的流方式（streaming）</li>
+</ul>
+</li>
+<li>SSE（Server-Sent Event），服务端推送事件：
+<ul>
+<li>优点：基于 HTTP 而生，因此不需要太多改造就能使用，使用方便</li>
+<li>缺点：基于文本传输效率没有 WebSocket 高，不是严格的双向通信，客户端向服务端发送请求无法复用之前的连接，需要重新发出独立的请求。</li>
+</ul>
+</li>
+<li>WebSocket：全新、独立的协议，基于 TCP 协议，与 HTTP 协议兼容，却不会融入 HTTP 协议，仅仅作为 HTML5 的一部分，其作用就是在服务器和客户端之间建立实时的双向通信。
+<ul>
+<li>优点：真正意义上的双向通信，性能好、延迟低</li>
+<li>缺点：独立于 HTTP 协议，因此需要额外的项目改造，使用复杂度高，必须引入成熟的库，无法兼容低版本浏览器。</li>
+</ul>
+</li>
+<li>Web Worker：为 JavaScript 创造多线程环境，允许主线程创建 Worker 线程，将一些任务分配给后者运。</li>
+<li>Service Worker：本质上充当Web应用程序与浏览器之间的代理服务器，也可以在网络可用时作为浏览器和网络间的代理，创建有效的离线体验。</li>
+</ul>
+<h2 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%89%8D%E7%AB%AF%E5%BE%AE%E6%9C%8D%E5%8A%A1">如何理解前端微服务？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%89%8D%E7%AB%AF%E5%BE%AE%E6%9C%8D%E5%8A%A1">§</a></h2>
+<h2 id="%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">前端性能优化<a class="anchor" href="#%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">§</a></h2>
+<ul>
+<li>图片懒加载？</li>
+<li>给页面注入50万个li怎么做提升性能？</li>
+<li>Base64</li>
+</ul>
+<blockquote>
+<p>网页很卡的原因</p>
+</blockquote>
+<ul>
+<li>带宽不足、硬件配置低、CPU 或者是内存被占满。</li>
+<li>HTTP 请求次数太多。</li>
+<li>接收数据时间过长，如下载资源过大。</li>
+<li>JS 脚本过大，阻塞了页面的加载。</li>
+<li>网页资源过多、接受数据时间长、加载某个资源慢。</li>
+<li>DNS 解析速度。</li>
+</ul>
+<blockquote>
+<p>性能优化的方法</p>
+</blockquote>
+<ul>
+<li>资源压缩、文件合并</li>
+<li>非核心代码异步加载（script 标签的 defer 和 async 属性）</li>
+<li>资源预加载：预解析DNS</li>
+</ul>
+<h2 id="%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2">前端部署<a class="anchor" href="#%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2">§</a></h2>
+<ul>
+<li>如何保证打包文件替换过程中，用户体验不断</li>
+<li>前端的多集群分布式部署？</li>
+</ul>
+<h2 id="%E5%89%8D%E7%AB%AF--%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E5%85%A8%E6%80%A7">前端 + 浏览器安全性<a class="anchor" href="#%E5%89%8D%E7%AB%AF--%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E5%85%A8%E6%80%A7">§</a></h2>
+<ul>
+<li>Xss csrf</li>
+</ul>
+<h2 id="%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91">移动端开发<a class="anchor" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91">§</a></h2>
+<ul>
+<li>React Native、Flutter</li>
+</ul>
+<h2 id="spa-%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9">SPA 单页面应用有什么特点？<a class="anchor" href="#spa-%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9">§</a></h2>
+<p>“网络应用”相较于“网站”，具有高度的交互性和动态性，允许用户执行操作并接收他们的操作响应。</p>
+<ul>
+<li>在过去，浏览器从服务器接收 HTML 并渲染。当用户导航到其它 URL 时，需要整页刷新，服务器会为新页面发送新的 HTML，这被称为服务器端渲染。</li>
+<li>在现代的 SPA 中，客户端渲染取而代之，浏览器从服务器加载初始页面，以及整个应用程序所需的脚本(框架、库、应用代码)和样式表。当用户导航到其他页面时，不会触发页面刷新。该页面的 URL 通过 HTML5 History API 进行更新。浏览器通过 AJAX 请求向服务器检索新页面所需的数据(通常 JSON 格式)</li>
+<li>SPA 带来了：
+<ul>
+<li>应用的表现层从服务器端脱离出来，在浏览器管理</li>
+<li>提升应用设计、代码维护和开发时间等方面的效率</li>
+<li>服务端的事务处理仅限于数据</li>
+<li>解决整页刷新、请求重复、重负荷事物处理等问题</li>
+<li>嵌入脚本</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>好处：</p>
+<ul>
+<li>用户感知响应快，用户切换页面时，不再看到因页面刷新而导致的白屏。</li>
+<li>对服务器进行的 HTTP 请求减少，因为对于每个页面加载，不必再次下载相同的资源。</li>
+<li>客户端和服务器之间的关注点分离。可以为不同平台(手机、聊天机器人、智能手表)建立新的客户端，而无需修改服务器代码。只要 API 没有修改，可以单独修改客户端和服务器上的代码。</li>
+</ul>
+</li>
+<li>
+<p>缺点：</p>
+<ul>
+<li>由于加载了多个页面所需的框架、应用和资源，导致初始页面加载时间较长。</li>
+<li>服务器还需要进行额外的工作，需要将所有请求路由配置到单个入口点，然后由客户端接管路由。</li>
+<li>SPA 依赖于 JavaScript 来呈现内容，但并非所有搜索引擎都在抓取过程中执行 JavaScript，他们可能会在你的页面上看到空的内容。这无意中损害了应用的搜索引擎优化(SEO)。然而，当你构建应用时，大多情况下，搜索引擎优化并不是最重要的因素，因为并非所有内容都需要通过搜索引擎进行索引。为了解决这个问题，可以在服务器端渲染你的应用，或者使用诸如 Prerender 的服务来“在浏览器中呈现你的 JavaScript，保存静态 HTML，将其返回给爬虫”</li>
+</ul>
+</li>
+<li>
+<p>SPA 技术要点：</p>
+<ul>
+<li>组织项目(文件结构)</li>
+<li>创建可维护的松耦合 UI</li>
+<li>使用 JavaScript 模块</li>
+<li>执行 SPA 导航：SPA 布局 = Shell 页面 + Region 容器</li>
+<li>创建视图组成与布局</li>
+<li>模块通信：pub/sub 设计模式</li>
+<li>与服务器通信</li>
+<li>执行单元测试</li>
+<li>客户端自动化技术</li>
+</ul>
+</li>
+<li>
+<p>SPA 模型</p>
+<ul>
+<li>隐式模型：v-model、v-bind</li>
+<li>显式模型：Backbone.js</li>
+</ul>
+<ul>
+<li>模型的绑定
+<ul>
+<li>用来自由混入模板的 HTML 代码</li>
+<li>绑定类型
+<ul>
+<li>属性：ng-bind、v-bind</li>
+<li>表达式：{{ aaa }}、&lt;%= aaa %&gt;</li>
+</ul>
+</li>
+<li>定向绑定
+<ul>
+<li>单向绑定：ng-bind、v-bind</li>
+<li>单次绑定：渲染期间只发生一次</li>
+<li>双向绑定，与 UI 控件关联，采用观察者模式，需要付出开销代价：ng-model、v-model</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>SPA 模板</p>
+<ul>
+<li>模板引擎：在 MV* 中将模板和模型数据结合起来</li>
+<li>模板：HTML 片段——可额外包含多种绑定及其他指令</li>
+<li>模板渲染</li>
+<li>模板存放位置
+<ul>
+<li>内嵌模板：SPA 初始下载，type=&quot;text/template&quot;</li>
+<li>局部模板：按需下载</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>SPA 模块：模块模式、模块化编程等</li>
+</ul>
+<h2 id="spa-%E8%B7%AF%E7%94%B1%E7%9A%84%E5%8E%9F%E7%90%86">SPA 路由的原理？<a class="anchor" href="#spa-%E8%B7%AF%E7%94%B1%E7%9A%84%E5%8E%9F%E7%90%86">§</a></h2>
+<ul>
+<li>客户端路由器
+<ul>
+<li>侦测浏览器位置发生的变化，监听特定事件</li>
+<li>管理 SPA 视图、数据以及业务事物状态</li>
+<li>浏览器导航控制</li>
+</ul>
+</li>
+<li>路由术语
+<ul>
+<li>名称：路由标识</li>
+<li>动词：get、put、on、when</li>
+<li>路径：URL 部分，建立路由/路由处理程序之间的链接</li>
+<li>功能：可能执行的相关代码(控制器、回调函数)</li>
+</ul>
+</li>
+<li>路由配置
+<ul>
+<li>路由语法</li>
+<li>路由配置项：当路由找到匹配 URL 时，该如何动作</li>
+<li>路由参数：在路由路径中定义的变量</li>
+<li>缺省路由</li>
+</ul>
+</li>
+<li>客户端路由器的工作机制
+<ul>
+<li>片段标识符方式，# 为前缀，使用 location 的 onhashchange 时间</li>
+<li>HTML 历史 API 方式，兼容性差，使用片段标识符作为回退方案
+<ul>
+<li>pushState、replaceState、pospstate</li>
+<li>三个参数：状态对象、标题、URL</li>
+<li>基准链接：服务器端调整(重定向)、移除 hash</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E8%99%9A%E6%8B%9F-dom-%E7%9A%84%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88">虚拟 DOM 的原理是什么？<a class="anchor" href="#%E8%99%9A%E6%8B%9F-dom-%E7%9A%84%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88">§</a></h2>
+<p>近年来，前端的框架主要发展方向就是解放DOM操作的复杂性。虚拟的 DOM 的核心思想是：对复杂的文档 DOM 结构，提供一种方便的工具，进行最小化地 DOM 操作。</p>
+<ul>
+<li>算法实现
+<ol>
+<li>用 JS 对象模拟 DOM 树</li>
+<li>比较两棵虚拟 DOM 树的差异</li>
+<li>把差异应用到真正的 DOM 树上</li>
+</ol>
+</li>
+<li>DOM patching，DOM 修补</li>
+<li>DOM diff</li>
+</ul>
+<h2 id="%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88">前端性能优化需要注意什么？<a class="anchor" href="#%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88">§</a></h2>
+<blockquote>
+<p>火焰图？</p>
+</blockquote>
+<ul>
+<li>最大限度地减少 HTTP 请求：</li>
+<li>使用内容分发网络</li>
+<li>headers 添加一个 Expires 或Cache-Control 头</li>
+<li>用 gzip 的压缩内容</li>
+<li>将样式表在顶部</li>
+<li>JS 代码放在底部</li>
+<li>避免使用 CSS 表达式</li>
+<li>JavaScript 和 CSS 放在外部</li>
+<li>减少 DNS 查找</li>
+<li>缩小 JavaScript 和 CSS</li>
+<li>避免重定向</li>
+<li>删除重复的脚本和样式</li>
+<li>减少 DOM 元素的数量</li>
+<li>CSS 雪碧图</li>
+<li>HTTP 缓存</li>
+<li>尽量避免回流</li>
+<li>复合层、简单层与硬件加速</li>
+<li>工程化打包</li>
+<li>复合层与性能优化</li>
+</ul>
+<p>静态资源域名拆分（HTTP 2.0 不需要）</p>
+<ul>
+<li>将静态资源分组，分别放到不同的域名下(<a href="http://xn--static-hh4k.base.com">如static.base.com</a>)</li>
+<li>而 <a href="http://page.base.com">page.base.com</a>(页面所在域名)下请求时，是不会带上 <a href="http://static.base.com">static.base.com</a> 域名的 cookie 的，所以就避免了浪费</li>
+<li>在移动端，如果请求的域名数过多，会降低请求速度(因为域名整套解析流程是很耗费时间的，而且移动端一般带宽都比不上pc)，此时就需要用到一种优化方案：dns-prefetch(让浏览器空闲时提前解析dns域名，不过也请合理使用，勿滥用)</li>
+</ul>
+<h2 id="%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2%E5%88%B0-cdn-%E4%B8%8A">前端项目如何部署到 CDN 上？<a class="anchor" href="#%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2%E5%88%B0-cdn-%E4%B8%8A">§</a></h2>
+<h2 id="%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BB%88%E7%AB%AF%E7%BB%B4%E6%8A%A4%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E7%8A%B6%E6%80%81%E7%9A%84%E5%91%BD%E4%BB%A4%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B">常见的终端维护前端项目状态的命令都有哪些。<a class="anchor" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BB%88%E7%AB%AF%E7%BB%B4%E6%8A%A4%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E7%8A%B6%E6%80%81%E7%9A%84%E5%91%BD%E4%BB%A4%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B">§</a></h2>
+<ul>
+<li>查看端口占用</li>
+<li>查看进程状态</li>
+<li>查看 host、nginx 状态</li>
+</ul>
+<h2 id="%E5%89%8D%E7%AB%AF%E9%83%BD%E5%8F%AF%E4%BB%A5%E6%80%8E%E4%B9%88%E5%8E%8B%E7%BC%A9">前端都可以怎么压缩？<a class="anchor" href="#%E5%89%8D%E7%AB%AF%E9%83%BD%E5%8F%AF%E4%BB%A5%E6%80%8E%E4%B9%88%E5%8E%8B%E7%BC%A9">§</a></h2>
+<p>GZip 压缩</p>
+<ul>
+<li>是一种压缩格式，需要浏览器支持才有效(不过一般现在浏览器都支持)， 而且 GZip 压缩效率很好(高达70%左右)</li>
+<li>然后 GZip 一般是由 Apache、Tomcat 等 Web 服务器开启</li>
+<li>服务器除了 GZip 外，也还会有其它压缩格式(如 deflate，没有 gzip 高效，且不流行)</li>
+<li>一般只需要在服务器上开启了 GZip 压缩，然后之后的请求就都是基于 GZip 压缩格式的, 非常方便。</li>
+</ul></article><div class="prev_next"><a class="prev button" href="/articles/06-FE+Browser/00-browser.html">«  <!-- -->浏览器</a><a class="next button" href="/articles/06-FE+Browser/02-fe-tooltain.html">前端工具链<!-- -->  »</a></div></div><div class="main_toc_container nav_link_container"><div class="main_toc"><aside><nav class="toc"><ol><li><a href="#%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84">前端架构</a></li><li><a href="#mv-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%A1%86%E6%9E%B6">MV* 设计模式与框架？</a></li><li><a href="#%E4%B8%8D%E5%90%8C%E5%9C%BA%E6%99%AF%E4%B8%8B%E5%89%8D%E7%AB%AF%E9%9B%86%E6%88%90%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E6%9C%89%E4%BB%80%E4%B9%88%E6%80%9D%E8%B7%AF">不同场景下前端集成的解决方案有什么思路？</a></li><li><a href="#%E5%89%8D%E7%AB%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8D%B3%E6%97%B6%E9%80%9A%E4%BF%A1">前端如何实现即时通信？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%89%8D%E7%AB%AF%E5%BE%AE%E6%9C%8D%E5%8A%A1">如何理解前端微服务？</a></li><li><a href="#%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">前端性能优化</a></li><li><a href="#%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2">前端部署</a></li><li><a href="#%E5%89%8D%E7%AB%AF--%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E5%85%A8%E6%80%A7">前端 + 浏览器安全性</a></li><li><a href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91">移动端开发</a></li><li><a href="#spa-%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9">SPA 单页面应用有什么特点？</a></li><li><a href="#spa-%E8%B7%AF%E7%94%B1%E7%9A%84%E5%8E%9F%E7%90%86">SPA 路由的原理？</a></li><li><a href="#%E8%99%9A%E6%8B%9F-dom-%E7%9A%84%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88">虚拟 DOM 的原理是什么？</a></li><li><a href="#%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88">前端性能优化需要注意什么？</a></li><li><a href="#%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2%E5%88%B0-cdn-%E4%B8%8A">前端项目如何部署到 CDN 上？</a></li><li><a href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BB%88%E7%AB%AF%E7%BB%B4%E6%8A%A4%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E7%8A%B6%E6%80%81%E7%9A%84%E5%91%BD%E4%BB%A4%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B">常见的终端维护前端项目状态的命令都有哪些。</a></li><li><a href="#%E5%89%8D%E7%AB%AF%E9%83%BD%E5%8F%AF%E4%BB%A5%E6%80%8E%E4%B9%88%E5%8E%8B%E7%BC%A9">前端都可以怎么压缩？</a></li></ol></nav></aside></div></div></section><footer>Powered by<!-- --> <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><div class="tools flex_center hide_on_mobile"><a class="czs-pen button" href="https://github.com/hylerrix/es-interview/edit/master/articles/06-FE+Browser/01-fe-engineering.md" target="_blank" style="background-image:url(&quot;/assets/czs-pen.svg&quot;)"></a><a class="czs-angle-up-l button" href="#" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></a></div><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>

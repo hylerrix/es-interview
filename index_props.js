@@ -2,7 +2,6 @@ import projectConfig from '/pagic.config.js';
 import IndexPage from './index_content.js';
 var _a, _b;
 export default {
-    'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     config: { "root": "/", ...projectConfig, ...(_b = (_a = projectConfig.i18n) === null || _a === void 0 ? void 0 : _a.overrides) === null || _b === void 0 ? void 0 : _b['undefined'] },
     'pagePath': "index.tsx",
     'layoutPath': "_layout.tsx",
@@ -28,19 +27,6 @@ export default {
             github: 'https://github.com/hylerrix/es-interview',
             head: React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
             include: undefined,
-            md: {
-                anchorLevel: [
-                    2,
-                    3,
-                    4,
-                    5,
-                    6
-                ],
-                tocLevel: [
-                    2,
-                    3
-                ]
-            },
             nav: [
                 {
                     link: '/articles/',
@@ -96,6 +82,7 @@ export default {
                 '/articles/': [
                     'articles/README.md',
                     'articles/es-timeline.md',
+                    'articles/es-direction.md',
                     'articles/00-Profession/README.md',
                     {
                         children: [
@@ -104,9 +91,10 @@ export default {
                             'articles/01-Programming/02-algorithms.md',
                             'articles/01-Programming/03-design-patterns.md',
                             'articles/01-Programming/04-software-engineering.md',
-                            'articles/01-Programming/05-network-security.md',
-                            'articles/01-Programming/06-software-test.md',
-                            'articles/01-Programming/07-version-control.md'
+                            'articles/01-Programming/05-software-test.md',
+                            'articles/01-Programming/06-version-control.md',
+                            'articles/01-Programming/07-computer-principles.md',
+                            'articles/01-Programming/08-compilation-principle.md'
                         ],
                         link: 'articles/01-Programming/README.md',
                         title: '编程基础'
@@ -125,7 +113,8 @@ export default {
                         children: [
                             'articles/03-HTML+CSS/00-html.md',
                             'articles/03-HTML+CSS/01-css-design.md',
-                            'articles/03-HTML+CSS/02-html-css-practice.md'
+                            'articles/03-HTML+CSS/02-html-css-practice.md',
+                            'articles/03-HTML+CSS/03-dom-bom.md'
                         ],
                         link: 'articles/03-HTML+CSS/README.md',
                         title: 'HTML + CSS'
@@ -134,7 +123,7 @@ export default {
                         children: [
                             'articles/04-Network+API/00-network.md',
                             'articles/04-Network+API/01-fe-be-api.md',
-                            'articles/04-Network+API/02-login.md'
+                            'articles/04-Network+API/02-network-security.md'
                         ],
                         link: 'articles/04-Network+API/README.md',
                         title: '网络 + 前后端协作'
@@ -151,11 +140,13 @@ export default {
                     {
                         children: [
                             'articles/06-FE+Browser/00-browser.md',
-                            'articles/06-FE+Browser/01-fe-framework.md',
+                            'articles/06-FE+Browser/01-fe-engineering.md',
                             'articles/06-FE+Browser/02-fe-tooltain.md',
                             'articles/06-FE+Browser/03-pack-tool.md',
                             'articles/06-FE+Browser/04-fe-mobile.md',
-                            'articles/06-FE+Browser/05-react.md'
+                            'articles/06-FE+Browser/05-react.md',
+                            'articles/06-FE+Browser/06-vue.md',
+                            'articles/06-FE+Browser/07-iframe.md'
                         ],
                         link: 'articles/06-FE+Browser/README.md',
                         title: '前端应用开发 + 浏览器'
@@ -167,7 +158,9 @@ export default {
                         ],
                         link: 'articles/07-BE+Server/README.md',
                         title: '后端应用开发 + 服务器'
-                    }
+                    },
+                    'articles/draw-in-markdown.md',
+                    'articles/roadmap.md'
                 ]
             },
             srcDir: 'site',
@@ -178,10 +171,12 @@ export default {
                 editOnGithub: true
             },
             watch: false
-        }, content: null, head: React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }), layoutPath: "_layout.tsx", outputPath: "index.html", pagePath: "index.tsx", script: null, title: "", toc: null }),
+        }, content: null, head: React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }), layoutPath: "_layout.tsx", outputPath: "index.html", pagePath: "index.tsx", script: null, title: "" }),
+    'head': React.createElement(React.Fragment, null,
+        React.createElement(Ga, { id: "UA-169223577-1" }),
+        React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" })),
     'script': React.createElement(React.Fragment, null,
-        React.createElement("script", { crossOrigin: "anonymous", src: "https://unpkg.com/react@16.13.1/umd/react.production.min.js" }),
-        React.createElement("script", { crossOrigin: "anonymous", src: "https://unpkg.com/react-dom@16.13.1/umd/react-dom.production.min.js" }),
-        React.createElement("script", { src: "/index.js", type: "module" })),
-    'toc': null
+        React.createElement("script", { src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
+        React.createElement("script", { src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
+        React.createElement("script", { src: "/index.js", type: "module" }))
 };

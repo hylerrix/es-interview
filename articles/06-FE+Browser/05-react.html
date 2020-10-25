@@ -1,7 +1,11 @@
-<!doctype html><html class="" data-reactroot=""><head><link rel="icon" type="image/png" href="/favicon.png"/>
+<!doctype html><html class="" data-reactroot=""><head><script async="" src="https://www.google-analytics.com/analytics.js"></script><script>
+            window.GoogleAnalyticsObject="ga";(window.ga=window.ga||function(){(window.ga.q=window.ga.q||[]).push(arguments);}),(window.ga.l=1*new Date());
+
+            ga('create', 'UA-169223577-1', 'auto');
+            ga('send', 'pageview');</script><link rel="icon" type="image/png" href="/favicon.png"/>
 <meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="收集汇总梳理全网资源，涵盖 JS/TS 前后端的全方位面试题库（含提示性解析），助力找个好工作！"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/>
 <title data-react-helmet="true">React · ECMAScript+ 面试宝典</title>
-<link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/><link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/>
+<link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/><link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/>
 <script data-react-helmet="true" >
     const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (shouldSetIsDark) {
@@ -9,20 +13,9 @@
       document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
     }
   </script>
-</head><body><header><h1 class="hide_on_mobile"><a href="/">ECMAScript+ 面试宝典</a></h1><nav><ul><li class="show_on_mobile flex_center"><a class="czs-menu-l" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a></li><li class="show_on_mobile"><h1 class="mobile_title"><a href="/">ECMAScript+ 面试宝典</a></h1></li><li class="hide_on_mobile"><a href="/articles/">文章</a></li><li class="hide_on_mobile"><a href="http://qiniu.ningo.cloud/hylerrix/reward-alipay.png" target="_blank">打赏一下!!</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix/deno-tutorial" target="_blank">Deno 钻研之术</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">持续添加中...</a></li><li class="hide_on_mobile"><a href="https://github.com/ningowood" target="_blank">凝果屋</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">关于</a></li><li style="flex-grow:1"></li><li class="flex_center"><a class="czs-github-logo" href="https://github.com/hylerrix/es-interview" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul></nav></header><aside class="sidebar"><ol><li class=""><a href="/articles/index.html" class="nav_link">ESMAScript+ 面试宝典</a></li><li class=""><a href="/articles/es-timeline.html" class="nav_link">前端大事记</a></li><li class=""><a href="/articles/00-Profession/index.html" class="nav_link">职业 &amp; 成长</a></li><li class="unfold"><a href="/articles/01-Programming/index.html" class="nav_link">编程基础<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/01-Programming/00-language.html" class="nav_link">编程语言</a></li><li class=""><a href="/articles/01-Programming/01-operating-system.html" class="nav_link">操作系统</a></li><li class=""><a href="/articles/01-Programming/02-algorithms.html" class="nav_link">算法</a></li><li class=""><a href="/articles/01-Programming/03-design-patterns.html" class="nav_link">设计模式</a></li><li class=""><a href="/articles/01-Programming/04-software-engineering.html" class="nav_link">工程化</a></li><li class=""><a href="/articles/01-Programming/05-network-security.html" class="nav_link">安全</a></li><li class=""><a href="/articles/01-Programming/06-software-test.html" class="nav_link">测试</a></li><li class=""><a href="/articles/01-Programming/07-version-control.html" class="nav_link">版本控制</a></li></ol></li><li class="unfold"><a href="/articles/02-ECMAScript+/index.html" class="nav_link">ECMAScript+<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/02-ECMAScript+/00-ecmascript.html" class="nav_link">ECMAScript</a></li><li class=""><a href="/articles/02-ECMAScript+/01-javascript.html" class="nav_link">JavaScript 基础知识</a></li><li class=""><a href="/articles/02-ECMAScript+/02-typescript.html" class="nav_link">TypeScript</a></li><li class=""><a href="/articles/02-ECMAScript+/03-javascript-parctice.html" class="nav_link">JavaScript 常见实战题</a></li></ol></li><li class="unfold"><a href="/articles/03-HTML+CSS/index.html" class="nav_link">HTML + CSS<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/03-HTML+CSS/00-html.html" class="nav_link">HTML</a></li><li class=""><a href="/articles/03-HTML+CSS/01-css-design.html" class="nav_link">CSS</a></li><li class=""><a href="/articles/03-HTML+CSS/02-html-css-practice.html" class="nav_link">HTML + CSS 实战</a></li></ol></li><li class="unfold"><a href="/articles/04-Network+API/index.html" class="nav_link">网络 + 前后端协作<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/04-Network+API/00-network.html" class="nav_link">网络</a></li><li class=""><a href="/articles/04-Network+API/01-fe-be-api.html" class="nav_link">前后端协作</a></li><li class=""><a href="/articles/04-Network+API/02-login.html" class="nav_link">登录</a></li></ol></li><li class="unfold"><a href="/articles/05-V8+Runtime/index.html" class="nav_link">V8 + JavaScript 运行时<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/05-V8+Runtime/00-v8.html" class="nav_link">V8</a></li><li class=""><a href="/articles/05-V8+Runtime/01-node.html" class="nav_link">Node</a></li><li class=""><a href="/articles/05-V8+Runtime/02-deno.html" class="nav_link">Deno</a></li></ol></li><li class="unfold"><a href="/articles/06-FE+Browser/index.html" class="nav_link">前端应用开发 + 浏览器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/06-FE+Browser/00-browser.html" class="nav_link">浏览器</a></li><li class=""><a href="/articles/06-FE+Browser/01-fe-framework.html" class="nav_link">前端</a></li><li class=""><a href="/articles/06-FE+Browser/02-fe-tooltain.html" class="nav_link">前端工具链</a></li><li class=""><a href="/articles/06-FE+Browser/03-pack-tool.html" class="nav_link">前端打包工具</a></li><li class=""><a href="/articles/06-FE+Browser/04-fe-mobile.html" class="nav_link">移动端 Web 开发</a></li><li class=""><a href="/articles/06-FE+Browser/05-react.html" class="nav_link active">React</a></li></ol></li><li class="unfold"><a href="/articles/07-BE+Server/index.html" class="nav_link">后端应用开发 + 服务器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/07-BE+Server/00-linux-nginx-database.html" class="nav_link">Linux + Nginx + 数据库</a></li><li class=""><a href="/articles/07-BE+Server/01-node-framework.html" class="nav_link">Node 框架</a></li></ol></li></ol></aside><section class="main"><div class="main_article"><article><h1>React</h1>
-<ul>
-<li>Redux</li>
-<li>性能优化：function component + redux、immutable、pure component , shouldComponentUpdate ...</li>
-<li>这就是为什么 <code>react</code> 包那么重要而不用关心你的目标平台是什么。它的所有导出，例如 <code>React.Component</code>、<code>React.createElement</code>、<code>React.Children</code>还有<a href="https://reactjs.org/docs/hooks-intro.html">Hooks</a>，都是独立于目标平台的。不管你是运行在 React DOM、React DOM Server、或者 React Native 中，你的组件都将以相同的方式导入，使用。</li>
-</ul>
-<h2 id="%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%9D%83%E9%99%90%E7%BB%84%E4%BB%B6%E7%9A%84%E8%AE%BE%E8%AE%A1">如何进行权限组件的设计？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%9D%83%E9%99%90%E7%BB%84%E4%BB%B6%E7%9A%84%E8%AE%BE%E8%AE%A1">§</a></h2>
-<ul>
-<li>路由级</li>
-<li>模块级：<code>export default withAuth({ authorities: ['admin', 'user'], })(BasicList);</code></li>
-<li>按钮级：<code>&lt;Auth authorities={['admin', 'user']}&gt;&lt;Button&gt;auth&lt;/Button&gt;&lt;/Auth&gt;;</code></li>
-<li>接口级</li>
-</ul>
-<h2 id="react-%E7%9A%84%E5%86%85%E9%83%A8%E5%88%86%E5%B1%82">React 的内部分层？<a class="anchor" href="#react-%E7%9A%84%E5%86%85%E9%83%A8%E5%88%86%E5%B1%82">§</a></h2>
+</head><body><header><h1 class="hide_on_mobile"><a href="/">ECMAScript+ 面试宝典</a></h1><nav><ul><li class="show_on_mobile flex_center"><a class="czs-menu-l" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a></li><li class="show_on_mobile"><h1 class="mobile_title"><a href="/">ECMAScript+ 面试宝典</a></h1></li><li class="hide_on_mobile"><a href="/articles/">文章</a></li><li class="hide_on_mobile"><a href="http://qiniu.ningo.cloud/hylerrix/reward-alipay.png" target="_blank">打赏一下!!</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix/deno-tutorial" target="_blank">Deno 钻研之术</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">持续添加中...</a></li><li class="hide_on_mobile"><a href="https://github.com/ningowood" target="_blank">凝果屋</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">关于</a></li><li style="flex-grow:1"></li><li class="flex_center"><a class="czs-github-logo" href="https://github.com/hylerrix/es-interview" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul></nav></header><aside class="sidebar"><ol><li class=""><a href="/articles/index.html" class="nav_link">ESMAScript+ 面试宝典</a></li><li class=""><a href="/articles/es-timeline.html" class="nav_link">前端大事记</a></li><li class=""><a href="/articles/es-direction.html" class="nav_link">ES 方向 &amp; 谁在招人？</a></li><li class=""><a href="/articles/00-Profession/index.html" class="nav_link">职业 &amp; 成长</a></li><li class="unfold"><a href="/articles/01-Programming/index.html" class="nav_link">编程基础<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/01-Programming/00-language.html" class="nav_link">编程语言</a></li><li class=""><a href="/articles/01-Programming/01-operating-system.html" class="nav_link">操作系统</a></li><li class=""><a href="/articles/01-Programming/02-algorithms.html" class="nav_link">算法</a></li><li class=""><a href="/articles/01-Programming/03-design-patterns.html" class="nav_link">设计模式</a></li><li class=""><a href="/articles/01-Programming/04-software-engineering.html" class="nav_link">软件工程</a></li><li class=""><a href="/articles/01-Programming/05-software-test.html" class="nav_link">测试</a></li><li class=""><a href="/articles/01-Programming/06-version-control.html" class="nav_link">版本控制</a></li><li class=""><a href="/articles/01-Programming/07-computer-principles.html" class="nav_link">计算机组成原理</a></li><li class=""><a href="/articles/01-Programming/08-compilation-principle.html" class="nav_link">编译原理</a></li></ol></li><li class="unfold"><a href="/articles/02-ECMAScript+/index.html" class="nav_link">ECMAScript+<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/02-ECMAScript+/00-ecmascript.html" class="nav_link">ECMAScript</a></li><li class=""><a href="/articles/02-ECMAScript+/01-javascript.html" class="nav_link">JavaScript 基础知识</a></li><li class=""><a href="/articles/02-ECMAScript+/02-typescript.html" class="nav_link">TypeScript</a></li><li class=""><a href="/articles/02-ECMAScript+/03-javascript-parctice.html" class="nav_link">JavaScript 常见实战题</a></li></ol></li><li class="unfold"><a href="/articles/03-HTML+CSS/index.html" class="nav_link">HTML + CSS<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/03-HTML+CSS/00-html.html" class="nav_link">HTML</a></li><li class=""><a href="/articles/03-HTML+CSS/01-css-design.html" class="nav_link">CSS</a></li><li class=""><a href="/articles/03-HTML+CSS/02-html-css-practice.html" class="nav_link">HTML + CSS 实战</a></li><li class=""><a href="/articles/03-HTML+CSS/03-dom-bom.html" class="nav_link">DOM + BOM</a></li></ol></li><li class="unfold"><a href="/articles/04-Network+API/index.html" class="nav_link">网络 + 前后端协作<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/04-Network+API/00-network.html" class="nav_link">网络</a></li><li class=""><a href="/articles/04-Network+API/01-fe-be-api.html" class="nav_link">前后端协作</a></li><li class=""><a href="/articles/04-Network+API/02-network-security.html" class="nav_link">网络安全</a></li></ol></li><li class="unfold"><a href="/articles/05-V8+Runtime/index.html" class="nav_link">V8 + JavaScript 运行时<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/05-V8+Runtime/00-v8.html" class="nav_link">V8</a></li><li class=""><a href="/articles/05-V8+Runtime/01-node.html" class="nav_link">Node</a></li><li class=""><a href="/articles/05-V8+Runtime/02-deno.html" class="nav_link">Deno</a></li></ol></li><li class="unfold"><a href="/articles/06-FE+Browser/index.html" class="nav_link">前端应用开发 + 浏览器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/06-FE+Browser/00-browser.html" class="nav_link">浏览器</a></li><li class=""><a href="/articles/06-FE+Browser/01-fe-engineering.html" class="nav_link">前端工程化</a></li><li class=""><a href="/articles/06-FE+Browser/02-fe-tooltain.html" class="nav_link">前端工具链</a></li><li class=""><a href="/articles/06-FE+Browser/03-pack-tool.html" class="nav_link">前端打包工具</a></li><li class=""><a href="/articles/06-FE+Browser/04-fe-mobile.html" class="nav_link">移动端 Web 开发</a></li><li class=""><a href="/articles/06-FE+Browser/05-react.html" class="nav_link active">React</a></li><li class=""><a href="/articles/06-FE+Browser/06-vue.html" class="nav_link">Vue</a></li><li class=""><a href="/articles/06-FE+Browser/07-iframe.html" class="nav_link">iframe</a></li></ol></li><li class="unfold"><a href="/articles/07-BE+Server/index.html" class="nav_link">后端应用开发 + 服务器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/07-BE+Server/00-linux-nginx-database.html" class="nav_link">Linux + Nginx + 数据库</a></li><li class=""><a href="/articles/07-BE+Server/01-node-framework.html" class="nav_link">Node 框架</a></li></ol></li><li class=""><a href="/articles/draw-in-markdown.html" class="nav_link">如何用 Markdown 绘制图片</a></li><li class=""><a href="/articles/roadmap.html" class="nav_link">变更日志</a></li></ol></aside><section class="main"><div class="main_article"><article><h1>React</h1>
+<h2 id="%E5%9F%BA%E7%A1%80">基础<a class="anchor" href="#%E5%9F%BA%E7%A1%80">§</a></h2>
+<h3 id="react-%E7%9A%84%E5%86%85%E9%83%A8%E5%88%86%E5%B1%82">React 的内部分层？<a class="anchor" href="#react-%E7%9A%84%E5%86%85%E9%83%A8%E5%88%86%E5%B1%82">§</a></h3>
 <ul>
 <li>Virtual DOM</li>
 <li>Recociler：
@@ -39,7 +32,7 @@
 </li>
 <li>Render：React DOM、React Native</li>
 </ul>
-<h2 id="react-1517-%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7">React 15~17 的新特性？<a class="anchor" href="#react-1517-%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7">§</a></h2>
+<h3 id="react-1517-%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">React 15~17 的新特性（生命周期）？<a class="anchor" href="#react-1517-%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">§</a></h3>
 <ul>
 <li>
 <p>React v15：</p>
@@ -119,7 +112,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-hooks">如何理解 React Hooks？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-hooks">§</a></h2>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-hooks">如何理解 React Hooks？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-hooks">§</a></h3>
 <ul>
 <li>生命周期：
 <ul>
@@ -159,7 +152,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="react-%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B%E5%86%85%E7%BD%AE-hooks">React 都有哪些内置 Hooks？<a class="anchor" href="#react-%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B%E5%86%85%E7%BD%AE-hooks">§</a></h2>
+<h3 id="react-%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B%E5%86%85%E7%BD%AE-hooks">React 都有哪些内置 Hooks？<a class="anchor" href="#react-%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B%E5%86%85%E7%BD%AE-hooks">§</a></h3>
 <ul>
 <li>
 <p>基础 Hook：<code>useState; useEffect; useContext</code>。</p>
@@ -252,53 +245,11 @@
 </ul>
 </li>
 </ul>
-<h2 id="%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA-useloading-hook">自定义一个 useLoading Hook<a class="anchor" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA-useloading-hook">§</a></h2>
-<pre class="language-autoit"><code class="language-autoit"><span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span>
- <span class="token operator">*</span> 功能同 createThrowable<span class="token punctuation">,</span> 优化了一个点<span class="token punctuation">:</span> 在函数内处理了 loading状态
- <span class="token operator">*</span> 用法同 React<span class="token punctuation">.</span>useXxx 会返回一个数组<span class="token punctuation">,</span> 第一个参数是 函数<span class="token punctuation">,</span> 第二个是 loading状态
- <span class="token operator">*</span> <span class="token variable">@param</span> fn
- <span class="token operator">*</span> <span class="token variable">@param</span> errorTitle
- <span class="token operator">*</span> <span class="token variable">@return</span> <span class="token punctuation">[</span>处理异常函数<span class="token punctuation">,</span> loading状态<span class="token punctuation">]</span>
- <span class="token operator">*</span><span class="token operator">/</span>
-export <span class="token keyword">const</span> useLoadingThrowable <span class="token operator">=</span>
-  function <span class="token punctuation">(</span>fn<span class="token punctuation">:</span> <span class="token punctuation">(</span>args<span class="token punctuation">:</span> any<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Promise<span class="token operator">&lt;</span>any<span class="token operator">></span><span class="token punctuation">,</span> errorTitle <span class="token operator">=</span> <span class="token string">'操作失败'</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>args<span class="token operator">?</span><span class="token punctuation">:</span> any<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> any<span class="token punctuation">,</span> boolean<span class="token punctuation">]</span> {
-    <span class="token keyword">const</span> <span class="token punctuation">[</span>loading<span class="token punctuation">,</span> setLoading<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
-    return <span class="token punctuation">[</span>
-      function <span class="token punctuation">(</span>args<span class="token punctuation">:</span> any<span class="token punctuation">)</span> {
-        <span class="token function">setLoading</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
-        <span class="token function">fn</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span>
-          <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> {
-            <span class="token operator">/</span><span class="token operator">/</span> 忽略 axios 取消造成的请求错误
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>e <span class="token operator">&amp;</span><span class="token operator">&amp;</span> e<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span><span class="token operator">&amp;</span> e<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'Cancel'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> {
-              return
-            }
-            <span class="token function">notificationErrorLog</span><span class="token punctuation">(</span>errorTitle<span class="token punctuation">,</span> e<span class="token punctuation">)</span>
-          }<span class="token punctuation">)</span>
-          <span class="token punctuation">.</span><span class="token function">finally</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">setLoading</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-      }<span class="token punctuation">,</span>
-      loading<span class="token punctuation">,</span>
-    <span class="token punctuation">]</span>
-  }
-
-<span class="token keyword">const</span> <span class="token punctuation">[</span>getPartsAvlList<span class="token punctuation">,</span> loadingPartsAvl<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useLoadingThrowable</span><span class="token punctuation">(</span>async <span class="token punctuation">(</span>pagination<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> {
-        <span class="token keyword">const</span> {data<span class="token punctuation">:</span> {aaData<span class="token punctuation">,</span> success<span class="token punctuation">,</span> msg<span class="token punctuation">,</span> recordsFiltered}} <span class="token operator">=</span> await <span class="token function">getAvlList</span><span class="token punctuation">(</span>{}<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>success<span class="token punctuation">)</span> {
-            <span class="token function">setAvlList</span><span class="token punctuation">(</span>aaData<span class="token punctuation">)</span>
-            <span class="token function">setPagination</span><span class="token punctuation">(</span>{current<span class="token punctuation">:</span> pagination<span class="token punctuation">.</span>current<span class="token punctuation">,</span> pageSize<span class="token punctuation">:</span> pagination<span class="token punctuation">.</span>pageSize<span class="token punctuation">,</span> total<span class="token punctuation">:</span> recordsFiltered<span class="token punctuation">,</span>showSizeChanger<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-                showQuickJumper<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>showTotal<span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span>{return <span class="token function">showTotal</span><span class="token punctuation">(</span>recordsFiltered<span class="token punctuation">)</span>}<span class="token punctuation">,</span>pageSizeOptions<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'10'</span><span class="token punctuation">,</span> <span class="token string">'50'</span><span class="token punctuation">,</span> <span class="token string">'100'</span><span class="token punctuation">,</span> <span class="token string">'200'</span><span class="token punctuation">]</span>}<span class="token punctuation">)</span>
-        } <span class="token keyword">else</span>
-            throw msg
-    }<span class="token punctuation">,</span> <span class="token string">"获取AVL列表信息失败"</span><span class="token punctuation">)</span>
-
-React<span class="token punctuation">.</span><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span>{
-        <span class="token function">getPartsAvlList</span><span class="token punctuation">(</span>pagination<span class="token punctuation">)</span>
-}<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>}
-</code></pre>
-<h2 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-jsx">如何理解 JSX？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-jsx">§</a></h2>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-jsx">如何理解 JSX？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-jsx">§</a></h3>
 <ul>
 <li>React v16 时，JSX 编译的本质是对 React.createElement 的调用</li>
 </ul>
-<h2 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E8%99%9A%E6%8B%9F-dom">如何理解虚拟 DOM？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E8%99%9A%E6%8B%9F-dom">§</a></h2>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E8%99%9A%E6%8B%9F-dom">如何理解虚拟 DOM？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E8%99%9A%E6%8B%9F-dom">§</a></h3>
 <ul>
 <li>前端性能优化的一个秘诀就是尽可能少地直接操作 DOM（DOM 慢，容易引发回重绘）、多人协作会隐藏更多 BUG</li>
 <li>实现 Virtual DOM 的关键步骤
@@ -314,7 +265,7 @@ React<span class="token punctuation">.</span><span class="token function">useEff
 </ul>
 </li>
 </ul>
-<h2 id="setstate-%E8%83%8C%E5%90%8E%E7%9A%84%E6%B7%B1%E5%85%A5%E5%8E%9F%E7%90%86">setState 背后的深入原理？<a class="anchor" href="#setstate-%E8%83%8C%E5%90%8E%E7%9A%84%E6%B7%B1%E5%85%A5%E5%8E%9F%E7%90%86">§</a></h2>
+<h3 id="setstate-%E8%83%8C%E5%90%8E%E7%9A%84%E6%B7%B1%E5%85%A5%E5%8E%9F%E7%90%86">setState 背后的深入原理？<a class="anchor" href="#setstate-%E8%83%8C%E5%90%8E%E7%9A%84%E6%B7%B1%E5%85%A5%E5%8E%9F%E7%90%86">§</a></h3>
 <ul>
 <li>React v15 同步机制：当我们调用 <code>setState</code> 更新页面的时候，React 会遍历应用的所有节点，计算出差异，然后再更新 UI。整个过程是一气呵成，不能被打断的。如果页面元素很多，整个过程占用的时机就可能超过 16 毫秒，就容易出现掉帧的现象。
 <ul>
@@ -325,8 +276,15 @@ React<span class="token punctuation">.</span><span class="token function">useEff
 <li>setState可能会引发不必要的渲染(renders)。</li>
 <li>setState无法完全掌控应用中所有组件的状态。</li>
 <li>setState本质是通过一个队列机制实现state更新的。 执行setState时，会将需要更新的state合并后放入状态队列，而不会立刻更新state，队列机制可以批量更新state。 如果不通过setState而直接修改this.state，那么这个state不会放入状态队列中，下次调用setState时对状态队列进行合并时，会忽略之前直接被修改的state，这样我们就无法合并了，而且实际也没有把你想要的state更新上去。</li>
+<li>setState 有时同步有时异步：
+<ul>
+<li>只在合成事件和钩子函数中是**“<strong>异步</strong>”<strong>的，在原生事件和 <strong>setTimeout</strong> 中都是同步的。 的</strong>“<strong>异步</strong>”**并不是说内部由异步代码实现，其实本身执行的过程和代码都是同步的，只是合成事件和钩子</li>
+<li>函数的调用顺序在更新之前，导致在合成事件和钩子函数中没法立⻢拿到更新后的值，形成了所谓的**“<strong>异步</strong>”**，当然 可以通过第二个参数 <strong>setState(partialState, callback)</strong> 中的 <strong>callback</strong> 拿到更新后的结果。</li>
+<li><strong>setState</strong> 的批量更新优化也是建立在**“<strong>异步</strong>”<strong>(合成事件、钩子函数)之上的，在原生事件和</strong>setTimeout** 中不会 批量更新，在**“<strong>异步</strong>”**中如果对同一个值进行多次 <strong>setState</strong> ， <strong>setState</strong> 的批量更新策略会对其进行覆盖，取最后一 次的执行，如果是同时 <strong>setState</strong> 多个不同的值，在更新时会对其进行合并批量更新。</li>
 </ul>
-<h2 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-fiber">如何理解 React Fiber？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-fiber">§</a></h2>
+</li>
+</ul>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-fiber">如何理解 React Fiber？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-fiber">§</a></h3>
 <pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">export</span> type <span class="token maybe-class-name">Fiber</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token comment">// Fiber 类型信息</span>
   type<span class="token operator">:</span> any<span class="token punctuation">,</span>
@@ -394,11 +352,11 @@ React<span class="token punctuation">.</span><span class="token function">useEff
 </li>
 </ul>
 <p>函数调用栈 Fiber   基本单位 函数 Virtual DOM 节点  输入 函数参数 Props  本地状态 本地变量 State  输出 函数返回值 React Element  下级 嵌套函数调用 子节点(child)  上级引用 返回地址 父节点(return)</p>
-<h2 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-concurren-mode">如何理解 React Concurren Mode？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-concurren-mode">§</a></h2>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-concurren-mode">如何理解 React Concurren Mode？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-concurren-mode">§</a></h3>
 <ul>
 <li>Concurrent Mode 是 Async Mode 的 重新定义，来凸显出 React 在不同优先级上的执行能力，与其它的异步渲染方式进行区分。</li>
 </ul>
-<h2 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-purecomponent">如何理解 PureComponent？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-purecomponent">§</a></h2>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-purecomponent">如何理解 PureComponent？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-purecomponent">§</a></h3>
 <ul>
 <li><code>PureComponent</code> 也就是纯组件，取代其前身 <code>PureRenderMixin</code>，<code>PureComponent</code> 是优化 <code>React</code> 应用程序最重要的方法之一。</li>
 <li>可以减少不必要的 <code>render</code> 操作的次数，从而提高性能，而且可以少写 <code>shouldComponentUpdate</code> 函数，节省了点代码。</li>
@@ -420,20 +378,11 @@ React<span class="token punctuation">.</span><span class="token function">useEff
   shouldUpdate <span class="token operator">=</span> <span class="token operator">!</span><span class="token function">shallowEqual</span><span class="token punctuation">(</span>prevProps<span class="token punctuation">,</span> nextProps<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">!</span><span class="token function">shallowEqual</span><span class="token punctuation">(</span>inst<span class="token punctuation">.</span><span class="token property-access">state</span><span class="token punctuation">,</span> nextState<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h2 id="react-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%87%92%E5%8A%A0%E8%BD%BD">React 如何实现懒加载？<a class="anchor" href="#react-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%87%92%E5%8A%A0%E8%BD%BD">§</a></h2>
-<ul>
-<li>React 16.6 添加了一个新的特性：React.lazy()，它可以让代码分割更加容易。
-<ul>
-<li>避免大体积的代码包，增加首屏的加载速度。</li>
-</ul>
-</li>
-<li>React.lazy()</li>
-</ul>
-<h2 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-suspense">如何理解 React Suspense<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-suspense">§</a></h2>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-suspense">如何理解 React Suspense<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-suspense">§</a></h3>
 <ul>
 <li>React 捕获到异常之后，会判断异常是不是一个 thenable，如果是则会找到 SuspenseComponent ，如果 thenable 处于 pending 状态，则会将其 children 都渲染成 fallback 的值，一旦 thenable 被 resolve 则 SuspenseComponent 的子组件会重新渲染一次。</li>
 </ul>
-<h2 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E6%89%B9%E9%87%8F%E6%9B%B4%E6%96%B0batchingstrategytransaction">如何理解批量更新（BatchingStrategy/transaction）？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E6%89%B9%E9%87%8F%E6%9B%B4%E6%96%B0batchingstrategytransaction">§</a></h2>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E6%89%B9%E9%87%8F%E6%9B%B4%E6%96%B0batchingstrategytransaction">如何理解批量更新（BatchingStrategy/transaction）？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E6%89%B9%E9%87%8F%E6%9B%B4%E6%96%B0batchingstrategytransaction">§</a></h3>
 <ul>
 <li>事务（Transaction），是一个操作序列，这些操作要么都执行，要么都不执行，它是一个不可分割的工作单位。
 <ul>
@@ -448,4 +397,265 @@ React<span class="token punctuation">.</span><span class="token function">useEff
 <li>然后执行传入的method，method 执行完后就执行 closeAll 方法按顺序执行一系列 close 操作然后结束这次事务。</li>
 </ul>
 </li>
-</ul></article><div class="prev_next"><a class="prev button" href="/articles/06-FE+Browser/04-fe-mobile.html">«  <!-- -->移动端 Web 开发</a><a class="next button" href="/articles/07-BE+Server/index.html">后端应用开发 + 服务器<!-- -->  »</a></div></div><div class="main_toc_container nav_link_container"><div class="main_toc"><aside><nav class="toc"><ol><li><a href="#%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%9D%83%E9%99%90%E7%BB%84%E4%BB%B6%E7%9A%84%E8%AE%BE%E8%AE%A1">如何进行权限组件的设计？</a></li><li><a href="#react-%E7%9A%84%E5%86%85%E9%83%A8%E5%88%86%E5%B1%82">React 的内部分层？</a></li><li><a href="#react-1517-%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7">React 15~17 的新特性？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-hooks">如何理解 React Hooks？</a></li><li><a href="#react-%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B%E5%86%85%E7%BD%AE-hooks">React 都有哪些内置 Hooks？</a></li><li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA-useloading-hook">自定义一个 useLoading Hook</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-jsx">如何理解 JSX？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E8%99%9A%E6%8B%9F-dom">如何理解虚拟 DOM？</a></li><li><a href="#setstate-%E8%83%8C%E5%90%8E%E7%9A%84%E6%B7%B1%E5%85%A5%E5%8E%9F%E7%90%86">setState 背后的深入原理？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-fiber">如何理解 React Fiber？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-concurren-mode">如何理解 React Concurren Mode？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-purecomponent">如何理解 PureComponent？</a></li><li><a href="#react-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%87%92%E5%8A%A0%E8%BD%BD">React 如何实现懒加载？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-suspense">如何理解 React Suspense</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E6%89%B9%E9%87%8F%E6%9B%B4%E6%96%B0batchingstrategytransaction">如何理解批量更新（BatchingStrategy/transaction）？</a></li></ol></nav></aside></div></div></section><footer>Powered by<!-- --> <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><div class="tools flex_center hide_on_mobile"><a class="czs-pen button" href="https://github.com/hylerrix/es-interview/edit/master/articles/06-FE+Browser/05-react.md" target="_blank" style="background-image:url(&quot;/assets/czs-pen.svg&quot;)"></a><a class="czs-angle-up-l button" href="#" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></a></div><script crossorigin="anonymous" src="https://unpkg.com/react@16.13.1/umd/react.production.min.js"></script><script crossorigin="anonymous" src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
+</ul>
+<h3 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-time-slice-%E6%97%B6%E9%97%B4%E5%88%86%E7%89%87">如何理解 Time Slice 时间分片？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-time-slice-%E6%97%B6%E9%97%B4%E5%88%86%E7%89%87">§</a></h3>
+<ul>
+<li>时间分片：
+<ul>
+<li>React 在渲染的时候，不会阻塞现在的线程</li>
+<li>基于可随时打断、重启的 Fiber 架构</li>
+<li>可打断当前任务，优先处理紧急且重要的任务，保证页面的流畅运行。</li>
+</ul>
+</li>
+<li>同步模式：</li>
+<li>Debounce 模式：延迟渲染</li>
+</ul>
+<h3 id="mixinhocrender-propshooks-%E5%AF%B9%E6%AF%94">mixin/hoc/render props/hooks 对比？<a class="anchor" href="#mixinhocrender-propshooks-%E5%AF%B9%E6%AF%94">§</a></h3>
+<ul>
+<li>Mixin 缺陷：
+<ul>
+<li>组件与 Mixin 之间存在隐式依赖（Mixin 经常以来组件的特定方法，但在定义组件时并不知道这种依赖关系）。</li>
+<li>多个 Mixin 之间可能冲突（比如定义了相同的 state 字段）</li>
+<li>Mixin 倾向于增加更多状态，降低了应用的可预测性，导致复杂度剧增</li>
+<li>隐式依赖导致依赖关系不透明，维护成本和理解成本迅速攀升：
+<ul>
+<li>难以快速理解组件行为，需要全盘了解所有依赖 Mixin 的拓展行为，及其之间的相互影响。</li>
+<li>组件自身的方法和 state 不敢轻易删改，因为难以确定有没有 Mixin 依赖它</li>
+<li>Mixin 也难以维护，因为 Mixin 逻辑最后会被打平合并到一起，很难搞清楚一个 Mixin 的输入输出。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>HOC：
+<ul>
+<li>优势：
+<ul>
+<li>HOC 外层组件通过 Props 影响内层组件的状态，而不是直接改变其 state，不存在冲突和互相干扰，降低了耦合度。</li>
+<li>不同于 Mixin 的打平 + 合并，HOC 具有天然的层级结构（组件树结构），降低了复杂度。</li>
+</ul>
+</li>
+<li>缺陷：
+<ul>
+<li>扩展性限制：HOC 无法从外部访问子组件的 State。因此无法通过 shouldComponentUpdate 过滤掉不必要的更新。React 在支持 ES6 Class 之后提供了 React.PureComponent 来解决这个问题。</li>
+<li>Ref 传递问题：Ref 被隔断后，后来的 React.forwardRef 来解决这个问题。</li>
+<li>Wrapper Hell：HOC 可能出现多层包裹组件的情况，多层抽象同样增加了复杂度和理解成本。</li>
+<li>命名冲突：如果高阶组件多次嵌套，没有使用命名空间的话会产生冲突，然后覆盖老属性。</li>
+<li>不可见性：HOC 相当于在原有组件外层再包装一个组件，外层对内层来说是“黑盒”。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Render Props：
+<ul>
+<li>优点：HOC 的缺点 Render Props 都能解决</li>
+<li>缺陷：
+<ul>
+<li>使用繁琐：HOC 使用只需要借助装饰器语法，一行代码就可以服用，Render Props 无法做到这么简单。</li>
+<li>嵌套过深：Render Props 虽然摆脱了组件多层嵌套的问题，但是转化为了函数回调的嵌套</li>
+</ul>
+</li>
+<li>优点：</li>
+</ul>
+</li>
+<li>Hooks：
+<ul>
+<li>优点：
+<ul>
+<li>简洁：React Hooks 解决了 HOC 和 Render Props 的嵌套问题，更加简洁。</li>
+<li>解耦：React Hooks 可以更方便地把 UI 和状态分离，做到更彻底的解耦。</li>
+<li>组合：Hooks 中可以引用另外的 Hooks，组合千变万化</li>
+<li>函数友好：React Hooks 为函数组件而生，从而解决了类组件的几大问题：
+<ul>
+<li>this 指向容易错误。</li>
+<li>分割在不同生命周期中的逻辑使得代码难以理解和维护。</li>
+<li>代码复用成本高（高阶组件容易使代码量剧增）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>缺陷：
+<ul>
+<li>额外的学习成本（函数式组件和类组件之间的学习成本）</li>
+<li>写法上有限制（不能出现在条件、循环中），并且写法限制增加了重构成本。</li>
+<li>破坏了 PureComponent、React.memo 浅比较的性能优化结果
+<ul>
+<li>（为了取最新的 props 和 state，每次 render() 都需要重新创建事件处理函数）</li>
+</ul>
+</li>
+<li>在闭包场景可能会遇到旧的 state、props 值</li>
+<li>内部实现上不直观（依赖一份可变的全局状态，以至不“纯”）</li>
+<li>React.memo 并不能完全替代 shouldComponentUpdate（因为拿不到 state change，只针对 props change）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E5%9F%BA%E7%A1%80%E5%AE%9E%E6%88%98">基础实战<a class="anchor" href="#%E5%9F%BA%E7%A1%80%E5%AE%9E%E6%88%98">§</a></h2>
+<h3 id="%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%9D%83%E9%99%90%E7%BB%84%E4%BB%B6%E7%9A%84%E8%AE%BE%E8%AE%A1">如何进行权限组件的设计？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%9D%83%E9%99%90%E7%BB%84%E4%BB%B6%E7%9A%84%E8%AE%BE%E8%AE%A1">§</a></h3>
+<ul>
+<li>路由级</li>
+<li>模块级：<code>export default withAuth({ authorities: ['admin', 'user'], })(BasicList);</code></li>
+<li>按钮级：<code>&lt;Auth authorities={['admin', 'user']}&gt;&lt;Button&gt;auth&lt;/Button&gt;&lt;/Auth&gt;;</code></li>
+<li>接口级</li>
+</ul>
+<h3 id="react-%E7%BB%84%E4%BB%B6%E5%A6%82%E4%BD%95%E9%80%9A%E4%BF%A1">React 组件如何通信？<a class="anchor" href="#react-%E7%BB%84%E4%BB%B6%E5%A6%82%E4%BD%95%E9%80%9A%E4%BF%A1">§</a></h3>
+<ul>
+<li>父组件向子组件通讯: 父组件可以向子组件通过传 props 的方式，向子组件进行通讯</li>
+<li>子组件向父组件通讯: props+回调的方式,父组件向子组件传递props进行通讯，此props为作用域为父组件自身的函 数，子组件调用该函数，将子组件想要传递的信息，作为参数，传递到父组件的作用域中</li>
+<li>兄弟组件通信: 找到这两个兄弟节点共同的父节点,结合上面两种方式由父节点转发信息进行通信</li>
+<li>跨层级通信: Context 设计目的是为了共享那些对于一个组件树而言是“全局”的数据，例如当前认证的用户、主题 或首选语言,对于跨越多层的全局数据通过 Context 通信再适合不过</li>
+<li>发布订阅模式: 发布者发布事件，订阅者监听事件并做出反应,我们可以通过引入event模块进行通信 全局状态管理工具: 借助Redux或者Mobx等全局状态管理工具进行通信,这种工具会维护一个全局状态中心Store,并 根据不同的事件产生新的状态</li>
+</ul>
+<h2 id="react-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%AF%B9%E8%B1%A1%E7%9A%84-watch">React 如何实现对象的 watch？<a class="anchor" href="#react-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%AF%B9%E8%B1%A1%E7%9A%84-watch">§</a></h2>
+<h3 id="react-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%87%92%E5%8A%A0%E8%BD%BD">React 如何实现懒加载？<a class="anchor" href="#react-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%87%92%E5%8A%A0%E8%BD%BD">§</a></h3>
+<ul>
+<li>React 16.6 添加了一个新的特性：React.lazy()，它可以让代码分割更加容易。
+<ul>
+<li>避免大体积的代码包，增加首屏的加载速度。</li>
+</ul>
+</li>
+<li>React.lazy()</li>
+</ul>
+<h3 id="react-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">React 如何进行性能优化？<a class="anchor" href="#react-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">§</a></h3>
+<p>function component + redux、immutable、pure component , shouldComponentUpdate ...</p>
+<h3 id="%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA-useloading-hook">自定义一个 useLoading Hook<a class="anchor" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA-useloading-hook">§</a></h3>
+<pre class="language-autoit"><code class="language-autoit"><span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span>
+ <span class="token operator">*</span> 功能同 createThrowable<span class="token punctuation">,</span> 优化了一个点<span class="token punctuation">:</span> 在函数内处理了 loading状态
+ <span class="token operator">*</span> 用法同 React<span class="token punctuation">.</span>useXxx 会返回一个数组<span class="token punctuation">,</span> 第一个参数是 函数<span class="token punctuation">,</span> 第二个是 loading状态
+ <span class="token operator">*</span> <span class="token variable">@param</span> fn
+ <span class="token operator">*</span> <span class="token variable">@param</span> errorTitle
+ <span class="token operator">*</span> <span class="token variable">@return</span> <span class="token punctuation">[</span>处理异常函数<span class="token punctuation">,</span> loading状态<span class="token punctuation">]</span>
+ <span class="token operator">*</span><span class="token operator">/</span>
+export <span class="token keyword">const</span> useLoadingThrowable <span class="token operator">=</span>
+  function <span class="token punctuation">(</span>fn<span class="token punctuation">:</span> <span class="token punctuation">(</span>args<span class="token punctuation">:</span> any<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Promise<span class="token operator">&lt;</span>any<span class="token operator">></span><span class="token punctuation">,</span> errorTitle <span class="token operator">=</span> <span class="token string">'操作失败'</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>args<span class="token operator">?</span><span class="token punctuation">:</span> any<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> any<span class="token punctuation">,</span> boolean<span class="token punctuation">]</span> {
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>loading<span class="token punctuation">,</span> setLoading<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+    return <span class="token punctuation">[</span>
+      function <span class="token punctuation">(</span>args<span class="token punctuation">:</span> any<span class="token punctuation">)</span> {
+        <span class="token function">setLoading</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+        <span class="token function">fn</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> {
+            <span class="token operator">/</span><span class="token operator">/</span> 忽略 axios 取消造成的请求错误
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>e <span class="token operator">&amp;</span><span class="token operator">&amp;</span> e<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span><span class="token operator">&amp;</span> e<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'Cancel'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> {
+              return
+            }
+            <span class="token function">notificationErrorLog</span><span class="token punctuation">(</span>errorTitle<span class="token punctuation">,</span> e<span class="token punctuation">)</span>
+          }<span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token function">finally</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">setLoading</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      }<span class="token punctuation">,</span>
+      loading<span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+  }
+
+<span class="token keyword">const</span> <span class="token punctuation">[</span>getPartsAvlList<span class="token punctuation">,</span> loadingPartsAvl<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useLoadingThrowable</span><span class="token punctuation">(</span>async <span class="token punctuation">(</span>pagination<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> {
+        <span class="token keyword">const</span> {data<span class="token punctuation">:</span> {aaData<span class="token punctuation">,</span> success<span class="token punctuation">,</span> msg<span class="token punctuation">,</span> recordsFiltered}} <span class="token operator">=</span> await <span class="token function">getAvlList</span><span class="token punctuation">(</span>{}<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>success<span class="token punctuation">)</span> {
+            <span class="token function">setAvlList</span><span class="token punctuation">(</span>aaData<span class="token punctuation">)</span>
+            <span class="token function">setPagination</span><span class="token punctuation">(</span>{current<span class="token punctuation">:</span> pagination<span class="token punctuation">.</span>current<span class="token punctuation">,</span> pageSize<span class="token punctuation">:</span> pagination<span class="token punctuation">.</span>pageSize<span class="token punctuation">,</span> total<span class="token punctuation">:</span> recordsFiltered<span class="token punctuation">,</span>showSizeChanger<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                showQuickJumper<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>showTotal<span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span>{return <span class="token function">showTotal</span><span class="token punctuation">(</span>recordsFiltered<span class="token punctuation">)</span>}<span class="token punctuation">,</span>pageSizeOptions<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'10'</span><span class="token punctuation">,</span> <span class="token string">'50'</span><span class="token punctuation">,</span> <span class="token string">'100'</span><span class="token punctuation">,</span> <span class="token string">'200'</span><span class="token punctuation">]</span>}<span class="token punctuation">)</span>
+        } <span class="token keyword">else</span>
+            throw msg
+    }<span class="token punctuation">,</span> <span class="token string">"获取AVL列表信息失败"</span><span class="token punctuation">)</span>
+
+React<span class="token punctuation">.</span><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span>{
+        <span class="token function">getPartsAvlList</span><span class="token punctuation">(</span>pagination<span class="token punctuation">)</span>
+}<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>}
+</code></pre>
+<h2 id="%E7%94%9F%E6%80%81%E5%BA%93">生态库<a class="anchor" href="#%E7%94%9F%E6%80%81%E5%BA%93">§</a></h2>
+<h3 id="reduxreact-reduxmobx">Redux/React-Redux.MobX？<a class="anchor" href="#reduxreact-reduxmobx">§</a></h3>
+<ul>
+<li>Redux：
+<ul>
+<li>Store：保存数据的地方，整个应用只能有一个 Store</li>
+<li>State：Store 对象包含的数据</li>
+<li>Action：State 的变化，会导致 View 的变化。但是用户接触不到 State，只能接触到 View。所以，State 的变化必须是 View 导致的。Action 就是 View 发出的通知，表示 State 应该要发生变化了。</li>
+<li>Action Creator：View要发送多少种消息，就会有多少种Action。如果都手写，会很麻烦，所以我们定义一个函数 来生成Action，这个函数就叫Action Creator。</li>
+<li>Reducer：Store收到Action以后，必须给出一个新的State，这样View才会发生变化。这种State的计算过程就叫做 Reducer。Reducer是一个函数，它接受Action和当前State作为参数，返回一个新的State。</li>
+<li>dispatch：是View发出Action的唯一方法。</li>
+</ul>
+</li>
+<li>React-Redux
+<ul>
+<li>Provider: Provider的作用是从最外部封装了整个应用，并向connect模块传递store</li>
+<li>connect: 负责连接React和Redux
+<ul>
+<li>获取state: connect通过context获取Provider中的store，通过store.getState()获取整个store tree 上所有state</li>
+<li>包装原组件: 将state和action通过props的方式传入到原组件内部wrapWithConnect返回一个ReactComponent 对象Connect，Connect重新render外部传入的原组件WrappedComponent，并把connect中传入的 mapStateToProps, mapDispatchToProps与组件上原有的props合并后，通过属性的方式传给 WrappedComponent</li>
+<li>监听store tree变化: connect缓存了store tree中state的状态,通过当前state状态和变更前state状态进行比较,从 而确定是否调用 this.setState() 方法触发Connect及其子组件的重新渲染</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Redux 和 Mobx 的区别？
+<ul>
+<li>redux将数据保存在单一的store中，mobx将数据保存在分散的多个store中</li>
+<li>redux使用plain object保存数据，需要手动处理变化后的操作;mobx适用observable保存数据，数据变化后自动处 理响应的操作</li>
+<li>redux使用不可变状态，这意味着状态是只读的，不能直接去修改它，而是应该返回一个新的状态，同时使用纯函 数;mobx中的状态是可变的，可以直接对其进行修改</li>
+<li>mobx相对来说比较简单，在其中有很多的抽象，mobx更多的使用面向对象的编程思维;redux会比较复杂，因为 其中的函数式编程思想掌握起来不是那么容易，同时需要借助一系列的中间件来处理异步和副作用</li>
+<li>mobx中有更多的抽象和封装，调试会比较困难，同时结果也难以预测;而redux提供能够进行时间回溯的开发工 具，同时其纯函数以及更少的抽象，让调试变得更加的容易</li>
+</ul>
+</li>
+</ul>
+<h3 id="redux-%E5%BC%82%E6%AD%A5%E4%B8%8E%E7%A4%BE%E5%8C%BA%E4%B8%AD%E9%97%B4%E4%BB%B6">Redux 异步与社区中间件<a class="anchor" href="#redux-%E5%BC%82%E6%AD%A5%E4%B8%8E%E7%A4%BE%E5%8C%BA%E4%B8%AD%E9%97%B4%E4%BB%B6">§</a></h3>
+<ul>
+<li>Redux 异步操作：
+<ul>
+<li>不用 Redux 的话，可以直接在 componentDidMount 中操作</li>
+<li>Redux 中，可以接触 redux-thunk 或 redux-saga。</li>
+</ul>
+</li>
+<li>redux-thunk
+<ul>
+<li>优点：
+<ul>
+<li>体积小，redux-thunk 的实现方式很简单，只有不到 20 行代码</li>
+<li>使用简单：redux-thunk 没有引入像 redux-saga 活着 redux-observable 额外的范式，上手简单。</li>
+</ul>
+</li>
+<li>缺点：
+<ul>
+<li>样板代码过多：与 redux 本身一样，通常一个请求需要大量的代码，而且很多都是重复性质的</li>
+<li>耦合严重：异步操作与 redux 的 action 耦合在一起，不方便管理</li>
+<li>功能孱弱：有一些实际开发中常用的功能需要自己进行封装</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>redux-saga
+<ul>
+<li>优点：
+<ul>
+<li>异步解耦：异步操作被被转移到单独 saga.js 中，不再是掺杂在 action.js 或 component.js 中</li>
+<li>action摆脱thunk function: dispatch 的参数依然是一个纯粹的 action (FSA)，而不是充满 “黑魔法” thunk function</li>
+<li>异常处理：受益于 generator function 的 saga 实现，代码异常/请求失败 都可以直接通过 try/catch 语法直接捕获处 理</li>
+<li>功能强大：redux-saga提供了大量的Saga 辅助函数和Effect 创建器供开发者使用,开发者无须封装或者简单封装即 可使用</li>
+<li>灵活：redux-saga可以将多个Saga可以串行/并行组合起来,形成一个非常实用的异步flow</li>
+<li>易测试，提供了各种case的测试方案，包括mock task，分支覆盖等等</li>
+</ul>
+</li>
+<li>缺点：
+<ul>
+<li>额外的学习成本: redux-saga不仅在使用难以理解的 generator function,而且有数十个API,学习成本远超redux- thunk,最重要的是你的额外学习成本是只服务于这个库的,与redux-observable不同,redux-observable虽然也有额外 学习成本但是背后是rxjs和一整套思想</li>
+<li>体积庞大: 体积略大,代码近2000行，min版25KB左右</li>
+<li>功能过剩: 实际上并发控制等功能很难用到,但是我们依然需要引入这些代码</li>
+<li>ts支持不友好: yield无法返回TS类型</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>redux-observable
+<ul>
+<li>优点：
+<ul>
+<li>功能最强: 由于背靠rxjs这个强大的响应式编程的库,借助rxjs的操作符,你可以几乎做任何你能想到的异步处理</li>
+<li>背靠rxjs: 由于有rxjs的加持,如果你已经学习了rxjs,redux-observable的学习成本并不高,而且随着rxjs的升级redux- observable也会变得更强大</li>
+</ul>
+</li>
+<li>缺点：
+<ul>
+<li>学习成本奇高: 如果你不会rxjs,则需要额外学习两个复杂的库</li>
+<li>社区一般: redux-observable的下载量只有redux-saga的1/5,社区也不够活跃,在复杂异步流中间件这个层面redux- saga仍处于领导地位</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></article><div class="prev_next"><a class="prev button" href="/articles/06-FE+Browser/04-fe-mobile.html">«  <!-- -->移动端 Web 开发</a><a class="next button" href="/articles/06-FE+Browser/06-vue.html">Vue<!-- -->  »</a></div></div><div class="main_toc_container nav_link_container"><div class="main_toc"><aside><nav class="toc"><ol><li><a href="#%E5%9F%BA%E7%A1%80">基础</a><ol><li><a href="#react-%E7%9A%84%E5%86%85%E9%83%A8%E5%88%86%E5%B1%82">React 的内部分层？</a></li><li><a href="#react-1517-%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">React 15~17 的新特性（生命周期）？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-hooks">如何理解 React Hooks？</a></li><li><a href="#react-%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B%E5%86%85%E7%BD%AE-hooks">React 都有哪些内置 Hooks？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-jsx">如何理解 JSX？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E8%99%9A%E6%8B%9F-dom">如何理解虚拟 DOM？</a></li><li><a href="#setstate-%E8%83%8C%E5%90%8E%E7%9A%84%E6%B7%B1%E5%85%A5%E5%8E%9F%E7%90%86">setState 背后的深入原理？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-fiber">如何理解 React Fiber？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-concurren-mode">如何理解 React Concurren Mode？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-purecomponent">如何理解 PureComponent？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-react-suspense">如何理解 React Suspense</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E6%89%B9%E9%87%8F%E6%9B%B4%E6%96%B0batchingstrategytransaction">如何理解批量更新（BatchingStrategy/transaction）？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-time-slice-%E6%97%B6%E9%97%B4%E5%88%86%E7%89%87">如何理解 Time Slice 时间分片？</a></li><li><a href="#mixinhocrender-propshooks-%E5%AF%B9%E6%AF%94">mixin/hoc/render props/hooks 对比？</a></li></ol></li><li><a href="#%E5%9F%BA%E7%A1%80%E5%AE%9E%E6%88%98">基础实战</a><ol><li><a href="#%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%9D%83%E9%99%90%E7%BB%84%E4%BB%B6%E7%9A%84%E8%AE%BE%E8%AE%A1">如何进行权限组件的设计？</a></li><li><a href="#react-%E7%BB%84%E4%BB%B6%E5%A6%82%E4%BD%95%E9%80%9A%E4%BF%A1">React 组件如何通信？</a></li></ol></li><li><a href="#react-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%AF%B9%E8%B1%A1%E7%9A%84-watch">React 如何实现对象的 watch？</a><ol><li><a href="#react-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%87%92%E5%8A%A0%E8%BD%BD">React 如何实现懒加载？</a></li><li><a href="#react-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">React 如何进行性能优化？</a></li><li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA-useloading-hook">自定义一个 useLoading Hook</a></li></ol></li><li><a href="#%E7%94%9F%E6%80%81%E5%BA%93">生态库</a><ol><li><a href="#reduxreact-reduxmobx">Redux/React-Redux.MobX？</a></li><li><a href="#redux-%E5%BC%82%E6%AD%A5%E4%B8%8E%E7%A4%BE%E5%8C%BA%E4%B8%AD%E9%97%B4%E4%BB%B6">Redux 异步与社区中间件</a></li></ol></li></ol></nav></aside></div></div></section><footer>Powered by<!-- --> <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><div class="tools flex_center hide_on_mobile"><a class="czs-pen button" href="https://github.com/hylerrix/es-interview/edit/master/articles/06-FE+Browser/05-react.md" target="_blank" style="background-image:url(&quot;/assets/czs-pen.svg&quot;)"></a><a class="czs-angle-up-l button" href="#" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></a></div><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
