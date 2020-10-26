@@ -243,14 +243,14 @@ const {
 ### Babel 的原理？
 
 * Babel 转义过程的三个阶段：
-  * 解析 Parse：将代码解析生成抽象预发树（AST），即词法分析与语法分析的过程。
-  * 转换 Transform：对于 AST 进行变换的一系列操作，babel 接受到的 AST 通过 babel-traverse 对其进行遍历，在此过程中进行添加、更新及移除等操作。
-  * 生成 Generate：将变换后的 AST 再转换为 JS 代码，使用到的模块是 babel-generator。
+  * 解析 Parse：将代码解析生成抽象语法树（AST），即词法分析与语法分析的过程。
+  * 转换 Transform：对于 AST 进行变换的一系列操作，babel 接受到的 AST 通过 **babel-traverse** 对其进行遍历，在此过程中进行添加、更新及移除等操作。
+  * 生成 Generate：将变换后的 AST 再转换为 JS 代码，使用到的模块是 **babel-generator**。
 
 * 使用 Babel：
   * Babel 是一个通用的多用途 JavaScript 编译器。通过 Babel 你可以使用（并创建）下一代的 JavaScript，以及下一代的 JavaScript 工具。在得到 JavaScript 新特性广泛普及之前，Babel 能够让你提前（甚至数年）使用它们。
   * ES6 代码输入 -> babylon 进行解析 -> 得到 AST -> plugin 用 babel-traverse 包对 AST 树进行遍历转译 -> 得到新的 AST 树 -> 用 babel-generator 通过 AST 树生成 ES5 代码。
-  * babel 只是转译新标准引入的新语法（箭头函数），而新标准引入的新原生对象以及部分对象新增的原型方法（Proxy、Set），需要 polyfill
+  * babel 只是转译新标准引入的新语法（箭头函数），而新标准引入的新原生对象以及部分对象新增的原型方法（Proxy、Set），需要 polyfill。
   * 转义：“源码到源码”编译
 
 * 为 Babel 编写插件：

@@ -295,6 +295,8 @@ if (this._compositeType === CompositeTypes.PureClass) {
     * 内部实现上不直观（依赖一份可变的全局状态，以至不“纯”）
     * React.memo 并不能完全替代 shouldComponentUpdate（因为拿不到 state change，只针对 props change）
 
+### 如何理解高阶函数组件？
+
 ## 基础实战
 
 ### 如何进行权限组件的设计？

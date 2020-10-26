@@ -297,7 +297,7 @@ NaN instanceof Number // false
 new String('str') instanceof String // true
 ```
 
-## Proxy 与 Object.defineProperty 的优劣对比？
+### Proxy 与 Object.defineProperty？
 
 * Proxy 的优势：
   * Proxy 可以直接监听对象而非属性
@@ -339,3 +339,8 @@ new String('str') instanceof String // true
   * Promise传递中间值非常麻烦，而async/await几乎是同步的写法，非常优雅
   * 错误处理友好，async/await可以用成熟的try/catch，Promise的错误捕获非常冗余
   * 调试友好，Promise的调试很差，由于没有代码块，你不能在一个返回表达式的箭头函数中设置断点，如果你在一 个.then代码块中使用调试器的步进(step-over)功能，调试器并不会进入后续的.then代码块，因为调试器只能跟踪 同步代码的『每一步』。
+
+### `prototype` 和 `__proto__`？
+
+### in、of？
+

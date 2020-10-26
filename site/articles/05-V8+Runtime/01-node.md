@@ -20,6 +20,98 @@
 - 通过 Sockets
 - 借助 Message Queue
 
+### 什么是 child_process
+
+在Node.js中，提供了一个 child_process 模块，通过它可以开启多个子进程，在多个子进程之间可以共享内存空间，可以通过子进程的互相通信来实现信息的交换。
+
+### Node cluster 如何多进程通信？
+
+* `nodejs`是单线程的模式，不能充分利用服务器的多核资源。使用node的cluster模块可以监控应用进程，退出后重新启动node应用进程，并可以启动多个node应用进程，做到负载均衡，充分利用资源。
+* 如今的机器基本都是多核 cpu。为了能充分利用 cpu 计算能力，node.js V0.8（2012-06-22） 新增了一个内置模块 cluster。它可以通过一个父进程管理一堆子进程的方式来实现集群的功能。
+* cluster 底层就是 child_process，master 进程做总控，启动 1 个 agent 和 n 个 worker，agent 来做任务调度，获取任务，并分配给某个空闲的 worker 来做。
+* 需要注意的是：每个 worker 进程通过使用 child_process.fork() 函数，基于 IPC（Inter-Process Communication，进程间通信），实现与 master 进程间通信。
+* fork 出的子进程拥有和父进程一致的数据空间、堆、栈等资源（fork 当时），但是是独立的，也就是说二者不能共享这些存储空间。 那我们直接用 fork 自己实现不就行了。
+* 这样的方式仅仅实现了多进程。多进程运行还涉及父子进程通信，子进程管理，以及负载均衡等问题，这些特性 cluster 帮你实现了。
+
+```javascript
+const cluster = require('cluster');
+const cpus = require('os').cpus();
+const accessLogger = require("../logger").accessLogger();
+
+accessLogger.info('master ' + process.pid + ' is starting.');
+cluster.setupMaster({
+    /* 应用进程启动文件 */
+    exec: 'bin/www'
+});
+/* 启动应用进程个数和服务器CPU核数一样 */
+for (let i = 0; i < cpus.length; i++) {
+    cluster.fork();
+}
+
+cluster.on('online', function (worker) {
+    /* 进程启动成功 */
+    accessLogger.info('worker ' + worker.process.pid + ' is online.');
+});
+cluster.on('exit', function (worker, code, signal) {
+    /* 应用进程退出时，记录日志并重启 */
+    accessLogger.info('worker ' + worker.process.pid + ' died.');
+    cluster.fork();
+});
+```
+
+### Node worker_threads 多线程
+
+https://juejin.im/post/6844903775937757192
+
+* 直到 Node 10.5.0 的发布，官方才给出了一个实验性质的模块 worker_threads 给 Node 提供真正的多线程能力。
+* worker_thread 模块中有 4 个对象和 2 个类。
+  * isMainThread: 是否是主线程，源码中是通过 `threadId === 0` 进行判断的。
+  * MessagePort: 用于线程之间的通信，继承自 EventEmitter。
+  * MessageChannel: 用于创建异步、双向通信的通道实例。
+  * threadId: 线程 ID。
+  * Worker: 用于在主线程中创建子线程。第一个参数为 filename，表示子线程执行的入口。
+  * parentPort: 在 worker 线程里是表示父进程的 MessagePort 类型的对象，在主线程里为 null
+  * workerData: 用于在主进程中向子进程传递数据（data 副本）
+
+```javascript
+const {
+  isMainThread,
+  parentPort,
+  workerData,
+  threadId,
+  MessageChannel,
+  MessagePort,
+  Worker
+} = require('worker_threads');
+
+function mainThread() {
+  for (let i = 0; i < 5; i++) {
+    const worker = new Worker(__filename, { workerData: i });
+    worker.on('exit', code => { console.log(`main: worker stopped with exit code ${code}`); });
+    worker.on('message', msg => {
+      console.log(`main: receive ${msg}`);
+      worker.postMessage(msg + 1);
+    });
+  }
+}
+
+function workerThread() {
+  console.log(`worker: workerDate ${workerData}`);
+  parentPort.on('message', msg => {
+    console.log(`worker: receive ${msg}`);
+  }),
+  parentPort.postMessage(workerData);
+}
+
+if (isMainThread) {
+  mainThread();
+} else {
+  workerThread();
+}
+```
+
+### Node 如何利用多核 CPU？
+
 ## Node 模块化
 
 ### 如何理解 Node Module？
@@ -238,7 +330,9 @@ const app = {
 }
 ```
 
-### 动手实现一个 UNIX 域套接字服务器
+### 如何实现多个 Node 的负载均衡？
+
+### 动手实现一个 UNIX 域套接字服务器？
 
 ```javascript
 const net = require("net");

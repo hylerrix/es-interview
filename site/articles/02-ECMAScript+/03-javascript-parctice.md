@@ -111,7 +111,7 @@ console.log(people.find("Dean")); //["Dean Edwards", "Dean Tom"]
 console.log(people.find("Dean Edwards")); //["Dean Edwards"]
 ```
 
-## 数据类型
+## 对象
 
 ### 如何区分 Object 和 Array
 
@@ -235,36 +235,6 @@ person.sayName();        // Nicholas
 console.log(person.__proto__ === Person.prototype);   // true
 ```
 
-### 动手实现 Array.isArray
-
-```javascript
-Array.myIsArray = function(o) { 
-  return Object.prototype.toString.call(Object(o)) === '[object Array]'; 
-};
-```
-
-### 动手实现 Array.prototype.reduce
-
-```javascript
-Array.prototype.myReduce = function(callback, initialValue) {
-  let accumulator = initialValue ? initialValue : this[0];
-  for (let i = initialValue ? 0 : 1; i < this.length; i++) {
-    let _this = this;
-    accumulator = callback(accumulator, this[i], i, _this);
-  }
-  return accumulator;
-};
-
-// 使用
-let arr = [1, 2, 3, 4];
-let sum = arr.myReduce((acc, val) => {
-  acc += val;
-  return acc;
-}, 5);
-
-console.log(sum); // 15
-```
-
 ### 动手实现 Object.create()
 
 ```javascript
@@ -275,9 +245,13 @@ function create =  function (o) {
 };
 ```
 
-### JavaScript 实现继承的多种方式
+### JavaScript 如何实现封装？
 
-类式继承：
+### JavaScript 如何实现多态？
+
+### JavaScript 如何实现继承？
+
+**类式继承**：
 
 ```javascript
 // 声明父类
@@ -300,7 +274,7 @@ dog.greet('汪汪');  //  "汪汪"
 console.log(dog.type); // ["pig", "cat"]
 ```
 
-构造函数继承：
+**构造函数继承**：
 
 ```javascript
 // 声明父类
@@ -326,7 +300,7 @@ console.log(dog2.type);  // ["pig", "cat"]
 console.log(dog2.color);  // "黑色"
 ```
 
-组合继承：将类式继承和构造函数继承组合在一起
+**组合继承**：将类式继承和构造函数继承组合在一起
 
 ```javascript
 // 声明父类
@@ -356,7 +330,7 @@ console.log(dog2.color);  // "黑色"
 dog.greet('汪汪');  // "汪汪"
 ```
 
-寄生组合式继承：强化的部分就是在组合继承的基础上减少一次多余的调用父类的构造函数
+**寄生组合式继承**：强化的部分就是在组合继承的基础上减少一次多余的调用父类的构造函数
 
 ```javascript
 function Animal(color) {
@@ -409,90 +383,13 @@ dog.greet('汪汪');  // "汪汪"
 console.log(dog.color); // "黑色"
 ```
 
-### 实现数组扁平化操作
+### JS 如何实现 public/private/protected？
 
-```javascript
-Array.prototype.myFlat = function(num = 1) {
-  if (Array.isArray(this)) {
-    let arr = [];
-    if (!Number(num) || Number(num) < 0) {
-      return this;
-    }
-    this.forEach(item => {
-      if(Array.isArray(item)){
-        let count = num
-        arr = arr.concat(item.myFlat(--count))
-      } else {
-        arr.push(item)
-      }  
-    });
-    return arr;
-  } else {
-    throw tihs + ".flat is not a function";
-  }
-};
-```
+### JS 如何使用原型模拟类的？
 
-
-```javascript
-// 递归
-function flatten(arr) {
-    if (!Array.isArray(arr)) {
-        return [arr];
-    }
-    let res = [];
-    for (let i=0;i<arr.length;i++) {
-        res.push(...flatten(arr[i]));
-   }
-   return res;
-}
-
-const arr = [1, [2, [3, 4, [5]]]];
-console.log(flatten(arr));
-```
-
-```javascript
-// 迭代
-function flatten2(arr) {
-  const stack = [...arr];
-  const res = [];
-  while (stack.length) {
-    // 从栈里取出
-    const next = stack.pop();
-    if (Array.isArray(next)) {
-      // 把next扁平化，然后放入stack中
-      stack.push(...next);
-    } else {
-      res.push(next);
-    }
-  }
-  // reverse to restore input order
-  return res.reverse();
-}
-
-console.log(flatten2(arr));
-```
-
-```javascript
-// generator 异步迭代
-function* flatten3(arr) {
-    let length = arr.length;
-    for (let i=0; i<length; i++) {
-        let item = arr[i];
-        if (Array.isArray(item)) {
-    	    yield* flatten3(item);
-        } else {
-    	    yield item;
-        }
-    }
-} 
-
-let res = [];
-for (let f of flatten3 (arr)) {
-    res.push(f);
-}
-console.log(res);
-```
+* private：因为javascript函数级作用域的特性（在函数中定义的属性和方法外界访问不到），所以我们在函数内部直接定义的属性和方法都是私有的。
+* public：通过new关键词实例化时，this定义的属性和变量都会被复制一遍，所以通过this定义的属性和方法就是公有的。通过prototype创建的属性在类的实例化之后类的实例化对象也是可以访问到的，所以也是公有的。
+* protected：在函数的内部，我们可以通过this定义的方法访问到一些类的私有属性和方法，在实例化的时候就可以初始化对象的一些属性了。
 
 ## 常见方法
 
@@ -937,409 +834,7 @@ function render(template, data) {
 }
 ```
 
-## 字符串与正则
-
-### 解析 URL Params 为对象？
-
-```javascript
-let url = "http://www.domain.com/?user=anoymous&id=123&id=456&city=test&enabled"
-parseParam(url)
-
-function parseParam(url) {
-  const paramsStr = /.\?(.+)$/.exec(url)[1] // 将问号后面的字符串取出来
-  const paramsArr = paramsStr.split('&') // 将字符串以 & 分割后存到数组中
-  let paramsObj = {}
-  // 将 params 存到对象中
-  paramsArr.forEach(param => {
-    if (/=/.test(param)) { // 处理有 value 的参数
-      let [key, val] = param.split('=') // 分割 key 和 value
-      val = decodeURIComponent(val) // 解码
-      val = /^\d+$/.test(val) ? parseFloat(val) : val // 判断是否为数字
-      if (paramsObj.hasOwnProperty(key)) { // 如果对象有 key，则添加一个值
-        paramsObj[key] = [].concat(paramsObj[key], val)
-      } else { // 如果对象没有这个 key，创建 key 并设置值
-        paramsObj[key] = val
-      }
-    } else {
-      paramsObj[param] = true
-    }
-  })
-  return paramsObj
-}
-```
-
-### 字符串转换为驼峰法？
-
-```javascript
-var s1 = 'get-element-by-id'
-
-var f = function (s) {
-  return s.replace(/-\w/g, function (x) {
-    return x.slice(1).toUpperCase()
-  })
-}
-```
-
-### 基本遍历查找子字符串出现的位置
-
-请使用最基本的遍历来实现判断字符串 a 是否被包含在字符串 b 中，并返回第一次出现的位置(找不到返回 -1)。
-
-```javascript
-a='34';b='1234567'; // 返回 2
-a='35';b='1234567'; // 返回 -1
-a='355';b='12354355'; // 返回 5 isContain(a,b);
-
-function isContain(a, b) {
-  for (let i in b) {
-    if (a[0] === b[i]) {
-      let tmp = true
-      for (let j in a) {
-        if (a[j] !== b[~~i + ~~j]) {
-          tmp = false
-        }
-      }
-      if (tmp) {
-        return i
-      }
-    }
-  }
-  return -1
-}
-```
-
-### 正则查找字符串中出现最多的字符和个数
-
-```javascript
-// 例: abbcccddddd -> 字符最多的是d，出现了5次
-let str = 'abcabcabcbbccccc'
-let num = 0
-let char = ''
-// 使其按照一定的次序排列
-str = str.split('').sort().join('')
-// 'aaabbbbbcccccccc'
-// 定义正则表达式
-let re = /{\w}\1+/g
-str.replace(re, ($0, $1) => {
-  if (num < $0.length) {
-    num = $0.length
-    char = $1
-  }
-})
-console.log(`字符最多的是${char}, 出现了${num}次`)
-```
-
-### 实现千位分隔符
-
-```javascript
-// 保留三位小数
-parseToMoney(1234.56) // return '1,234.56'
-parseToMoney(123456789) // return '123,456,789'
-parseToMoney(1087654.321) // return '1,087,654.321'
-
-function parseToMoney(num) {
-  num = parseFloat(num.toFixed(3))
-  let [integer, decimal] = String.prototype.split.call(num, '.')
-  integer = integer.replace(/\d(?=(\d{3})+$)/g, '$&,')
-  return integer + '.' + (decimal ? decimal : '')
-}
-
-// 正则表达式，运用了正则的前向声明和反前向声明
-function parseToMoney(str){
-  // 仅仅对位置进行匹配
-  let re = /(?=(?!\b)(\d{3})+$)/g
-  return str.replace(re,',')
-}
-```
-
-### 正则判断电话号/邮箱/身份证
-
-```javascript
-// 电话号
-function isPhone(tel) {
-  var regx = /^1[34578]\d{9}$/
-  return regx.test(tel)
-}
-// 邮箱
-function isEmail(email) {
-  var regx = /^([a-zA-Z0-9_\-])+@([a-zA-Z0-9_\-])+(\.[a-zA-Z0-9_\-])+$/;
-  return regx.test(email);
-}
-// 身份证
-function isCardNo(number) {
-  var regx = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; return regx.test(number);
-}
-```
-
-## 遍历 & 克隆
-
-### 如何遍历对象和数组
-
-* 对象遍历
-  - for in 循环：`for (var property in obj) { console.log(property); }`。但这会遍历到它的继承属性，在使用前需要加入 `obj.hasOwnProperty(property)` 检查。
-  - Object.keys()：`Object.keys(obj).forEach(function (property) { ... })`。
-  - Object.getOwnPropertyNames()：`Object.getOwnPropertyNames(obj).forEach(function (property) { ... })`。Object.getOwnPropertyNames() 方法返回一个由指定对象的所有自身属性的属性名(包括不可枚举属性但不包括 Symbol 值作为名称的属性)组成的数组。
-* 数组遍历
-  - for loop：`for (var i = 0; i < arr.length; i++)`。这里的常见错误是 var 是函数作用域而不是块级作用域。ES2015 引入了块级作用域 let，建议使用。
-  - forEach：`arr.forEach(function (el, index) { ... })`。这个语句结构有时会更精简，不必使用 index。还有 every 和 some 方法可以提前终止遍历。
-
-### 动手实现数组克隆
-
-```javascript
-let array1 = [1, 'a', true, null, undefined];
-let c1 = array1.slice();
-let cc1 = array1.concat();
-let fc1 = Array.from(array1);
-Array.prototype.push.apply([], array1);
-let mc1 = array1.map((item) => item; });
-// 变相的实现深拷贝，数组中的项如果是undefined，那么转换后将变为null
-// 如果数组的项为对象，那么对象之间不可相互引用。会造成循环引用，无法JSON序列化。
-let jsonc = JSON.parse(JSON.stringify(array1));
-let fc1 = [...array1];
-```
-
-- 数组浅拷贝
-
-```javascript
-var a = [1, 1],
-    b = a;
-console.log(a === b) // true
-```
-
-- 数组深拷贝
-
-```javascript
-function cloneObj(obj) {
-    var tempObj = {};
-    
-    if (obj instanceof Array) {
-        tempObj = [];
-    }
-    
-    for (var prop in obj) {
-        if (typeof prop === 'Object') {
-            cloneObj(prop);
-        }
-        
-        tempObj[prop] = obj[prop];
-    }
-    
-    return tempObj;
-}
-
-var myCountry = {
-    name: 'China',
-    birth: 1949
-}
-
-var country = cloneObj(myCountry);
-
-console.log(country === myCountry); // false
-```
-
-### 动手实现对象克隆
-
-```javascript
-function clone(obj){
-    var o;
-    if(typeof obj == "object"){
-        if(obj === null){
-            o = null;
-        }else{
-            if(obj instanceof Array){
-                o = [];
-                for(var i = 0, len = obj.length; i < len; i++){
-                    o.push(clone(obj[i]));
-                }
-            }else{
-                o = {};
-                for(var k in obj){
-                    o[k] = clone(obj[k]);
-                }
-            }
-        }
-    }else{
-        o = obj;
-    }
-    return o;
-}
-```
-
-```javascript
-function clone(obj){
-    var o, obj;
-    if (obj.constructor == Object){
-        o = new obj.constructor();
-    }else{
-        o = new obj.constructor(obj.valueOf());
-    }
-    for(var key in obj){
-        if ( o[key] != obj[key] ){
-            if ( typeof(obj[key]) == 'object' ){
-                o[key] = clone(obj[key]);
-            }else{
-                o[key] = obj[key];
-            }
-        }
-    }
-    o.toString = obj.toString;
-    o.valueOf = obj.valueOf;
-    return o;
-}
-```
-
-```javascript
-function clone(obj){
-    function Fn(){}
-    Fn.prototype = obj;
-    var o = new Fn();
-    for(var a in o){
-        if(typeof o[a] == "object") {
-            o[a] = clone(o[a]);
-        }
-    }
-    return o;
-}
-```
-
-### 动手实现浅拷贝与深拷贝
-
-```javascript
-// 同时考虑对象和数组，考虑循环引用
-function clone(target, map = new WeakMap()) {
-  if(typeof target === 'object'){
-    let cloneTarget = Array.isArray(target) ? [] : {};
-    if(map.get(target)) {
-      return target;
-    }
-    map.set(target, cloneTarget);
-    for(const key in target) {
-      cloneTarget[key] = clone(target[key], map)
-    }
-    return cloneTarget;
-  } else {
-    return target;
-  }
-}
-```
-
-```javascript
-/**
- * deep clone
- * @param {[type]} parent object 需要进行克隆的对象
- * @return {[type]} 深克隆后的对象
- */
-const clone = parent => {
-  // 判断类型
-  const isType = (obj, type) => {
-    if (typeof obj !== "Object") return false
-    const typeString = Object.prototype.toString.call(obj)
-    let flag
-    switch (type) {
-      case "Array":
-        flag = typeString === "[object Array]"
-        break
-      case "Date":
-        flag = typeString === "[Object Date]"
-      case "RegExp":
-        flag = typeSting === "[object RegExp]"
-        break
-      default:
-        flag = false
-    }
-    return flag
-  }
-  
-  // 处理正则
-  const getRegExp = re => {
-    var flags = ""
-    if (re.global) flags += "g"
-    if (re.ignoreCase) flags += "i"
-    if (re.multiline) flags += "m"
-    return flags
-  }
-  
-  // 维护两个储存循环引用的数组
-  const parents = []
-  const children = []
-  
-  const _clone = parent => {
-    if (pareng === null) return null
-    if (typeof parent !== "object") return parent
-    let child, proto
-    if (isType(parent, "Array")) {
-      // 对数组做特殊处理
-      child = new RegExp(parent.source, getRegExp(parent))
-      if (parent.lastIndex) child.lastIndex = parent.lastIndex
-    } else if (isType(parent, "Date")) {
-      // 对 Date 对象做特殊处理
-      child = new Date(parent.getItem())
-    } else {
-      // 处理对象原型
-      proto = Object.getPrototypeOf(parent)
-      // 利用 Object.create 切断原型链
-      child = Object.create(proto)
-    }
-    //处理循环引用
-    const index = parents.indexOf(parent)
-    if (index != -1) {
-      // 如果父数组存在本对象，说明之前已经被引用过，直接返回此对象
-      return children[index]
-    }
-    parents.push(parent)
-    children.push(child)
-    for (let i in parent) {
-      // 递归
-      child[i] = _clone(parent[i])
-    }
-    return child
-  }
-
-  return _clone(parent)
-}
-```
-
-## 特性 API
-
-### 使用 Proxy 拓展构造函数
-
-```js
-function extend(sup, base) {
-  var descriptor = Object.getOwnPropertyDescriptor(
-    base.prototype, "constructor"
-  );
-  base.prototype = Object.create(sup.prototype);
-  var handler = {
-    construct: function(target, args) {
-      var obj = Object.create(base.prototype);
-      this.apply(target, obj, args);
-      return obj;
-    },
-    apply: function(target, that, args) {
-      sup.apply(that, args);
-      base.apply(that, args);
-    }
-  };
-  var proxy = new Proxy(base, handler);
-  descriptor.value = proxy;
-  Object.defineProperty(base.prototype, "constructor", descriptor);
-  return proxy;
-}
-
-var Person = function (name) {
-  this.name = name
-};
-
-var Boy = extend(Person, function (name, age) {
-  this.age = age;
-});
-
-Boy.prototype.sex = "M";
-
-var Peter = new Boy("Peter", 13);
-console.log(Peter.sex);  // "M"
-console.log(Peter.name); // "Peter"
-console.log(Peter.age);  // 13
-```
+## 异步实战
 
 ### 动手实现 Promise
 
@@ -1572,6 +1067,111 @@ function _asyncToGenerator(fn) {
 }
 ```
 
+### 动手实现 XMLHttpRequest
+
+```javascript
+function ajax(url, fnSucc, fnFaild) {
+  var xhttp;
+  // 第一步：创建 XMLHttpRequest 对象
+  if (window.XMLHttpRequest) {
+      // 现代浏览器
+      xhttp = new XMLHttpRequest();
+   } else {
+      // IE6 等老版本浏览器
+      xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  // 第四步：处理响应
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState === 4) {
+      if (xhttp.status === 200) {
+        fnSucc(xhttp.responseText)
+      } else {
+      	if (fnFaild) fnFaild(xhttp.responseText)
+      }
+    } 
+  };
+  // 第二步：初始化 XMLHttpRequest 方法
+  xhttp.open('GET', url);
+  // 第三步：XMLHttpRequest 向服务器发送请求
+  xhttp.send();
+}
+
+ajax('/smileyFace', mySuccessFunc, myFailFunc);
+```
+
+### 实现多个异步的并发控制
+
+请实现如下的函数，可以批量请求数据，所有的URL地址在urls参数中，同时可以通过max参数 控制请求的并发度。当所有的请求结束后，需要执行callback回调。发请求的函数可以直接使用fetch。
+
+```javascript
+function sendRequest(arr, max, callback) {
+        let fetchArr = [],  // 存储并发max的promise数组
+            i = 0;
+
+        function toFetch() {
+            if (i === arr.length) {   // 所有的都处理完了， 返回一个resolve
+                return Promise.resolve();
+            }
+            let one = fetch(arr[i++]); // 取出第i个url， 放入fetch里面 , 每取一次i++
+            one.then( () => {fetchArr.splice(fetchArr.indexOf(one), 1)}); // 当promise执行完毕后，从数组删除
+            fetchArr.push(one);  //将当前的promise存入并发数组中       其实将这个push放到上一行会更好理解，那样就是我们同步的思维顺序，先push进去，再等promise执行完了之后再删除。  但由于then是异步的，所以怎么放都可以。
+            let p = Promise.resolve();
+            if (fetchArr.length >= max) {     // 当并行数量达到最大后， 用race比较 第一个完成的， 然后再调用一下函数自身。
+                p = Promise.race(fetchArr);
+            }
+            return p.then(() => toFetch());
+        }
+
+        // arr循环完后， 现在fetchArr里面剩下最后max个promise对象， 使用all等待所有的都完成之后执行callback
+        toFetch().then(() => Promise.all(fetchArr)).then(() => {
+            callback();
+        })
+}
+```
+
+## 特性 API
+
+### 使用 Proxy 拓展构造函数
+
+```js
+function extend(sup, base) {
+  var descriptor = Object.getOwnPropertyDescriptor(
+    base.prototype, "constructor"
+  );
+  base.prototype = Object.create(sup.prototype);
+  var handler = {
+    construct: function(target, args) {
+      var obj = Object.create(base.prototype);
+      this.apply(target, obj, args);
+      return obj;
+    },
+    apply: function(target, that, args) {
+      sup.apply(that, args);
+      base.apply(that, args);
+    }
+  };
+  var proxy = new Proxy(base, handler);
+  descriptor.value = proxy;
+  Object.defineProperty(base.prototype, "constructor", descriptor);
+  return proxy;
+}
+
+var Person = function (name) {
+  this.name = name
+};
+
+var Boy = extend(Person, function (name, age) {
+  this.age = age;
+});
+
+Boy.prototype.sex = "M";
+
+var Peter = new Boy("Peter", 13);
+console.log(Peter.sex);  // "M"
+console.log(Peter.name); // "Peter"
+console.log(Peter.age);  // 13
+```
+
 ### 动手实现 JSON
 
 ```javascript
@@ -1615,35 +1215,4 @@ if (!window.JSON) {
 }
 ```
 
-### 动手实现 XMLHttpRequest
-
-```javascript
-function ajax(url, fnSucc, fnFaild) {
-  var xhttp;
-  // 第一步：创建 XMLHttpRequest 对象
-  if (window.XMLHttpRequest) {
-      // 现代浏览器
-      xhttp = new XMLHttpRequest();
-   } else {
-      // IE6 等老版本浏览器
-      xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  // 第四步：处理响应
-  xhttp.onreadystatechange = function() {
-    if (xhttp.readyState === 4) {
-      if (xhttp.status === 200) {
-        fnSucc(xhttp.responseText)
-      } else {
-      	if (fnFaild) fnFaild(xhttp.responseText)
-      }
-    } 
-  };
-  // 第二步：初始化 XMLHttpRequest 方法
-  xhttp.open('GET', url);
-  // 第三步：XMLHttpRequest 向服务器发送请求
-  xhttp.send();
-}
-
-ajax('/smileyFace', mySuccessFunc, myFailFunc);
-```
-
+### 

@@ -37,9 +37,16 @@ export default {
   sidebar: {
     '/articles/': [
       'articles/README.md',
-      'articles/es-timeline.md',
-      'articles/es-direction.md',
-      'articles/00-Profession/README.md',
+      {
+        link: 'articles/00-Profession/README.md',
+        title: '一切的起源',
+        children: [
+          'articles/es-direction.md',
+          'articles/es-rank.md',
+          'articles/es-timeline.md',
+          'articles/es-books.md',
+        ],
+      },
       {
         link: 'articles/01-Programming/README.md',
         title: '编程基础',
@@ -63,6 +70,7 @@ export default {
           'articles/02-ECMAScript+/01-javascript.md',
           'articles/02-ECMAScript+/02-typescript.md',
           'articles/02-ECMAScript+/03-javascript-parctice.md',
+          'articles/02-ECMAScript+/03-javascript-parctice-extra.md',
         ],
       },
       {
