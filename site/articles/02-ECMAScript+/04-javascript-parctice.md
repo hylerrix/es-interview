@@ -185,21 +185,35 @@ console.log(isArrayFour(arr));
 console.log(isArrayFour(obj));
 ```
 
-### 一个函数实现 add(1)(2)(3)、add(1, 2, 3)
+### 遍历对象的属性
+
+* For in 遍历到原型方法，如果不想遍历原型方法和属性，可以增加 hasOwnProperty 方法来判断
+* ES5的Object.keys(myObject)获取对象的实例属性组成的数组，不包括原型方法和属性
 
 ```javascript
-function add(){
-  let args = [].slice.apply(arguments)
-  function resultFn() {
-    args = args.concat([].slice.apply(arguments))
-    if(args.length>=3){
-        return args.slice(0,3).reduce(function(acc,next){ return acc + next},0) //will only sum first 3 arguments
-    }
-    return resultFn
-  }
-  return resultFn()
+for (var key in myObject) {
+　　if（myObject.hasOwnProperty(key)){
+　　　　console.log(key);
+　　}
 }
-console.log(add(10)(10)(20))
+```
+
+```javascript
+// 使用Object.getOwnPropertyNames(obj)遍历
+// 返回一个数组,包含对象自身的所有属性(不含Symbol属性,但是包括不可枚举属
+var obj = {'0':'a','1':'b','2':'c'};
+Object.getOwnPropertyNames(obj).forEach(function(key){
+    console.log(key,obj[key]);
+});
+```
+
+```javascript
+// 使用Reflect.ownKeys(obj)遍历
+// 返回一个数组,包含对象自身的所有属性,不管属性名是Symbol或字符串,也不管是否可枚举.
+var obj = {'0':'a','1':'b','2':'c'};
+Reflect.ownKeys(obj).forEach(function(key){
+　　console.log(key,obj[key]);
+});
 ```
 
 ### 动手实现 new
@@ -390,6 +404,23 @@ console.log(dog.color); // "黑色"
 * private：因为javascript函数级作用域的特性（在函数中定义的属性和方法外界访问不到），所以我们在函数内部直接定义的属性和方法都是私有的。
 * public：通过new关键词实例化时，this定义的属性和变量都会被复制一遍，所以通过this定义的属性和方法就是公有的。通过prototype创建的属性在类的实例化之后类的实例化对象也是可以访问到的，所以也是公有的。
 * protected：在函数的内部，我们可以通过this定义的方法访问到一些类的私有属性和方法，在实例化的时候就可以初始化对象的一些属性了。
+
+### 实现 add(1)(2)(3)、add(1, 2, 3)
+
+```javascript
+function add(){
+  let args = [].slice.apply(arguments)
+  function resultFn() {
+    args = args.concat([].slice.apply(arguments))
+    if(args.length>=3){
+        return args.slice(0,3).reduce(function(acc,next){ return acc + next},0) //will only sum first 3 arguments
+    }
+    return resultFn
+  }
+  return resultFn()
+}
+console.log(add(10)(10)(20))
+```
 
 ## 常见方法
 

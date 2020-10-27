@@ -58,7 +58,7 @@
 $ curl -fsSL https://deno.land/x/install/install.sh | sh
 $ export DENO_INSTALL="/Users/didi/.deno"
 $ export PATH="$DENO_INSTALL/bin:$PATH"
-$ deno install --unstable --allow-read --allow-write --allow-net --allow-run --name=pagic https://deno.land/x/pagic/mod.ts
+$ deno install -f --unstable --allow-read --allow-write --allow-net --allow-run --name=pagic https://deno.land/x/pagic@v0.10.3/mod.ts
 $ pagic build --watch --serve
 ```
 

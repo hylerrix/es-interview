@@ -152,6 +152,10 @@ export const Throwable = (fn?: () => () => void) => {
 
 ## TypeScript 是如何支持函数重载的？
 
+## TypeScript 中 HTML 本身的类型？
+
+* HTMLElement
+
 ## 动手实战常见的 Type Assertion？
 
 ```typescript

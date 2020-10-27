@@ -32,12 +32,106 @@
 * [Codeship](https://www.codeship.io/)
 * [Strider](http://stridercd.com/)
 
+## 如何理解瀑布流/敏捷开发？
+
+> https://baike.baidu.com/item/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91
+
+* 瀑布流
+* 敏捷开发
+  * 敏捷开发以用户的需求进化为核心，采用迭代、循序渐进的方法进行软件开发。在敏捷开发中，软件项目在构建初期被切分成多个子项目，各个子项目的成果都经过测试，具备可视、可集成和可运行使用的特征。换言之，就是把一个大项目分为多个相互联系，但也可独立运行的小项目，并分别完成，在此过程中软件一直处于可使用状态。
+  * 原则：主张简单、拥抱变化、你的第二个目标是可持续性、递增的变化、令投资最大化、有目的的建模、多种模型、高质量的工作、快速反馈、软件是你的主要目标、轻装前进。
+  * 宣言原则：
+    * 最重要的是通过尽早和不断交付有价值的软件满足客户需要。
+    * 我们欢迎需求的变化，即使在开发后期。敏捷过程能够驾驭变化，保持客户的竞争优势。
+    * 经常交付可以工作的软件，从几星期到几个月，时间尺度越短越好。
+    * 业务人员和开发者应该在整个项目过程中始终朝夕在一起工作。
+    * 围绕斗志高昂的人进行软件开发，给开发者提供适宜的环境，满足他们的需要，并相信他们能够完成任务。
+    * 在开发小组中最有效率也最有效果的信息传达方式是面对面的交谈。
+    * 可以工作的软件是进度的主要度量标准。
+    * 敏捷过程提倡可持续开发。出资人、开发人员和用户应该总是维持不变的节奏。
+    * 对卓越技术与良好设计的不断追求将有助于提高敏捷性。
+    * 简单——尽可能减少工作量的艺术至关重要。
+    * 最好的架构、需求和设计都源自自我组织的团队。
+    * 每隔一定时间，团队都要总结如何更有效率，然后相应地调整自己的行为。
+
 ## 如何理解单元测试/集成测试/端对端测试？
 
 * 单元测试：针对函数或模块的测试
 * 集成测试：针对整体产品的某个功能的测试，又称功能测试
 * 端对端测试：从用户界面直达数据库的全链路测试
 
-
-
 ## Docker 是什么？
+
+> https://www.runoob.com/docker/docker-tutorial.html
+
+* Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。
+* Docker 的优点：
+  * 快速、一致地交付应用程序：
+    * 允许开发人员使用您提供的应用程序或服务的本地容器在标准化环境中工作，从而简化了开发的生命周期。
+    * 容器非常适合持续集成和持续交付（CI / CD）工作流程，请考虑以下示例方案：
+      - 您的开发人员在本地编写代码，并使用 Docker 容器与同事共享他们的工作。
+      - 他们使用 Docker 将其应用程序推送到测试环境中，并执行自动或手动测试。
+      - 当开发人员发现错误时，他们可以在开发环境中对其进行修复，然后将其重新部署到测试环境中，以进行测试和验证。
+      - 测试完成后，将修补程序推送给生产环境，就像将更新的镜像推送到生产环境一样简单。
+  * 响应式部署和拓展：
+    * Docker 是基于容器的平台，允许高度可移植的工作负载。Docker 容器可以在开发人员的本机上，数据中心的物理或虚拟机上，云服务上或混合环境中运行。
+    * Docker 的可移植性和轻量级的特性，还可以轻松地完成动态管理的工作负担，并根据业务需求指示，实时拓展或拆除应用程序和服务。
+  * 在同一硬件上运行更多的负载：
+    * Docker 轻巧快速。它为基于虚拟机管理程序的虚拟机提供了可行、经济、高效的替代方案，因此您可以利用更多的计算能力来实现业务目标。Docker 非常适合于高密度环境以及中小型部署，而您可以用更少的资源做更多的事情。
+
+* Docker 通常的组成部分：
+  * Docker Client 客户端
+  * Docker Daemon 守护进程
+  * Docker Image 镜像
+  * Docker Container 容器
+
+```dockerfile
+FROM ubuntu:14.04 
+MAINTAINER “niwanglongDevUbuntu”
+#apt-get 换源
+RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+RUN apt-get update
+
+#安装linux基本软件
+RUN apt-get install -y vim bash-completion
+
+#安装前端开发环境
+RUN apt-get install -y npm
+RUN npm install -g cnpm --registry=https://registry.npm.taobao.org
+RUN apt-get install -y curl
+RUN npm install -g -y n
+RUN n stable
+RUN npm install -y --global vue-cli
+
+#开放Vue-Cli端口
+EXPOSE 8080
+```
+
+## 如何理解 DevOps？
+
+> https://www.jianshu.com/p/c5d002cf25b9
+
+* DevOps 是 Development 和 Operations 的合成词，其目标是要加强开发人员、测试人员、运维人员之间的沟通协调。如何实现这一目标呢？需要我们的项目做到持续集成、持续交付、持续部署。
+* 时下流行的 Jenkins、Bamboo，就是两款优秀的持续集成工具。而 Docker 容器则为 DevOps 提供了强大而有效的统一环境。
+* DevOps 工具链示例：
+  * 代码管理（SCM）：**GitHub**、GitLab、BitBucket、SubVersion
+  * 构建工具：**Ant**、Gradle、**maven**
+  * 自动部署：Capistrano、CodeDeploy
+  * 持续集成（CI）：Bamboo、Hudson、Jenkins
+  * 配置管理：Ansible、Chef、Puppet、SaltStack、ScriptRock GuardRail
+  * 容器：**Docker**、LXC、第三方厂商如AWS
+  * 编排：Kubernetes、Core、Apache Mesos、DC/OS
+  * 服务注册与发现：**Zookeeper**、etcd、Consul
+  * 脚本语言：python、ruby、shell
+  * 日志管理：ELK、Logentries
+  * 系统监控：Datadog、Graphite、Icinga、Nagios
+  * 性能监控：AppDynamics、New Relic、Splunk
+  * 压力测试：JMeter、Blaze Meter、loader.io
+  * 预警：PagerDuty、pingdom、厂商自带如AWS SNS
+  * HTTP加速器：Varnish
+  * 消息总线：ActiveMQ、SQS
+  * 应用服务器：Tomcat、JBoss
+  * Web服务器：Apache、Nginx、IIS
+  * 数据库：MySQL、Oracle、PostgreSQL等关系型数据库；cassandra、mongoDB、redis等NoSQL数据库
+  * 项目管理（PM）：Jira、Asana、Taiga、Trello、Basecamp、Pivotal Tracker
+

@@ -27,6 +27,115 @@ Web 浏览器这个宿主环境中特有的 JavaScript 全局对象为“window 
 
 ### Window 全局内置的属性和方法？
 
+## 重点基础概念
+
+### 如何理解闭包和 IIFE？
+
+* IIFE
+  * IIFE 可以达到不暴露私有成员的目的
+  * 能够在 IIFE 完成执行后任维系着内部功能的生存期。
+  * IIFE，Immediately Invoked Function Expressions，代表立即执行函数。
+  * IIFE 的外层括号不是必须的，因为 IIFE 是一个函数表达式。
+* 闭包
+  * 闭包，closure，概念最早提出在 1964 年，1975 年最早实现，是函数和声明该函数的词法环境的组合。词法作用域中使用的域，是变量在代码中声明的位置所决定的。
+  * 闭包就是能够读取其他函数内部变量的函数。
+  * Javascript语言的特殊之处，就在于函数内部可以直接读取全局变量。另一方面，在函数外部自然无法读取函数内的局部变量。本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。
+  * 为什么使用闭包：
+    * 利用闭包实现数据私有化或模拟私有方法，这个方式也称为模块模式。
+    * 部分参数函数柯里化。
+  * 如何从外部读取局部变量？
+    * 那就是在函数的内部，再定义一个函数。这就是 JavaScript 语言特有的"链式作用域"结构(chain scop)，子对象会一级一级地向上寻找所有父对象的变量。
+  * 使用闭包的注意点
+    * 由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。
+    * 闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。
+
+### 如何理解全局/函数/块级作用域？
+
+* 全局作用域：在代码中任何地方都能访问到的对象拥有全局作用域，一般来说以下几种情形拥有全局作用域：
+  * 最外层函数 和在最外层函数外面定义的变量拥有全局作用域
+  * 所有末定义直接赋值的变量自动声明为拥有全局作用域
+  * 所有 window 对象的属性拥有全局作用域
+* 函数作用域：
+  * 是指声明在函数内部的变量，和全局作用域相反，局部作用域一般只在固定的代码片段内可访问到
+* eval 作用域：严格模式中引入
+* 块级作用域：ES6 引入
+  * let, const
+  * if、for 语句里面的 {} 也属于块级作用域
+
+### 如何理解作用域链/执行上下文？
+
+> 词法作用域
+
+* JavaScript 在执行过程中会创造可执行上下文，可执行上下文中的词法环境中含有外部词法环境的引用，我们 可以通过这个引用获取外部词法环境的变量、声明等，这些引用串联起来一直指向全局的词法环境，因此形成了作用域 链。
+* 找不到想要访问的变量的时候，会向上一层层查找，这一层层组成了作用域链。
+* 作用域最大的用处就是隔离变量，不同作用域下同名变量不会有冲突。
+* JavaScript 的两个执行阶段：
+  * 解释阶段：
+  * 词法分析
+  * 语法分析
+  * 作用域规则确定
+* 执行阶段：
+* 创建执行上下文
+* 执行函数代码
+* 垃圾回收
+
+### var/let/const 与变量提升？
+
+* 编译器预编译的时候，第一步只会记录变量和函数的定义，第二步才会执行程序。
+  * 所有这些函数和变量声明都被添加到名为词法环境的 JavaScript 数据结构内的内存中。
+* var 会变量提升，初始值为 undefined，不能跨函数访问
+* let 和 const 相比 var
+  * 都会被提升，但是不会被初始化，不能被引用
+  * 只在块级作用域中有效
+  * 不允许重复声明
+  * 不会绑定全局作用域
+* let 和 const 区别
+  * const 定义的指针不能修改，但是指向的对象属性可以修改
+
+### 如何理解原型链？
+
+所有 JavaScript 对象都有一个 prototype 属性，指向它的原型对象。当试图访问一个对象的属性时，如果没有在该对象上找到，它还会搜寻该对象的原型，以及该对象的原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。这种行为是在模拟经典的继承，与其说是继承，不如说是委托。
+
+- 每个对象都有 `__proto__` 属性。
+- 函数有 `prototype`，定义在 ES 规范里。
+- 实例继承构造函数 prototype 的所有属性和方法
+  - 实例的 `__proto__` 指向构造函数的 prototype
+  - 对象具有属性 `__proto__`，可称为隐式原型，一个对象的隐式原型指向构造该对象的构造函数的原型，这也保证了实例能够访问在构造函数原型中定义的属性和方法。
+- 几乎所有的 JavaScript 对象都是 Object 的实例。
+  - 一个典型的对象继承了 Object.prototype 的属性（包括方法），尽管这些属性可能被遮蔽（也被称为覆盖）。
+  - 但是有时候可能故意创建不具有典型原型链继承的对象，比如通过 Object.create(null) 创建的对象，或者通过 Object.setPrototypeOf 方法改变原型链。
+  - 改变 Object 原型，会通过原型链，而改变所有对象；除非这些属性和方法被其他对原型链更里层的改动所覆盖。这提供了一个非常强大的、但有潜在危险的机制，来覆盖或扩展对象行为。
+- 所有的构造器的 constructor 都指向 Function
+- Function 的 prototype 指向一个特殊匿名函数，而这个特殊匿名函数的 `__proto__` 指向Object.prototype
+
+```javascript
+Function instanceof Object; // true
+Object instanceof Function; // true
+
+//①构造器Function的构造器是它自身
+Function.constructor=== Function;//true
+//②构造器Object的构造器是Function（由此可知所有构造器的constructor都指向Function）
+Object.constructor === Function;//true
+//③构造器Function的__proto__是一个特殊的匿名函数function() {}
+console.log(Function.__proto__);//function() {}
+//④这个特殊的匿名函数的__proto__指向Object的prototype原型。
+Function.__proto__.__proto__ === Object.prototype//true
+//⑤Object的__proto__指向Function的prototype，也就是上面③中所述的特殊匿名函数
+Object.__proto__ === Function.prototype;//true
+Function.prototype === Function.__proto__;//true
+```
+
+### 如何理解显示/隐式类型转换？
+
+* 在if语句、逻辑语句、数学运算逻辑、==等情况下都可能出现隐式类型转换。
+
+### 如何理解属性的枚举？
+
+* js中基本包装类型的原型属性是不可枚举的，如Object, Array, Number等
+* 枚举性的 作用：for in、Object.keys()、JSON.stringify()
+
+### 如何实现不可变数据？
+
 ## 异步与事件机制
 
 ### 如何理解 JS 单线程模型与事件机制？
@@ -107,7 +216,7 @@ xhr.readyState 的状态码说明：
 - 3 -（交互）正在解析响应内容
 - 4 -（完成）响应内容解析完成，可以在客户端调用了
 
-## 如何实现跨域请求？
+### 如何实现跨域请求？
 
 * 同源策略限制了从同一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的重要安全机制。
 * 同源是指"协议+域名+端口"三者相同，即便两个不同的域名指向同一个ip地址，也非同源。
@@ -146,88 +255,6 @@ function printData (data) {
 // 文件加载自 https://example.com?callback=printData
 printData({ name: 'Yang shun'} )
 ```
-
-## 重点基础概念
-
-### 如何理解闭包和 IIFE？
-
-* IIFE
-  * IIFE 可以达到不暴露私有成员的目的
-  * 能够在 IIFE 完成执行后任维系着内部功能的生存期。
-  * IIFE，Immediately Invoked Function Expressions，代表立即执行函数。
-  * IIFE 的外层括号不是必须的，因为 IIFE 是一个函数表达式。
-* 闭包
-  * 闭包，closure，概念最早提出在 1964 年，1975 年最早实现，是函数和声明该函数的词法环境的组合。词法作用域中使用的域，是变量在代码中声明的位置所决定的。
-  * 闭包就是能够读取其他函数内部变量的函数。
-  * Javascript语言的特殊之处，就在于函数内部可以直接读取全局变量。另一方面，在函数外部自然无法读取函数内的局部变量。本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。
-  * 为什么使用闭包：
-    * 利用闭包实现数据私有化或模拟私有方法，这个方式也称为模块模式。
-    * 部分参数函数柯里化。
-  * 如何从外部读取局部变量？
-    * 那就是在函数的内部，再定义一个函数。这就是 JavaScript 语言特有的"链式作用域"结构(chain scop)，子对象会一级一级地向上寻找所有父对象的变量。
-  * 使用闭包的注意点
-    * 由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。
-    * 闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。
-
-### 如何理解作用域链？
-
-> 词法作用域
-
-* JavaScript在执行过程中会创造可执行上下文，可执行上下文中的词法环境中含有外部词法环境的引用，我们 可以通过这个引用获取外部词法环境的变量、声明等，这些引用串联起来一直指向全局的词法环境，因此形成了作用域 链。
-
-### 如何理解变量提升（var/let/const）？
-
-* 编译器预编译的时候，第一步只会记录变量和函数的定义，第二步才会执行程序。
-  * 所有这些函数和变量声明都被添加到名为词法环境的 JavaScript 数据结构内的内存中。
-* var 会变量提升，初始值为 undefined
-* let 和 const 相比 var
-  * 都会被提升，但是不会被初始化，不能被引用
-  * 只在块级作用域中有效
-  * 不允许重复声明
-  * 不会绑定全局作用域
-* let 和 const 区别
-  * const 定义的指针不能修改，但是指向的对象属性可以修改
-
-### 如何理解原型链？
-
-所有 JavaScript 对象都有一个 prototype 属性，指向它的原型对象。当试图访问一个对象的属性时，如果没有在该对象上找到，它还会搜寻该对象的原型，以及该对象的原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。这种行为是在模拟经典的继承，与其说是继承，不如说是委托。
-
-- 每个对象都有 `__proto__` 属性。
-- 函数有 `prototype`，定义在 ES 规范里。
-- 实例继承构造函数 prototype 的所有属性和方法
-  - 实例的 `__proto__` 指向构造函数的 prototype
-  - 对象具有属性 `__proto__`，可称为隐式原型，一个对象的隐式原型指向构造该对象的构造函数的原型，这也保证了实例能够访问在构造函数原型中定义的属性和方法。
-- 几乎所有的 JavaScript 对象都是 Object 的实例。
-  - 一个典型的对象继承了 Object.prototype 的属性（包括方法），尽管这些属性可能被遮蔽（也被称为覆盖）。
-  - 但是有时候可能故意创建不具有典型原型链继承的对象，比如通过 Object.create(null) 创建的对象，或者通过 Object.setPrototypeOf 方法改变原型链。
-  - 改变 Object 原型，会通过原型链，而改变所有对象；除非这些属性和方法被其他对原型链更里层的改动所覆盖。这提供了一个非常强大的、但有潜在危险的机制，来覆盖或扩展对象行为。
-- 所有的构造器的 constructor 都指向 Function
-- Function 的 prototype 指向一个特殊匿名函数，而这个特殊匿名函数的 `__proto__` 指向Object.prototype
-
-```javascript
-Function instanceof Object; // true
-Object instanceof Function; // true
-
-//①构造器Function的构造器是它自身
-Function.constructor=== Function;//true
-//②构造器Object的构造器是Function（由此可知所有构造器的constructor都指向Function）
-Object.constructor === Function;//true
-//③构造器Function的__proto__是一个特殊的匿名函数function() {}
-console.log(Function.__proto__);//function() {}
-//④这个特殊的匿名函数的__proto__指向Object的prototype原型。
-Function.__proto__.__proto__ === Object.prototype//true
-//⑤Object的__proto__指向Function的prototype，也就是上面③中所述的特殊匿名函数
-Object.__proto__ === Function.prototype;//true
-Function.prototype === Function.__proto__;//true
-```
-
-### 如何理解显示/隐式类型转换？
-
-* 在if语句、逻辑语句、数学运算逻辑、==等情况下都可能出现隐式类型转换。
-
-### 如何实现不可变数据？
-
-### 如何理解基础类型/引用类型？
 
 ## 特性深入
 
@@ -323,6 +350,9 @@ new String('str') instanceof String // true
 
 ### toString()/valueOf()？
 
+* toString 方法返回一个表示该对象的字符串，如果是对象会返回 [object type]，其中 type 是对象类型
+* valueOf 返回指定对象的原始值，JS 会利用 valueOf() 方法用来把对象转换成原始类型的值（数值、字符串、布尔值）
+
 ### Async - Await/Generator/Promise？
 
 * async 函数，就是 Generator 函数的语法糖，它建立在Promises上，并且与所有现有的基于Promise的API兼容。
@@ -342,5 +372,29 @@ new String('str') instanceof String // true
 
 ### `prototype` 和 `__proto__`？
 
-### in、of？
+* 每个对象都可以有一个原型 `__proto__`，这个原型还可以有自己的原型，以此形成原型链
+  * `__proto__` 是原型链查询中实际用到的，它总是指向 prototype，换句话说就是指向构造函数的原型对象，它是对象独有的
+* `prototype` 是函数独有的，从一个函数指向一个对象，含义是函数的原型对象。
+* 示例：
+  * `a.__proto__ === Foo.prototype`
+  * `Foo.__proto__ === Function.prototype`
+  * `Foo.prototype.__proto__ === Function.prototype.__proto__ === Object.prototype`
+  * `Object.__proto__ === null`
 
+### for of、for in、forEach？
+
+* `for (var value of myArray)`
+  * for..of适用遍历数/数组对象/字符串/map/set等**拥有迭代器对象**的集合.但是不能遍历对象,因为没有迭代器对象.与forEach()不同的是，它可以正确响应break、continue和return语句
+  * 
+* `for (var key in myObject)`
+  * for-in是为遍历对象而设计的，不适用于遍历数组。(遍历数组的缺点：数组的下标index值是数字，for-in遍历的index值"0","1","2"等是字符串)
+* forEach
+
+### 迭代器和生成器？
+
+* 迭代器：
+  * 迭代器是一个每次访问集合序列中一个元素的对象，并跟踪该序列中迭代的当前位置。在JavaScript中迭代器是一个对象，这个对象提供了一个 next() 方法，next() 方法返回序列中的下一个元素。当序列中所有元素都遍历完成时，该方法抛出 StopIteration 异常。
+* 生成器：
+  * 一种更好的方式来构建迭代器 虽然自定义的迭代器是一种很有用的工具，但是创建它们的时候要仔细规划，因为需要显式的维护它们的内部状态。
+  *  生成器提供了很强大的功能：它允许你定义一个包含自有迭代算法的函数， 同时它可以自动维护自己的状态。 生
+  * 成器是可以作为迭代器工厂的特殊函数。如果一个函数包含了一个或多个 yield 表达式，那么就称它为生成器(译者注：Node.js 还需要在函数名前加 * 来表示)。

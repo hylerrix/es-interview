@@ -1,8 +1,15 @@
-# React
+# React 基础
 
-## 基础
+> https://github.com/semlinker/reactjs-interview-questions
 
-### React 的内部分层？
+<!--
+
+* React 中的合成事件是什么?
+  * `SyntheticEvent` 是对浏览器原生事件的跨浏览器包装。它的 API 与浏览器的原生事件相同，包括 `stopPropagation()` 和 `preventDefault()`，除了事件在所有浏览器中的工作方式相同。
+
+-->
+
+## React 的内部分层？
 
 * Virtual DOM
 * Recociler：
@@ -13,23 +20,31 @@
     * 加入了时间片调度，Fiber Reconciler 每执行一段时间，控制权交给浏览器，以分段执行
 * Render：React DOM、React Native
 
-### React 15~17 的新特性（生命周期）？
+## React 15~17 的新特性（生命周期）？
 
 * React v15：
   * 生命周期：
     * `componentDidMount`：render 阶段触发一次，用来 ajax 调用。
     * `componentDidUpdate(prevProps, prevState, snapShot)`：updating 阶段触发，此时 setState 容易无限循环。
     * `shouldComponentUpdate(nextProps, nextState)`：改善性能，慎用，尽量用 PureComponent 替换。
+    * componentWillMount、componentWillReceiveProps、componentWillUpdate、componentWillUnmount
   * 渲染机制 - 同步：
     * 首次渲染：`willMount -> render -> didMount`。
     * props 更新：`receiveProps -> shouldUpdate -> willUpdate -> render -> didUpdate`。
     * state 更新：`shouldUpdate -> willUpdate -> render -> didUpdate`。
     * 卸载：`willUnmount`。
   * 受控组件：组件没有 state，受控于父组件
-  * 非受控组件：组件自身有 state
-
+* 非受控组件：组件自身有 state
+  
 * React v16：
   * 生命周期（v16.4）：
+    * **getDerivedStateFromProps:** 在调用`render()`之前调用，并在 *每次* 渲染时调用。 需要使用派生状态的情况是很罕见得。值得阅读 [如果你需要派生状态](https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html).
+    * **componentDidMount:** 首次渲染后调用，所有得 Ajax 请求、DOM 或状态更新、设置事件监听器都应该在此处发生。
+    * **shouldComponentUpdate:** 确定组件是否应该更新。 默认情况下，它返回`true`。 如果你确定在更新状态或属性后不需要渲染组件，则可以返回`false`值。 它是一个提高性能的好地方，因为它允许你在组件接收新属性时阻止重新渲染。
+    * **getSnapshotBeforeUpdate:** 在最新的渲染输出提交给 DOM 前将会立即调用，这对于从 DOM 捕获信息（比如：滚动位置）很有用。
+    * **componentDidUpdate:** 它主要用于更新 DOM 以响应 prop 或 state 更改。 如果`shouldComponentUpdate()`返回`false`，则不会触发。
+    * **componentWillUnmount** 当一个组件被从 DOM 中移除时，该方法被调用，取消网络请求或者移除与该组件相关的事件监听程序等应该在这里进行。
+  * 生命周期触发流程（v16.3+）
     * 挂载时：`constructor -> getDerivedStateFromProps -> render -> React 更新 DOM 和 refs -> componnentDidMound`。
     * 更新时：
       * New props 和 setState()：`getDerivedStateFromProps -> shouldComponentUpdate -> render -> getSnapShotBeforeUpdat -> React 更新 DOM 和 refs -> componnentDidMound`。
@@ -59,7 +74,7 @@
     * v17 中新调用栈机制，环境更友好
   * 移除私有导出
 
-### 如何理解 React Hooks？
+## 如何理解 React Hooks？
 
 * 生命周期：
   * 挂载阶段：`Run lazy innitializers -> Render -> React updates DOM -> Run LayoutEffects -> Browser paints screen -> Run Effects`。
@@ -84,7 +99,7 @@
   * useState 根据调用顺序来定位具体变量
   * 只能在 React 函数中调用
 
-### React 都有哪些内置 Hooks？
+## React 都有哪些内置 Hooks？
 
 * 基础 Hook：`useState; useEffect; useContext`。
 * 额外 Hook：除了基础 Hook 外的 Hook，是基础 Hook 的变体，只用于特殊情况
@@ -132,11 +147,11 @@
   * 第二个参数，格式化函数，只有在 Hook 被检查时会被调用。
 
 
-### 如何理解 JSX？
+## 如何理解 JSX？
 
 * React v16 时，JSX 编译的本质是对 React.createElement 的调用
 
-### 如何理解虚拟 DOM？
+## 如何理解虚拟 DOM？
 
 * 前端性能优化的一个秘诀就是尽可能少地直接操作 DOM（DOM 慢，容易引发回重绘）、多人协作会隐藏更多 BUG
 * 实现 Virtual DOM 的关键步骤
@@ -145,8 +160,21 @@
   * 定义一个函数处理 Virtual DOM 和真实 DOM 的转换
   * 定义一个函数比较 Virtual DOM 的 diff
     * 通常情况下很少会出现跨层级的 DOM 更新，时间复杂度是 O(n)
+* Virtual DOM 分为三个简单的步骤。
+  * 每当任何底层数据发生更改时，整个 UI 都将以 Virtual DOM 的形式重新渲染。
+  * 然后计算先前 Virtual DOM 对象和新的 Virtual DOM 对象之间的差异。
+  * 一旦计算完成，真实的 DOM 将只更新实际更改的内容。
+* Shadow DOM 和 Virtual DOM
+  * [Shadow DOM](https://developers.google.com/web/fundamentals/web-components/shadowdom?hl=zh-cn) 是一种浏览器技术，它解决了构建网络应用的脆弱性问题。Shadow DOM 修复了 CSS 和 DOM。它在网络平台中引入作用域样式。 无需工具或命名约定，你即可使用原生 JavaScript 捆绑 CSS 和标记、隐藏实现详情以及编写独立的组件。*Virtual DOM* 是一个由 JavaScript 库在浏览器 API 之上实现的概念。
+| Real DOM                     | Virtual DOM              |
+| ---------------------------- | ------------------------ |
+| 更新较慢                     | 更新较快                 |
+| 可以直接更新 HTML            | 无法直接更新 HTML        |
+| 如果元素更新，则创建新的 DOM | 如果元素更新，则更新 JSX |
+| DOM 操作非常昂贵             | DOM 操作非常简单         |
+| 较多的内存浪费               | 没有内存浪费             |
 
-### setState 背后的深入原理？
+## setState 背后的深入原理？
 
 * React v15 同步机制：当我们调用 `setState` 更新页面的时候，React 会遍历应用的所有节点，计算出差异，然后再更新 UI。整个过程是一气呵成，不能被打断的。如果页面元素很多，整个过程占用的时机就可能超过 16 毫秒，就容易出现掉帧的现象。
   * 在 React 生命周期内，也可以理解主线程中 setState 就是异步的；子线程或者说异步任务中，例如 setInterval、setTimeout 里，setState 就是同步更新的。
@@ -159,7 +187,7 @@
   * 函数的调用顺序在更新之前，导致在合成事件和钩子函数中没法立⻢拿到更新后的值，形成了所谓的**“**异步**”**，当然 可以通过第二个参数 **setState(partialState, callback)** 中的 **callback** 拿到更新后的结果。
   * **setState** 的批量更新优化也是建立在**“**异步**”**(合成事件、钩子函数)之上的，在原生事件和**setTimeout** 中不会 批量更新，在**“**异步**”**中如果对同一个值进行多次 **setState** ， **setState** 的批量更新策略会对其进行覆盖，取最后一 次的执行，如果是同时 **setState** 多个不同的值，在更新时会对其进行合并批量更新。
 
-### 如何理解 React Fiber？
+## 如何理解 React Fiber？
 
 ```javascript
 export type Fiber = {
@@ -176,7 +204,8 @@ export type Fiber = {
 }
 ```
 
-* React Fiber是对核心算法的一次重新实现，是 Render/Reconciliation 的最小单位
+* React Fiber是对核心算法的一次重新实现，是 Render/Reconciliation 的最小单位。
+* React Fiber 的目标是提高其在动画、布局和手势等领域的适用性。它的主要特性是 incremental rendering: 将渲染任务拆分为小的任务块并将任务分配到多个帧上的能力。
 * 同步的缺点：
   * 默认情况下，JS 运算、页面布局和页面绘制都是运行在浏览器的主线程当中，他们之间是互斥的关系。如果 JS 运算持续占用主线程，页面就没法得到及时的更新。
   * 当 React 决定要加载或者更新组件树时，会做很多事，比如调用各个组件的生命周期函数，计算和比对 Virtual DOM，最后更新 DOM 树，这整个过程是同步进行的，任务繁多，容易页面卡顿
@@ -206,11 +235,48 @@ export type Fiber = {
 
 函数调用栈 Fiber   基本单位 函数 Virtual DOM 节点  输入 函数参数 Props  本地状态 本地变量 State  输出 函数返回值 React Element  下级 嵌套函数调用 子节点(child)  上级引用 返回地址 父节点(return)
 
-### 如何理解 React Concurren Mode？
+## 如何理解 React Concurrent Mode？
 
 * Concurrent Mode 是 Async Mode 的 重新定义，来凸显出 React 在不同优先级上的执行能力，与其它的异步渲染方式进行区分。
 
-### 如何理解 PureComponent？
+## 如何理解 Context 上下文
+
+*Context* 通过组件树提供了一个传递数据的方法，从而避免了在每一个层级手动的传递`props`。比如，需要在应用中许多组件需要访问登录用户信息、地区偏好、UI主题等。
+
+```jsx
+// 创建一个 theme Context,  默认 theme 的值为 light
+const ThemeContext = React.createContext('light');
+
+function ThemedButton(props) {
+  // ThemedButton 组件从 context 接收 theme
+  return (
+    <ThemeContext.Consumer>
+      {theme => <Button {...props} theme={theme} />}
+    </ThemeContext.Consumer>
+  );
+}
+
+// 中间组件
+function Toolbar(props) {
+  return (
+    <div>
+      <ThemedButton />
+    </div>
+  );
+}
+
+class App extends React.Component {
+  render() {
+    return (
+      <ThemeContext.Provider value="dark">
+        <Toolbar />
+      </ThemeContext.Provider>
+    );
+  }
+}
+```
+
+## 如何理解 PureComponent？
 
 * `PureComponent` 也就是纯组件，取代其前身 `PureRenderMixin`，`PureComponent` 是优化 `React` 应用程序最重要的方法之一。
 * 可以减少不必要的 `render` 操作的次数，从而提高性能，而且可以少写 `shouldComponentUpdate` 函数，节省了点代码。
@@ -228,11 +294,11 @@ if (this._compositeType === CompositeTypes.PureClass) {
 }
 ```
 
-### 如何理解 React Suspense
+## 如何理解 React Suspense
 
 * React 捕获到异常之后，会判断异常是不是一个 thenable，如果是则会找到 SuspenseComponent ，如果 thenable 处于 pending 状态，则会将其 children 都渲染成 fallback 的值，一旦 thenable 被 resolve 则 SuspenseComponent 的子组件会重新渲染一次。
 
-### 如何理解批量更新（BatchingStrategy/transaction）？
+## 如何理解批量更新（BatchingStrategy/transaction）？
 
 * 事务（Transaction），是一个操作序列，这些操作要么都执行，要么都不执行，它是一个不可分割的工作单位。
   * sql server 用来处理批量操作的一个机制。当所有操作均执行成功，即可以 commit transaction；若有一个操作失败，则执行rollback
@@ -242,7 +308,7 @@ if (this._compositeType === CompositeTypes.PureClass) {
   * 执行 perform 时先执行 initializeAll 方法按顺序执行一系列 initialize 的操作，例如一些初始化操作等等
   * 然后执行传入的method，method 执行完后就执行 closeAll 方法按顺序执行一系列 close 操作然后结束这次事务。
 
-### 如何理解 Time Slice 时间分片？
+## 如何理解 Time Slice 时间分片？
 
 * 时间分片：
   * React 在渲染的时候，不会阻塞现在的线程
@@ -251,7 +317,7 @@ if (this._compositeType === CompositeTypes.PureClass) {
 * 同步模式：
 * Debounce 模式：延迟渲染
 
-### mixin/hoc/render props/hooks 对比？
+## mixin/hoc/render props/hooks 对比？
 
 * Mixin 缺陷：
   * 组件与 Mixin 之间存在隐式依赖（Mixin 经常以来组件的特定方法，但在定义组件时并不知道这种依赖关系）。
@@ -295,136 +361,79 @@ if (this._compositeType === CompositeTypes.PureClass) {
     * 内部实现上不直观（依赖一份可变的全局状态，以至不“纯”）
     * React.memo 并不能完全替代 shouldComponentUpdate（因为拿不到 state change，只针对 props change）
 
-### 如何理解高阶函数组件？
+## 类组件/函数式组件？
 
-## 基础实战
+* 如果组件需要使用**状态或生命周期方法**，那么使用类组件，否则使用函数组件。
 
-### 如何进行权限组件的设计？
-
-* 路由级
-* 模块级：`export default withAuth({ authorities: ['admin', 'user'], })(BasicList);`
-* 按钮级：`<Auth authorities={['admin', 'user']}><Button>auth</Button></Auth>;`
-* 接口级
-
-### React 组件如何通信？
-
-* 父组件向子组件通讯: 父组件可以向子组件通过传 props 的方式，向子组件进行通讯
-* 子组件向父组件通讯: props+回调的方式,父组件向子组件传递props进行通讯，此props为作用域为父组件自身的函 数，子组件调用该函数，将子组件想要传递的信息，作为参数，传递到父组件的作用域中
-* 兄弟组件通信: 找到这两个兄弟节点共同的父节点,结合上面两种方式由父节点转发信息进行通信
-* 跨层级通信: Context 设计目的是为了共享那些对于一个组件树而言是“全局”的数据，例如当前认证的用户、主题 或首选语言,对于跨越多层的全局数据通过 Context 通信再适合不过
-* 发布订阅模式: 发布者发布事件，订阅者监听事件并做出反应,我们可以通过引入event模块进行通信 全局状态管理工具: 借助Redux或者Mobx等全局状态管理工具进行通信,这种工具会维护一个全局状态中心Store,并 根据不同的事件产生新的状态
-
-## React 如何实现对象的 watch？
-
-### React 如何实现懒加载？
-
-* React 16.6 添加了一个新的特性：React.lazy()，它可以让代码分割更加容易。
-  * 避免大体积的代码包，增加首屏的加载速度。
-* React.lazy()
-
-### React 如何进行性能优化？
-
-function component + redux、immutable、pure component , shouldComponentUpdate ...
-
-### 自定义一个 useLoading Hook
-
-```react
-/**
- * 功能同 createThrowable, 优化了一个点: 在函数内处理了 loading状态
- * 用法同 React.useXxx 会返回一个数组, 第一个参数是 函数, 第二个是 loading状态
- * @param fn
- * @param errorTitle
- * @return [处理异常函数, loading状态]
- */
-export const useLoadingThrowable =
-  function (fn: (args: any) => Promise<any>, errorTitle = '操作失败'): [(args?: any) => any, boolean] {
-    const [loading, setLoading] = useState(false)
-    return [
-      function (args: any) {
-        setLoading(true)
-        fn(args)
-          .catch((e) => {
-            // 忽略 axios 取消造成的请求错误
-            if (e && e.toString() && e.toString().includes('Cancel')) {
-              return
-            }
-            notificationErrorLog(errorTitle, e)
-          })
-          .finally(() => setLoading(false))
-      },
-      loading,
-    ]
+```jsx
+class Greeting extends React.Component {
+  render() {
+    return <h1>{`Hello, ${this.props.message}`}</h1>
   }
+}
 
-const [getPartsAvlList, loadingPartsAvl] = useLoadingThrowable(async (pagination) => {
-        const {data: {aaData, success, msg, recordsFiltered}} = await getAvlList({})
-        if (success) {
-            setAvlList(aaData)
-            setPagination({current: pagination.current, pageSize: pagination.pageSize, total: recordsFiltered,showSizeChanger: true,
-                showQuickJumper: true,showTotal:()=>{return showTotal(recordsFiltered)},pageSizeOptions: ['10', '50', '100', '200']})
-        } else
-            throw msg
-    }, "获取AVL列表信息失败")
-
-React.useEffect(() =>{
-        getPartsAvlList(pagination)
-}, []}
+function Greeting({ message }) {
+  return <h1>{`Hello, ${message}`}</h1>
+}
 ```
 
-## 生态库
+## 如何理解高阶函数组件？
 
-### Redux/React-Redux.MobX？
+*高阶组件*(*HOC*) 就是一个函数，且该函数接受一个组件作为参数，并返回一个新的组件，它只是一种模式，这种模式是由`react`自身的组合性质必然产生的。
 
-* Redux：
-  * Store：保存数据的地方，整个应用只能有一个 Store
-  * State：Store 对象包含的数据
-  * Action：State 的变化，会导致 View 的变化。但是用户接触不到 State，只能接触到 View。所以，State 的变化必须是 View 导致的。Action 就是 View 发出的通知，表示 State 应该要发生变化了。
-  * Action Creator：View要发送多少种消息，就会有多少种Action。如果都手写，会很麻烦，所以我们定义一个函数 来生成Action，这个函数就叫Action Creator。
-  * Reducer：Store收到Action以后，必须给出一个新的State，这样View才会发生变化。这种State的计算过程就叫做 Reducer。Reducer是一个函数，它接受Action和当前State作为参数，返回一个新的State。
-  * dispatch：是View发出Action的唯一方法。
-* React-Redux
-  * Provider: Provider的作用是从最外部封装了整个应用，并向connect模块传递store
-  * connect: 负责连接React和Redux
-    * 获取state: connect通过context获取Provider中的store，通过store.getState()获取整个store tree 上所有state
-    * 包装原组件: 将state和action通过props的方式传入到原组件内部wrapWithConnect返回一个ReactComponent 对象Connect，Connect重新render外部传入的原组件WrappedComponent，并把connect中传入的 mapStateToProps, mapDispatchToProps与组件上原有的props合并后，通过属性的方式传给 WrappedComponent
-    * 监听store tree变化: connect缓存了store tree中state的状态,通过当前state状态和变更前state状态进行比较,从 而确定是否调用 this.setState() 方法触发Connect及其子组件的重新渲染
-* Redux 和 Mobx 的区别？
-  * redux将数据保存在单一的store中，mobx将数据保存在分散的多个store中
-  * redux使用plain object保存数据，需要手动处理变化后的操作;mobx适用observable保存数据，数据变化后自动处 理响应的操作
-  * redux使用不可变状态，这意味着状态是只读的，不能直接去修改它，而是应该返回一个新的状态，同时使用纯函 数;mobx中的状态是可变的，可以直接对其进行修改
-  * mobx相对来说比较简单，在其中有很多的抽象，mobx更多的使用面向对象的编程思维;redux会比较复杂，因为 其中的函数式编程思想掌握起来不是那么容易，同时需要借助一系列的中间件来处理异步和副作用
-  * mobx中有更多的抽象和封装，调试会比较困难，同时结果也难以预测;而redux提供能够进行时间回溯的开发工 具，同时其纯函数以及更少的抽象，让调试变得更加的容易
+我们将它们称为**纯组件**，因为它们可以接受任何动态提供的子组件，但它们不会修改或复制其输入组件中的任何行为。
 
-### Redux 异步与社区中间件
+```
+const EnhancedComponent = higherOrderComponent(WrappedComponent)
+```
 
-* Redux 异步操作：
-  * 不用 Redux 的话，可以直接在 componentDidMount 中操作
-  * Redux 中，可以接触 redux-thunk 或 redux-saga。
-* redux-thunk
-  * 优点：
-    * 体积小，redux-thunk 的实现方式很简单，只有不到 20 行代码
-    * 使用简单：redux-thunk 没有引入像 redux-saga 活着 redux-observable 额外的范式，上手简单。
-  * 缺点：
-    * 样板代码过多：与 redux 本身一样，通常一个请求需要大量的代码，而且很多都是重复性质的
-    * 耦合严重：异步操作与 redux 的 action 耦合在一起，不方便管理
-    * 功能孱弱：有一些实际开发中常用的功能需要自己进行封装
-* redux-saga
-  * 优点：
-    * 异步解耦：异步操作被被转移到单独 saga.js 中，不再是掺杂在 action.js 或 component.js 中
-    * action摆脱thunk function: dispatch 的参数依然是一个纯粹的 action (FSA)，而不是充满 “黑魔法” thunk function
-    * 异常处理：受益于 generator function 的 saga 实现，代码异常/请求失败 都可以直接通过 try/catch 语法直接捕获处 理
-    * 功能强大：redux-saga提供了大量的Saga 辅助函数和Effect 创建器供开发者使用,开发者无须封装或者简单封装即 可使用
-    * 灵活：redux-saga可以将多个Saga可以串行/并行组合起来,形成一个非常实用的异步flow
-    * 易测试，提供了各种case的测试方案，包括mock task，分支覆盖等等
-  * 缺点：
-    * 额外的学习成本: redux-saga不仅在使用难以理解的 generator function,而且有数十个API,学习成本远超redux- thunk,最重要的是你的额外学习成本是只服务于这个库的,与redux-observable不同,redux-observable虽然也有额外 学习成本但是背后是rxjs和一整套思想
-    * 体积庞大: 体积略大,代码近2000行，min版25KB左右
-    * 功能过剩: 实际上并发控制等功能很难用到,但是我们依然需要引入这些代码
-    * ts支持不友好: yield无法返回TS类型
-* redux-observable
-  * 优点：
-    * 功能最强: 由于背靠rxjs这个强大的响应式编程的库,借助rxjs的操作符,你可以几乎做任何你能想到的异步处理
-    * 背靠rxjs: 由于有rxjs的加持,如果你已经学习了rxjs,redux-observable的学习成本并不高,而且随着rxjs的升级redux- observable也会变得更强大
-  * 缺点：
-    * 学习成本奇高: 如果你不会rxjs,则需要额外学习两个复杂的库
-    * 社区一般: redux-observable的下载量只有redux-saga的1/5,社区也不够活跃,在复杂异步流中间件这个层面redux- saga仍处于领导地位
+HOC 有很多用例：
+
+1. 代码复用，逻辑抽象化
+2. 渲染劫持
+3. 抽象化和操作状态（`state`）
+4. 操作属性（`props`）
+
+```jsx
+// 可以使用属性代理模式向输入组件增加或编辑属性（props）
+function HOC(WrappedComponent) {
+  return class Test extends Component {
+    render() {
+      const newProps = {
+        title: 'New Header',
+        footer: false,
+        showFeatureX: false,
+        showFeatureY: true
+      };
+
+      return <WrappedComponent {...this.props} {...newProps} />
+    }
+  }
+}
+```
+
+## State 和 Props？
+
+state 和 props 都是普通的 JavaScript 对象。虽然它们都保存着影响渲染输出的信息，但它们在组件方面的功能不同。Props 以类似于函数参数的方式传递给组件，而状态则类似于在函数内声明变量并对它进行管理。
+
+| Conditions           | States | Props |
+| -------------------- | ------ | ----- |
+| 可从父组件接收初始值 | 是     | 是    |
+| 可在父组件中改变其值 | 否     | 是    |
+| 在组件内设置默认值   | 是     | 是    |
+| 在组件内可改变       | 是     | 否    |
+| 可作为子组件的初始值 | 是     | 是    |
+
+## 深入 key
+
+* `key` 是一个特殊的字符串属性，你在创建元素数组时需要包含它。Keys 帮助 React 识别哪些项已更改、添加或删除。
+
+## 深入 ref/forward ref/callback ref？
+
+* Ref forwarding 是一个特性，它允许一些组件获取接收到 ref 对象并将它进一步传递给子组件。
+
+## 受控组件/非受控组件？
+
+* 在随后的用户输入中，能够控制表单中输入元素的组件被称为受控组件，即每个状态更改都有一个相关联的处理程序。
+* 非受控组件是在内部存储其自身状态的组件，当需要时，可以使用 ref 查询 DOM 并查找其当前值。这有点像传统的 HTML。
+

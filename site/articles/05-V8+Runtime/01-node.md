@@ -112,6 +112,292 @@ if (isMainThread) {
 
 ### Node 如何利用多核 CPU？
 
+## 异步
+
+### Node 的事件模型？
+
+> https://www.jianshu.com/p/cc57ec6d5873
+
+* NodeJS的单线程事件循环的优势
+  * 处理越来越多的并发客户端请求非常容易
+  * 因为事件循环的存在，即使我们的NodeJS应用接收到了越来越多的并发请求，我们也不需要去新建很多的线程
+  * NodeJS使用到了较少的线程，所以资源和内存的使用较少
+
+* 单线程事件循环模型流程
+  * 客户端发送请求到Web服务器
+  * NodeJS的Web服务器在内部维护一个有限的线程池，以便为客户端请求提供服务
+  * NodeJS的Web服务器接收这些请求并将它们放入队列中。 它被称为“事件队列”
+  * NodeJS的Web服务器内部有一个组件，称为“事件循环”，它使用无限循环来接收请求并处理它们。
+  * 事件循环只使用到了一个线程，它是NodeJS的处理模型的核心
+  * 事件循环回去检查是否有客户端的请求被放置在事件队列中。如果没有，会一直等待事件队列中存在请求。
+  * 如果有，则会从事件队列中拾取一个客户端请求：
+    - 开始处理客户端请求
+    - 如果该客户端请求不需要任何阻塞IO操作，则处理所有内容，准备响应并将其发送回客户端
+    - 如果该客户端请求需要一些阻塞IO操作，例如与数据库，文件系统，外部服务交互，那么它将遵循不同的方法:
+      - 从内部线程池检查线程可用性
+      - 获取一个线程并将此客户端请求分配给该线程
+      - 该线程负责接收该请求，处理该请求，执行阻塞IO操作，准备响应并将其发送回事件循环
+      - 事件循环依次将响应发送到相应的客户端
+
+### 如何理解 EventEmmiter？
+
+* 所有能触发事件的对象都是 `EventEmitter` 类的实例。 这些对象开放了一个 `eventEmitter.on()` 函数，允许将一个或多个函数绑定到会被对象触发的命名事件上。 事件名称通常是驼峰式的字符串，但也可以使用任何有效的 JavaScript 属性名。
+* 当 EventEmitter 对象触发一个事件时，所有绑定在该事件上的函数都被同步地调用。
+
+### 动手实现 EventEmmiter？
+
+```javascript
+// 简单实现
+class EventEmitter {
+  constructor() {
+    this.events = {};
+  }
+  on(type, listener, isUnshift) {
+    // 因为其他的类可能继承自 EventEmitter，子类的events可能为空，保证子类必须存在此实例属性
+    if(!this.events) {
+      this.events = {};
+    }
+    if(this.events[type]) {
+      if(isUnshift) {
+        this.events[type].unshift(listener);
+      } else {
+        this.events[type].push(listener);
+      }
+    } else {
+      this.events[type] = [listener]
+    }
+
+    if(type !== 'newListener') {
+      // node的EventEmitter模块自带的特殊事件，该事件在添加新事件监听器的时候触发
+      this.emit('newListener', type);
+    }
+  }
+  emit(type, ...args) {
+    if(this.events[type]) {
+      this.events[type].forEach(fn => fn.call(this, ...args));
+    }
+  }
+  // 只绑定一次，然后解绑
+  once(type, listener) {
+    const me = this;
+    function oneTime(...args) {
+      listener.call(this, ...args);
+      me.off(type, oneTime);
+    }
+    me.on(type, oneTime)
+  }
+  off(type, listener) {
+    if(this.events[type]) {
+      const index = this.events[type].indexOf(listener);
+      this.events[type].splice(index, 1);
+    }
+  }
+}
+
+// 运行示例
+let event = new EventEmitter();
+
+event.on('say',function(str) {
+  console.log(str);
+});
+
+event.once('say', function(str) {
+  console.log('这是 once:' + str)
+})
+
+event.emit('say','visa');
+event.emit('say','visa222');
+event.emit('say','visa333');
+```
+
+```javascript
+(function() {
+    var root = (typeof self == 'object' && self.self == self && self) ||
+        (typeof global == 'object' && global.global == global && global) ||
+        this || {};
+
+    function isValidListener(listener) {
+        if (typeof listener === 'function') {
+            return true
+        } else if (listener && typeof listener === 'object') {
+            return isValidListener(listener.listener)
+        } else {
+            return false
+        }
+    }
+
+    function indexOf(array, item) {
+        var result = -1
+        item = typeof item === 'object'
+            ? item.listener
+            : item
+
+        for (var i = 0, len = array.length; i < len; i++) {
+            if (array[i].listener === item) {
+                result = i
+                break
+            }
+        }
+
+        return result
+    }
+
+    function EventEmitter() {
+        this.__events = {}
+    }
+
+    EventEmitter.VERSION = '1.0.0';
+
+    var proto = EventEmitter.prototype;
+
+    /**
+     * 添加事件
+     * @param  {String} eventName 事件名称
+     * @param  {Function} listener 监听器函数
+     * @return {Object} 可链式调用
+     */
+    proto.on = function(eventName, listener) {
+        if (!eventName || !listener) return;
+
+        if (!isValidListener(listener)) {
+            throw new TypeError('listener must be a function');
+        }
+
+        var events = this.__events;
+        var listeners = events[eventName] = events[eventName] || [];
+        var listenerIsWrapped = typeof listener === 'object';
+
+        // 不重复添加事件
+        if (indexOf(listeners, listener) === -1) {
+            listeners.push(listenerIsWrapped ? listener : {
+                listener: listener,
+                once: false
+            });
+        }
+
+        return this;
+    };
+
+    /**
+     * 添加事件，该事件只能被执行一次
+     * @param  {String} eventName 事件名称
+     * @param  {Function} listener 监听器函数
+     * @return {Object} 可链式调用
+     */
+    proto.once = function(eventName, listener) {
+        return this.on(eventName, {
+            listener: listener,
+            once: true
+        })
+    };
+
+    /**
+     * 删除事件
+     * @param  {String} eventName 事件名称
+     * @param  {Function} listener 监听器函数
+     * @return {Object} 可链式调用
+     */
+    proto.off = function(eventName, listener) {
+        var listeners = this.__events[eventName];
+        if (!listeners) return;
+
+        var index;
+        for (var i = 0, len = listeners.length; i < len; i++) {
+            if (listeners[i] && listeners[i].listener === listener) {
+                index = i;
+                break;
+            }
+        }
+
+        if (typeof index !== 'undefined') {
+            listeners.splice(index, 1, null)
+        }
+
+        return this;
+    };
+
+    /**
+     * 触发事件
+     * @param  {String} eventName 事件名称
+     * @param  {Array} args 传入监听器函数的参数，使用数组形式传入
+     * @return {Object} 可链式调用
+     */
+    proto.emit = function(eventName, args) {
+        var listeners = this.__events[eventName];
+        if (!listeners) return;
+
+        for (var i = 0; i < listeners.length; i++) {
+            var listener = listeners[i];
+            if (listener) {
+                listener.listener.apply(this, args || []);
+                if (listener.once) {
+                    this.off(eventName, listener.listener)
+                }
+            }
+
+        }
+
+        return this;
+
+    };
+
+    /**
+     * 删除某一个类型的所有事件或者所有事件
+     * @param  {String[]} eventName 事件名称
+     */
+    proto.allOff = function(eventName) {
+        if (eventName && this.__events[eventName]) {
+            this.__events[eventName] = []
+        } else {
+            this.__events = {}
+        }
+    };
+
+    if (typeof exports != 'undefined' && !exports.nodeType) {
+        if (typeof module != 'undefined' && !module.nodeType && module.exports) {
+            exports = module.exports = EventEmitter;
+        }
+        exports.EventEmitter = EventEmitter;
+    } else {
+        root.EventEmitter = EventEmitter;
+    }
+
+}());
+```
+
+```javascript
+var emitter = new EventEmitter();
+
+function handleOne(a, b, c) {
+    console.log('第一个监听函数', a, b, c)
+}
+
+function handleSecond(a, b, c) {
+    console.log('第二个监听函数', a, b, c)
+}
+
+function handleThird(a, b, c) {
+    console.log('第三个监听函数', a, b, c)
+}
+
+emitter.on("demo", handleOne)
+       .once("demo", handleSecond)
+       .on("demo", handleThird);
+
+emitter.emit('demo', [1, 2, 3]);
+// => 第一个监听函数 1 2 3
+// => 第二个监听函数 1 2 3
+// => 第三个监听函数 1 2 3
+
+emitter.off('demo', handleThird);
+emitter.emit('demo', [1, 2, 3]);
+// => 第一个监听函数 1 2 3
+
+emitter.allOff();
+emitter.emit('demo', [1, 2, 3]);
+// nothing
+```
+
 ## Node 模块化
 
 ### 如何理解 Node Module？
@@ -359,273 +645,6 @@ semlinker
 semlinker
 i love node
 i love node
-```
-
-
-
-## 异步
-
-### Node 的事件模型？
-
-### 如何理解 EventEmmiter？
-
-* 所有能触发事件的对象都是 `EventEmitter` 类的实例。 这些对象开放了一个 `eventEmitter.on()` 函数，允许将一个或多个函数绑定到会被对象触发的命名事件上。 事件名称通常是驼峰式的字符串，但也可以使用任何有效的 JavaScript 属性名。
-* 当 EventEmitter 对象触发一个事件时，所有绑定在该事件上的函数都被同步地调用。
-
-### 动手实现 EventEmmiter？
-
-```javascript
-// 简单实现
-class EventEmitter {
-  constructor() {
-    this.events = {};
-  }
-  on(type, listener, isUnshift) {
-    // 因为其他的类可能继承自 EventEmitter，子类的events可能为空，保证子类必须存在此实例属性
-    if(!this.events) {
-      this.events = {};
-    }
-    if(this.events[type]) {
-      if(isUnshift) {
-        this.events[type].unshift(listener);
-      } else {
-        this.events[type].push(listener);
-      }
-    } else {
-      this.events[type] = [listener]
-    }
-
-    if(type !== 'newListener') {
-      // node的EventEmitter模块自带的特殊事件，该事件在添加新事件监听器的时候触发
-      this.emit('newListener', type);
-    }
-  }
-  emit(type, ...args) {
-    if(this.events[type]) {
-      this.events[type].forEach(fn => fn.call(this, ...args));
-    }
-  }
-  // 只绑定一次，然后解绑
-  once(type, listener) {
-    const me = this;
-    function oneTime(...args) {
-      listener.call(this, ...args);
-      me.off(type, oneTime);
-    }
-    me.on(type, oneTime)
-  }
-  off(type, listener) {
-    if(this.events[type]) {
-      const index = this.events[type].indexOf(listener);
-      this.events[type].splice(index, 1);
-    }
-  }
-}
-
-// 运行示例
-let event = new EventEmitter();
-
-event.on('say',function(str) {
-  console.log(str);
-});
-
-event.once('say', function(str) {
-  console.log('这是 once:' + str)
-})
-
-event.emit('say','visa');
-event.emit('say','visa222');
-event.emit('say','visa333');
-```
-
-```javascript
-(function() {
-    var root = (typeof self == 'object' && self.self == self && self) ||
-        (typeof global == 'object' && global.global == global && global) ||
-        this || {};
-
-    function isValidListener(listener) {
-        if (typeof listener === 'function') {
-            return true
-        } else if (listener && typeof listener === 'object') {
-            return isValidListener(listener.listener)
-        } else {
-            return false
-        }
-    }
-
-    function indexOf(array, item) {
-        var result = -1
-        item = typeof item === 'object'
-            ? item.listener
-            : item
-
-        for (var i = 0, len = array.length; i < len; i++) {
-            if (array[i].listener === item) {
-                result = i
-                break
-            }
-        }
-
-        return result
-    }
-
-    function EventEmitter() {
-        this.__events = {}
-    }
-
-    EventEmitter.VERSION = '1.0.0';
-
-    var proto = EventEmitter.prototype;
-
-    /**
-     * 添加事件
-     * @param  {String} eventName 事件名称
-     * @param  {Function} listener 监听器函数
-     * @return {Object} 可链式调用
-     */
-    proto.on = function(eventName, listener) {
-        if (!eventName || !listener) return;
-
-        if (!isValidListener(listener)) {
-            throw new TypeError('listener must be a function');
-        }
-
-        var events = this.__events;
-        var listeners = events[eventName] = events[eventName] || [];
-        var listenerIsWrapped = typeof listener === 'object';
-
-        // 不重复添加事件
-        if (indexOf(listeners, listener) === -1) {
-            listeners.push(listenerIsWrapped ? listener : {
-                listener: listener,
-                once: false
-            });
-        }
-
-        return this;
-    };
-
-    /**
-     * 添加事件，该事件只能被执行一次
-     * @param  {String} eventName 事件名称
-     * @param  {Function} listener 监听器函数
-     * @return {Object} 可链式调用
-     */
-    proto.once = function(eventName, listener) {
-        return this.on(eventName, {
-            listener: listener,
-            once: true
-        })
-    };
-
-    /**
-     * 删除事件
-     * @param  {String} eventName 事件名称
-     * @param  {Function} listener 监听器函数
-     * @return {Object} 可链式调用
-     */
-    proto.off = function(eventName, listener) {
-        var listeners = this.__events[eventName];
-        if (!listeners) return;
-
-        var index;
-        for (var i = 0, len = listeners.length; i < len; i++) {
-            if (listeners[i] && listeners[i].listener === listener) {
-                index = i;
-                break;
-            }
-        }
-
-        if (typeof index !== 'undefined') {
-            listeners.splice(index, 1, null)
-        }
-
-        return this;
-    };
-
-    /**
-     * 触发事件
-     * @param  {String} eventName 事件名称
-     * @param  {Array} args 传入监听器函数的参数，使用数组形式传入
-     * @return {Object} 可链式调用
-     */
-    proto.emit = function(eventName, args) {
-        var listeners = this.__events[eventName];
-        if (!listeners) return;
-
-        for (var i = 0; i < listeners.length; i++) {
-            var listener = listeners[i];
-            if (listener) {
-                listener.listener.apply(this, args || []);
-                if (listener.once) {
-                    this.off(eventName, listener.listener)
-                }
-            }
-
-        }
-
-        return this;
-
-    };
-
-    /**
-     * 删除某一个类型的所有事件或者所有事件
-     * @param  {String[]} eventName 事件名称
-     */
-    proto.allOff = function(eventName) {
-        if (eventName && this.__events[eventName]) {
-            this.__events[eventName] = []
-        } else {
-            this.__events = {}
-        }
-    };
-
-    if (typeof exports != 'undefined' && !exports.nodeType) {
-        if (typeof module != 'undefined' && !module.nodeType && module.exports) {
-            exports = module.exports = EventEmitter;
-        }
-        exports.EventEmitter = EventEmitter;
-    } else {
-        root.EventEmitter = EventEmitter;
-    }
-
-}());
-```
-
-
-
-```javascript
-var emitter = new EventEmitter();
-
-function handleOne(a, b, c) {
-    console.log('第一个监听函数', a, b, c)
-}
-
-function handleSecond(a, b, c) {
-    console.log('第二个监听函数', a, b, c)
-}
-
-function handleThird(a, b, c) {
-    console.log('第三个监听函数', a, b, c)
-}
-
-emitter.on("demo", handleOne)
-       .once("demo", handleSecond)
-       .on("demo", handleThird);
-
-emitter.emit('demo', [1, 2, 3]);
-// => 第一个监听函数 1 2 3
-// => 第二个监听函数 1 2 3
-// => 第三个监听函数 1 2 3
-
-emitter.off('demo', handleThird);
-emitter.emit('demo', [1, 2, 3]);
-// => 第一个监听函数 1 2 3
-
-emitter.allOff();
-emitter.emit('demo', [1, 2, 3]);
-// nothing
 ```
 
 ## NPM
