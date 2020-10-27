@@ -12,11 +12,10 @@ jobs:
         env:
           DENO_INSTALL: /home/runner/.deno
         run: |
-          curl -fsSL https://deno.land/x/install/install.sh | sh
+          curl -fsSL https://deno.land/x/install/install.sh | sh -s v1.4.6
           export PATH="$DENO_INSTALL/bin:$PATH"
           deno --version
-          deno upgrade --version 1.4.6
-          deno install --unstable --allow-env --allow-read --allow-write --allow-net --allow-run -n pagic https://deno.land/x/pagic@v0.10.3/mod.ts
+          deno install --unstable --allow-env --allow-read --allow-write --allow-net --allow-run --name=pagic https://deno.land/x/pagic@v0.10.3/mod.ts
           pagic build
 
       - name: Deploy
