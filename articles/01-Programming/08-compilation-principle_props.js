@@ -16,19 +16,31 @@ export default {
             "pagePath": "articles/README.md"
         },
         {
-            "title": "前端大事记",
-            "link": "articles/es-timeline.html",
-            "pagePath": "articles/es-timeline.md"
-        },
-        {
-            "title": "ES 方向 & 谁在招人？",
-            "link": "articles/es-direction.html",
-            "pagePath": "articles/es-direction.md"
-        },
-        {
-            "title": "职业 & 成长",
-            "link": "articles/00-Profession/index.html",
-            "pagePath": "articles/00-Profession/README.md"
+            "link": "articles/00-Beginner/index.html",
+            "title": "一切的起源",
+            "children": [
+                {
+                    "title": "前端大事记",
+                    "link": "articles/00-Beginner/00-es-timeline.html",
+                    "pagePath": "articles/00-Beginner/00-es-timeline.md"
+                },
+                {
+                    "title": "ES 方向 & 谁在招人？",
+                    "link": "articles/00-Beginner/01-es-direction.html",
+                    "pagePath": "articles/00-Beginner/01-es-direction.md"
+                },
+                {
+                    "title": "大厂职级",
+                    "link": "articles/00-Beginner/02-es-rank.html",
+                    "pagePath": "articles/00-Beginner/02-es-rank.md"
+                },
+                {
+                    "title": "看什么书？",
+                    "link": "articles/00-Beginner/03-es-books.html",
+                    "pagePath": "articles/00-Beginner/03-es-books.md"
+                }
+            ],
+            "pagePath": "articles/00-Beginner/README.md"
         },
         {
             "link": "articles/01-Programming/index.html",
@@ -92,19 +104,24 @@ export default {
                     "pagePath": "articles/02-ECMAScript+/00-ecmascript.md"
                 },
                 {
+                    "title": "ES 数据类型",
+                    "link": "articles/02-ECMAScript+/01-es-data-type.html",
+                    "pagePath": "articles/02-ECMAScript+/01-es-data-type.md"
+                },
+                {
                     "title": "JavaScript 基础知识",
-                    "link": "articles/02-ECMAScript+/01-javascript.html",
-                    "pagePath": "articles/02-ECMAScript+/01-javascript.md"
+                    "link": "articles/02-ECMAScript+/02-javascript.html",
+                    "pagePath": "articles/02-ECMAScript+/02-javascript.md"
                 },
                 {
                     "title": "TypeScript",
-                    "link": "articles/02-ECMAScript+/02-typescript.html",
-                    "pagePath": "articles/02-ECMAScript+/02-typescript.md"
+                    "link": "articles/02-ECMAScript+/03-typescript.html",
+                    "pagePath": "articles/02-ECMAScript+/03-typescript.md"
                 },
                 {
                     "title": "JavaScript 常见实战题",
-                    "link": "articles/02-ECMAScript+/03-javascript-parctice.html",
-                    "pagePath": "articles/02-ECMAScript+/03-javascript-parctice.md"
+                    "link": "articles/02-ECMAScript+/04-javascript-parctice.html",
+                    "pagePath": "articles/02-ECMAScript+/04-javascript-parctice.md"
                 }
             ],
             "pagePath": "articles/02-ECMAScript+/README.md"
@@ -124,14 +141,19 @@ export default {
                     "pagePath": "articles/03-HTML+CSS/01-css-design.md"
                 },
                 {
-                    "title": "HTML + CSS 实战",
-                    "link": "articles/03-HTML+CSS/02-html-css-practice.html",
-                    "pagePath": "articles/03-HTML+CSS/02-html-css-practice.md"
+                    "title": "CSS 进阶",
+                    "link": "articles/03-HTML+CSS/02-css-advance.html",
+                    "pagePath": "articles/03-HTML+CSS/02-css-advance.md"
+                },
+                {
+                    "title": "CSS 实战",
+                    "link": "articles/03-HTML+CSS/03-css-practice.html",
+                    "pagePath": "articles/03-HTML+CSS/03-css-practice.md"
                 },
                 {
                     "title": "DOM + BOM",
-                    "link": "articles/03-HTML+CSS/03-dom-bom.html",
-                    "pagePath": "articles/03-HTML+CSS/03-dom-bom.md"
+                    "link": "articles/03-HTML+CSS/04-dom-bom.html",
+                    "pagePath": "articles/03-HTML+CSS/04-dom-bom.md"
                 }
             ],
             "pagePath": "articles/03-HTML+CSS/README.md"
@@ -210,19 +232,24 @@ export default {
                     "pagePath": "articles/06-FE+Browser/04-fe-mobile.md"
                 },
                 {
-                    "title": "React",
+                    "title": "React 基础",
                     "link": "articles/06-FE+Browser/05-react.html",
                     "pagePath": "articles/06-FE+Browser/05-react.md"
                 },
                 {
+                    "title": "React 实战",
+                    "link": "articles/06-FE+Browser/06-react-practice.html",
+                    "pagePath": "articles/06-FE+Browser/06-react-practice.md"
+                },
+                {
                     "title": "Vue",
-                    "link": "articles/06-FE+Browser/06-vue.html",
-                    "pagePath": "articles/06-FE+Browser/06-vue.md"
+                    "link": "articles/06-FE+Browser/07-vue.html",
+                    "pagePath": "articles/06-FE+Browser/07-vue.md"
                 },
                 {
                     "title": "iframe",
-                    "link": "articles/06-FE+Browser/07-iframe.html",
-                    "pagePath": "articles/06-FE+Browser/07-iframe.md"
+                    "link": "articles/06-FE+Browser/08-iframe.html",
+                    "pagePath": "articles/06-FE+Browser/08-iframe.md"
                 }
             ],
             "pagePath": "articles/06-FE+Browser/README.md"
@@ -261,7 +288,7 @@ export default {
     'outputPath': "articles/01-Programming/08-compilation-principle.html",
     'title': "编译原理",
     'content': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<h1>编译原理</h1>'
+            __html: '<h1>编译原理</h1>\n<h2 id="%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%9A%84%E8%BF%87%E7%A8%8B">编译原理的过程？<a class="anchor" href="#%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%9A%84%E8%BF%87%E7%A8%8B">§</a></h2>\n<pre class="language-markdown"><code class="language-markdown"><span class="token bold"><span class="token punctuation">**</span><span class="token content">词法分析</span><span class="token punctuation">**</span></span>   ===>   单词与记号、正则表达式、有限自动机、从正则表达式到有限自动机的转换、词法分析器的实现\n    ││\n<span class="token bold"><span class="token punctuation">**</span><span class="token content">语法分析</span><span class="token punctuation">**</span></span>   ===>   上下文无关文法、递归下降分析、LR 分析、错误处理、语法分析器自动生成\n    ││\n<span class="token bold"><span class="token punctuation">**</span><span class="token content">语义分析</span><span class="token punctuation">**</span></span>   ===>   类型系统、属性文法、语法制导翻译、符号表管理、抽象语法树、线性中间表示、图中间表示\n    ││\n<span class="token bold"><span class="token punctuation">**</span><span class="token content">中间代码生成</span><span class="token punctuation">**</span></span>   ===>   变量地址分配、算术表达式翻译、布尔表达式翻译、数组、结构体和字符串的翻译、控制流的翻译、函数调用的翻译\n    ││\n<span class="token bold"><span class="token punctuation">**</span><span class="token content">目标代码优化与生成</span><span class="token punctuation">**</span></span>   ===>   目标体系结构、树匹配代码生成、基于动态规划的代码生成、寄存器分配、指令调度、控制流分析、数据流分析、死代码删除、常量传播、拷贝传播、静态单赋值形式\n</code></pre>\n<h2 id="%E4%BB%80%E4%B9%88%E6%98%AF-ast">什么是 AST？<a class="anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-ast">§</a></h2>\n<blockquote>\n<ul>\n<li>AST Explorer：<a href="https://astexplorer.net/">https://astexplorer.net/</a></li>\n</ul>\n</blockquote>\n<ul>\n<li>AST 的过程中有两个关键步骤：\n<ul>\n<li>词法分析: 将代码(字符串)分割为 token 流,即语法单元成的数组</li>\n<li>语法分析: 分析 token 流(上面生成的数组)并生成 AST</li>\n</ul>\n</li>\n<li>AST 的使用场景：\n<ul>\n<li>代码语法的检查、代码风格的检查、代码的格式化、代码的高亮、代码错误提示、代码自动补全等等\n<ul>\n<li>如JSLint、JSHint对代码错误或风格的检查，发现一些潜在的错误</li>\n<li>IDE的错误提示、格式化、高亮、自动补全等等</li>\n</ul>\n</li>\n<li>代码混淆压缩\n<ul>\n<li>UglifyJS2等</li>\n</ul>\n</li>\n<li>优化变更代码，改变代码结构使达到想要的结构\n<ul>\n<li>代码打包工具webpack、rollup等等</li>\n<li>CommonJS、AMD、CMD、UMD等代码规范之间的转化</li>\n<li>CoffeeScript、TypeScript、JSX等转化为原生Javascript</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n<pre class="language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>\n  <span class="token string">"type"</span><span class="token operator">:</span> <span class="token string">"Program"</span><span class="token punctuation">,</span>\n  <span class="token string">"start"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>\n  <span class="token string">"end"</span><span class="token operator">:</span> <span class="token number">16</span><span class="token punctuation">,</span>\n  <span class="token string">"body"</span><span class="token operator">:</span> <span class="token punctuation">[</span>\n    <span class="token punctuation">{</span>\n      <span class="token string">"type"</span><span class="token operator">:</span> <span class="token string">"FunctionDeclaration"</span><span class="token punctuation">,</span>\n      <span class="token string">"start"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>\n      <span class="token string">"end"</span><span class="token operator">:</span> <span class="token number">16</span><span class="token punctuation">,</span>\n      <span class="token string">"id"</span><span class="token operator">:</span> <span class="token punctuation">{</span>\n        <span class="token string">"type"</span><span class="token operator">:</span> <span class="token string">"Identifier"</span><span class="token punctuation">,</span>\n        <span class="token string">"start"</span><span class="token operator">:</span> <span class="token number">9</span><span class="token punctuation">,</span>\n        <span class="token string">"end"</span><span class="token operator">:</span> <span class="token number">12</span><span class="token punctuation">,</span>\n        <span class="token string">"name"</span><span class="token operator">:</span> <span class="token string">"ast"</span>\n      <span class="token punctuation">}</span><span class="token punctuation">,</span>\n      <span class="token string">"expression"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>\n      <span class="token string">"generator"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>\n      <span class="token string">"params"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>\n      <span class="token string">"body"</span><span class="token operator">:</span> <span class="token punctuation">{</span>\n        <span class="token string">"type"</span><span class="token operator">:</span> <span class="token string">"BlockStatement"</span><span class="token punctuation">,</span>\n        <span class="token string">"start"</span><span class="token operator">:</span> <span class="token number">14</span><span class="token punctuation">,</span>\n        <span class="token string">"end"</span><span class="token operator">:</span> <span class="token number">16</span><span class="token punctuation">,</span>\n        <span class="token string">"body"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>\n      <span class="token punctuation">}</span>\n    <span class="token punctuation">}</span>\n  <span class="token punctuation">]</span><span class="token punctuation">,</span>\n  <span class="token string">"sourceType"</span><span class="token operator">:</span> <span class="token string">"module"</span>\n<span class="token punctuation">}</span>\n</code></pre>'
         } }),
     'head': React.createElement(React.Fragment, null,
         React.createElement(Ga, { id: "UA-169223577-1" }),
@@ -272,11 +299,13 @@ export default {
         React.createElement("script", { src: "/index.js", type: "module" })),
     'contentTitle': React.createElement("h1", { key: "0" }, "\u7F16\u8BD1\u539F\u7406"),
     'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: ''
+            __html: '<h2 id="%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%9A%84%E8%BF%87%E7%A8%8B">编译原理的过程？<a class="anchor" href="#%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%9A%84%E8%BF%87%E7%A8%8B">§</a></h2>\n<pre class="language-markdown"><code class="language-markdown"><span class="token bold"><span class="token punctuation">**</span><span class="token content">词法分析</span><span class="token punctuation">**</span></span>   ===>   单词与记号、正则表达式、有限自动机、从正则表达式到有限自动机的转换、词法分析器的实现\n    ││\n<span class="token bold"><span class="token punctuation">**</span><span class="token content">语法分析</span><span class="token punctuation">**</span></span>   ===>   上下文无关文法、递归下降分析、LR 分析、错误处理、语法分析器自动生成\n    ││\n<span class="token bold"><span class="token punctuation">**</span><span class="token content">语义分析</span><span class="token punctuation">**</span></span>   ===>   类型系统、属性文法、语法制导翻译、符号表管理、抽象语法树、线性中间表示、图中间表示\n    ││\n<span class="token bold"><span class="token punctuation">**</span><span class="token content">中间代码生成</span><span class="token punctuation">**</span></span>   ===>   变量地址分配、算术表达式翻译、布尔表达式翻译、数组、结构体和字符串的翻译、控制流的翻译、函数调用的翻译\n    ││\n<span class="token bold"><span class="token punctuation">**</span><span class="token content">目标代码优化与生成</span><span class="token punctuation">**</span></span>   ===>   目标体系结构、树匹配代码生成、基于动态规划的代码生成、寄存器分配、指令调度、控制流分析、数据流分析、死代码删除、常量传播、拷贝传播、静态单赋值形式\n</code></pre>\n<h2 id="%E4%BB%80%E4%B9%88%E6%98%AF-ast">什么是 AST？<a class="anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-ast">§</a></h2>\n<blockquote>\n<ul>\n<li>AST Explorer：<a href="https://astexplorer.net/">https://astexplorer.net/</a></li>\n</ul>\n</blockquote>\n<ul>\n<li>AST 的过程中有两个关键步骤：\n<ul>\n<li>词法分析: 将代码(字符串)分割为 token 流,即语法单元成的数组</li>\n<li>语法分析: 分析 token 流(上面生成的数组)并生成 AST</li>\n</ul>\n</li>\n<li>AST 的使用场景：\n<ul>\n<li>代码语法的检查、代码风格的检查、代码的格式化、代码的高亮、代码错误提示、代码自动补全等等\n<ul>\n<li>如JSLint、JSHint对代码错误或风格的检查，发现一些潜在的错误</li>\n<li>IDE的错误提示、格式化、高亮、自动补全等等</li>\n</ul>\n</li>\n<li>代码混淆压缩\n<ul>\n<li>UglifyJS2等</li>\n</ul>\n</li>\n<li>优化变更代码，改变代码结构使达到想要的结构\n<ul>\n<li>代码打包工具webpack、rollup等等</li>\n<li>CommonJS、AMD、CMD、UMD等代码规范之间的转化</li>\n<li>CoffeeScript、TypeScript、JSX等转化为原生Javascript</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n<pre class="language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>\n  <span class="token string">"type"</span><span class="token operator">:</span> <span class="token string">"Program"</span><span class="token punctuation">,</span>\n  <span class="token string">"start"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>\n  <span class="token string">"end"</span><span class="token operator">:</span> <span class="token number">16</span><span class="token punctuation">,</span>\n  <span class="token string">"body"</span><span class="token operator">:</span> <span class="token punctuation">[</span>\n    <span class="token punctuation">{</span>\n      <span class="token string">"type"</span><span class="token operator">:</span> <span class="token string">"FunctionDeclaration"</span><span class="token punctuation">,</span>\n      <span class="token string">"start"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>\n      <span class="token string">"end"</span><span class="token operator">:</span> <span class="token number">16</span><span class="token punctuation">,</span>\n      <span class="token string">"id"</span><span class="token operator">:</span> <span class="token punctuation">{</span>\n        <span class="token string">"type"</span><span class="token operator">:</span> <span class="token string">"Identifier"</span><span class="token punctuation">,</span>\n        <span class="token string">"start"</span><span class="token operator">:</span> <span class="token number">9</span><span class="token punctuation">,</span>\n        <span class="token string">"end"</span><span class="token operator">:</span> <span class="token number">12</span><span class="token punctuation">,</span>\n        <span class="token string">"name"</span><span class="token operator">:</span> <span class="token string">"ast"</span>\n      <span class="token punctuation">}</span><span class="token punctuation">,</span>\n      <span class="token string">"expression"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>\n      <span class="token string">"generator"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>\n      <span class="token string">"params"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>\n      <span class="token string">"body"</span><span class="token operator">:</span> <span class="token punctuation">{</span>\n        <span class="token string">"type"</span><span class="token operator">:</span> <span class="token string">"BlockStatement"</span><span class="token punctuation">,</span>\n        <span class="token string">"start"</span><span class="token operator">:</span> <span class="token number">14</span><span class="token punctuation">,</span>\n        <span class="token string">"end"</span><span class="token operator">:</span> <span class="token number">16</span><span class="token punctuation">,</span>\n        <span class="token string">"body"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>\n      <span class="token punctuation">}</span>\n    <span class="token punctuation">}</span>\n  <span class="token punctuation">]</span><span class="token punctuation">,</span>\n  <span class="token string">"sourceType"</span><span class="token operator">:</span> <span class="token string">"module"</span>\n<span class="token punctuation">}</span>\n</code></pre>'
         } }),
     'contentHasKatex': false,
-    'toc': null,
-    'date': "2020-10-25T07:04:16.000Z",
+    'toc': React.createElement("aside", { dangerouslySetInnerHTML: {
+            __html: '<nav class="toc"><ol><li><a href="#%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%9A%84%E8%BF%87%E7%A8%8B">编译原理的过程？</a></li><li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-ast">什么是 AST？</a></li></ol></nav>'
+        } }),
+    'date': "2020-10-27T07:34:52.000Z",
     'updated': null,
     'author': "hylerrix",
     'contributors': [

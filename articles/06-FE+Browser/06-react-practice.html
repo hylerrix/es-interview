@@ -1,0 +1,286 @@
+<!doctype html><html class="" data-reactroot=""><head><script async="" src="https://www.google-analytics.com/analytics.js"></script><script>
+            window.GoogleAnalyticsObject="ga";(window.ga=window.ga||function(){(window.ga.q=window.ga.q||[]).push(arguments);}),(window.ga.l=1*new Date());
+
+            ga('create', 'UA-169223577-1', 'auto');
+            ga('send', 'pageview');</script><link rel="icon" type="image/png" href="/favicon.png"/>
+<meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="收集汇总梳理全网资源，涵盖 JS/TS 前后端的全方位面试题库（含提示性解析），助力找个好工作！"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/>
+<title data-react-helmet="true">React 实战 · ECMAScript+ 面试宝典</title>
+<link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/><link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/>
+<script data-react-helmet="true" >
+    const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (shouldSetIsDark) {
+      document.documentElement.classList.add('is_dark');
+      document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
+    }
+  </script>
+</head><body><header><h1 class="hide_on_mobile"><a href="/">ECMAScript+ 面试宝典</a></h1><nav><ul><li class="show_on_mobile flex_center"><a class="czs-menu-l" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a></li><li class="show_on_mobile"><h1 class="mobile_title"><a href="/">ECMAScript+ 面试宝典</a></h1></li><li class="hide_on_mobile"><a href="/articles/">文章</a></li><li class="hide_on_mobile"><a href="http://qiniu.ningo.cloud/hylerrix/reward-alipay.png" target="_blank">打赏一下!!</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix/deno-tutorial" target="_blank">Deno 钻研之术</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">持续添加中...</a></li><li class="hide_on_mobile"><a href="https://github.com/ningowood" target="_blank">凝果屋</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">关于</a></li><li style="flex-grow:1"></li><li class="flex_center"><a class="czs-github-logo" href="https://github.com/hylerrix/es-interview" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul></nav></header><aside class="sidebar"><ol><li class=""><a href="/articles/index.html" class="nav_link">ESMAScript+ 面试宝典</a></li><li class="unfold"><a href="/articles/00-Beginner/index.html" class="nav_link">一切的起源<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/00-Beginner/00-es-timeline.html" class="nav_link">前端大事记</a></li><li class=""><a href="/articles/00-Beginner/01-es-direction.html" class="nav_link">ES 方向 &amp; 谁在招人？</a></li><li class=""><a href="/articles/00-Beginner/02-es-rank.html" class="nav_link">大厂职级</a></li><li class=""><a href="/articles/00-Beginner/03-es-books.html" class="nav_link">看什么书？</a></li></ol></li><li class="unfold"><a href="/articles/01-Programming/index.html" class="nav_link">编程基础<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/01-Programming/00-language.html" class="nav_link">编程语言</a></li><li class=""><a href="/articles/01-Programming/01-operating-system.html" class="nav_link">操作系统</a></li><li class=""><a href="/articles/01-Programming/02-algorithms.html" class="nav_link">算法</a></li><li class=""><a href="/articles/01-Programming/03-design-patterns.html" class="nav_link">设计模式</a></li><li class=""><a href="/articles/01-Programming/04-software-engineering.html" class="nav_link">软件工程</a></li><li class=""><a href="/articles/01-Programming/05-software-test.html" class="nav_link">测试</a></li><li class=""><a href="/articles/01-Programming/06-version-control.html" class="nav_link">版本控制</a></li><li class=""><a href="/articles/01-Programming/07-computer-principles.html" class="nav_link">计算机组成原理</a></li><li class=""><a href="/articles/01-Programming/08-compilation-principle.html" class="nav_link">编译原理</a></li></ol></li><li class="unfold"><a href="/articles/02-ECMAScript+/index.html" class="nav_link">ECMAScript+<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/02-ECMAScript+/00-ecmascript.html" class="nav_link">ECMAScript</a></li><li class=""><a href="/articles/02-ECMAScript+/01-es-data-type.html" class="nav_link">ES 数据类型</a></li><li class=""><a href="/articles/02-ECMAScript+/02-javascript.html" class="nav_link">JavaScript 基础知识</a></li><li class=""><a href="/articles/02-ECMAScript+/03-typescript.html" class="nav_link">TypeScript</a></li><li class=""><a href="/articles/02-ECMAScript+/04-javascript-parctice.html" class="nav_link">JavaScript 常见实战题</a></li></ol></li><li class="unfold"><a href="/articles/03-HTML+CSS/index.html" class="nav_link">HTML + CSS<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/03-HTML+CSS/00-html.html" class="nav_link">HTML</a></li><li class=""><a href="/articles/03-HTML+CSS/01-css-design.html" class="nav_link">CSS</a></li><li class=""><a href="/articles/03-HTML+CSS/02-css-advance.html" class="nav_link">CSS 进阶</a></li><li class=""><a href="/articles/03-HTML+CSS/03-css-practice.html" class="nav_link">CSS 实战</a></li><li class=""><a href="/articles/03-HTML+CSS/04-dom-bom.html" class="nav_link">DOM + BOM</a></li></ol></li><li class="unfold"><a href="/articles/04-Network+API/index.html" class="nav_link">网络 + 前后端协作<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/04-Network+API/00-network.html" class="nav_link">网络</a></li><li class=""><a href="/articles/04-Network+API/01-fe-be-api.html" class="nav_link">前后端协作</a></li><li class=""><a href="/articles/04-Network+API/02-network-security.html" class="nav_link">网络安全</a></li></ol></li><li class="unfold"><a href="/articles/05-V8+Runtime/index.html" class="nav_link">V8 + JavaScript 运行时<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/05-V8+Runtime/00-v8.html" class="nav_link">V8</a></li><li class=""><a href="/articles/05-V8+Runtime/01-node.html" class="nav_link">Node</a></li><li class=""><a href="/articles/05-V8+Runtime/02-deno.html" class="nav_link">Deno</a></li></ol></li><li class="unfold"><a href="/articles/06-FE+Browser/index.html" class="nav_link">前端应用开发 + 浏览器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/06-FE+Browser/00-browser.html" class="nav_link">浏览器</a></li><li class=""><a href="/articles/06-FE+Browser/01-fe-engineering.html" class="nav_link">前端工程化</a></li><li class=""><a href="/articles/06-FE+Browser/02-fe-tooltain.html" class="nav_link">前端工具链</a></li><li class=""><a href="/articles/06-FE+Browser/03-pack-tool.html" class="nav_link">前端打包工具</a></li><li class=""><a href="/articles/06-FE+Browser/04-fe-mobile.html" class="nav_link">移动端 Web 开发</a></li><li class=""><a href="/articles/06-FE+Browser/05-react.html" class="nav_link">React 基础</a></li><li class=""><a href="/articles/06-FE+Browser/06-react-practice.html" class="nav_link active">React 实战</a></li><li class=""><a href="/articles/06-FE+Browser/07-vue.html" class="nav_link">Vue</a></li><li class=""><a href="/articles/06-FE+Browser/08-iframe.html" class="nav_link">iframe</a></li></ol></li><li class="unfold"><a href="/articles/07-BE+Server/index.html" class="nav_link">后端应用开发 + 服务器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/07-BE+Server/00-linux-nginx-database.html" class="nav_link">Linux + Nginx + 数据库</a></li><li class=""><a href="/articles/07-BE+Server/01-node-framework.html" class="nav_link">Node 框架</a></li></ol></li><li class=""><a href="/articles/draw-in-markdown.html" class="nav_link">如何用 Markdown 绘制图片</a></li><li class=""><a href="/articles/roadmap.html" class="nav_link">变更日志</a></li></ol></aside><section class="main"><div class="main_article"><article><h1>React 实战</h1>
+<h2 id="react-ssr">React SSR？<a class="anchor" href="#react-ssr">§</a></h2>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">ReactDOMServer</span></span> <span class="token keyword module">from</span> <span class="token string">'react-dom/server'</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">App</span></span> <span class="token keyword module">from</span> <span class="token string">'./App'</span>
+
+<span class="token maybe-class-name">ReactDOMServer</span><span class="token punctuation">.</span><span class="token method function property-access">renderToString</span><span class="token punctuation">(</span><span class="token operator">&lt;</span><span class="token maybe-class-name">App</span> <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// using Express</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> renderToString <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'react-dom/server'</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">MyPage</span></span> <span class="token keyword module">from</span> <span class="token string">'./MyPage'</span>
+
+app<span class="token punctuation">.</span><span class="token method function property-access">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  res<span class="token punctuation">.</span><span class="token method function property-access">write</span><span class="token punctuation">(</span><span class="token string">'&lt;!DOCTYPE html>&lt;html>&lt;head>&lt;title>My Page&lt;/title>&lt;/head>&lt;body>'</span><span class="token punctuation">)</span>
+  res<span class="token punctuation">.</span><span class="token method function property-access">write</span><span class="token punctuation">(</span><span class="token string">'&lt;div id="content">'</span><span class="token punctuation">)</span>
+  res<span class="token punctuation">.</span><span class="token method function property-access">write</span><span class="token punctuation">(</span><span class="token function">renderToString</span><span class="token punctuation">(</span><span class="token operator">&lt;</span><span class="token maybe-class-name">MyPage</span><span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  res<span class="token punctuation">.</span><span class="token method function property-access">write</span><span class="token punctuation">(</span><span class="token string">'&lt;/div>&lt;/body>&lt;/html>'</span><span class="token punctuation">)</span>
+  res<span class="token punctuation">.</span><span class="token method function property-access">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%9D%83%E9%99%90%E7%BB%84%E4%BB%B6%E7%9A%84%E8%AE%BE%E8%AE%A1">如何进行权限组件的设计？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%9D%83%E9%99%90%E7%BB%84%E4%BB%B6%E7%9A%84%E8%AE%BE%E8%AE%A1">§</a></h2>
+<ul>
+<li>路由级</li>
+<li>模块级：<code>export default withAuth({ authorities: ['admin', 'user'], })(BasicList);</code></li>
+<li>按钮级：<code>&lt;Auth authorities={['admin', 'user']}&gt;&lt;Button&gt;auth&lt;/Button&gt;&lt;/Auth&gt;;</code></li>
+<li>接口级</li>
+</ul>
+<h2 id="react-%E7%BB%84%E4%BB%B6%E5%A6%82%E4%BD%95%E9%80%9A%E4%BF%A1">React 组件如何通信？<a class="anchor" href="#react-%E7%BB%84%E4%BB%B6%E5%A6%82%E4%BD%95%E9%80%9A%E4%BF%A1">§</a></h2>
+<ul>
+<li>父组件向子组件通讯: 父组件可以向子组件通过传 props 的方式，向子组件进行通讯</li>
+<li>子组件向父组件通讯: props+回调的方式,父组件向子组件传递props进行通讯，此props为作用域为父组件自身的函 数，子组件调用该函数，将子组件想要传递的信息，作为参数，传递到父组件的作用域中</li>
+<li>兄弟组件通信: 找到这两个兄弟节点共同的父节点,结合上面两种方式由父节点转发信息进行通信</li>
+<li>跨层级通信: Context 设计目的是为了共享那些对于一个组件树而言是“全局”的数据，例如当前认证的用户、主题 或首选语言,对于跨越多层的全局数据通过 Context 通信再适合不过</li>
+<li>发布订阅模式: 发布者发布事件，订阅者监听事件并做出反应,我们可以通过引入event模块进行通信 全局状态管理工具: 借助Redux或者Mobx等全局状态管理工具进行通信,这种工具会维护一个全局状态中心Store,并 根据不同的事件产生新的状态</li>
+</ul>
+<h2 id="react-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%AF%B9%E8%B1%A1%E7%9A%84-watch">React 如何实现对象的 watch？<a class="anchor" href="#react-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%AF%B9%E8%B1%A1%E7%9A%84-watch">§</a></h2>
+<ul>
+<li>componentWillUpdate(object nextProps, object nextState)</li>
+<li>componentDidUpdate(object prevProps, object prevState)</li>
+<li>Hooks</li>
+</ul>
+<h2 id="react-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%87%92%E5%8A%A0%E8%BD%BD">React 如何实现懒加载？<a class="anchor" href="#react-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%87%92%E5%8A%A0%E8%BD%BD">§</a></h2>
+<ul>
+<li>React 16.6 添加了一个新的特性：React.lazy()，它可以让代码分割更加容易。
+<ul>
+<li>避免大体积的代码包，增加首屏的加载速度。</li>
+</ul>
+</li>
+<li>React.lazy()</li>
+</ul>
+<h2 id="react-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">React 如何进行性能优化？<a class="anchor" href="#react-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">§</a></h2>
+<p>function component + redux、immutable、pure component , shouldComponentUpdate ...</p>
+<h2 id="%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA-useloading-hook">自定义一个 useLoading Hook<a class="anchor" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA-useloading-hook">§</a></h2>
+<pre class="language-autoit"><code class="language-autoit"><span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span>
+ <span class="token operator">*</span> 功能同 createThrowable<span class="token punctuation">,</span> 优化了一个点<span class="token punctuation">:</span> 在函数内处理了 loading状态
+ <span class="token operator">*</span> 用法同 React<span class="token punctuation">.</span>useXxx 会返回一个数组<span class="token punctuation">,</span> 第一个参数是 函数<span class="token punctuation">,</span> 第二个是 loading状态
+ <span class="token operator">*</span> <span class="token variable">@param</span> fn
+ <span class="token operator">*</span> <span class="token variable">@param</span> errorTitle
+ <span class="token operator">*</span> <span class="token variable">@return</span> <span class="token punctuation">[</span>处理异常函数<span class="token punctuation">,</span> loading状态<span class="token punctuation">]</span>
+ <span class="token operator">*</span><span class="token operator">/</span>
+export <span class="token keyword">const</span> useLoadingThrowable <span class="token operator">=</span>
+  function <span class="token punctuation">(</span>fn<span class="token punctuation">:</span> <span class="token punctuation">(</span>args<span class="token punctuation">:</span> any<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Promise<span class="token operator">&lt;</span>any<span class="token operator">></span><span class="token punctuation">,</span> errorTitle <span class="token operator">=</span> <span class="token string">'操作失败'</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>args<span class="token operator">?</span><span class="token punctuation">:</span> any<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> any<span class="token punctuation">,</span> boolean<span class="token punctuation">]</span> {
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>loading<span class="token punctuation">,</span> setLoading<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+    return <span class="token punctuation">[</span>
+      function <span class="token punctuation">(</span>args<span class="token punctuation">:</span> any<span class="token punctuation">)</span> {
+        <span class="token function">setLoading</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+        <span class="token function">fn</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> {
+            <span class="token operator">/</span><span class="token operator">/</span> 忽略 axios 取消造成的请求错误
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>e <span class="token operator">&amp;</span><span class="token operator">&amp;</span> e<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span><span class="token operator">&amp;</span> e<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'Cancel'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> {
+              return
+            }
+            <span class="token function">notificationErrorLog</span><span class="token punctuation">(</span>errorTitle<span class="token punctuation">,</span> e<span class="token punctuation">)</span>
+          }<span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token function">finally</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">setLoading</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      }<span class="token punctuation">,</span>
+      loading<span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+  }
+
+<span class="token keyword">const</span> <span class="token punctuation">[</span>getPartsAvlList<span class="token punctuation">,</span> loadingPartsAvl<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useLoadingThrowable</span><span class="token punctuation">(</span>async <span class="token punctuation">(</span>pagination<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> {
+        <span class="token keyword">const</span> {data<span class="token punctuation">:</span> {aaData<span class="token punctuation">,</span> success<span class="token punctuation">,</span> msg<span class="token punctuation">,</span> recordsFiltered}} <span class="token operator">=</span> await <span class="token function">getAvlList</span><span class="token punctuation">(</span>{}<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>success<span class="token punctuation">)</span> {
+            <span class="token function">setAvlList</span><span class="token punctuation">(</span>aaData<span class="token punctuation">)</span>
+            <span class="token function">setPagination</span><span class="token punctuation">(</span>{current<span class="token punctuation">:</span> pagination<span class="token punctuation">.</span>current<span class="token punctuation">,</span> pageSize<span class="token punctuation">:</span> pagination<span class="token punctuation">.</span>pageSize<span class="token punctuation">,</span> total<span class="token punctuation">:</span> recordsFiltered<span class="token punctuation">,</span>showSizeChanger<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                showQuickJumper<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>showTotal<span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span>{return <span class="token function">showTotal</span><span class="token punctuation">(</span>recordsFiltered<span class="token punctuation">)</span>}<span class="token punctuation">,</span>pageSizeOptions<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'10'</span><span class="token punctuation">,</span> <span class="token string">'50'</span><span class="token punctuation">,</span> <span class="token string">'100'</span><span class="token punctuation">,</span> <span class="token string">'200'</span><span class="token punctuation">]</span>}<span class="token punctuation">)</span>
+        } <span class="token keyword">else</span>
+            throw msg
+    }<span class="token punctuation">,</span> <span class="token string">"获取AVL列表信息失败"</span><span class="token punctuation">)</span>
+
+React<span class="token punctuation">.</span><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span>{
+        <span class="token function">getPartsAvlList</span><span class="token punctuation">(</span>pagination<span class="token punctuation">)</span>
+}<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>}
+</code></pre>
+<h2 id="reduxreact-reduxmobx">Redux/React-Redux.MobX？<a class="anchor" href="#reduxreact-reduxmobx">§</a></h2>
+<ul>
+<li>Redux：
+<ul>
+<li>Store：保存数据的地方，整个应用只能有一个 Store</li>
+<li>State：Store 对象包含的数据</li>
+<li>Action：State 的变化，会导致 View 的变化。但是用户接触不到 State，只能接触到 View。所以，State 的变化必须是 View 导致的。Action 就是 View 发出的通知，表示 State 应该要发生变化了。</li>
+<li>Action Creator：View要发送多少种消息，就会有多少种Action。如果都手写，会很麻烦，所以我们定义一个函数 来生成Action，这个函数就叫Action Creator。</li>
+<li>Reducer：Store收到Action以后，必须给出一个新的State，这样View才会发生变化。这种State的计算过程就叫做 Reducer。Reducer是一个函数，它接受Action和当前State作为参数，返回一个新的State。</li>
+<li>dispatch：是View发出Action的唯一方法。</li>
+</ul>
+</li>
+<li>Redux 遵循三个基本原则：
+<ol>
+<li><strong>单一数据来源：</strong> 整个应用程序的状态存储在单个对象树中。单状态树可以更容易地跟踪随时间的变化并调试或检查应用程序。</li>
+<li><strong>状态是只读的：</strong> 改变状态的唯一方法是发出一个动作，一个描述发生的事情的对象。这可以确保视图和网络请求都不会直接写入状态。</li>
+<li><strong>使用纯函数进行更改：</strong> 要指定状态树如何通过操作进行转换，您可以编写reducers。Reducers 只是纯函数，它将先前的状态和操作作为参数，并返回下一个状态。</li>
+</ol>
+</li>
+<li>React-Redux
+<ul>
+<li>Provider: Provider的作用是从最外部封装了整个应用，并向connect模块传递store</li>
+<li>connect: 负责连接React和Redux
+<ul>
+<li>获取state: connect通过context获取Provider中的store，通过store.getState()获取整个store tree 上所有state</li>
+<li>包装原组件: 将state和action通过props的方式传入到原组件内部wrapWithConnect返回一个ReactComponent 对象Connect，Connect重新render外部传入的原组件WrappedComponent，并把connect中传入的 mapStateToProps, mapDispatchToProps与组件上原有的props合并后，通过属性的方式传给 WrappedComponent</li>
+<li>监听store tree变化: connect缓存了store tree中state的状态,通过当前state状态和变更前state状态进行比较,从 而确定是否调用 this.setState() 方法触发Connect及其子组件的重新渲染</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Redux 和 Mobx 的区别？
+<ul>
+<li>redux将数据保存在单一的store中，mobx将数据保存在分散的多个store中</li>
+<li>redux使用plain object保存数据，需要手动处理变化后的操作;mobx适用observable保存数据，数据变化后自动处 理响应的操作</li>
+<li>redux使用不可变状态，这意味着状态是只读的，不能直接去修改它，而是应该返回一个新的状态，同时使用纯函 数;mobx中的状态是可变的，可以直接对其进行修改</li>
+<li>mobx相对来说比较简单，在其中有很多的抽象，mobx更多的使用面向对象的编程思维;redux会比较复杂，因为 其中的函数式编程思想掌握起来不是那么容易，同时需要借助一系列的中间件来处理异步和副作用</li>
+<li>mobx中有更多的抽象和封装，调试会比较困难，同时结果也难以预测;而redux提供能够进行时间回溯的开发工 具，同时其纯函数以及更少的抽象，让调试变得更加的容易</li>
+</ul>
+</li>
+</ul>
+<h2 id="react-router">React Router<a class="anchor" href="#react-router">§</a></h2>
+<ul>
+<li>React Router 是<code>history</code>库的包装器，它处理浏览器的<code>window.history</code>与浏览器和哈希历史的交互。它还提供了内存历史记录，这对于没有全局历史记录的环境非常有用，例如移动应用程序开发（React Native）和使用 Node 进行单元测试。</li>
+<li>React Router v4 提供了以下三种类型的 <code>&lt;Router&gt;</code> 组件:
+<ol>
+<li><code>&lt;BrowserRouter&gt;</code></li>
+<li><code>&lt;HashRouter&gt;</code></li>
+<li><code>&lt;MemoryRouter&gt;</code></li>
+</ol>
+</li>
+</ul>
+<h2 id="redux-%E5%BC%82%E6%AD%A5%E4%B8%8E%E7%A4%BE%E5%8C%BA%E4%B8%AD%E9%97%B4%E4%BB%B6">Redux 异步与社区中间件<a class="anchor" href="#redux-%E5%BC%82%E6%AD%A5%E4%B8%8E%E7%A4%BE%E5%8C%BA%E4%B8%AD%E9%97%B4%E4%BB%B6">§</a></h2>
+<ul>
+<li>Redux 异步操作：
+<ul>
+<li>不用 Redux 的话，可以直接在 componentDidMount 中操作</li>
+<li>Redux 中，可以接触 redux-thunk 或 redux-saga。</li>
+</ul>
+</li>
+<li>redux-thunk
+<ul>
+<li>优点：
+<ul>
+<li>体积小，redux-thunk 的实现方式很简单，只有不到 20 行代码</li>
+<li>使用简单：redux-thunk 没有引入像 redux-saga 活着 redux-observable 额外的范式，上手简单。</li>
+</ul>
+</li>
+<li>缺点：
+<ul>
+<li>样板代码过多：与 redux 本身一样，通常一个请求需要大量的代码，而且很多都是重复性质的</li>
+<li>耦合严重：异步操作与 redux 的 action 耦合在一起，不方便管理</li>
+<li>功能孱弱：有一些实际开发中常用的功能需要自己进行封装</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>redux-saga
+<ul>
+<li>优点：
+<ul>
+<li>异步解耦：异步操作被被转移到单独 saga.js 中，不再是掺杂在 action.js 或 component.js 中</li>
+<li>action摆脱thunk function: dispatch 的参数依然是一个纯粹的 action (FSA)，而不是充满 “黑魔法” thunk function</li>
+<li>异常处理：受益于 generator function 的 saga 实现，代码异常/请求失败 都可以直接通过 try/catch 语法直接捕获处 理</li>
+<li>功能强大：redux-saga提供了大量的Saga 辅助函数和Effect 创建器供开发者使用,开发者无须封装或者简单封装即 可使用</li>
+<li>灵活：redux-saga可以将多个Saga可以串行/并行组合起来,形成一个非常实用的异步flow</li>
+<li>易测试，提供了各种case的测试方案，包括mock task，分支覆盖等等</li>
+</ul>
+</li>
+<li>缺点：
+<ul>
+<li>额外的学习成本: redux-saga不仅在使用难以理解的 generator function,而且有数十个API,学习成本远超redux- thunk,最重要的是你的额外学习成本是只服务于这个库的,与redux-observable不同,redux-observable虽然也有额外 学习成本但是背后是rxjs和一整套思想</li>
+<li>体积庞大: 体积略大,代码近2000行，min版25KB左右</li>
+<li>功能过剩: 实际上并发控制等功能很难用到,但是我们依然需要引入这些代码</li>
+<li>ts支持不友好: yield无法返回TS类型</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>redux-observable
+<ul>
+<li>优点：
+<ul>
+<li>功能最强: 由于背靠rxjs这个强大的响应式编程的库,借助rxjs的操作符,你可以几乎做任何你能想到的异步处理</li>
+<li>背靠rxjs: 由于有rxjs的加持,如果你已经学习了rxjs,redux-observable的学习成本并不高,而且随着rxjs的升级redux- observable也会变得更强大</li>
+</ul>
+</li>
+<li>缺点：
+<ul>
+<li>学习成本奇高: 如果你不会rxjs,则需要额外学习两个复杂的库</li>
+<li>社区一般: redux-observable的下载量只有redux-saga的1/5,社区也不够活跃,在复杂异步流中间件这个层面redux- saga仍处于领导地位</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="react-dom">React DOM<a class="anchor" href="#react-dom">§</a></h2>
+<ul>
+<li><code>react</code> 包中包含 <code>React.createElement()</code>, <code>React.Component</code>, <code>React.Children</code>，以及与元素和组件类相关的其他帮助程序。你可以将这些视为构建组件所需的同构或通用帮助程序。<code>react-dom</code> 包中包含了 <code>ReactDOM.render()</code>，在 <code>react-dom/server</code> 包中有支持服务端渲染的 <code>ReactDOMServer.renderToString()</code> 和 <code>ReactDOMServer.renderToStaticMarkup()</code> 方法。</li>
+<li>React 团队致力于将所有的与 DOM 相关的特性抽取到一个名为 ReactDOM 的独立库中。React v0.14 是第一个拆分后的版本。通过查看一些软件包，<code>react-native</code>，<code>react-art</code>，<code>react-canvas</code>，和 <code>react-three</code>，很明显，React 的优雅和本质与浏览器或 DOM 无关。为了构建更多 React 能应用的环境，React 团队计划将主要的 React 包拆分成两个：<code>react</code> 和 <code>react-dom</code>。这为编写可以在 React 和 React Native 的 Web 版本之间共享的组件铺平了道路。</li>
+</ul>
+<h2 id="react-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95">React 如何实现单元测试？<a class="anchor" href="#react-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95">§</a></h2>
+<ul>
+<li>Jest：零配置、快照、隔离、优秀的 API</li>
+</ul>
+<pre class="language-javascript"><code class="language-javascript"><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'two plus two'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBeGreaterThan</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBeGreaterThanOrEqual</span><span class="token punctuation">(</span><span class="token number">3.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBeLessThan</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBeLessThanOrEqual</span><span class="token punctuation">(</span><span class="token number">4.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// toBe and toEqual are equivalent for numbers</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBe</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toEqual</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="react-%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E7%BC%96%E5%86%99%E9%A1%BA%E5%BA%8F%E6%8E%A8%E8%8D%90">React 组件中生命周期的编写顺序推荐？<a class="anchor" href="#react-%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E7%BC%96%E5%86%99%E9%A1%BA%E5%BA%8F%E6%8E%A8%E8%8D%90">§</a></h2>
+<p>从 <em>mounting</em> 到 <em>render stage</em> 阶段推荐的方法顺序：</p>
+<ol>
+<li><code>static</code> 方法</li>
+<li><code>constructor()</code></li>
+<li><code>getChildContext()</code></li>
+<li><code>componentWillMount()</code></li>
+<li><code>componentDidMount()</code></li>
+<li><code>componentWillReceiveProps()</code></li>
+<li><code>shouldComponentUpdate()</code></li>
+<li><code>componentWillUpdate()</code></li>
+<li><code>componentDidUpdate()</code></li>
+<li><code>componentWillUnmount()</code></li>
+<li>点击处理程序或事件处理程序，如 <code>onClickSubmit()</code> 或 <code>onChangeDescription()</code></li>
+<li>用于渲染的getter方法，如 <code>getSelectReason()</code> 或 <code>getFooterContent()</code></li>
+<li>可选的渲染方法，如 <code>renderNavigation()</code> 或 <code>renderProfilePicture()</code></li>
+<li><code>render()</code></li>
+</ol>
+<h2 id="%E7%9B%91%E5%90%AC%E6%B5%8F%E8%A7%88%E5%99%A8%E5%A4%A7%E5%B0%8F%E7%9A%84%E6%94%B9%E5%8F%98%E7%BB%84%E4%BB%B6">监听浏览器大小的改变组件<a class="anchor" href="#%E7%9B%91%E5%90%AC%E6%B5%8F%E8%A7%88%E5%99%A8%E5%A4%A7%E5%B0%8F%E7%9A%84%E6%94%B9%E5%8F%98%E7%BB%84%E4%BB%B6">§</a></h2>
+<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">class</span> <span class="token class-name">WindowDimensions</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+  <span class="token function">componentWillMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">updateDimensions</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">'resize'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">updateDimensions</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">componentWillUnmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token method function property-access">removeEventListener</span><span class="token punctuation">(</span><span class="token string">'resize'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">updateDimensions</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">updateDimensions</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>width<span class="token operator">:</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token dom variable">window</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">width</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> height<span class="token operator">:</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token dom variable">window</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">height</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">state</span><span class="token punctuation">.</span><span class="token property-access">width</span><span class="token punctuation">}</span><span class="token plain-text"> x </span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">state</span><span class="token punctuation">.</span><span class="token property-access">height</span><span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></article><div class="prev_next"><a class="prev button" href="/articles/06-FE+Browser/05-react.html">«  <!-- -->React 基础</a><a class="next button" href="/articles/06-FE+Browser/07-vue.html">Vue<!-- -->  »</a></div></div><div class="main_toc_container nav_link_container"><div class="main_toc"><aside><nav class="toc"><ol><li><a href="#react-ssr">React SSR？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%9D%83%E9%99%90%E7%BB%84%E4%BB%B6%E7%9A%84%E8%AE%BE%E8%AE%A1">如何进行权限组件的设计？</a></li><li><a href="#react-%E7%BB%84%E4%BB%B6%E5%A6%82%E4%BD%95%E9%80%9A%E4%BF%A1">React 组件如何通信？</a></li><li><a href="#react-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%AF%B9%E8%B1%A1%E7%9A%84-watch">React 如何实现对象的 watch？</a></li><li><a href="#react-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%87%92%E5%8A%A0%E8%BD%BD">React 如何实现懒加载？</a></li><li><a href="#react-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">React 如何进行性能优化？</a></li><li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA-useloading-hook">自定义一个 useLoading Hook</a></li><li><a href="#reduxreact-reduxmobx">Redux/React-Redux.MobX？</a></li><li><a href="#react-router">React Router</a></li><li><a href="#redux-%E5%BC%82%E6%AD%A5%E4%B8%8E%E7%A4%BE%E5%8C%BA%E4%B8%AD%E9%97%B4%E4%BB%B6">Redux 异步与社区中间件</a></li><li><a href="#react-dom">React DOM</a></li><li><a href="#react-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95">React 如何实现单元测试？</a></li><li><a href="#react-%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E7%BC%96%E5%86%99%E9%A1%BA%E5%BA%8F%E6%8E%A8%E8%8D%90">React 组件中生命周期的编写顺序推荐？</a></li><li><a href="#%E7%9B%91%E5%90%AC%E6%B5%8F%E8%A7%88%E5%99%A8%E5%A4%A7%E5%B0%8F%E7%9A%84%E6%94%B9%E5%8F%98%E7%BB%84%E4%BB%B6">监听浏览器大小的改变组件</a></li></ol></nav></aside></div></div></section><footer>Powered by<!-- --> <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><div class="tools flex_center hide_on_mobile"><a class="czs-pen button" href="https://github.com/hylerrix/es-interview/edit/master/articles/06-FE+Browser/06-react-practice.md" target="_blank" style="background-image:url(&quot;/assets/czs-pen.svg&quot;)"></a><a class="czs-angle-up-l button" href="#" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></a></div><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>

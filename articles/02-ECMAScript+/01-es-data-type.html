@@ -1,0 +1,388 @@
+<!doctype html><html class="" data-reactroot=""><head><script async="" src="https://www.google-analytics.com/analytics.js"></script><script>
+            window.GoogleAnalyticsObject="ga";(window.ga=window.ga||function(){(window.ga.q=window.ga.q||[]).push(arguments);}),(window.ga.l=1*new Date());
+
+            ga('create', 'UA-169223577-1', 'auto');
+            ga('send', 'pageview');</script><link rel="icon" type="image/png" href="/favicon.png"/>
+<meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="收集汇总梳理全网资源，涵盖 JS/TS 前后端的全方位面试题库（含提示性解析），助力找个好工作！"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/>
+<title data-react-helmet="true">ES 数据类型 · ECMAScript+ 面试宝典</title>
+<link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/><link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/>
+<script data-react-helmet="true" >
+    const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (shouldSetIsDark) {
+      document.documentElement.classList.add('is_dark');
+      document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
+    }
+  </script>
+</head><body><header><h1 class="hide_on_mobile"><a href="/">ECMAScript+ 面试宝典</a></h1><nav><ul><li class="show_on_mobile flex_center"><a class="czs-menu-l" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a></li><li class="show_on_mobile"><h1 class="mobile_title"><a href="/">ECMAScript+ 面试宝典</a></h1></li><li class="hide_on_mobile"><a href="/articles/">文章</a></li><li class="hide_on_mobile"><a href="http://qiniu.ningo.cloud/hylerrix/reward-alipay.png" target="_blank">打赏一下!!</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix/deno-tutorial" target="_blank">Deno 钻研之术</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">持续添加中...</a></li><li class="hide_on_mobile"><a href="https://github.com/ningowood" target="_blank">凝果屋</a></li><li class="hide_on_mobile"><a href="https://github.com/hylerrix" target="_blank">关于</a></li><li style="flex-grow:1"></li><li class="flex_center"><a class="czs-github-logo" href="https://github.com/hylerrix/es-interview" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul></nav></header><aside class="sidebar"><ol><li class=""><a href="/articles/index.html" class="nav_link">ESMAScript+ 面试宝典</a></li><li class="unfold"><a href="/articles/00-Beginner/index.html" class="nav_link">一切的起源<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/00-Beginner/00-es-timeline.html" class="nav_link">前端大事记</a></li><li class=""><a href="/articles/00-Beginner/01-es-direction.html" class="nav_link">ES 方向 &amp; 谁在招人？</a></li><li class=""><a href="/articles/00-Beginner/02-es-rank.html" class="nav_link">大厂职级</a></li><li class=""><a href="/articles/00-Beginner/03-es-books.html" class="nav_link">看什么书？</a></li></ol></li><li class="unfold"><a href="/articles/01-Programming/index.html" class="nav_link">编程基础<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/01-Programming/00-language.html" class="nav_link">编程语言</a></li><li class=""><a href="/articles/01-Programming/01-operating-system.html" class="nav_link">操作系统</a></li><li class=""><a href="/articles/01-Programming/02-algorithms.html" class="nav_link">算法</a></li><li class=""><a href="/articles/01-Programming/03-design-patterns.html" class="nav_link">设计模式</a></li><li class=""><a href="/articles/01-Programming/04-software-engineering.html" class="nav_link">软件工程</a></li><li class=""><a href="/articles/01-Programming/05-software-test.html" class="nav_link">测试</a></li><li class=""><a href="/articles/01-Programming/06-version-control.html" class="nav_link">版本控制</a></li><li class=""><a href="/articles/01-Programming/07-computer-principles.html" class="nav_link">计算机组成原理</a></li><li class=""><a href="/articles/01-Programming/08-compilation-principle.html" class="nav_link">编译原理</a></li></ol></li><li class="unfold"><a href="/articles/02-ECMAScript+/index.html" class="nav_link">ECMAScript+<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/02-ECMAScript+/00-ecmascript.html" class="nav_link">ECMAScript</a></li><li class=""><a href="/articles/02-ECMAScript+/01-es-data-type.html" class="nav_link active">ES 数据类型</a></li><li class=""><a href="/articles/02-ECMAScript+/02-javascript.html" class="nav_link">JavaScript 基础知识</a></li><li class=""><a href="/articles/02-ECMAScript+/03-typescript.html" class="nav_link">TypeScript</a></li><li class=""><a href="/articles/02-ECMAScript+/04-javascript-parctice.html" class="nav_link">JavaScript 常见实战题</a></li></ol></li><li class="unfold"><a href="/articles/03-HTML+CSS/index.html" class="nav_link">HTML + CSS<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/03-HTML+CSS/00-html.html" class="nav_link">HTML</a></li><li class=""><a href="/articles/03-HTML+CSS/01-css-design.html" class="nav_link">CSS</a></li><li class=""><a href="/articles/03-HTML+CSS/02-css-advance.html" class="nav_link">CSS 进阶</a></li><li class=""><a href="/articles/03-HTML+CSS/03-css-practice.html" class="nav_link">CSS 实战</a></li><li class=""><a href="/articles/03-HTML+CSS/04-dom-bom.html" class="nav_link">DOM + BOM</a></li></ol></li><li class="unfold"><a href="/articles/04-Network+API/index.html" class="nav_link">网络 + 前后端协作<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/04-Network+API/00-network.html" class="nav_link">网络</a></li><li class=""><a href="/articles/04-Network+API/01-fe-be-api.html" class="nav_link">前后端协作</a></li><li class=""><a href="/articles/04-Network+API/02-network-security.html" class="nav_link">网络安全</a></li></ol></li><li class="unfold"><a href="/articles/05-V8+Runtime/index.html" class="nav_link">V8 + JavaScript 运行时<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/05-V8+Runtime/00-v8.html" class="nav_link">V8</a></li><li class=""><a href="/articles/05-V8+Runtime/01-node.html" class="nav_link">Node</a></li><li class=""><a href="/articles/05-V8+Runtime/02-deno.html" class="nav_link">Deno</a></li></ol></li><li class="unfold"><a href="/articles/06-FE+Browser/index.html" class="nav_link">前端应用开发 + 浏览器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/06-FE+Browser/00-browser.html" class="nav_link">浏览器</a></li><li class=""><a href="/articles/06-FE+Browser/01-fe-engineering.html" class="nav_link">前端工程化</a></li><li class=""><a href="/articles/06-FE+Browser/02-fe-tooltain.html" class="nav_link">前端工具链</a></li><li class=""><a href="/articles/06-FE+Browser/03-pack-tool.html" class="nav_link">前端打包工具</a></li><li class=""><a href="/articles/06-FE+Browser/04-fe-mobile.html" class="nav_link">移动端 Web 开发</a></li><li class=""><a href="/articles/06-FE+Browser/05-react.html" class="nav_link">React 基础</a></li><li class=""><a href="/articles/06-FE+Browser/06-react-practice.html" class="nav_link">React 实战</a></li><li class=""><a href="/articles/06-FE+Browser/07-vue.html" class="nav_link">Vue</a></li><li class=""><a href="/articles/06-FE+Browser/08-iframe.html" class="nav_link">iframe</a></li></ol></li><li class="unfold"><a href="/articles/07-BE+Server/index.html" class="nav_link">后端应用开发 + 服务器<span class="czs-angle-up-l" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></span><span class="czs-angle-down-l" style="background-image:url(&quot;/assets/czs-angle-down-l.svg&quot;)"></span></a><ol><li class=""><a href="/articles/07-BE+Server/00-linux-nginx-database.html" class="nav_link">Linux + Nginx + 数据库</a></li><li class=""><a href="/articles/07-BE+Server/01-node-framework.html" class="nav_link">Node 框架</a></li></ol></li><li class=""><a href="/articles/draw-in-markdown.html" class="nav_link">如何用 Markdown 绘制图片</a></li><li class=""><a href="/articles/roadmap.html" class="nav_link">变更日志</a></li></ol></aside><section class="main"><div class="main_article"><article><h1>ES 数据类型</h1>
+<h2 id="%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B">基础数据类型都有哪些？<a class="anchor" href="#%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B">§</a></h2>
+<ul>
+<li>undefiend 没有定义数据类型</li>
+<li>number 数值数据类型，例如 10 或者 1 或者 5.5
+<ul>
+<li>NaN 是一种特殊的 number</li>
+</ul>
+</li>
+<li>string 字符串数据类型用来描述文本，例如 &quot;你的姓名&quot;
+<ul>
+<li>string 的内置属性和方法：</li>
+<li>构造函数 String()</li>
+</ul>
+</li>
+<li>boolean 布尔类型 true | false ，不是正就是反
+<ul>
+<li>boolean 的内置属性和方法：</li>
+<li>构造函数</li>
+</ul>
+</li>
+<li>object 对象类型，复杂的一组描述信息的集合
+<ul>
+<li>null 是一种特殊的 object</li>
+<li>object 的内置属性和方法：</li>
+<li>构造函数</li>
+<li>Object.prototype</li>
+</ul>
+</li>
+<li>function 函数类型
+<ul>
+<li>函数的内置属性和方法：</li>
+<li>构造函数</li>
+<li>Function.prototype</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B">如何理解基础类型/引用类型？<a class="anchor" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B">§</a></h2>
+<h2 id="string-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">String 有哪些操作？<a class="anchor" href="#string-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">§</a></h2>
+<ol>
+<li><strong>属性</strong>
+<ol>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/length"><code>String.length</code></a></li>
+</ol>
+</li>
+<li><strong>方法</strong>
+<ol>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode"><code>String.fromCharCode()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint"><code>String.fromCodePoint()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/anchor"><code>String.prototype.anchor()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/big"><code>String.prototype.big()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/blink"><code>String.prototype.blink()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/bold"><code>String.prototype.bold()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/charAt"><code>String.prototype.charAt()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt"><code>String.prototype.charCodeAt()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/codePointAt"><code>String.prototype.codePointAt()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/concat"><code>String.prototype.concat()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith"><code>String.prototype.endsWith()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/fixed"><code>String.prototype.fixed()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/fontcolor"><code>String.prototype.fontcolor()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/fontsize"><code>String.prototype.fontsize()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/includes"><code>String.prototype.includes()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf"><code>String.prototype.indexOf()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/italics"><code>String.prototype.italics()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf"><code>String.prototype.lastIndexOf()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/link"><code>String.prototype.link()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare"><code>String.prototype.localeCompare()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/match"><code>String.prototype.match()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll"><code>String.prototype.matchAll()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/normalize"><code>String.prototype.normalize()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd"><code>String.prototype.padEnd()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/padStart"><code>String.prototype.padStart()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/quote"><code>String.prototype.quote()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/repeat"><code>String.prototype.repeat()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace"><code>String.prototype.replace()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/search"><code>String.prototype.search()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/slice"><code>String.prototype.slice()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/small"><code>String.prototype.small()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/split"><code>String.prototype.split()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith"><code>String.prototype.startsWith()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/strike"><code>String.prototype.strike()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/sub"><code>String.prototype.sub()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/substr"><code>String.prototype.substr()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/substring"><code>String.prototype.substring()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/sup"><code>String.prototype.sup()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleLowerCase"><code>String.prototype.toLocaleLowerCase()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleUpperCase"><code>String.prototype.toLocaleUpperCase()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase"><code>String.prototype.toLowerCase()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/toSource"><code>String.prototype.toSource()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/toString"><code>String.prototype.toString()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase"><code>String.prototype.toUpperCase()</code></a> [<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase$translate">我来译!]</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/Trim"><code>String.prototype.trim()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/TrimRight"><code>String.prototype.trimRight()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/TrimLeft"><code>String.prototype.trimStart()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/valueOf"><code>String.prototype.valueOf()</code></a> [<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/valueOf$translate">我来译!]</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/@@iterator"><code>String.prototype[@@iterator]()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/raw"><code>String.raw()</code></a></li>
+</ol>
+</li>
+</ol>
+<h2 id="boolean-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">Boolean 有哪些操作？<a class="anchor" href="#boolean-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">§</a></h2>
+<h2 id="undifinednull-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">Undifined/NULL 有哪些操作？<a class="anchor" href="#undifinednull-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">§</a></h2>
+<h2 id="function-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">Function 有哪些操作？<a class="anchor" href="#function-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">§</a></h2>
+<ol>
+<li><strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function"><code>Function</code></a></strong></li>
+<li><strong>属性</strong>
+<ol>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/arguments"><code>Function.arguments</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/caller"><code>Function.caller</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/displayName"><code>Function.displayName</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/length"><code>Function.length</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/name"><code>Function.name</code></a></li>
+</ol>
+</li>
+<li><strong>方法</strong>
+<ol>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply"><code>Function.prototype.apply()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind"><code>Function.prototype.bind()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call"><code>Function.prototype.call()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/toSource"><code>Function.prototype.toSource()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/toString"><code>Function.prototype.toString()</code></a></li>
+</ol>
+</li>
+</ol>
+<h2 id="object-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">Object 有哪些操作？<a class="anchor" href="#object-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">§</a></h2>
+<ol>
+<li><strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object"><code>Object</code></a></strong></li>
+<li><strong>属性</strong>
+<ol>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/proto"><code>Object.prototype.__proto__</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor"><code>Object.prototype.constructor</code></a></li>
+</ol>
+</li>
+<li><strong>方法</strong>
+<ol>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign"><code>Object.assign()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create"><code>Object.create()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties"><code>Object.defineProperties()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty"><code>Object.defineProperty()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/entries"><code>Object.entries()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze"><code>Object.freeze()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries"><code>Object.fromEntries()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor"><code>Object.getOwnPropertyDescriptor()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors"><code>Object.getOwnPropertyDescriptors()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames"><code>Object.getOwnPropertyNames()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols"><code>Object.getOwnPropertySymbols()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/GetPrototypeOf"><code>Object.getPrototypeOf()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/is"><code>Object.is()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible"><code>Object.isExtensible()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isFrozen"><code>Object.isFrozen()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isSealed"><code>Object.isSealed()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/keys"><code>Object.keys()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions"><code>Object.preventExtensions()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineGetter__"><code>Object.prototype.__defineGetter__()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineSetter__"><code>Object.prototype.__defineSetter__()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupGetter__"><code>Object.prototype.__lookupGetter__()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupSetter__"><code>Object.prototype.__lookupSetter__()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty"><code>Object.prototype.hasOwnProperty()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf"><code>Object.prototype.isPrototypeOf()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable"><code>Object.prototype.propertyIsEnumerable()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/toLocaleString"><code>Object.prototype.toLocaleString()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/toSource"><code>Object.prototype.toSource()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/toString"><code>Object.prototype.toString()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf"><code>Object.prototype.valueOf()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/seal"><code>Object.seal()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf"><code>Object.setPrototypeOf()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/values"><code>Object.values()</code></a></li>
+</ol>
+</li>
+</ol>
+<h2 id="number-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">Number 有哪些操作？<a class="anchor" href="#number-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">§</a></h2>
+<ul>
+<li>
+<p>JS 的 Number 类型遵循的是 IEEE 754 标准，使用的是 64 位固定⻓度来表示。</p>
+</li>
+<li>
+<p>IEEE 754 浮点数由三个域组成，分别为 sign bit (符号位)、exponent bias (指数偏移值) 和 fraction (分数值)。64 位中，sign bit 占 1 位，exponent bias 占 11 位，fraction 占 52 位。</p>
+</li>
+<li>
+<p>以 0.1 转换为 IEEE 754 标准表示为例解释一下如何求 exponent bias 和 fraction。转换过程主要经历 3 个过程：</p>
+<ul>
+<li>将 0.1 转换为二进制表示。</li>
+<li>将转换后的二进制通过科学计数法表示。</li>
+<li>将通过科学计数法表示的二进制转换为 IEEE 754 标准表示。</li>
+</ul>
+</li>
+</ul>
+<h2 id="array-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">Array 有哪些操作？<a class="anchor" href="#array-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">§</a></h2>
+<ul>
+<li>Array 静态方法：<code>Array.from(); Array.isArray(); Array.of();</code>。</li>
+<li>Array 原型方法：
+<ul>
+<li><code>.concat(); .copyWithin(); .entries(); .every();</code>。</li>
+<li><code>.fill(); .filter(); .find(); .findIndex(); .flat(); .flatMap(); .forEach();</code>。</li>
+<li><code>.includes(); .indexOf(); .join(); .keys(); .lastIndexOf(); .map(); .pop(); .push(); </code>。</li>
+<li><code>.reduce(); .reduceRight(); .reverse(); .shift(); .slice(); .some(); .sort(); .splice(); </code>。</li>
+<li><code>.toLocaleString(); .toSource(); .toString(); .unshift(); .values();</code>。</li>
+<li><code>Array.prototype[@@iterator](); get Array[@@species]</code>。</li>
+</ul>
+</li>
+<li>Array 常见考题：
+<ul>
+<li>数组拷贝。</li>
+<li>数组展开。</li>
+<li>用 reduce 实现 map 的功能</li>
+<li>类数组转化成数组的方法</li>
+<li>实现数组 flatten</li>
+</ul>
+</li>
+<li>Object 常见考题：
+<ul>
+<li>深拷贝、浅拷贝</li>
+<li>如何判断一个对象是不是空对象？</li>
+</ul>
+</li>
+<li>类数组和数组的互相转换？</li>
+<li>Number &amp; BigInt 常见考题：
+<ul>
+<li>大数操作</li>
+<li>0.1+0.2 == 0.3？原因？</li>
+</ul>
+</li>
+<li>链式调用：add(2, 5)，add(2)(5)，add(1)(1)(5) 的结果都为 7</li>
+</ul>
+<h2 id="bigint-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">BigInt 有哪些操作？<a class="anchor" href="#bigint-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">§</a></h2>
+<ul>
+<li>JavaScript中Number.MAX_SAFE_INTEGER表示最大安全数字,计算结果是9007199254740991，即在这个数范围内不会出现精度丢失(小数除外)。 但是一旦超过这个范围，js就会出现计算不准确的情况，这在大数计算的时候不得不依靠一些第三方库进行解决，因此官方提出了BigInt来解决此问题。</li>
+</ul>
+<h3 id="%E4%BB%80%E4%B9%88%E6%98%AF%E5%85%B3%E8%81%94%E6%95%B0%E7%BB%84">什么是关联数组？<a class="anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%85%B3%E8%81%94%E6%95%B0%E7%BB%84">§</a></h3>
+<blockquote>
+<p>其它多数语言里，数组分为索引数组和关联数组，索引数组又分为一维数组、二维数组和多维数组。</p>
+<p>引用：“JavaScript 里面没有关联数组和索引数组这两种不同的区分，一切对象都是键值对，数组也是对象，数组也可以看作是键值对。”</p>
+<p>自我感悟，存疑：JavaScript 还是有索引数组和关联数组的微小差异。索引数组和 length 属性直接挂钩，关联数组其实访问的是数组上的属性及其值，length 一般都是 0(没有真正的数据内容)。</p>
+</blockquote>
+<p>在计算机科学中，关联数组（英语：Associative Array），又称映射（Map）、字典（Dictionary）是一个抽象的数据结构，它包含着类似于（键，值）的有序对。一个关联数组中的有序对可以重复（如C中的 multimap）也可以不重复（如 C 中的 map）。这种数据结构包含以下几种常见的操作：</p>
+<ul>
+<li>向关联数组添加配对</li>
+<li>从关联数组内删除配对</li>
+<li>修改关联数组内的配对</li>
+<li>根据已知的键寻找配对</li>
+</ul>
+<blockquote>
+<p>字典问题是设计一种能够具备关联数组特性的数据结构。解决字典问题的常用方法，是利用散列表，但有些情况下，也可以直接使用二叉查找树或其他结构。</p>
+<p>许多程序设计语言内置基本的数据类型，提供对关联数组的支持。而内容定址存储器则是硬件层面上实现对关联数组的支持。</p>
+</blockquote>
+<p>属性值和键值的异同</p>
+<ul>
+<li>属性和键值不一样，给数组新增一个属性，其依然为数组，length 不变，新增的被读取时将是属性值，而非键值。</li>
+</ul>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 定义一个数组</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 结果为3</span>
+
+a<span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"xiaoming"</span><span class="token punctuation">;</span> <span class="token comment">// 我们再给它赋值，这是给 a 数组增加了一个属性叫 name，而不是在数组里添加数据。</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [1, 2, 3, aaa: 1]，a 依然是数组</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 结果还是为 3</span>
+
+a<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token comment">// [1, 2, 3, 4, aaa: 1]，a 依然是数组</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 结果为4</span>
+</code></pre>
+<ul>
+<li>以下两种写法效果是一样的，但 j2 符合 JSON 风格，当 JSON 对象作为 Map(映射、关联数组) 时使用。
+<ul>
+<li>JSON 对象和 JSON Map 在运行时看起来是一样的；这个特性与 API 设计相关。当 JSON 对象被当作 Map 使用时，API 文件应当做出说明。</li>
+<li>Map 的键名不一定要遵循属性名称的命名准则。键名可以包含任意的 Unicode 字符。客户端可使用 Map 熟悉的方括号来访问这些属性。</li>
+</ul>
+</li>
+</ul>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">var</span> j1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'j1'</span><span class="token punctuation">,</span>
+    age<span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">fun</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> j2 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">"name"</span><span class="token operator">:</span> <span class="token string">"j2"</span><span class="token punctuation">,</span>
+    <span class="token string">"age"</span><span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
+    <span class="token string">"fun"</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>遍历关联数组</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> key <span class="token keyword">in</span> array<span class="token punctuation">)</span><span class="token punctuation">{</span>  
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"键:"</span><span class="token punctuation">,</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"值:"</span><span class="token punctuation">,</span>array<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+</code></pre>
+<p>关联数组和索引数组的遍历效率问题。</p>
+<p>遍历赋值以下数组时，第一次耗费时间差不多，浏览器默认优化之后，arr2 作为 Array 而非 Object 存取速度更快。</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token number">50000000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> arr2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="%E4%BB%80%E4%B9%88%E6%98%AF-json">什么是 JSON？<a class="anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-json">§</a></h3>
+<ul>
+<li>
+<p>JSON 对象包含两个方法：</p>
+<ul>
+<li>用于解析 JavaScript Object Notation  (JSON) 的 parse() 方法</li>
+<li>以及将对象/值转换为 JSON 字符串的 stringify() 方法。</li>
+<li>除了这两个方法, JSON 这个对象本身并没有其他作用，也不能被调用或者作为构造函数调用。</li>
+<li>把数据结构或者对象转换成某种格式的过程称为「序列化」</li>
+<li>而将序列化过程的结果反向转换回某种数据结构或对象的过程称为「反序列化」。</li>
+</ul>
+</li>
+<li>
+<p>JSON 的本质</p>
+<ul>
+<li>JSON 指的是 JavaScript 对象表示法（JavaScript Object Notation）</li>
+<li>JSON 是轻量级的文本数据交换格式</li>
+<li>JSON 独立于语言，JSON 解析器和 JSON 库支持许多不同的编程语言。</li>
+<li>JSON 具有自我描述性，更易理解</li>
+</ul>
+</li>
+<li>
+<p>JSON 风格指南：</p>
+<ul>
+<li>所有的属性名必须在双引号内。</li>
+<li>JSON对象中不包含注释。</li>
+<li>JSON中的数据元素应以扁平化方式呈现。不能为了方便而将数据任意分组。</li>
+<li>选择有意义的属性名。</li>
+</ul>
+<ul>
+<li>
+<ul>
+<li>属性名应该是具有定义语义的有意义的名称。</li>
+<li>属性名必须是驼峰式的，ASCII 码字符串。</li>
+<li>首字符必须是字母，下划线(_)或美元符号($)。</li>
+<li>随后的其他字符可以是字母，数字，下划线(_)或美元符号($)。</li>
+<li>应该避免使用 Javascript 中的保留关键字</li>
+</ul>
+</li>
+<li>
+<p>在 JSON Map 中键名可以使用任意 Unicode 字符。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="js-%E5%B8%B8%E8%A7%81%E7%B1%BB%E5%9E%8B-%E4%B8%8E-json-%E7%9A%84%E5%8C%BA%E5%88%AB">JS 常见类型 与 JSON 的区别？<a class="anchor" href="#js-%E5%B8%B8%E8%A7%81%E7%B1%BB%E5%9E%8B-%E4%B8%8E-json-%E7%9A%84%E5%8C%BA%E5%88%AB">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>JavaScript类型</th>
+<th>JSON 的不同点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>对象和数组</td>
+<td>属性名称必须是双引号括起来的字符串；最后一个属性后不能有逗号。</td>
+</tr>
+<tr>
+<td>数值</td>
+<td>禁止出现前导零（ JSON.stringify 方法自动忽略前导零，而在 JSON.parse 方法中将会抛出 SyntaxError）；如果有小数点, 则后面至少跟着一位数字。</td>
+</tr>
+<tr>
+<td>字符串</td>
+<td>只有有限的一些字符可能会被转义；禁止某些控制字符； Unicode 行分隔符 （U+2028）和段分隔符 （U+2029）被允许 ; 字符串必须用双引号括起来。请参考下面的示例，可以看到 JSON.parse() 能够正常解析，但将其当作JavaScript解析时会抛出 SyntaxError 错误：</td>
+</tr>
+</tbody>
+</table>
+<pre class="language-autoit"><code class="language-autoit">let code <span class="token operator">=</span> <span class="token string">'"\u2028\u2029"'</span><span class="token comment">;</span>
+JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>code<span class="token punctuation">)</span><span class="token comment">;  // 正常</span>
+<span class="token function">eval</span><span class="token punctuation">(</span>code<span class="token punctuation">)</span><span class="token comment">;  // 错误</span>
+</code></pre>
+<ul>
+<li>JSON.parse()：解析 JSON 字符串并返回对应的值，可以额外传入一个转换函数，用来将生成的值和其属性, 在返回之前进行某些修改。</li>
+<li>JSON.stringify()：返回与指定值对应的JSON字符串，可以通过额外的参数, 控制仅包含某些属性, 或者以自定义方法来替换某些 key 对应的属性值。</li>
+<li>JSON Polyfill：JSON 对象可能不被老版本的浏览器支持。可以将下面的代码放到JS脚本最开始的位置，这样就可以在没有原生支持 JSON 对象的浏览器（如IE6）中使用 JSON 对象。</li>
+</ul></article><div class="prev_next"><a class="prev button" href="/articles/02-ECMAScript+/00-ecmascript.html">«  <!-- -->ECMAScript</a><a class="next button" href="/articles/02-ECMAScript+/02-javascript.html">JavaScript 基础知识<!-- -->  »</a></div></div><div class="main_toc_container nav_link_container"><div class="main_toc"><aside><nav class="toc"><ol><li><a href="#%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B">基础数据类型都有哪些？</a></li><li><a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B">如何理解基础类型/引用类型？</a></li><li><a href="#string-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">String 有哪些操作？</a></li><li><a href="#boolean-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">Boolean 有哪些操作？</a></li><li><a href="#undifinednull-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">Undifined/NULL 有哪些操作？</a></li><li><a href="#function-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">Function 有哪些操作？</a></li><li><a href="#object-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">Object 有哪些操作？</a></li><li><a href="#number-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">Number 有哪些操作？</a></li><li><a href="#array-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">Array 有哪些操作？</a></li><li><a href="#bigint-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C">BigInt 有哪些操作？</a><ol><li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%85%B3%E8%81%94%E6%95%B0%E7%BB%84">什么是关联数组？</a></li><li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-json">什么是 JSON？</a></li><li><a href="#js-%E5%B8%B8%E8%A7%81%E7%B1%BB%E5%9E%8B-%E4%B8%8E-json-%E7%9A%84%E5%8C%BA%E5%88%AB">JS 常见类型 与 JSON 的区别？</a></li></ol></li></ol></nav></aside></div></div></section><footer>Powered by<!-- --> <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><div class="tools flex_center hide_on_mobile"><a class="czs-pen button" href="https://github.com/hylerrix/es-interview/edit/master/articles/02-ECMAScript+/01-es-data-type.md" target="_blank" style="background-image:url(&quot;/assets/czs-pen.svg&quot;)"></a><a class="czs-angle-up-l button" href="#" style="background-image:url(&quot;/assets/czs-angle-up-l.svg&quot;)"></a></div><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
