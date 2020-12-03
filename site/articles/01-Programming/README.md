@@ -12,3 +12,5 @@
 | PNG图像            | .png  | image/png       |
 | PDF文档            | .pdf  | application/pdf |
 
+## CSV 格式？
+

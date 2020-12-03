@@ -8,6 +8,7 @@
 * 引入标题的“对号”机制，对于以专题认真探讨完毕的主题可以在标题中加入“对号”，目标 100% 覆盖率。
 * 引入大量 MarkDown 绘制的原创图，每张图都融合了自己独特的思考。
 * [Beginner]
+  * 新增“es-people”、“es-story”篇
 * [Programming]
   * 算法实战代码全量转移到 [@hylerrix/deno-algorithm](https://github.com/hylerrix/deno-algorithm) 仓库中维护。
   * 此仓库暂未公开，考虑是否合并为一个仓库？这样每个仓库的明确性不高但可以集中 star。

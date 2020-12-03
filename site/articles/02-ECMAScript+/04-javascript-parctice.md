@@ -1160,6 +1160,27 @@ function sendRequest(arr, max, callback) {
 }
 ```
 
+```javascript
+async function batchRequest (data, params, username) {
+  let count = Math.ceil(data.total / perDownloadSize)
+  count = Math.min(count, 200) // 控制水位，并发数不能超过200
+  const promises = []
+  for (let i = 2; i <= count; i++) {
+    params.page = i
+    promises.push(rs.fetchSysService('GET', '/charge/report/account/detail/charge', params, username, true))
+  }
+  if (!promises.length) return
+  await Promise.all(promises).then((allRes) => {
+    for (let i = 1; i < count; i++) {
+      const res = (allRes[i - 1] && allRes[i - 1].data) || []
+      data.data.push(...res)
+    }
+  })
+}
+```
+
+
+
 ## 特性 API
 
 ### 使用 Proxy 拓展构造函数

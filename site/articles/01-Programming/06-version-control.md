@@ -1,6 +1,10 @@
 # 版本控制
 
-## 什么是 Git
+> 疑问：不小心在 master 上写了两个 commit 后，如何把这两个 commit 移动到新的分支中，让 master 恢复原状？
+
+## Git 基础
+
+### 什么是 Git
 
 * Git 仓库的三个组成部分：工作区、暂存区和历史记录区
   * 工作区 working directory：在 git 管理下的正常目录都是工作区
@@ -12,7 +16,7 @@
     * Working Directory -> Stage(Index): `git add files`
     * Stage(Index) -> History: `git commit`
 
-## Git Workflow 是怎样的？
+### Git Workflow 是怎样的？
 
 * Git Flow：由 Vincent Driessen 提出：
   * 分支
@@ -28,7 +32,7 @@
     * 支持紧急修复：GitFlow 还包含了 hotfix 分支。这种类型的分支是从某个已经发布的 tag 上创建出来并做一个紧 急的修复，而且这个紧急修复只影响这个已经发布的 tag，而不会影响到你正在开发的新 feature 。
 * GitHub Flow
 
-## rebase 和 merge 的区别？
+### rebase 和 merge 的区别？
 
 * git rebase 和 git merge 一样都是用于从一个分支获取并且合并到当前分支。
 * merge：自动创建一个新的 commit，如果合并时遇到冲突，仅需要修改后重新 commit
@@ -38,7 +42,7 @@
   * 优点：得到更简洁的项目历史，去掉了 merge commit
   * 缺点：如果合并出现代码问题不容易定位，因为 rewrite 了 history
 
-## reset、revert、checkout 有什么区别？
+### reset、revert、checkout 有什么区别？
 
 * 共同点：用来撤销代码仓库中的某些更改。
 * 不同点 - commit 层面：
@@ -54,7 +58,7 @@
   * git checkout 则是把文件从历史记录拿到工作区，不影响暂存区的内容。
   * git revert 不支持文件层面的操作。
 
-## Git Commit Message 提交规范（Angular）？
+### Git Commit Message 提交规范（Angular）？
 
 每次提交，Commit message 都包括三个部分：Header，Body 和 Footer。其中，Header 是必需的，Body 和 Footer 可以省略。不管是哪一个部分，任何一行都不得超过72个字符（或100个字符）。这是为了避免自动换行影响美观。
 
@@ -90,6 +94,16 @@
 * Revert：还有一种特殊情况，如果当前 commit 用于撤销以前的 commit，则必须以revert:开头，后面跟着被撤销 Commit 的 Header。
   * Body部分的格式是固定的，必须写成 This reverts commit .，其中的 hash 是被撤销 commit 的 SHA 标识符。
   * 如果当前 commit 与被撤销的 commit，在同一个发布（release）里面，那么它们都不会出现在 Change log 里面。如果两者在不同的发布，那么当前 commit，会出现在 Change log 的Reverts小标题下面。
+
+### 开源协作常用 Git 命令？
+
+```
+git remote add upstream ${url}
+```
+
+
+
+## Git 生态
 
 ## 保证 Git Commit 规范的工具都有哪些？
 

@@ -1,8 +1,6 @@
-# Node 框架
+# Nest
 
-## Nest
-
-> Nest 的特点？
+## Nest 的特点
 
 * 构建高效、可扩展的 Node.js Web 应用程序的框架；
 * 结合 OOP（面向对象编程）、FP（函数式编程）、FRP（函数响应式编程） 等元素；
@@ -15,3 +13,4 @@
 * 轻松构建 MVC、API、WebSocket、微服务等系统；
 
 > Nest 的关键技术？
+

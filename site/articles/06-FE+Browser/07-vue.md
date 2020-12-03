@@ -2,6 +2,8 @@
 
 > [vue 269 个知识点（面试题）为你保驾护航](https://juejin.im/post/6844903876231954446)。
 
+> 如何理解 watch deep, watch immediate?
+
 ## React 和 Vue 的区别？
 
 相同点
@@ -151,6 +153,10 @@ input.addEventListener('keyup', function(e) {
 
 * 利用 Object.defineProperty 劫持对象的访问器，在属性值发生变化时获取变化后响应。
 * Vue 3 中通过 Proxy 代理对象进行类似的操作。
+
+## 如何理解 Vue 的 $nextTick？
+
+* 比如不写在 $nextTick 里的话 this.$ref.chart 会 undefined
 
 ## 如何理解 Vue 响应式系统？
 
