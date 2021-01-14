@@ -72,10 +72,10 @@
 
 ## 2004
 
-* `2004`。Google公司发布了Gmail，促成了互联网应用程序（Web Application）这个概念的诞生。由于Gmail是在4月1日发布的，很多人起初以为这只是一个玩笑。
-* `2004`。Dojo框架诞生，为不同浏览器提供了同一接口，并为主要功能提供了便利的调用方法。这标志着JavaScript编程框架的时代开始来临。
-* `2004`。WHATWG组织成立，致力于加速HTML语言的标准化进程。
-* `2004`。IE vs Mozilla Firefox vs Chrome...
+* 2004年，Google公司发布了Gmail，促成了互联网应用程序（Web Application）这个概念的诞生。由于Gmail是在4月1日发布的，很多人起初以为这只是一个玩笑。
+* 2004年，Dojo框架诞生，为不同浏览器提供了同一接口，并为主要功能提供了便利的调用方法。这标志着JavaScript编程框架的时代开始来临。
+* 2004年，WHATWG组织成立，致力于加速HTML语言的标准化进程。
+* 2004年，IE vs Mozilla Firefox vs Chrome...
 
 ## 2003
 
@@ -83,16 +83,16 @@
 
 ## 2002
 
-* 2002 年，Mozilla项目发布了它的浏览器的第一版，后来起名为 Firefox。
+* 2002年，Mozilla项目发布了它的浏览器的第一版，后来起名为 Firefox。
 
 ## 2001
 
-* 2001 年，微软公司时隔5年之后，发布了IE浏览器的下一个版本Internet Explorer 6。这是当时最先进的浏览器，它后来统治了浏览器市场多年。
-* 2001 年，Douglas Crockford提出了JSON格式，用于取代XML格式，进行服务器和网页之间的数据交换。JavaScript可以原生支持这种格式，不需要额外部署代码。
+* 2001年，微软公司时隔5年之后，发布了IE浏览器的下一个版本Internet Explorer 6。这是当时最先进的浏览器，它后来统治了浏览器市场多年。
+* 2001年，Douglas Crockford提出了JSON格式，用于取代XML格式，进行服务器和网页之间的数据交换。JavaScript可以原生支持这种格式，不需要额外部署代码。
 
 ## 2000
 
-* 2000 年，KDE项目重写了浏览器引擎KHTML，为后来的WebKit和Blink引擎打下基础。这一年的10月23日，KDE 2.0发布，第一次将KHTML浏览器包括其中。
+* 2000年，KDE项目重写了浏览器引擎KHTML，为后来的WebKit和Blink引擎打下基础。这一年的10月23日，KDE 2.0发布，第一次将KHTML浏览器包括其中。
 
 ## 1999
 
@@ -105,30 +105,30 @@
 ## 1997
 
 * 1997年，DHTML（Dynamic HTML，动态HTML）发布，允许动态改变网页内容。这标志着DOM模式（Document Object Model，文档对象模型）正式应用。
-* `1997.1`。HTTP/1.1，成为主流
+* 1997年1月，HTTP/1.1，成为主流。
 
 ## 1996
 
 * 1996年，样式表标准 CSS 第一版发布。
-* `1996.5`。HTTTP/1.0
+* 1996年5月，HTTTP/1.0。
 
 ## 1995
 
-* `1995`。微软 IE 1.0/2.0，微软 vs 网景（2020 年左右，微软大体胜利）
-* `1995`。Apache 0.2
-* `1995`。HTML 2.0
+* 1995年，微软 IE 1.0/2.0，微软 vs 网景（2020 年左右，微软大体胜利）。
+* 1995年，Apache 0.2。
+* 1995年，HTML 2.0。
 
 ## 1994
 
-* `1994.12`。网景 Netscape Navigator 1.0。
+* 1994年12月，网景 Netscape Navigator 1.0。
 
 ## 1993
 
-* `1993.1`。NCSA（美国国家超级计算机中心） 研发出第一个浏览器 Mosaic
-* `1993`。Mosaic for windows & macintosh
-* `1993`。NCSA httpd 1.0
+* 1993年1月，NCSA（美国国家超级计算机中心） 研发出第一个浏览器 Mosaic。
+* 1993年，Mosaic for windows & macintosh。
+* 1993年，NCSA httpd 1.0。
 
 ## 1990
 
-* `1990.11`。CERN（Tim Berners-Lee）研发出第一台 Web Client、Web Server。
-* `1990`。HTTP/0.9
+* 1990年11月，CERN（Tim Berners-Lee）研发出第一台 Web Client、Web Server。
+* 1990年，HTTP/0.9。
