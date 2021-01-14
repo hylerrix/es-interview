@@ -1,7 +1,7 @@
 # ESMAScript+ 面试宝典
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 * 官网地址：http://es-interview.js.org
@@ -72,6 +72,7 @@ $ pagic build --watch --serve
 <table>
   <tr>
     <td align="center"><a href="https://github.com/hylerrix"><img src="https://avatars1.githubusercontent.com/u/19285461?v=4?s=100" width="100px;" alt=""/><br /><sub><b>hylerrix</b></sub></a><br /><a href="#ideas-hylerrix" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://hu-qi.github.io/Loner/"><img src="https://avatars2.githubusercontent.com/u/17986122?v=4?s=100" width="100px;" alt=""/><br /><sub><b>huqi</b></sub></a><br /><a href="https://github.com/hylerrix/es-interview/commits?author=hu-qi" title="Documentation">📖</a></td>
   </tr>
 </table>
 
