@@ -237,19 +237,15 @@ Array.prototype.myFlat = function(num = 1) {
 
 ```javascript
 // 递归
-function flatten(arr) {
-    if (!Array.isArray(arr)) {
-        return [arr];
-    }
-    let res = [];
-    for (let i=0;i<arr.length;i++) {
-        res.push(...flatten(arr[i]));
-   }
-   return res;
+const flatten = (arr) => {
+  if (!Array.isArray(arr)) { return [arr] }
+  let res = []
+  arr.forEach(item => { res.push(...flatten(item)) })
+  return res
 }
 
-const arr = [1, [2, [3, 4, [5]]]];
-console.log(flatten(arr));
+const arr = [1, [2, [3, 4, [5]]]]
+console.log(flatten(arr))
 ```
 
 ```javascript
