@@ -18,7 +18,17 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "hu-qi",
+      "name": "huqi",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/17986122?v=4",
+      "profile": "https://hu-qi.github.io/Loner/",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
