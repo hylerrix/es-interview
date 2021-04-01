@@ -141,7 +141,7 @@ React.useEffect(() =>{
 * redux-thunk
   * 优点：
     * 体积小，redux-thunk 的实现方式很简单，只有不到 20 行代码
-    * 使用简单：redux-thunk 没有引入像 redux-saga 活着 redux-observable 额外的范式，上手简单。
+    * 使用简单：redux-thunk 没有引入像 redux-saga 或者 redux-observable 额外的范式，上手简单。
   * 缺点：
     * 样板代码过多：与 redux 本身一样，通常一个请求需要大量的代码，而且很多都是重复性质的
     * 耦合严重：异步操作与 redux 的 action 耦合在一起，不方便管理
