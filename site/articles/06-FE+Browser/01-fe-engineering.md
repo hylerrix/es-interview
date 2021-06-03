@@ -1,8 +1,71 @@
 # 前端工程化
 
+> JS 项目如何在编译阶段进行优化
+>
+> 同构渲染 = 同一份代码 + ssr + 客户端激活 (client-side hydration, csh)
+>
+> 同构渲染中的服务端性能指标：Node.js 指标的监控、日志的记录、错误的收集、崩溃机制、renderToString 时间
+>
+> 模板和 virtual dom 有什么异同
+>
+> ​	都是一层抽象；模板的方式是 F 只执行一遍，而组件方式则为每次 data 改变都会再执行一遍。
+>
+> 单体应用、微服务、云原生
+>
+> 处理上传/下载的原理及其多种方式？
+>
+>   \* https://blog.csdn.net/weixin_43660626/article/details/103619106
+>
+>   \* Blob、FileReade、FIleList、Base64、Buffer
+>
+>   \* window.URL.createObjectURL
+>
+>   \* 超大文件的分片长传、断点续传与下载
+>
+>   \* 自定义 csv 通用库
+>
+>   \* CSV 如何处理逗号
+>
+> 前端处理视频流媒体
+>
+> \* 如何理解 JAM Stack
+>
+>   \* 如何搭建自己的静态服务器
+>
+>   \* https://dev.to/simonholdorf/10-things-front-end-developers-should-learn-in-2021-d23
+>
+> Serverless 如何赋能前端开发？
+>
+> 如何实现微前端？
+>
+> 如何封装 Try Catch 及后端 success: false 在函数外面？
+>
+> 如何封装 Loading 状态在函数外面？
+>
+> 关于js优化。自己会熟练使用js profiler吗？甚至是否是从未使用过？做过ms级别的优化吗？自己问的问题是否真的需要在js trick层面进行优化？
+
 ## 前端架构
 
 - SSR、SPA、双向绑定、懒加载、MVVM：Proxy 与 object.defineProperty
+- DIFF 算法
+- CSS 框架和 UI 框架、前端框架、后端框架、全栈框架有什么区别？
+  * **CSS 框架**：交互无关，纯提供一种风格的 CSS 编排方式
+    * CSS in JS、Atom CSS、Styled Component、Sass、postCSS
+    * Tailwind、Bootstrap Core（当年开天辟地开启了前端布局栅格系统）
+  * **UI 框架**：常常封装 UI 库（react 等）并封装好了自己的 CSS 骨架
+    * Material UI、Chakra UI、Ant Design
+    * Bootstrap（包含交互的那部分）
+  * **前端框架**：Angular、React 生态、Vue 生态
+    * UI 框架 + 各种工程化生态
+  * **全栈基石**：既可以赋能前端，也可以纯后端，主要是基石，还得自己继续封装改造
+    * 偏前端：Nextjs 封装 React，但更专注 SSR 等特性
+    * 偏后端：Koa、Express
+  * **后端框架**：纯后端，提供 API
+    * Nest
+  * **全栈框架**：monorepo 单体架构，同时封装了前端和后端，开箱即用全栈
+    * Blitz：Nextjs + React + Prisma...
+  * **运行时**：Node、Deno、V8
+- 前端架构：monorepo、monolithic、mircoservice、fullstack(js)、fullstack(mutl-lang)、isomorphic、spa/mpa、serverless、多仓库联动、npm package 联动、JAMStack
 
 ## MV* 设计模式与框架？
 

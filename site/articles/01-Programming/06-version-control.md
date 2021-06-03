@@ -1,6 +1,12 @@
 # 版本控制
 
 > 疑问：不小心在 master 上写了两个 commit 后，如何把这两个 commit 移动到新的分支中，让 master 恢复原状？
+>
+> Git 里 pull/fetch 区别、GIt Rebase 高阶用法之合并提交记录
+>
+> cherry pick
+>
+> 取消单个文件的改动
 
 ## Git 基础
 

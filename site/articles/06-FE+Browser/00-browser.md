@@ -10,6 +10,11 @@
 - 服务器代理、document.domain、postMessage
 - 存储：cookie、sessionStorage、localStorage、indexDB、ServiceWorker
 - 渲染、重绘
+- Chrome 调试
+- 当浏览器 a 标签打开一个 href="_blank" 时，两个窗口的共同进程和线程是如何协作的
+- 异步网络请求如何缓存
+- jsbrige，webview
+- 浏览器。render object的晋升过程？css和dom的融会时机？slp和raf的时机？什么是rafwithtimeout，存在的意义？vsync影响了什么？为什么不要为滚动增加事件监听？为什么要eval(“debugger”)？
 
 ## 基础
 

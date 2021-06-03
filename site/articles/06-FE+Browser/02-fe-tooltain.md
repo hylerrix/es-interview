@@ -1,5 +1,25 @@
 # 前端工具链
 
+> Npm 和 yarn 是如何管理软件包的？全局软件包/本地软件包
+>
+> npx 的原理
+>
+> Babel 的组成和工作原理：parser、traverser、generator
+>
+> - [ ] npm link
+> - [ ] 分析 node modules 嵌套模块图
+> - [ ] package.json 依赖安全性分析、各个包大小分析
+>   - https://github.com/pastelsky/bundlephobia
+>   - https://github.com/webpack-contrib/webpack-bundle-analyzer
+>   - [source-map-explorer](https://github.com/danvk/source-map-explorer)
+>   - https://github.com/siddharthkp/cost-of-modules
+>   - https://arve0.github.io/npm-download-size
+>   - https://packagephobia.com/
+>
+> 关于工程化。webpack5是怎么做持久化储存的？mf是怎么服务于微前端的，又是怎么解决external的问题的？mf的原理是什么？hardsourceplugin的原理是什么，它为什么这么快？lerna的最佳实践？submodule的最佳实践？webpack和gulp怎么配合？tapable究竟是什么抽象？
+>
+> 热更新的原理
+
 ## 工具链概览
 
 - **JS 开发环境**？有 V8、Node 甚至是 Deno 等；

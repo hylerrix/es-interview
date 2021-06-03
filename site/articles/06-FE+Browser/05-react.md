@@ -1,6 +1,40 @@
 # React 基础
 
 > https://github.com/semlinker/reactjs-interview-questions
+>
+> redux-saga，redux-rhunk
+>
+> 如何封装自己的 Hooks？
+>
+> react 时间切片和帧率，fiber 分段机制
+>
+> Create React App Webpack 配置原理，react-app-rewired 注入原理
+>
+> 如何合并多个 setSate 后使用新的值进行下一步操作
+>
+> React 的 render 方法原理 -> createElement() 方法创建了 ReactElement 类对象
+>
+> React console.log(一个包含若干子组件的组件对象) 后能看到什么？
+>
+> 继承了哪些类，原型上有什么方法
+> 关于[react diff](https://www.zhihu.com/search?q=react diff&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A1870290555})。react的diff与vue2的diff有什么区别？与vue3呢？仅仅是lis吗？
+> 关于react fiber。fiber的引入究竟对react有什么架构层面的影响，[double fiber tree](https://www.zhihu.com/search?q=double fiber tree&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A1870290555})是否有必要存在？
+> 关于[react schedule](https://www.zhihu.com/search?q=react schedule&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A1870290555})。schedule究竟以一个什么形式，什么规律来运行，中断和恢复呢？lane解决了什么问题？
+
+reactive core有自己实现过吗？为什么要做这种启发式的aot？slot的实现？
+
+* React
+  * 比如，在一个异步接口中 setHook，后立马访问该值，该值是否已更新？
+    * 比如 setLoading(true)
+  * React 是如何精准的捕获数据的变动的
+  * 如何通过 Key 值强制刷新一个组件
+  * 如何深入理解 ref 和 dom 的关系，并在 React 中实战
+* React Router
+  * 单页面应用Router的实现机制？
+  * 为什么 React Router 中使用 Switch 关键字 ？
+  * React Router 与常规路由有何不同？
+  * 它是怎么实现跳转不刷新页面的？
+  * React 路由的底层实现原理是怎样的？
 
 <!--
 

@@ -8,6 +8,11 @@
 - 写一个 http server，并且处理 POST 请求
 - mongoose
 - 何判断一个IP是不是国内IP？
+- libuv
+- Require 同步和 import 异步有什么区别？原理？
+- 关于node eventloop。在node里，udp和文件api任务什么区别吗？什么是快io什么是慢io？nodejs如何调度快慢io的？node10之前的事件循环是怎么样的？libuv是以一种什么样的趋向去调度io任务的？async task的抽象是什么呢？什么是tickcallback？
+- 关于node runtime。node是怎么启动的？node怎么console调试？console什么时候注入node的？
+- 关于node addon。node_api是一种什么抽象？jsvalue为什么是Object的二级指针？cpp和js层面的共享内存靠什么实现最为简单？ffi是怎么实现的？
 
 > https://github.com/semlinker/node-deep
 

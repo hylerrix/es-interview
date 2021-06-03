@@ -3,6 +3,38 @@
 > [vue 269 个知识点（面试题）为你保驾护航](https://juejin.im/post/6844903876231954446)。
 
 > 如何理解 watch deep, watch immediate?
+>
+> 如何理解 vue 的 $nextTick
+>
+> VueX 里存一个图片的相对路径变量后，在 .vue 中 :src 绑定到 img 上为什么不能加载成功
+>
+> * 如何理解 Vue 里的 render "h"
+> * v-show 和 v-if 的区别
+> * 如何编写自定义的 directives 如 v-resize
+> * Vue 如何 watch DOM 的改变
+> * 可以 data[index] = newVal 来自动更新视图吗？为什么
+>
+> 为什么 Vue 3 用了 Proxy 性能更好呢？
+>
+> Vue 中的插槽机制是怎么样的，如何使用？
+>
+> 插槽有哪些 API？插槽的作用域？
+>
+> 具名插槽如何使用？
+>
+> 自定义组件的双向绑定怎么写？
+>
+> 父子组件如何通信？除过 emit 和 eventbus 外你还知道哪些？
+>
+> Vue 2 的 Object.defineProperty 是一种怎样的机制？
+>
+> Vue 3 在打包时按需引入是如何做到的，为什么 Vue 2 没有做到？
+>
+> 在 Vue 项目中你有没有做性能方面的优化，怎么做的？
+>
+> Vue 组件的响应式，对数组做了额外的处理吗？
+>
+> vue 双向绑定的 sync 如何理解
 
 ## React 和 Vue 的区别？
 

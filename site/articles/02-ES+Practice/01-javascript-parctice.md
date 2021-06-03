@@ -1,5 +1,24 @@
 # JavaScript 常见实战题
 
+> 数值每隔千位加英文逗号、isNumber
+>
+> reduce 对象数值累加、判断 key 是否存在
+>
+> 99 乘法表、斐波那契数列
+>
+> 如何让 js 同步延迟（Promise + setTimeout）
+>
+> ```javascript
+> const wait = ms => new Promise(resolve => setTimeout(resolve, ms))
+> ```
+>
+> Set/Array 的转换
+>
+> 数组扁平化去重：`const mergeList = (...args) => [...new Set([...args].flat(Infinity))]`
+> 判断 JS 数组相等
+>
+> js 字符串字典排序如：[10 月, 11 月, 1 月]
+
 ## 面向对象
 
 ### 实现 InstanceOf
@@ -741,6 +760,8 @@ export default aop;
 
 ### 动手实现防抖和节流？
 
+> 函数节流防抖，变量值节流防抖
+
 * 防抖 debounce：当持续触发事件时，一定时间段内没有再触发事件，事件处理函数才会执行一次，如果设定的时间到来之前，又一次触发了事件，就重新开始延时。
   * search搜索联想，用户在不断输入值时，用防抖来节约请求资源。
   * 频繁操作点赞和取消点赞，因此需要获取最后一次操作结果并发送给服务器
@@ -841,6 +862,65 @@ function throttle(func, wait, options) {
     timeout = context = args = null;
   };
   return throttled;
+}
+```
+
+```javascript
+/**
+ * throttle 节流
+ * 每delay毫秒执行一次
+ *
+ * @param callback
+ * @param delay
+ * @return {function()}
+ */
+export const throttle = (callback, delay = 100) => {
+  let canExec = true
+  return function (...args) {
+    if (!canExec) {
+      return
+    }
+
+    // eslint-disable-next-line standard/no-callback-literal
+    callback(...args)
+
+    canExec = false
+    setTimeout(() => { canExec = true }, delay)
+  }
+}
+
+export function debounce (fn, wait = 0) {
+  let timer
+
+  return () => {
+    if (timer) {
+      timer && clearTimeout(timer)
+      timer = null
+    }
+
+    timer = setTimeout(() => {
+      fn()
+    }, wait)
+  }
+}
+
+async function batchRequest (data, params, username) {
+  let count = Math.ceil(data.total / perDownloadSize)
+  count = Math.min(count, 200) // 控制水位，并发数不能超过200
+  const promises = []
+  for (let i = 2; i <= count; i++) {
+    params.page = i
+    promises.push(rs.fetchSysService('GET', '/charge/report/account/detail/charge', params, username, true))
+  }
+
+  if (!promises.length) return
+
+  await Promise.all(promises).then((allRes) => {
+    for (let i = 1; i < count; i++) {
+      const res = (allRes[i - 1] && allRes[i - 1].data) || []
+      data.data.push(...res)
+    }
+  })
 }
 ```
 
@@ -1267,4 +1347,81 @@ if (!window.JSON) {
 }
 ```
 
-### 
+### 下载
+
+```javascript
+// 下载
+const url = window.URL.createObjectURL(new Blob([data]))
+const link = document.createElement('a')
+link.href = url
+link.setAttribute('download', fileName)
+document.body.appendChild(link)
+link.click()
+
+downloadTest({
+  type: 'get',
+  url: 'http://10.79.30.19:8000/charge/report/day/account/export/detail?accountCode=serversystemservice&costDay=2020-10-01&region=9&',
+  data: {}
+})
+
+downloadTest (option) {
+  // var url = '/s1/brand/exportExcel';
+  const xhr = new XMLHttpRequest()
+  xhr.open(option.type, option.url, true)
+  xhr.responseType = 'blob'
+  xhr.setRequestHeader('Content-Type', 'application/json;charset=utf-8')
+  xhr.onload = function () {
+    if (this.status === 200) {
+      // var _b = xhr.getResponseHeader('Content-Disposition');
+      // var _c = _b.split('filename=')[1];
+      // var _d = decodeURIComponent(_c.split('.')[0])+'.'+_c.split('.')[1];
+      const blob = this.response
+      const a = document.createElement('a')
+      const url = window.URL.createObjectURL(blob) // 创建url对象
+      a.href = url
+      // a.download = _d
+      a.download = 'excel.xlsx'
+      a.click()
+      window.URL.revokeObjectURL(url) // 释放url对象
+    }
+  }
+  xhr.send(JSON.stringify(option.data))
+}
+
+import axios from 'axios'
+
+export const downloadFile = (url: string, type: 'GET' | 'POST', params: any, fileName?: string) => {
+  axios({
+    url: url,
+    method: type,
+    params: type === 'GET' ? params : undefined,
+    data: type === 'POST' ? params : undefined,
+    responseType: 'blob',
+  }).then((response) => {
+    const url = window.URL.createObjectURL(new Blob([response.data]))
+    const link = document.createElement('a')
+    link.href = url
+    link.setAttribute('download', fileName ? fileName : 'resources.xlsx') //or any other extension
+    document.body.appendChild(link)
+    link.click()
+  })
+}
+```
+
+### 动态加载 UMD
+
+```javascript
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = src;
+    script.onload = resolve;
+
+    script.onerror = function () {
+      reject(new Error(`Cannot load script at: ${script.src}`));
+    };
+
+    (document.head || document.documentElement).appendChild(script);
+  });
+}
+```

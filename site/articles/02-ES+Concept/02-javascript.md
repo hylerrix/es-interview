@@ -1,6 +1,16 @@
 # JavaScript 基础知识
 
 > 重点关注异步、跨域、JS 基础知识、疑难对比
+>
+> `const x = 1 + 1` 发生了什么？-> 找一个更大的场景，来测基本操作符和变量提升等知识
+>
+> 原型链、作用域链的查找如何委托给 JS 引擎
+>
+> 哪些标签可以避免同源策略
+>
+> 声明函数，使用 function 好还是 const 好？分别针对什么场景用什么更好？https://www.freecodecamp.org/news/constant-confusion-why-i-still-use-javascript-function-statements-984ece0b72fd/
+>
+> *>* 区分清楚：layerX, layerY；clientX, clientY；pageX, pageY；movementX, movementY；offsetX, offsetY；screenX, screenY；tiltX, tiltY；x, y
 
 ## 内置对象
 

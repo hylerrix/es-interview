@@ -1,5 +1,11 @@
 # CSS 实战
 
+> CSS 左固定宽度，右边自适应
+>
+> 纯 CSS 实现卡通人物、动画等 https://www.freecodecamp.org/learn/responsive-web-design/basic-css/use-css-variables-to-change-several-elements-at-once
+>
+> 常见的图形绘制，常见动画
+
 ## 水平垂直居中
 
 > [16种方法实现水平居中垂直居中](https://louiszhai.github.io/2016/03/12/css-center/)

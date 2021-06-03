@@ -1,5 +1,13 @@
 # 软件工程
 
+> 灰度发布
+>
+> 如何做 Code Review？如何保证代码质量？如何保证重构质量？
+>
+> 业务监控、运维
+>
+> 监控平台、链路追踪
+
 ## 如何理解 CI/CD？
 
 > https://www.redhat.com/zh/topics/devops/what-is-ci-cd

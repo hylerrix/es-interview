@@ -1,5 +1,33 @@
 # CSS
 
+> 设计：字体、Logo、颜色、语音、图标、可访问性
+>
+> 常见的字体有哪些？如何安装字体？浏览器通用字体？
+>
+> CSS 选择器背后的原理？
+>
+> 哪些 CSS 特性和 GPU 有关？其是如何工作的？
+>
+> * 清除浮动有哪些方法
+> * div / :after = clear: both;
+> * 父级 overflow: hidden;
+>
+> 字体的知识，排版的知识
+>
+> CSS 如何实现十列布局
+>
+> 如何实现通过不同的类名，来控制它的均分？比如我传 col2，那么这一列就占 20%，col3 就占 30%
+>
+> 让元素横着排列，除了 flex 还可以怎么做？
+>
+> flex 主轴与交叉轴的方向用哪个属性定义？如何颠倒这些属性？
+>
+> * 说一下 flex 中，你常用的属性？
+> * flex 溢出换行用的哪个属性？
+> * 说一下 flex-grow 怎么使用？
+>
+> opengl，webgl，canvas，svg，css3几个的关系区别，啥场景用啥
+
 ## CSS 基础和规范
 
 ### 什么是样式表？
@@ -705,5 +733,4 @@ Flexbox 要点须知
 * 只要 break- 属性的设置值允许，在弹性框布局中是可以存在分页的。CSS3 中的 `break-after`、`break-before` 和 `break-inside`，以及 CSS 2.1 中的 `page-break-before`、`page-break-after` 和 `page-break-inside` 属性在弹性容器上、弹性项目上和弹性项目内均可以使用。
 
 ### CSS Grid 如何使用？
-
 

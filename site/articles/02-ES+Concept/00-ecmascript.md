@@ -1,6 +1,20 @@
 # ECMAScript
 
 > 重点关注标准本身
+>
+> Promise retry
+>
+> 时间 API Date API、Intl API、Temporal API，moment.js 和 date-fns
+>
+> promise 内部实现
+>
+> ​	promise 是微任务；dom, 回调, ajax, 定时器 是宏任务
+>
+> new FormData() 如何使用？
+>
+> 如何看待 console.log 一个对象后赋值该对象，其值在终端打印结果为赋值后的值？
+>
+> proxy 的缺点是什么？proxy 为什么比 Object.defineProperty 快？
 
 ## 标准基础
 
@@ -151,7 +165,6 @@ ECMA-262 定义了 ECMAScript 支持的一套关键字和一套保留字。如�
 ### [ES5] 什么是严格模式？
 
 * 'use strict' 是用于对整个脚本或单个函数启用严格模式的语句。严格模式是可选择的一个限制 JavaScript 的变体的一种方式。
-
 * 正常模式下，Javascript语言有两种变量作用域（scope）：全局作用域和函数作用域。严格模式创设了第三种作用域：eval作用域。
   * 严格模式下，eval 语句本身就是一个作用域，不再能够生成全局变量了，它所生成的变量只能用于 eval 内部。
 * 诞生目的：
@@ -178,11 +191,29 @@ ECMA-262 定义了 ECMAScript 支持的一套关键字和一套保留字。如�
     * 禁止使用 arguments.callee
   * 函数必须声明在顶层：不允许在非函数的代码块内声明函数。如 `if` 中。
   * 新增了一些保留字（向后兼容）：implements, interface, let, package, private, protected, public, static, yield。
-
 * 注意：
   * 无法访问 function.caller 和 function.arguments。
   * 以不同严格模式编写的脚本合并后可能导致问题。
     * 解决办法：将整个脚本文件包含在 IIFE 中， 并声明 `"use strict"`。
+
+### 严格模式下知道函数调用关系
+
+```javascript
+"use strict"
+function debugLine(message) {
+  let e = new Error()
+  let frame = e.stack.split("\n")[2]
+  let lineNumber = frame.split(" ")[5]
+  let functionName = frame.split(" ")[5]
+  return functionName + ":" + lineNumber + " " + message
+}
+
+function myCallingFunction () {
+  console.log(debugLine("error_message"))
+}
+
+myCallingFunction
+```
 
 ## 模块化
 

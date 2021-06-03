@@ -5,6 +5,17 @@
 > TS 特有的东西：typeof，keyof， infer
 
 > https://github.com/typescript-exercises/typescript-exercises
+>
+> * 举一个你在项目中使用 TypeScript 泛型的例子
+> * 说一下 TypeScript 中的泛型，以及他的使用方式与场景？
+> * 如何使用 TypeScript 的联合类型？
+> * 说一下 TypeScript 的内置类型
+> * 说一下 TypeScript 的 pick 类型
+> * 如何使用 TypeScript 定义一个对象类型？
+> * 说一下 TypeScript 中的 type 和 interface 的区别
+> * 说一下 TypeScript 中的交叉类型
+>
+> 如果接口返回 promise 类型的数据，你如何用 typescript 声明？
 
 ## 为什么需要 TypeScript
 

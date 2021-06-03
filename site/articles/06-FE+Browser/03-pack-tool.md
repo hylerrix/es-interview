@@ -2,6 +2,14 @@
 
 Webpack、Babel、Parcel、Rollup...
 
+url-loader, webpack
+
+webpack：entry、module、chunk、loader、plugin，执行流程
+
+Webpack 优化：检索优化、环境优化、代码压缩、懒加载与预加载、TreeShaking、公共代码提取、CodeSpliting、使用 externals 处理外部依赖优化打包体积与速度、使用 Dll 优化打包构建速度
+
+getter/setter/装饰器
+
 ## 打包基础
 
 ### 什么是 DCE 和 Tree Shaking？
