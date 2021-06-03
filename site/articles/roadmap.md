@@ -1,32 +1,35 @@
 # 变更日志
 
-<!--
+## v0.4.0 xxx, 2021
 
-## v0.3.0 2020xxxx - 规划中
+* Should I fully embracing the English world, by making this repo fully into the English version?
+  * Yes: translate one by one...
+  * No:  continue use just Chinese in this repo.
+    * Benefit: can cooperate with deno-tutorial
+  * Both: start two growth line, one in articles folder, one in articles-i18n folder...
 
-* 开始专题模式，取代大面积浅尝而止的风格，对每个部分对核心知识逐个实战和解析。
-* 引入标题的“对号”机制，对于以专题认真探讨完毕的主题可以在标题中加入“对号”，目标 100% 覆盖率。
+## [v0.3.0](https://github.com/hylerrix/es-interview/releases/tag/v0.3.0) 2021-0331
+
+* 开始专题模式，取代大面积浅尝而止的风格，分阶段对每个部分对核心知识深入实战和解析。
 * 引入大量 MarkDown 绘制的原创图，每张图都融合了自己独特的思考。
+* 开始对每个章节拆分二级文件夹，从“精而全”变成“多而细”。
 * [Beginner]
   * 新增“es-people”、“es-story”篇
 * [Programming]
   * 算法实战代码全量转移到 [@hylerrix/deno-algorithm](https://github.com/hylerrix/deno-algorithm) 仓库中维护。
-  * 此仓库暂未公开，考虑是否合并为一个仓库？这样每个仓库的明确性不高但可以集中 star。
   * 开启重修“计算机科学与技术”计划，以更广阔的视野填充了计算机体系大量内容。
-* [ECMAScript+] JavaScript Practice 篇的代码实战部分进行了转移...
-  * 转移到哪里？可以考虑转移到此仓库的非 articles 目录下
+* [ECMAScript+]
+  * 文件夹改名为 ES-Concept
+  * JavaScript Practice 篇代码实战转移到新的章节 [ES-Practice]
 * [HTML+CSS]
-* [Network+API]
-  * 根据近期实战经验，重点填充了单点登录相关的内容。
-* [V8+Runtime]
-  * 对 V8/Deno 进行了更多的探讨。
+* [Network+API]：根据近期实战经验，重点填充了单点登录相关的内容。
+* [V8+Runtime]：初始化 V8/Deno 的探讨。
 * [FE+Browser]
-* [BE+Server]
-  * 根据自身 Node/Deno 后端框架开发/部署实战经验，填充了大量内容，目录进行更细致地拆分。
+* [BE+Server]：初始化 Node/Deno 后端框架开发/部署实战经验，目录进行更细致地拆分。
 
--->
+> 引入标题的“对号”机制，对于以专题认真探讨完毕的主题可以在标题中加入“对号”，目标 100% 覆盖率。
 
-## v0.2.0 20201027
+## [v0.2.0](https://github.com/hylerrix/es-interview/releases/tag/v0.2.0) 2020-1027
 
 * 内容量长的文章中引入二级目录机制，对长篇文章更好的梳理和定位。
 * [Beginner] 初始化“谁在招人”、“ES 书籍”、“大厂职级”等篇章并统一归为一类。
@@ -38,7 +41,7 @@
 * [FE+Browser] 将 React、Vue、iFrame 等知识点拆分的更细，填充了内容。
 * [BE+Server] 本次尚未有重要改动
 
-## [v0.1.0](https://github.com/hylerrix/es-interview/releases/tag/v0.1.0) 20201012
+## [v0.1.0](https://github.com/hylerrix/es-interview/releases/tag/v0.1.0) 2020-1012
 
 首次发布孵化版：
 

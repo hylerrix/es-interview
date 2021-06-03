@@ -29,6 +29,8 @@
 
 ### 行内元素、块级元素、空元素都有哪些？
 
+> 待补充：https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories
+
 * 常用块级元素：`<h1~h6>; <p>; <div>; <form>; <ol>; <ul>; <table>; <vedio>; <audio>; <header>; <footer>`。
 * 常用行内元素：`button; input; span; a; img; lable; select; textarea; i`。
 * 空元素(没有内容的 HTML 元素)：`<br>; <link>; <meta>; <img>; <input>; <hr>; <col>`。

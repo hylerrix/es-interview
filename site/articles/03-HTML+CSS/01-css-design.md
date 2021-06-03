@@ -72,6 +72,67 @@ BEM(Block Element Modifier)原则上建议为独立的 CSS 类命名，并且在
 
 ## 选择器与属性
 
+### 如何获取所有/指定元素 CSS 属性列表？
+
+```markdown
+# w3 动态数据源，但是没有 -webkit 等前缀特殊元素
+https://www.w3.org/Style/CSS/all-properties.en.json
+https://www.w3.org/Style/CSS/all-properties.en.html
+# MDN
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
+https://developer.mozilla.org/en-US/docs/Web/CSS/WebKit_Extensions
+https://developer.mozilla.org/en-US/docs/Web/CSS/Mozilla_Extensions
+https://developer.mozilla.org/en-US/docs/Web/CSS/Microsoft_Extensions
+# 从 Opera 15开始，不再支持 Opera 11 和 12 的扩展格式，而是改用 Chromium 的扩展模型。
+```
+
+getComputedStyle 获取所有/指定元素 CSS 属性
+
+```html
+<!-- 获取指定元素的 CSS 值，这里是 
+  document.defaultView.getComputedStyle(up, null)
+67-->
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>
+		Getting all the CSS styles
+		of an element using jQuery
+	</title>
+</head>
+
+<body style="text-align:center;">
+	<h1>GeeksForGeeks</h1>
+	<p id="GFG_UP"></p>
+	<button onclick="GFG_Fun();">
+		Click Here
+	</button>
+	<p id="GFG_DOWN"></p>
+
+	<script>
+		var up = document.getElementById('GFG_UP');
+		var down = document.getElementById('GFG_DOWN');
+		
+		up.innerHTML = "Click on the buttob "
+			+ "to get the all CSS styles "
+			+ "associated with the element.";
+		function GFG_Fun() {
+			var ar = document.defaultView
+				.getComputedStyle(document.body, null);
+      console.log('ar', ar)
+			var str = "";
+			for (var key in ar) {
+				str = str + key + ': ' + ar[key] + "<br />";
+			}
+      console.log('str', str)
+			down.innerHTML = str;
+		}
+	</script>
+</body>
+</html>
+```
+
 ### CSS 选择器的分类？
 
 * 通用元素选择器

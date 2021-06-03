@@ -11,6 +11,19 @@
 
 > https://github.com/semlinker/node-deep
 
+## 临时
+
+### Node 内核篇
+
+* 异步机制 EventLoop，[libuv](https://libuv.org/)
+  * 阻塞和非阻塞
+  * Node.js 在设计上类似于 Ruby 的 [Event Machine](https://github.com/eventmachine/eventmachine) 或 Python 的 [Twisted](https://twistedmatrix.com/trac/) 之类的系统。但 Node.js 更深入地考虑了事件模型，它将[事件循环](https://nodejs.org/zh-cn/docs/guides/event-loop-timers-and-nexttick/)作为一个运行时结构而不是作为一个库来呈现。
+  * 在其他系统中，总是有一个阻塞调用来启动事件循环。通常情况下，要执行的行为是通过脚本开始时的回调来定义的，然后通过 `EventMachine::run()` 这样的阻塞调用来启动服务器。而在 Node.js 中，没有这种启动事件循环的调用。Node.js 在执行输入脚本后直接进入事件循环，当没有更多的回调要执行时，Node.js 就会退出事件循环。
+  * 存在问题：JavaScript 中的 EventLoop 异步机制
+  * 基于 cluster 模块的 Node 多进程机制，负载均衡器
+* API
+* 架构
+
 ## 基础
 
 ### Node 进程通信的方式都有哪些？
