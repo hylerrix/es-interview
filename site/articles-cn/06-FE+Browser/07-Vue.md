@@ -1,43 +1,43 @@
 # Vue
 
-> [vue 269 个知识点（面试题）为你保驾护航](https://juejin.im/post/6844903876231954446)。
+> [vue 269 个知识点（面试题）为你保驾护航][1]。
 
 > 如何理解 watch deep, watch immediate?
->
+> 
 > 如何理解 vue 的 $nextTick
->
+> 
 > VueX 里存一个图片的相对路径变量后，在 .vue 中 :src 绑定到 img 上为什么不能加载成功
->
+> 
 > * 如何理解 Vue 里的 render "h"
 > * v-show 和 v-if 的区别
 > * 如何编写自定义的 directives 如 v-resize
 > * Vue 如何 watch DOM 的改变
 > * 可以 data[index] = newVal 来自动更新视图吗？为什么
->
+> 
 > 为什么 Vue 3 用了 Proxy 性能更好呢？
->
+> 
 > Vue 中的插槽机制是怎么样的，如何使用？
->
+> 
 > 插槽有哪些 API？插槽的作用域？
->
+> 
 > 具名插槽如何使用？
->
+> 
 > 自定义组件的双向绑定怎么写？
->
+> 
 > 父子组件如何通信？除过 emit 和 eventbus 外你还知道哪些？
->
+> 
 > Vue 2 的 Object.defineProperty 是一种怎样的机制？
->
+> 
 > Vue 3 在打包时按需引入是如何做到的，为什么 Vue 2 没有做到？
->
+> 
 > 在 Vue 项目中你有没有做性能方面的优化，怎么做的？
->
+> 
 > Vue 组件的响应式，对数组做了额外的处理吗？
->
+> 
 > vue 双向绑定的 sync 如何理解
->
+> 
 > computed 什么时候计算？
->
+> 
 > prop 更新后，会触发组件哪些生命周期
 
 ## React 和 Vue 的区别？
@@ -69,12 +69,12 @@
   - vuex：相比 pubsub 管理起来更集中方便
   - slot：专门用来实现父向子传递带数据的标签
 
-## Vue 1~3 的版本特性
+## Vue 1\~3 的版本特性
 
-> [从 Vue 1.x 迁移到 V2](https://cn.vuejs.org/v2/guide/migration.html)
+> [从 Vue 1.x 迁移到 V2][2]
 
 * Vue1：
-  * 生命周期：`init; created; beforeCompile; compiled; ready; beforeDestroy; destroyed; `。
+  * 生命周期：`init; created; beforeCompile; compiled; ready; beforeDestroy; destroyed;`。
   * 提高循环性能需添加 `track-by='$index'`
   * `v-for="(index,val) in array"`
   * transition 只是一个属性
@@ -82,16 +82,16 @@
 
 * Vue 2：
   * 生命周期：
-    * `beforeCreate; created; beforeMount; mounted; beforeUpdate; updated; beforeDestroy; destroyed;`。
-    * 移除：`beforeCompile; attached; detached; `
-    * 替换：`compiled, ready -> mounted`
-    * 重新命名：`init -> beforeCreate`
+	* `beforeCreate; created; beforeMount; mounted; beforeUpdate; updated; beforeDestroy; destroyed;`。
+	* 移除：`beforeCompile; attached; detached;`
+	* 替换：`compiled, ready -> mounted`
+	* 重新命名：`init -> beforeCreate`
   * Virtual-DOM
-    * 渲染层开始基于轻量级的 Virtual DOM 实现，大多数情况下初始化渲染速度和内存消耗都提升了 2~4 倍
-    * 从模板到 Virtual DOM 的编译阶段使用了一些高阶优化：
-      * 它会检测出静态的 class 名和 attributes 这样它们在初始化渲染之后就永远都不会再被比对。
-      * 它会检测出最大静态子树 (就是不需要动态性的子树) 并且从渲染函数中萃取出来。这样在每次重渲染的时候，它就会直接重用完全相同的 virtual nodes 同时跳过比对。
-    * 新的渲染系统同时允许你通过简单的冻结数据来禁用响应式转换，配以手动的强制更新，这意味着你对于重渲染的流程实际上有着完全的控制权。
+	* 渲染层开始基于轻量级的 Virtual DOM 实现，大多数情况下初始化渲染速度和内存消耗都提升了 2\~4 倍
+	* 从模板到 Virtual DOM 的编译阶段使用了一些高阶优化：
+	  * 它会检测出静态的 class 名和 attributes 这样它们在初始化渲染之后就永远都不会再被比对。
+	  * 它会检测出最大静态子树 (就是不需要动态性的子树) 并且从渲染函数中萃取出来。这样在每次重渲染的时候，它就会直接重用完全相同的 virtual nodes 同时跳过比对。
+	* 新的渲染系统同时允许你通过简单的冻结数据来禁用响应式转换，配以手动的强制更新，这意味着你对于重渲染的流程实际上有着完全的控制权。
   * 可选支持 JSX
   * 支持服务端渲染，相比同时期的同步 SSR React，Vue 2 提供了内建的流式 SSR：在渲染组件时返回一个可读的 stream，然后直接 pipe 到 HTTP response。流式渲染能够确保服务端的响应度，也能让用户更快地获得渲染内容。
   * 不支持片段代码，`template` 下只接受一个根节点。
@@ -223,3 +223,6 @@ input.addEventListener('keyup', function(e) {
 
 ## DOM批更新怎么做的
 
+
+[1]:	https://juejin.im/post/6844903876231954446
+[2]:	https://cn.vuejs.org/v2/guide/migration.html
