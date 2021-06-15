@@ -13,11 +13,11 @@
   * 构造函数
 * object 对象类型，复杂的一组描述信息的集合
   * null 是一种特殊的 object
-  * object 的内置属性和方法：
+  * object 的内置属性和方法
   * 构造函数
   * Object.prototype
 * function 函数类型
-  * 函数的内置属性和方法：
+  * 函数的内置属性和方法
   * 构造函数
   * Function.prototype
 

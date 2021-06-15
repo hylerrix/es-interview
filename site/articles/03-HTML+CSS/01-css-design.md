@@ -27,6 +27,12 @@
 > * 说一下 flex-grow 怎么使用？
 >
 > opengl，webgl，canvas，svg，css3几个的关系区别，啥场景用啥
+>
+> 如何进行媒体查询
+>
+> 定位元素的常见方法
+>
+> 如何用 CSS 实现 hr 标签
 
 ## CSS 基础和规范
 
