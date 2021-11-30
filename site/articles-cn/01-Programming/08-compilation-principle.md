@@ -28,7 +28,7 @@
   * 代码混淆压缩
     - UglifyJS2等
   * 优化变更代码，改变代码结构使达到想要的结构
-    - 代码打包工具webpack、rollup等等
+    - 代码打包工具 Webpack、rollup等等
     - CommonJS、AMD、CMD、UMD等代码规范之间的转化
     - CoffeeScript、TypeScript、JSX等转化为原生Javascript
 
