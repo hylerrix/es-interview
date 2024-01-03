@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "2c93c363bcc84858",
+        "id": "f85b3e2e6ef26cae",
         "type": "tabs",
         "children": [
           {
-            "id": "66c518668cee3b71",
+            "id": "82b0be3eb0ff2f31",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "site/articles-zh-CN/06-FE+Browser/01-react/01-react-core.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -65,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 299.5
   },
   "right": {
     "id": "e0bceed3782dc55a",
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "site/articles-zh-CN/06-FE+Browser/01-react/01-react-core.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "site/articles-zh-CN/06-FE+Browser/01-react/01-react-core.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "site/articles-zh-CN/06-FE+Browser/01-react/01-react-core.md"
+              }
             }
           }
         ],
@@ -138,8 +146,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "66c518668cee3b71",
+  "active": "82b0be3eb0ff2f31",
   "lastOpenFiles": [
+    "site/articles-zh-CN/06-FE+Browser/01-react/NOTES/2024-01-03 学习笔记.md",
+    "site/articles-zh-CN/06-FE+Browser/01-react/NOTES/2024-01-03 notes.md",
+    "site/articles-zh-CN/06-FE+Browser/01-react/NOTES",
+    "site/articles-zh-CN/06-FE+Browser/01-react/01-react-core.md",
+    "site/articles-zh-CN/06-FE+Browser/01-react/react-wg-react-18",
+    "site/articles-zh-CN/06-FE+Browser/01-react/01-react-ecology/02-solution-stage-management.md",
+    "site/articles-zh-CN/06-FE+Browser/01-react/01-react-ecology/01-framework-next.js.md",
+    "site/articles-zh-CN/06-FE+Browser/01-react/react-dev",
     "Untitled.md",
     "site/articles-cn/06-FE+Browser/01-react/01-react-ecology/01-framework-next.js.md",
     "site/articles-cn/06-FE+Browser/01-react/01-react-core.md",
