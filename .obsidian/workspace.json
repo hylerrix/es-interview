@@ -1,0 +1,170 @@
+{
+  "main": {
+    "id": "c31fdce671bd99cc",
+    "type": "split",
+    "children": [
+      {
+        "id": "2c93c363bcc84858",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "66c518668cee3b71",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "69cd44f1eae4241b",
+    "type": "split",
+    "children": [
+      {
+        "id": "cfa6065068497761",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e6b15c338a245163",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "9a8ae10e79d7e0e8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "三次",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "26a13d7de7b1e2a7",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "e0bceed3782dc55a",
+    "type": "split",
+    "children": [
+      {
+        "id": "cfb8921a11f016bd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c9461b9306841514",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "bffe20998bc9bebd",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "ade2181f26e1ba23",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "058286dd7610a518",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "66c518668cee3b71",
+  "lastOpenFiles": [
+    "Untitled.md",
+    "site/articles-cn/06-FE+Browser/01-react/01-react-ecology/01-framework-next.js.md",
+    "site/articles-cn/06-FE+Browser/01-react/01-react-core.md",
+    "site/articles-cn/06-FE+Browser/01-react/01-react-ecology/02-solution-stage-management.md",
+    "site/articles-cn/06-FE+Browser/00-browser.md",
+    "site/articles-cn/wangquann-i.md",
+    "site/articles-cn/04-Network+API/00-network.md",
+    "README.md",
+    "1.md",
+    "site/articles-cn/06-FE+Browser/01-react/02-react-practice.md",
+    "site/articles-cn/06-FE+Browser/01-react/README.md",
+    "site/articles-cn/06-FE+Browser/README.md",
+    "site/articles-cn/06-FE+Browser/01-react/03-react-ecology.md",
+    "site/articles-cn/06-FE+Browser/01-react/01-react-ecology",
+    "site/articles-cn/06-FE+Browser/01-react/01-",
+    "site/articles-cn/06-FE+Browser/01-react/untitled folder",
+    "site/articles-cn/06-FE+Browser/01-react/01-react.md",
+    "site/articles-cn/06-FE+Browser/05-react-ecology.md",
+    "site/articles-cn/06-FE+Browser/01-react/06-react-practice.md",
+    "site/articles-cn/06-FE+Browser/01-react/05-react.md",
+    "site/articles-cn/06-FE+Browser/01-react/05-react-ecology.md",
+    "site/articles-cn/06-FE+Browser/01-react",
+    "site/articles-cn/06-FE+Browser/untitled folder",
+    "site/articles-cn/06-FE+Browser/06-react-practice.md",
+    "site/articles-cn/06-FE+Browser/04-fe-mobile.md",
+    "site/articles-cn/06-FE+Browser/05-react.md"
+  ]
+}
