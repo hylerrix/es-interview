@@ -1,3 +1,4 @@
 public
 dist
 .DS_Store
+.obsidian/plugins/

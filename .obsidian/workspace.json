@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "site/articles-zh-CN/06-FE+Browser/01-react/01-react-core.md",
+                "file": "site/articles-zh-CN/01-Programming/00-language.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "site/articles-zh-CN/06-FE+Browser/01-react/01-react-core.md",
+                "file": "site/articles-zh-CN/01-Programming/00-language.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "site/articles-zh-CN/06-FE+Browser/01-react/01-react-core.md",
+                "file": "site/articles-zh-CN/01-Programming/00-language.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "site/articles-zh-CN/06-FE+Browser/01-react/01-react-core.md"
+                "file": "site/articles-zh-CN/01-Programming/00-language.md"
               }
             }
           }
@@ -148,10 +148,21 @@
   },
   "active": "82b0be3eb0ff2f31",
   "lastOpenFiles": [
-    "site/articles-zh-CN/06-FE+Browser/01-react/NOTES/2024-01-03 学习笔记.md",
-    "site/articles-zh-CN/06-FE+Browser/01-react/NOTES/2024-01-03 notes.md",
-    "site/articles-zh-CN/06-FE+Browser/01-react/NOTES",
+    "site/articles-zh-CN/00-Growther/06-growth-question.md",
+    "site/articles-zh-CN/00-Growther/05-growth-promotion.md",
+    "site/articles-zh-CN/00-Growther/03-es-books.md",
+    "site/articles-zh-CN/00-Growther/02-es-rank.md",
+    "site/articles-zh-CN/00-Growther/04-es-people.md",
+    "site/articles-zh-CN/00-Growther/01-es-direction.md",
+    "site/articles-zh-CN/00-Growther/00-es-timeline.md",
+    "site/articles-zh-CN/01-Programming/00-language.md",
+    "site/articles-zh-CN/00-Growther/README.md",
+    "site/articles-zh-CN/06-FE+Browser/01-react/NOTES-community/2023-01-04 notes.md",
+    "site/articles-zh-CN/06-FE+Browser/01-react/NOTES-React-DEV",
     "site/articles-zh-CN/06-FE+Browser/01-react/01-react-core.md",
+    "site/articles-zh-CN/06-FE+Browser/01-react/NOTES/2024-01-03 学习笔记.md",
+    "site/articles-zh-CN/06-FE+Browser/01-react/NOTES-community/2024-01-03 notes.md",
+    "site/articles-zh-CN/06-FE+Browser/01-react/NOTES-community",
     "site/articles-zh-CN/06-FE+Browser/01-react/react-wg-react-18",
     "site/articles-zh-CN/06-FE+Browser/01-react/01-react-ecology/02-solution-stage-management.md",
     "site/articles-zh-CN/06-FE+Browser/01-react/01-react-ecology/01-framework-next.js.md",
@@ -167,20 +178,10 @@
     "1.md",
     "site/articles-cn/06-FE+Browser/01-react/02-react-practice.md",
     "site/articles-cn/06-FE+Browser/01-react/README.md",
-    "site/articles-cn/06-FE+Browser/README.md",
-    "site/articles-cn/06-FE+Browser/01-react/03-react-ecology.md",
     "site/articles-cn/06-FE+Browser/01-react/01-react-ecology",
     "site/articles-cn/06-FE+Browser/01-react/01-",
     "site/articles-cn/06-FE+Browser/01-react/untitled folder",
-    "site/articles-cn/06-FE+Browser/01-react/01-react.md",
-    "site/articles-cn/06-FE+Browser/05-react-ecology.md",
-    "site/articles-cn/06-FE+Browser/01-react/06-react-practice.md",
-    "site/articles-cn/06-FE+Browser/01-react/05-react.md",
-    "site/articles-cn/06-FE+Browser/01-react/05-react-ecology.md",
     "site/articles-cn/06-FE+Browser/01-react",
-    "site/articles-cn/06-FE+Browser/untitled folder",
-    "site/articles-cn/06-FE+Browser/06-react-practice.md",
-    "site/articles-cn/06-FE+Browser/04-fe-mobile.md",
-    "site/articles-cn/06-FE+Browser/05-react.md"
+    "site/articles-cn/06-FE+Browser/untitled folder"
   ]
 }
