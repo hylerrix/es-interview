@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "f85b3e2e6ef26cae",
+        "id": "90d10150cece7478",
         "type": "tabs",
         "children": [
           {
-            "id": "82b0be3eb0ff2f31",
+            "id": "24f6d1c2e7a7a116",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "site/articles-zh-CN/01-Programming/00-language.md",
+                "file": "site/articles-zh-CN/04-Network+API/02-network-security.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "site/articles-zh-CN/01-Programming/00-language.md",
+                "file": "site/articles-zh-CN/04-Network+API/02-network-security.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "site/articles-zh-CN/01-Programming/00-language.md",
+                "file": "site/articles-zh-CN/04-Network+API/02-network-security.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "site/articles-zh-CN/01-Programming/00-language.md"
+                "file": "site/articles-zh-CN/04-Network+API/02-network-security.md"
               }
             }
           }
@@ -146,38 +146,39 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "82b0be3eb0ff2f31",
+  "active": "24f6d1c2e7a7a116",
   "lastOpenFiles": [
-    "site/articles-zh-CN/00-Growther/06-growth-question.md",
-    "site/articles-zh-CN/00-Growther/05-growth-promotion.md",
-    "site/articles-zh-CN/00-Growther/03-es-books.md",
-    "site/articles-zh-CN/00-Growther/02-es-rank.md",
-    "site/articles-zh-CN/00-Growther/04-es-people.md",
-    "site/articles-zh-CN/00-Growther/01-es-direction.md",
-    "site/articles-zh-CN/00-Growther/00-es-timeline.md",
+    "site/articles-zh-CN/04-Network+API/01-fe-be-api.md",
+    "site/articles-zh-CN/04-Network+API/02-network-security.md",
+    "site/articles-zh-CN/04-Network+API/03-network-monitor.md",
+    "site/articles-zh-CN/03-HTML+CSS/03-css-practice.md",
+    "site/articles-zh-CN/03-HTML+CSS/02-css-advance.md",
+    "site/articles-zh-CN/03-HTML+CSS/01-css-design.md",
+    "site/articles-zh-CN/02-ES+Practice/02-javascript-practice-extra.md",
+    "site/articles-zh-CN/02-ES+Practice/01-javascript-parctice.md",
+    "site/articles-zh-CN/02-ES+Concept/02-javascript.md",
+    "site/articles-zh-CN/02-ES+Concept/03-typescript.md",
+    "site/articles-zh-CN/06-FE+Browser/03-pack-tool.md",
+    "site/articles-zh-CN/06-FE+Browser/04-fe-mobile.md",
+    "site/articles-zh-CN/06-FE+Browser/02-fe-tooltain.md",
+    "site/articles-zh-CN/06-FE+Browser/09-fe-monitor.md",
+    "site/articles-zh-CN/06-FE+Browser/README.md",
+    "site/articles-zh-CN/06-FE+Browser/08-iframe.md",
+    "site/articles-zh-CN/06-FE+Browser/07-Vue.md",
+    "site/articles-zh-CN/06-FE+Browser/00-browser.md",
     "site/articles-zh-CN/01-Programming/00-language.md",
-    "site/articles-zh-CN/00-Growther/README.md",
-    "site/articles-zh-CN/06-FE+Browser/01-react/NOTES-community/2023-01-04 notes.md",
+    "site/articles-zh-CN/01-Programming/01-operating-system.md",
+    "site/articles-zh-CN/01-Programming/02-algorithms.md",
+    "site/articles-zh-CN/01-Programming/03-design-patterns.md",
+    "site/articles-zh-CN/01-Programming/04-software-engineering.md",
+    "site/articles-zh-CN/01-Programming/05-software-test.md",
+    "site/articles-zh-CN/01-Programming/06-version-control.md",
+    "site/articles-zh-CN/01-Programming/08-compilation-principle.md",
+    "site/articles-zh-CN/06-FE+Browser/01-react/00-AI-QA",
     "site/articles-zh-CN/06-FE+Browser/01-react/NOTES-React-DEV",
-    "site/articles-zh-CN/06-FE+Browser/01-react/01-react-core.md",
-    "site/articles-zh-CN/06-FE+Browser/01-react/NOTES/2024-01-03 学习笔记.md",
-    "site/articles-zh-CN/06-FE+Browser/01-react/NOTES-community/2024-01-03 notes.md",
     "site/articles-zh-CN/06-FE+Browser/01-react/NOTES-community",
     "site/articles-zh-CN/06-FE+Browser/01-react/react-wg-react-18",
-    "site/articles-zh-CN/06-FE+Browser/01-react/01-react-ecology/02-solution-stage-management.md",
-    "site/articles-zh-CN/06-FE+Browser/01-react/01-react-ecology/01-framework-next.js.md",
     "site/articles-zh-CN/06-FE+Browser/01-react/react-dev",
-    "Untitled.md",
-    "site/articles-cn/06-FE+Browser/01-react/01-react-ecology/01-framework-next.js.md",
-    "site/articles-cn/06-FE+Browser/01-react/01-react-core.md",
-    "site/articles-cn/06-FE+Browser/01-react/01-react-ecology/02-solution-stage-management.md",
-    "site/articles-cn/06-FE+Browser/00-browser.md",
-    "site/articles-cn/wangquann-i.md",
-    "site/articles-cn/04-Network+API/00-network.md",
-    "README.md",
-    "1.md",
-    "site/articles-cn/06-FE+Browser/01-react/02-react-practice.md",
-    "site/articles-cn/06-FE+Browser/01-react/README.md",
     "site/articles-cn/06-FE+Browser/01-react/01-react-ecology",
     "site/articles-cn/06-FE+Browser/01-react/01-",
     "site/articles-cn/06-FE+Browser/01-react/untitled folder",

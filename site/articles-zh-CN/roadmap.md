@@ -8,7 +8,7 @@
     * Benefit: can cooperate with deno-tutorial
   * Both: start two growth line, one in articles folder, one in articles-i18n folder...
 
-## [v0.3.0](https://github.com/hylerrix/es-interview/releases/tag/v0.3.0) 2021-0331
+## [v0.3.0](https://github.com/hylerrix/es-interview/releases/tag/v0.3.0) 2021-03-31
 
 * 开始专题模式，取代大面积浅尝而止的风格，分阶段对每个部分对核心知识深入实战和解析。
 * 引入大量 MarkDown 绘制的原创图，每张图都融合了自己独特的思考。
@@ -29,7 +29,7 @@
 
 > 引入标题的“对号”机制，对于以专题认真探讨完毕的主题可以在标题中加入“对号”，目标 100% 覆盖率。
 
-## [v0.2.0](https://github.com/hylerrix/es-interview/releases/tag/v0.2.0) 2020-1027
+## [v0.2.0](https://github.com/hylerrix/es-interview/releases/tag/v0.2.0) 2020-10-27
 
 * 内容量长的文章中引入二级目录机制，对长篇文章更好的梳理和定位。
 * [Beginner] 初始化“谁在招人”、“ES 书籍”、“大厂职级”等篇章并统一归为一类。
@@ -41,7 +41,7 @@
 * [FE+Browser] 将 React、Vue、iFrame 等知识点拆分的更细，填充了内容。
 * [BE+Server] 本次尚未有重要改动
 
-## [v0.1.0](https://github.com/hylerrix/es-interview/releases/tag/v0.1.0) 2020-1012
+## [v0.1.0](https://github.com/hylerrix/es-interview/releases/tag/v0.1.0) 2020-10-12
 
 首次发布孵化版：
 

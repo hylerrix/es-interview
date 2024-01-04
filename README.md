@@ -1,4 +1,4 @@
-# ESMAScript+ 面试宝典
+# ESMAScript+ 面试宝典 <img align="right" alt="Profile Hits" src="https://komarev.com/ghpvc/?username=hylerrix-es-interview&style=flat-square">
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
