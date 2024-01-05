@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "site/articles-zh-CN/04-Network+API/02-network-security.md",
+                "file": "site/articles-zh-CN/NOTES-community/02-blogs/2023-01-05-notes-en.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "site/articles-zh-CN/04-Network+API/02-network-security.md",
+                "file": "site/articles-zh-CN/NOTES-community/02-blogs/2023-01-05-notes-en.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "site/articles-zh-CN/04-Network+API/02-network-security.md",
+                "file": "site/articles-zh-CN/NOTES-community/02-blogs/2023-01-05-notes-en.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "site/articles-zh-CN/04-Network+API/02-network-security.md"
+                "file": "site/articles-zh-CN/NOTES-community/02-blogs/2023-01-05-notes-en.md"
               }
             }
           }
@@ -148,8 +148,14 @@
   },
   "active": "24f6d1c2e7a7a116",
   "lastOpenFiles": [
-    "site/articles-zh-CN/04-Network+API/01-fe-be-api.md",
+    "site/articles-zh-CN/NOTES-community/02-blogs/2024-01-03-react-notes.md",
+    "site/articles-zh-CN/NOTES-community/02-blogs/2023-01-05-notes-en.md",
+    "site/articles-zh-CN/NOTES-community/02-blogs/2023-01-04-react-notes.md.md",
+    "site/articles-zh-CN/NOTES-community/02-blogs/2023-01-04-react-notes.md",
+    "site/articles-zh-CN/NOTES-community/01-books/01-大话计算机/1.md",
+    "site/articles-zh-CN/NOTES-community/02-blogs",
     "site/articles-zh-CN/04-Network+API/02-network-security.md",
+    "site/articles-zh-CN/04-Network+API/01-fe-be-api.md",
     "site/articles-zh-CN/04-Network+API/03-network-monitor.md",
     "site/articles-zh-CN/03-HTML+CSS/03-css-practice.md",
     "site/articles-zh-CN/03-HTML+CSS/02-css-advance.md",
@@ -169,20 +175,14 @@
     "site/articles-zh-CN/01-Programming/00-language.md",
     "site/articles-zh-CN/01-Programming/01-operating-system.md",
     "site/articles-zh-CN/01-Programming/02-algorithms.md",
-    "site/articles-zh-CN/01-Programming/03-design-patterns.md",
-    "site/articles-zh-CN/01-Programming/04-software-engineering.md",
-    "site/articles-zh-CN/01-Programming/05-software-test.md",
-    "site/articles-zh-CN/01-Programming/06-version-control.md",
-    "site/articles-zh-CN/01-Programming/08-compilation-principle.md",
     "site/articles-zh-CN/06-FE+Browser/01-react/00-AI-QA",
     "site/articles-zh-CN/06-FE+Browser/01-react/NOTES-React-DEV",
-    "site/articles-zh-CN/06-FE+Browser/01-react/NOTES-community",
+    "site/articles-zh-CN/NOTES-community",
     "site/articles-zh-CN/06-FE+Browser/01-react/react-wg-react-18",
     "site/articles-zh-CN/06-FE+Browser/01-react/react-dev",
     "site/articles-cn/06-FE+Browser/01-react/01-react-ecology",
     "site/articles-cn/06-FE+Browser/01-react/01-",
     "site/articles-cn/06-FE+Browser/01-react/untitled folder",
-    "site/articles-cn/06-FE+Browser/01-react",
-    "site/articles-cn/06-FE+Browser/untitled folder"
+    "site/articles-cn/06-FE+Browser/01-react"
   ]
 }
