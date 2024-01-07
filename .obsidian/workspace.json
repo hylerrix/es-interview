@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "site/articles-zh-CN/NOTES-community/02-blogs/2023-01-05-notes-en.md",
+                "file": "site/articles-zh-CN/NOTES-community/01-ebooks/2024-01-07-浏览器工作原理与实践.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "site/articles-zh-CN/NOTES-community/02-blogs/2023-01-05-notes-en.md",
+                "file": "site/articles-zh-CN/NOTES-community/01-ebooks/2024-01-07-浏览器工作原理与实践.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "site/articles-zh-CN/NOTES-community/02-blogs/2023-01-05-notes-en.md",
+                "file": "site/articles-zh-CN/NOTES-community/01-ebooks/2024-01-07-浏览器工作原理与实践.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "site/articles-zh-CN/NOTES-community/02-blogs/2023-01-05-notes-en.md"
+                "file": "site/articles-zh-CN/NOTES-community/01-ebooks/2024-01-07-浏览器工作原理与实践.md"
               }
             }
           }
@@ -148,10 +148,14 @@
   },
   "active": "24f6d1c2e7a7a116",
   "lastOpenFiles": [
+    "site/articles-zh-CN/NOTES-community/01-ebooks/2023-01-06-Webpack5 核心原理与应用实践.md",
+    "site/articles-zh-CN/NOTES-community/01-ebooks/2024-01-07-浏览器工作原理与实践.md",
     "site/articles-zh-CN/NOTES-community/02-blogs/2024-01-03-react-notes.md",
-    "site/articles-zh-CN/NOTES-community/02-blogs/2023-01-05-notes-en.md",
+    "site/articles-zh-CN/NOTES-community/02-blogs/2024-01-04-react-notes.md",
+    "site/articles-zh-CN/NOTES-community/01-ebooks",
+    "site/articles-zh-CN/NOTES-community/02-blogs-en/2023-01-06-notes.md",
+    "site/articles-zh-CN/NOTES-community/02-blogs-en",
     "site/articles-zh-CN/NOTES-community/02-blogs/2023-01-04-react-notes.md.md",
-    "site/articles-zh-CN/NOTES-community/02-blogs/2023-01-04-react-notes.md",
     "site/articles-zh-CN/NOTES-community/01-books/01-大话计算机/1.md",
     "site/articles-zh-CN/NOTES-community/02-blogs",
     "site/articles-zh-CN/04-Network+API/02-network-security.md",
@@ -173,16 +177,12 @@
     "site/articles-zh-CN/06-FE+Browser/07-Vue.md",
     "site/articles-zh-CN/06-FE+Browser/00-browser.md",
     "site/articles-zh-CN/01-Programming/00-language.md",
-    "site/articles-zh-CN/01-Programming/01-operating-system.md",
-    "site/articles-zh-CN/01-Programming/02-algorithms.md",
     "site/articles-zh-CN/06-FE+Browser/01-react/00-AI-QA",
     "site/articles-zh-CN/06-FE+Browser/01-react/NOTES-React-DEV",
     "site/articles-zh-CN/NOTES-community",
     "site/articles-zh-CN/06-FE+Browser/01-react/react-wg-react-18",
     "site/articles-zh-CN/06-FE+Browser/01-react/react-dev",
     "site/articles-cn/06-FE+Browser/01-react/01-react-ecology",
-    "site/articles-cn/06-FE+Browser/01-react/01-",
-    "site/articles-cn/06-FE+Browser/01-react/untitled folder",
-    "site/articles-cn/06-FE+Browser/01-react"
+    "site/articles-cn/06-FE+Browser/01-react/01-"
   ]
 }
