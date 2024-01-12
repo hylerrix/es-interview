@@ -11,8 +11,12 @@
             "id": "1347d7837edfabdb",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "site/articles/X-workstation/big-fe-stack-2024-more.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "site/articles/X-workstation/big-fe-stack-2024-more.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "site/articles/X-workstation/big-fe-stack-2024-more.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "site/articles/X-workstation/big-fe-stack-2024-more.md"
+              }
             }
           }
         ],
@@ -140,12 +148,13 @@
   },
   "active": "1347d7837edfabdb",
   "lastOpenFiles": [
+    "site/articles/X-workstation/big-fe-stack-2024.md.md",
+    "site/articles/X-workstation/big-fe-stack-2024-more.md",
     "site/articles/X-workstation/inspiration.md",
     "site/articles/X-workstation/wangquann-i.md",
     "site/articles/X-workstation/referrence.md",
     "site/articles/roadmap.md",
     "site/articles/README.md",
-    "site/articles/X-workstation/big-fe-stack-2024.md.md",
     "site/articles/draw-in-markdown.md",
     "README.md",
     "IDEA.md",
@@ -172,7 +181,6 @@
     "site/articles/04-Network+API/01-fe-be-api.md",
     "site/articles/04-Network+API/03-network-monitor.md",
     "site/articles/03-HTML+CSS/03-css-practice.md",
-    "site/articles/03-HTML+CSS/02-css-advance.md",
     "site/articles/06-FE+Browser/01-react/00-AI-QA",
     "site/articles/06-FE+Browser/01-react/NOTES-React-DEV",
     "site/articles/99-community"
