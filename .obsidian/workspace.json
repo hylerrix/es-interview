@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "75ba335a7f8e6bdb",
+        "id": "1c89be9b7adc8512",
         "type": "tabs",
         "children": [
           {
-            "id": "f8ecff62beaee931",
+            "id": "1347d7837edfabdb",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "site/articles-zh-CN/NOTES-community/01-docs-en/2023-12-24-react-dev.md.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "site/articles-zh-CN/NOTES-community/01-docs-en/2023-12-24-react-dev.md.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "site/articles-zh-CN/NOTES-community/01-docs-en/2023-12-24-react-dev.md.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "site/articles-zh-CN/NOTES-community/01-docs-en/2023-12-24-react-dev.md.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -134,7 +126,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 446.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -146,43 +138,43 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f8ecff62beaee931",
+  "active": "1347d7837edfabdb",
   "lastOpenFiles": [
-    "site/articles-zh-CN/NOTES-community/01-ebooks/2023-01-06-Webpack5 核心原理与应用实践.md",
-    "site/articles-zh-CN/NOTES-community/01-ebooks/2024-01-07-浏览器工作原理与实践.md",
-    "site/articles-zh-CN/NOTES-community/01-docs-en/2023-12-24-react-dev.md.md",
-    "site/articles-zh-CN/NOTES-community/02-blogs-en/2023-01-06-notes.md",
-    "site/articles-zh-CN/NOTES-community/01-docs-en",
+    "site/articles/X-workstation/inspiration.md",
+    "site/articles/X-workstation/wangquann-i.md",
+    "site/articles/X-workstation/referrence.md",
+    "site/articles/roadmap.md",
+    "site/articles/README.md",
+    "site/articles/X-workstation/big-fe-stack-2024.md.md",
+    "site/articles/draw-in-markdown.md",
+    "README.md",
+    "IDEA.md",
+    "site/articles/X-workstation",
+    "site/articles/99-community/01-docs-en/2023-12-24-react-dev.md.md",
+    "site/articles/99-community/01-ebooks/2023-01-06-Webpack5 核心原理与应用实践.md",
+    "site/articles/99-community/01-ebooks/2024-01-07-浏览器工作原理与实践.md",
+    "site/articles/99-community/02-blogs-en/2023-01-06-notes.md",
+    "site/articles/99-community/01-docs-en",
     "site/articles-zh-CN/NOTES-community/01-docs-en/2023-12-14-react-dev",
-    "site/articles-zh-CN/wangquann-i.md",
-    "site/articles-zh-CN/02-ES+Practice/01-javascript-parctice.md",
-    "site/articles-zh-CN/00-Growther/00-es-timeline.md",
-    "site/articles-zh-CN/02-ES+Concept/00-ecmascript.md",
-    "site/articles-zh-CN/NOTES-community/01-docs/2024-01-08 Formily.md",
-    "site/articles-zh-CN/NOTES-community/01-docs",
-    "site/articles-zh-CN/NOTES-community/02-blogs/2024-01-03-react-notes.md",
-    "site/articles-zh-CN/NOTES-community/02-blogs/2024-01-04-react-notes.md",
-    "site/articles-zh-CN/NOTES-community/01-ebooks",
-    "site/articles-zh-CN/NOTES-community/02-blogs-en",
+    "site/articles/02-ES+Practice/01-javascript-parctice.md",
+    "site/articles/00-Growther/00-es-timeline.md",
+    "site/articles/02-ES+Concept/00-ecmascript.md",
+    "site/articles/99-community/01-docs/2024-01-08 Formily.md",
+    "site/articles/99-community/01-docs",
+    "site/articles/99-community/02-blogs/2024-01-03-react-notes.md",
+    "site/articles/99-community/02-blogs/2024-01-04-react-notes.md",
+    "site/articles/99-community/01-ebooks",
+    "site/articles/99-community/02-blogs-en",
     "site/articles-zh-CN/NOTES-community/02-blogs/2023-01-04-react-notes.md.md",
-    "site/articles-zh-CN/NOTES-community/01-books/01-大话计算机/1.md",
-    "site/articles-zh-CN/NOTES-community/02-blogs",
-    "site/articles-zh-CN/04-Network+API/02-network-security.md",
-    "site/articles-zh-CN/04-Network+API/01-fe-be-api.md",
-    "site/articles-zh-CN/04-Network+API/03-network-monitor.md",
-    "site/articles-zh-CN/03-HTML+CSS/03-css-practice.md",
-    "site/articles-zh-CN/03-HTML+CSS/02-css-advance.md",
-    "site/articles-zh-CN/03-HTML+CSS/01-css-design.md",
-    "site/articles-zh-CN/02-ES+Practice/02-javascript-practice-extra.md",
-    "site/articles-zh-CN/02-ES+Concept/02-javascript.md",
-    "site/articles-zh-CN/02-ES+Concept/03-typescript.md",
-    "site/articles-zh-CN/06-FE+Browser/03-pack-tool.md",
-    "site/articles-zh-CN/06-FE+Browser/04-fe-mobile.md",
-    "site/articles-zh-CN/06-FE+Browser/02-fe-tooltain.md",
-    "site/articles-zh-CN/06-FE+Browser/09-fe-monitor.md",
-    "site/articles-zh-CN/06-FE+Browser/01-react/00-AI-QA",
-    "site/articles-zh-CN/06-FE+Browser/01-react/NOTES-React-DEV",
-    "site/articles-zh-CN/NOTES-community",
-    "site/articles-zh-CN/06-FE+Browser/01-react/react-wg-react-18"
+    "site/articles/99-community/01-books/01-大话计算机/1.md",
+    "site/articles/99-community/02-blogs",
+    "site/articles/04-Network+API/02-network-security.md",
+    "site/articles/04-Network+API/01-fe-be-api.md",
+    "site/articles/04-Network+API/03-network-monitor.md",
+    "site/articles/03-HTML+CSS/03-css-practice.md",
+    "site/articles/03-HTML+CSS/02-css-advance.md",
+    "site/articles/06-FE+Browser/01-react/00-AI-QA",
+    "site/articles/06-FE+Browser/01-react/NOTES-React-DEV",
+    "site/articles/99-community"
   ]
 }
